@@ -1,0 +1,4 @@
+(format TRS)
+(fun p 2)
+(fun z 0)
+(rule (p z y) y)

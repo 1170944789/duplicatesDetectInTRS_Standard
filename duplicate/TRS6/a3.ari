@@ -1,0 +1,6 @@
+(format TRS)
+(fun append 2)
+(fun cons 2)
+(fun nil 0)
+(rule (append nil y) y)
+(rule (append (cons x xs) y) (cons x (append xs y)))

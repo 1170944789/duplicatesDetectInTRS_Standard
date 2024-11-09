@@ -1,0 +1,6 @@
+(format TRS)
+(fun ++ 2)
+(fun : 2)
+(fun [] 0)
+(rule (++ (: hd tl) lst) (: hd (++ tl lst)))
+(rule (++ [] x) x)

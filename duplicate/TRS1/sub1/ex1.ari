@@ -1,0 +1,6 @@
+(format TRS)
+(fun add 2)
+(fun inc 1)
+(fun null 0)
+(rule (add null x) x)
+(rule (add (inc y) x) (add y (inc x)))

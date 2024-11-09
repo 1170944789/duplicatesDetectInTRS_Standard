@@ -1,0 +1,4 @@
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f x a) x)

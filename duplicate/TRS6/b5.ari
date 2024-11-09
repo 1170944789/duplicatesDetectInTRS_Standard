@@ -1,0 +1,6 @@
+(format TRS)
+(fun op 3)
+(fun compose 2)
+(fun transform 1)
+(rule (op x (transform y) z) (compose x (op y z (transform x))))
+(rule (op (transform a) b c) (compose c (op a b (transform c))))

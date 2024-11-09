@@ -1,0 +1,6 @@
+(format TRS)
+(fun h 2)
+(fun i 1)
+(fun b 0)
+(rule (h x1 (i x2)) (h x1 (i x1)))
+(rule (h (i y1) y2) (h (i y1) (i y1)))
