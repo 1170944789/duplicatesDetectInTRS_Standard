@@ -23,6 +23,11 @@ data Term = Var String
 
 type Rule = (Term, Term)
 
+data NormalizedFile = NormalizedFile {
+    filePath :: FilePath,
+    normalizedTRS :: TRS
+} deriving (Show, Eq)
+
 getFunsInRule :: Rule -> [String]
 getFunsInRule (lhs, rhs) = nub (getFunsInTerm lhs ++ getFunsInTerm rhs)
 
@@ -146,14 +151,6 @@ normalizeTerm funMap varMap term = case term of
     Fun f ts -> Fun (Map.findWithDefault f f funMap) 
                     (map (normalizeTerm funMap varMap) ts)
 
-areEquivalent :: FilePath -> FilePath -> BS.ByteString -> BS.ByteString -> Bool
-areEquivalent path1 path2 bs1 bs2 = 
-    let trs1 = parseTRS (BSC.unpack bs1)
-        trs2 = parseTRS (BSC.unpack bs2)
-        norm1 = normalizeTRS trs1
-        norm2 = normalizeTRS trs2
-    in  (norm1 == norm2)
-
 findAriFiles :: FilePath -> IO [FilePath]
 findAriFiles dir = do
     entries <- listDirectory dir
@@ -170,23 +167,26 @@ findAriFiles dir = do
 
 groupByContent :: [(FilePath, BS.ByteString)] -> [[FilePath]]
 groupByContent files = 
-    let findGroup :: [(FilePath, BS.ByteString)] -> [(FilePath, BS.ByteString)] -> [FilePath]
-        findGroup [] acc = map fst acc
-        findGroup ((fp, content):rest) acc =
-            if null acc || areEquivalent fp (fst (head acc)) content (snd (head acc))
-            then findGroup rest ((fp, content):acc)
+    let normalizedFiles = map (\(fp, content) -> 
+            NormalizedFile fp (normalizeTRS (parseTRS (BSC.unpack content)))) files
+
+        findGroup :: [NormalizedFile] -> [NormalizedFile] -> [FilePath]
+        findGroup [] acc = map filePath acc
+        findGroup (nf:rest) acc =
+            if null acc || normalizedTRS nf == normalizedTRS (head acc)
+            then findGroup rest (nf:acc)
             else findGroup rest acc
 
-        findAllGroups :: [(FilePath, BS.ByteString)] -> [[FilePath]]
+        findAllGroups :: [NormalizedFile] -> [[FilePath]]
         findAllGroups [] = []
         findAllGroups remaining = 
             let group = findGroup remaining []
-                notInGroup = filter (\(fp, _) -> not (fp `elem` group)) remaining
+                notInGroup = filter (\nf -> filePath nf `notElem` group) remaining
             in if null group
                then []
                else group : findAllGroups notInGroup
 
-    in filter (\g -> length g > 1) (findAllGroups files)
+    in filter (\g -> length g > 1) (findAllGroups normalizedFiles)
 
 printOutput :: [[FilePath]] -> IO ()
 printOutput [] = return ()
