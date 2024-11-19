@@ -1,0 +1,4 @@
+(format TRS)
+(fun + 2)
+(fun succ 1)
+(fun zero 0)

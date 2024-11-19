@@ -1,0 +1,4 @@
+(format TRS)
+(fun p 2.5)
+(fun s 1)
+(fun z 0)
