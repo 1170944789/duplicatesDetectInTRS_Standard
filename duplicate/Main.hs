@@ -9,13 +9,28 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BSC
 import qualified Data.Map as Map
 import System.Environment (getArgs)
-import Data.Char (isSpace)
+import Data.Char (isSpace, isAlphaNum)
 import Data.Maybe (mapMaybe)
+import System.IO
+import Text.Printf
+import Control.Exception
+import System.Timeout
+import Data.Time.Clock
+import Debug.Trace
 
 data TRS = TRS {
     funs :: [(String, Int)],
     rules :: [Rule]
-} deriving (Show, Eq, Ord)
+} deriving Show
+
+instance Eq TRS where
+    (TRS f1 r1) == (TRS f2 r2) = f1 == f2 && r1 == r2
+
+instance Ord TRS where
+    compare (TRS f1 r1) (TRS f2 r2) = 
+        case compare f1 f2 of
+            EQ -> compare r1 r2
+            x -> x
 
 data Term = Var String
           | Fun String [Term]
@@ -27,6 +42,14 @@ data NormalizedFile = NormalizedFile {
     filePath :: FilePath,
     normalizedTRS :: TRS
 } deriving (Show, Eq)
+
+data TRSError = 
+    InvalidFunctionName String Int    
+    | InvalidVariableName String Int    
+    | InvalidArity String Int String       
+    | InvalidFunctionStructure String Int String 
+    | InvalidRuleStructure Int String   
+    deriving (Show, Eq)
 
 getFunsInRule :: Rule -> [String]
 getFunsInRule (lhs, rhs) = nub (getFunsInTerm lhs ++ getFunsInTerm rhs)
@@ -54,6 +77,88 @@ getRuleStructure rule@(lhs, rhs) =
         normLhs = normalizeForStructure lhs
         normRhs = normalizeForStructure rhs
     in show (normLhs, normRhs)
+
+reportProgress :: String -> Int -> Int -> IO ()
+reportProgress phase current total = do
+    let percentage = (fromIntegral current / fromIntegral total * 100) :: Double
+    printf "\r%s: %d/%d (%.2f%%) " phase current total percentage
+    hFlush stdout
+    when (current == total) (putStrLn "")
+
+checkTRS :: String -> [TRSError]
+checkTRS input = 
+    let ls = zip [1..] (filter (not . isPrefixOf ";") (lines (filter (/= '\r') input)))
+        funLines = filter (\l -> isPrefixOf "(fun" (snd l)) ls
+        ruleLines = filter (\l -> isPrefixOf "(rule" (snd l)) ls
+    in concat [
+            checkFunctionNames funLines,
+            checkArities funLines,
+            checkFunctionStructures funLines,
+            checkRuleStructures ruleLines,
+            checkVariableNames ruleLines
+        ]
+
+checkFunctionNames :: [(Int, String)] -> [TRSError]
+checkFunctionNames lines = 
+    [ InvalidFunctionName fname lineNum 
+    | (lineNum, line) <- lines,
+        let parts = words line,
+        length parts >= 2,
+        let fname = takeWhile (/= ')') (dropWhile (=='(') (parts !! 1)),
+        any (\c -> c `elem` ['(', ')', ';']) fname || null fname
+    ]
+
+checkArities :: [(Int, String)] -> [TRSError]
+checkArities lines =
+    [ InvalidArity fname lineNum arityStr
+    | (lineNum, line) <- lines,
+        isPrefixOf "(fun" line,
+        let parts = words line,
+        length parts >= 3,
+        let fname = takeWhile (/= ')') (dropWhile (=='(') (parts !! 1)),
+        let arityStr = takeWhile (/= ')') (parts !! 2),
+        let parseResult = reads arityStr :: [(Int, String)],
+        null parseResult || case parseResult of
+                            [(n, "")] -> n < 0 
+                            _ -> True
+    ]
+
+checkFunctionStructures :: [(Int, String)] -> [TRSError]
+checkFunctionStructures lines =
+    [ InvalidFunctionStructure fname lineNum line
+    | (lineNum, line) <- lines,
+        isPrefixOf "(fun" line,
+        let parts = words line,
+        not (length parts == 3),
+        let fname = if length parts >= 2 
+                then takeWhile (/= ')') (dropWhile (=='(') (parts !! 1))
+                else ""
+    ]
+
+checkRuleStructures :: [(Int, String)] -> [TRSError]
+checkRuleStructures lines = 
+    [ InvalidRuleStructure lineNum line
+    | (lineNum, line) <- lines,
+        isPrefixOf "(rule" line,
+        let withoutOuterParens = init (tail (trim line))
+            afterRule = drop 4 withoutOuterParens
+            terms = splitTermsInRule (trim afterRule)
+        in case terms of
+            [_, _] -> False
+            _ -> True
+    ]
+
+checkVariableNames :: [(Int, String)] -> [TRSError]
+checkVariableNames lines = 
+    [ InvalidVariableName var lineNum
+    | (lineNum, line) <- lines,
+        isPrefixOf "(rule" line,
+        let rule = parseRule line,
+        Just (lhs, rhs) <- [rule],
+        let vars = nub (collectVars lhs ++ collectVars rhs),
+        var <- vars,
+        any (\c -> c `elem` ['(', ')', ';']) var
+    ]
 
 parseTRS :: String -> TRS
 parseTRS input = 
@@ -98,9 +203,9 @@ splitTermsInRule = go 0 "" []
 parseTerm :: String -> Term
 parseTerm s = 
     let s' = trim s in
-    if not ('(' `elem` s')
+    if head s' /= '(' || last s' /= ')'
     then Var s'
-    else 
+    else
         let withoutParens = init (tail s')
             parts = splitTermsInRule withoutParens
             funName = head parts
@@ -114,9 +219,10 @@ normalizeTRS :: TRS -> TRS
 normalizeTRS trs = 
     let
         getFunPattern :: String -> String
-        getFunPattern fname = concat
-            [getRuleStructure rule | rule <- rules trs,
-             fname `elem` getFunsInRule rule]
+        getFunPattern fname = concat [getRuleStructure rule | rule <- rules trs, 
+                                fname `elem` getFunsInRule rule] ++ 
+                    show [getFunsInRule rule | rule <- rules trs,
+                        fname `elem` getFunsInRule rule]
 
         funsByArityAndStructure = Map.fromListWith (++) 
             [(arity, [(name, getFunPattern name)]) 
@@ -127,8 +233,7 @@ normalizeTRS trs =
 
         funMap = Map.fromList 
             [(name, "f" ++ show arity ++ "_" ++ show rank)
-            | (arity, names) <- Map.toList sortedFuns
-            , ((name, _), rank) <- zip names [1..]]
+            | (arity, names) <- Map.toList sortedFuns, ((name, _), rank) <- zip names [1..]]
 
         normalizedRules = sort (map (normalizeRule funMap) (rules trs))
         normalizedFuns = sort (map (\(f,a) -> (Map.findWithDefault f f funMap, a)) 
@@ -147,9 +252,32 @@ collectVars (Fun _ ts) = nub (concatMap collectVars ts)
 
 normalizeTerm :: Map.Map String String -> Map.Map String String -> Term -> Term
 normalizeTerm funMap varMap term = case term of
-    Var v -> Var (Map.findWithDefault v v varMap)
+    Var v -> if Map.member v funMap
+            then Fun (funMap Map.! v) []
+            else Var (Map.findWithDefault v v varMap)
     Fun f ts -> Fun (Map.findWithDefault f f funMap) 
                     (map (normalizeTerm funMap varMap) ts)
+
+reportErrors :: [TRSError] -> IO ()
+reportErrors [] = return ()
+reportErrors errors = do
+    putStrLn "Found errors in TRS:"
+    forM_ errors (\error -> case error of
+        InvalidFunctionName fname line ->
+            printf "Line %d: Invalid function name '%s' (contains invalid characters)\n" 
+                line fname
+        InvalidVariableName vname line ->
+            printf "Line %d: Invalid variable name '%s' (contains invalid characters)\n" 
+                line vname
+        InvalidArity fname line arity ->
+            printf "Line %d: Invalid arity %s for function '%s'\n" 
+                line arity fname
+        InvalidFunctionStructure fname line content ->
+            printf "Line %d: Invalid function declaration structure: %s\n" 
+                line content
+        InvalidRuleStructure line content ->
+            printf "Line %d: Invalid rule structure: %s\n" 
+                line content)
 
 findAriFiles :: FilePath -> IO [FilePath]
 findAriFiles dir = do
@@ -196,15 +324,46 @@ printOutput (group:groups) = do
     putStrLn ""
     printOutput groups
 
+processWithChecks :: FilePath -> BS.ByteString -> IO (Maybe TRS)
+processWithChecks filepath content = do
+    let input = BSC.unpack content
+    case checkTRS input of
+        [] -> do
+            let result = parseTRS input
+            return (Just result)
+        errors -> do
+            putStrLn ("\nErrors in file: " ++ filepath)
+            reportErrors errors
+            return Nothing
+
 main :: IO ()
 main = do
     args <- getArgs
     case args of
         [dir] -> do
+            startTime <- getCurrentTime
             files <- findAriFiles dir
-            fileContents <- mapM (\f -> do
-                content <- BS.readFile f
-                return (f, content)) files
-            let groups = groupByContent fileContents
-            printOutput groups
+            putStrLn ("Found " ++ show (length files) ++ " .ari files")
+            result <- timeout (30 * 60 * 1000000) (do
+                fileContents <- forM (zip [1..] files) (\(idx, f) -> do
+                    reportProgress "Reading files" idx (length files)
+                    content <- BS.readFile f
+                    processed <- processWithChecks f content
+                    return (case processed of
+                        Just trs -> Just (f, content)
+                        Nothing -> Nothing))
+                let validFiles = mapMaybe id fileContents
+                reportProgress "Processing" (length validFiles) (length validFiles)
+                
+                let groups = groupByContent validFiles
+                printOutput groups
+                
+                endTime <- getCurrentTime
+                let duration = diffUTCTime endTime startTime
+                printf "\nProcessing completed in %.2f seconds\n" 
+                    (realToFrac duration :: Double))
+            case result of
+                Just _ -> return ()
+                Nothing -> putStrLn "\nOperation timed out after 30 minutes"
+                
         _ -> putStrLn "Error: Wrong input"
