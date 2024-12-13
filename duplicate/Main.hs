@@ -8,40 +8,33 @@ import Data.List
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BSC
 import qualified Data.Map as Map
+import qualified Data.HashMap.Strict as HM
 import System.Environment (getArgs)
-import Data.Char (isSpace, isAlphaNum)
+import Data.Char (isSpace)
 import Data.Maybe (mapMaybe)
 import System.IO
 import Text.Printf
-import Control.Exception
-import System.Timeout
 import Data.Time.Clock
-import Debug.Trace
+import Data.Hashable
 
 data TRS = TRS {
     funs :: [(String, Int)],
-    rules :: [Rule]
-} deriving Show
-
-instance Eq TRS where
-    (TRS f1 r1) == (TRS f2 r2) = f1 == f2 && r1 == r2
-
-instance Ord TRS where
-    compare (TRS f1 r1) (TRS f2 r2) = 
-        case compare f1 f2 of
-            EQ -> compare r1 r2
-            x -> x
+    rules :: [Rule],
+    hashValue :: Int
+} deriving (Show, Eq, Ord)
 
 data Term = Var String
           | Fun String [Term]
           deriving (Show, Eq, Ord)
 
-type Rule = (Term, Term)
+instance Hashable Term where
+    hashWithSalt salt (Var v) = salt `hashWithSalt` (0::Int) `hashWithSalt` v
+    hashWithSalt salt (Fun f args) = salt `hashWithSalt` (1::Int) `hashWithSalt` f `hashWithSalt` args
 
-data NormalizedFile = NormalizedFile {
-    filePath :: FilePath,
-    normalizedTRS :: TRS
-} deriving (Show, Eq)
+instance Hashable TRS where
+    hashWithSalt _ = hashValue
+
+type Rule = (Term, Term)
 
 data TRSError = 
     InvalidFunctionName String Int    
@@ -52,7 +45,7 @@ data TRSError =
     deriving (Show, Eq)
 
 getFunsInRule :: Rule -> [String]
-getFunsInRule (lhs, rhs) = nub (getFunsInTerm lhs ++ getFunsInTerm rhs)
+getFunsInRule (lhs, rhs) = getFunsInTerm lhs ++ getFunsInTerm rhs
 
 getFunsInTerm :: Term -> [String]
 getFunsInTerm (Var _) = []
@@ -167,7 +160,8 @@ parseTRS input =
         ruleLines = filter (isPrefixOf "(rule") ls
         parsedFuns = map parseFun funLines
         parsedRules = mapMaybe parseRule ruleLines
-    in TRS parsedFuns parsedRules
+        initialHash = hashWithSalt 0 parsedFuns `hashWithSalt` parsedRules
+    in TRS parsedFuns parsedRules initialHash
 
 parseFun :: String -> (String, Int)
 parseFun s = 
@@ -217,12 +211,12 @@ trim = dropWhile isSpace.reverse.dropWhile isSpace.reverse
 
 normalizeTRS :: TRS -> TRS
 normalizeTRS trs = 
-    let
-        getFunPattern :: String -> String
-        getFunPattern fname = concat [getRuleStructure rule | rule <- rules trs, 
-                                fname `elem` getFunsInRule rule] ++ 
-                    show [getFunsInRule rule | rule <- rules trs,
-                        fname `elem` getFunsInRule rule]
+    let rulesWithFuns = [(rule, getFunsInRule rule) | rule <- rules trs]
+        
+        getFunPattern fname = concat [getRuleStructure rule | (rule, funs) <- rulesWithFuns, 
+                                fname `elem` funs] ++ 
+                    show [funs | (rule, funs) <- rulesWithFuns,
+                        fname `elem` funs]
 
         funsByArityAndStructure = Map.fromListWith (++) 
             [(arity, [(name, getFunPattern name)]) 
@@ -238,7 +232,8 @@ normalizeTRS trs =
         normalizedRules = sort (map (normalizeRule funMap) (rules trs))
         normalizedFuns = sort (map (\(f,a) -> (Map.findWithDefault f f funMap, a)) 
                         (funs trs))
-    in TRS normalizedFuns normalizedRules
+        newHash = hashWithSalt 0 normalizedFuns `hashWithSalt` normalizedRules
+    in TRS normalizedFuns normalizedRules newHash
 
 normalizeRule :: Map.Map String String -> Rule -> Rule
 normalizeRule funMap (lhs, rhs) = 
@@ -296,33 +291,28 @@ findAriFiles dir = do
 groupByContent :: [(FilePath, BS.ByteString)] -> [[FilePath]]
 groupByContent files = 
     let normalizedFiles = map (\(fp, content) -> 
-            NormalizedFile fp (normalizeTRS (parseTRS (BSC.unpack content)))) files
+            (fp, normalizeTRS (parseTRS (BSC.unpack content)))) files
+        
+        buildGroups [] groups = groups
+        buildGroups ((fp, trs):rest) groups =
+            let groups' = if HM.member trs groups
+                         then HM.adjust (fp:) trs groups
+                         else HM.insert trs [fp] groups
+            in buildGroups rest groups'
 
-        findGroup :: [NormalizedFile] -> [NormalizedFile] -> [FilePath]
-        findGroup [] acc = map filePath acc
-        findGroup (nf:rest) acc =
-            if null acc || normalizedTRS nf == normalizedTRS (head acc)
-            then findGroup rest (nf:acc)
-            else findGroup rest acc
-
-        findAllGroups :: [NormalizedFile] -> [[FilePath]]
-        findAllGroups [] = []
-        findAllGroups remaining = 
-            let group = findGroup remaining []
-                notInGroup = filter (\nf -> filePath nf `notElem` group) remaining
-            in if null group
-               then []
-               else group : findAllGroups notInGroup
-
-    in filter (\g -> length g > 1) (findAllGroups normalizedFiles)
+        groups = buildGroups normalizedFiles HM.empty
+        dupGroups = HM.elems groups
+    in filter (\g -> length g > 1) dupGroups
 
 printOutput :: [[FilePath]] -> IO ()
-printOutput [] = return ()
-printOutput [group] = mapM_ putStrLn group
-printOutput (group:groups) = do
-    mapM_ putStrLn group
-    putStrLn ""
-    printOutput groups
+printOutput groups = do
+    let groupCount = length groups
+    putStrLn ("Found " ++ show groupCount ++ " groups of duplicate files")
+    writeFile "duplicate_files.txt" ""
+    forM_ groups (\group -> do
+        mapM_ (\path -> appendFile "duplicate_files.txt" (path ++ "\n")) group
+        appendFile "duplicate_files.txt" "\n")
+    putStrLn "Results have been written to duplicate_files.txt"
 
 processWithChecks :: FilePath -> BS.ByteString -> IO (Maybe TRS)
 processWithChecks filepath content = do
@@ -344,26 +334,22 @@ main = do
             startTime <- getCurrentTime
             files <- findAriFiles dir
             putStrLn ("Found " ++ show (length files) ++ " .ari files")
-            result <- timeout (30 * 60 * 1000000) (do
-                fileContents <- forM (zip [1..] files) (\(idx, f) -> do
-                    reportProgress "Reading files" idx (length files)
-                    content <- BS.readFile f
-                    processed <- processWithChecks f content
-                    return (case processed of
-                        Just trs -> Just (f, content)
-                        Nothing -> Nothing))
-                let validFiles = mapMaybe id fileContents
-                reportProgress "Processing" (length validFiles) (length validFiles)
-                
-                let groups = groupByContent validFiles
-                printOutput groups
-                
-                endTime <- getCurrentTime
-                let duration = diffUTCTime endTime startTime
-                printf "\nProcessing completed in %.2f seconds\n" 
-                    (realToFrac duration :: Double))
-            case result of
-                Just _ -> return ()
-                Nothing -> putStrLn "\nOperation timed out after 30 minutes"
-                
+            fileContents <- forM (zip [1..] files) (\(idx, f) -> do
+                reportProgress "Reading files" idx (length files)
+                content <- BS.readFile f
+                processed <- processWithChecks f content
+                return (case processed of 
+                    Just _ -> Just (f, content)
+                    Nothing -> Nothing))
+            let validFiles = mapMaybe id fileContents
+            reportProgress "Processing" (length validFiles) (length validFiles)
+            
+            let groups = groupByContent validFiles
+            printOutput groups
+            
+            endTime <- getCurrentTime
+            let duration = diffUTCTime endTime startTime
+            printf "\nProcessing completed in %.2f seconds\n" 
+                (realToFrac duration :: Double)
+        
         _ -> putStrLn "Error: Wrong input"
