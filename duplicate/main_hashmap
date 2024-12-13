@@ -20,19 +20,20 @@ import Data.Hashable
 
 data TRS = TRS {
     funs :: [(String, Int)],
-    rules :: [Rule]
+    rules :: [Rule],
+    hashValue :: Int
 } deriving (Show, Eq, Ord)
+
+data Term = Var String
+          | Fun String [Term]
+          deriving (Show, Eq, Ord)
 
 instance Hashable Term where
     hashWithSalt salt (Var v) = salt `hashWithSalt` (0::Int) `hashWithSalt` v
     hashWithSalt salt (Fun f args) = salt `hashWithSalt` (1::Int) `hashWithSalt` f `hashWithSalt` args
 
 instance Hashable TRS where
-    hashWithSalt salt (TRS f r) = salt `hashWithSalt` f `hashWithSalt` r
-
-data Term = Var String
-          | Fun String [Term]
-          deriving (Show, Eq, Ord)
+    hashWithSalt _ = hashValue
 
 type Rule = (Term, Term)
 
@@ -45,7 +46,7 @@ data TRSError =
     deriving (Show, Eq)
 
 getFunsInRule :: Rule -> [String]
-getFunsInRule (lhs, rhs) = nub (getFunsInTerm lhs ++ getFunsInTerm rhs)
+getFunsInRule (lhs, rhs) = getFunsInTerm lhs ++ getFunsInTerm rhs
 
 getFunsInTerm :: Term -> [String]
 getFunsInTerm (Var _) = []
@@ -160,7 +161,8 @@ parseTRS input =
         ruleLines = filter (isPrefixOf "(rule") ls
         parsedFuns = map parseFun funLines
         parsedRules = mapMaybe parseRule ruleLines
-    in TRS parsedFuns parsedRules
+        initialHash = hashWithSalt 0 parsedFuns `hashWithSalt` parsedRules
+    in TRS parsedFuns parsedRules initialHash
 
 parseFun :: String -> (String, Int)
 parseFun s = 
@@ -210,12 +212,12 @@ trim = dropWhile isSpace.reverse.dropWhile isSpace.reverse
 
 normalizeTRS :: TRS -> TRS
 normalizeTRS trs = 
-    let
-        getFunPattern :: String -> String
-        getFunPattern fname = concat [getRuleStructure rule | rule <- rules trs, 
-                                fname `elem` getFunsInRule rule] ++ 
-                    show [getFunsInRule rule | rule <- rules trs,
-                        fname `elem` getFunsInRule rule]
+    let rulesWithFuns = [(rule, getFunsInRule rule) | rule <- rules trs]
+        
+        getFunPattern fname = concat [getRuleStructure rule | (rule, funs) <- rulesWithFuns, 
+                                fname `elem` funs] ++ 
+                    show [funs | (rule, funs) <- rulesWithFuns,
+                        fname `elem` funs]
 
         funsByArityAndStructure = Map.fromListWith (++) 
             [(arity, [(name, getFunPattern name)]) 
@@ -231,7 +233,8 @@ normalizeTRS trs =
         normalizedRules = sort (map (normalizeRule funMap) (rules trs))
         normalizedFuns = sort (map (\(f,a) -> (Map.findWithDefault f f funMap, a)) 
                         (funs trs))
-    in TRS normalizedFuns normalizedRules
+        newHash = hashWithSalt 0 normalizedFuns `hashWithSalt` normalizedRules
+    in TRS normalizedFuns normalizedRules newHash
 
 normalizeRule :: Map.Map String String -> Rule -> Rule
 normalizeRule funMap (lhs, rhs) = 
@@ -288,19 +291,19 @@ findAriFiles dir = do
 
 groupByContent :: [(FilePath, BS.ByteString)] -> [[FilePath]]
 groupByContent files = 
-   let normalizedFiles = map (\(fp, content) -> 
-           (fp, normalizeTRS (parseTRS (BSC.unpack content)))) files
-       
-       buildGroups [] groups = groups
-       buildGroups ((fp, trs):rest) groups =
-           let groups' = if HM.member trs groups
-                        then HM.adjust (fp:) trs groups
-                        else HM.insert trs [fp] groups
-           in buildGroups rest groups'
+    let normalizedFiles = map (\(fp, content) -> 
+            (fp, normalizeTRS (parseTRS (BSC.unpack content)))) files
+        
+        buildGroups [] groups = groups
+        buildGroups ((fp, trs):rest) groups =
+            let groups' = if HM.member trs groups
+                         then HM.adjust (fp:) trs groups
+                         else HM.insert trs [fp] groups
+            in buildGroups rest groups'
 
-       groups = buildGroups normalizedFiles HM.empty
-       dupGroups = HM.elems groups
-   in filter (\g -> length g > 1) dupGroups
+        groups = buildGroups normalizedFiles HM.empty
+        dupGroups = HM.elems groups
+    in filter (\g -> length g > 1) dupGroups
 
 printOutput :: [[FilePath]] -> IO ()
 printOutput [] = return ()
