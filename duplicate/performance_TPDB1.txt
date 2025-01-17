@@ -1,4 +1,11 @@
-	Fri Jan 17 16:07 2025 Time and Allocation Profiling Report  (Final)
+Found 2173 .ari files
+Reading files: 2173/2173 (100.00%) 
+Processing: 2173/2173 (100.00%)
+
+Processing completed in 190.75 seconds
+
+
+Fri Jan 17 16:07 2025 Time and Allocation Profiling Report  (Final)
 
 	   Main.exe +RTS -P -p -RTS TPDB1
 
