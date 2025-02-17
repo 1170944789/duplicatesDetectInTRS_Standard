@@ -344,6 +344,76 @@ processWithChecks handle filepath content = do
             reportErrors handle errors
             return Nothing
 
+data Category = 
+    TRS_Standard
+    | SRS_Standard
+    | TRS_Innermost
+    | TRS_Outermost
+    | SRS_Cycle
+    | TRS_Relative
+    | SRS_Relative
+    | RC_Full
+    | RC_Innermost
+    | DC_Full
+    | DC_Innermost
+    deriving (Show, Eq, Ord)
+
+categoryFromPath :: FilePath -> Maybe Category
+categoryFromPath path = case takeDirectory path of
+    p | "TRS_Standard" `isInfixOf` p -> Just TRS_Standard
+      | "SRS_Standard" `isInfixOf` p -> Just SRS_Standard
+      | "TRS_Innermost" `isInfixOf` p -> Just TRS_Innermost
+      | "TRS_Outermost" `isInfixOf` p -> Just TRS_Outermost
+      | "SRS_Cycle" `isInfixOf` p -> Just SRS_Cycle
+      | "TRS_Relative" `isInfixOf` p -> Just TRS_Relative
+      | "SRS_Relative" `isInfixOf` p -> Just SRS_Relative
+      | "Runtime_Complexity_Full_Rewriting" `isInfixOf` p -> Just RC_Full
+      | "Runtime_Complexity_Innermost_Rewriting" `isInfixOf` p -> Just RC_Innermost
+      | "Derivational_Complexity_Full_Rewriting" `isInfixOf` p -> Just DC_Full
+      | "Derivational_Complexity_Innermost_Rewriting" `isInfixOf` p -> Just DC_Innermost
+      | otherwise -> Nothing
+
+categoryToTag :: Category -> String
+categoryToTag cat = "; @tag " ++ case cat of
+    TRS_Standard -> "TRS_Standard"
+    SRS_Standard -> "SRS_Standard"
+    TRS_Innermost -> "TRS_Innermost"
+    TRS_Outermost -> "TRS_Outermost"
+    SRS_Cycle -> "SRS_Cycle"
+    TRS_Relative -> "TRS_Relative"
+    SRS_Relative -> "SRS_Relative"
+    RC_Full -> "Runtime_Complexity_Full_Rewriting"
+    RC_Innermost -> "Runtime_Complexity_Innermost_Rewriting"
+    DC_Full -> "Derivational_Complexity_Full_Rewriting"
+    DC_Innermost -> "Derivational_Complexity_Innermost_Rewriting"
+
+processDuplicateGroup :: FilePath -> [(FilePath, BS.ByteString)] -> IO ()
+processDuplicateGroup destDir files = do
+    let (paths, contents) = unzip files
+        categories = mapMaybe categoryFromPath paths
+        bestIdx = maybe 0 fst (minimumByMaybe 
+            (\(_, c1) (_, c2) -> compare c1 c2) 
+            (zip [0..] categories))
+        bestPath = paths !! bestIdx
+        bestContent = contents !! bestIdx
+        tags = concat (intersperse "\n" (sort (map categoryToTag (nub categories)))) ++ "\n"
+        relativePath = makeRelativePath bestPath
+        newPath = destDir </> relativePath
+
+    createDirectoryIfMissing True (takeDirectory newPath)
+    BS.writeFile newPath (BSC.pack tags `BS.append` bestContent)
+
+makeRelativePath :: FilePath -> FilePath
+makeRelativePath path = 
+    let parts = splitPath path
+        fileName = last parts
+        parentDir = last (init parts)
+    in parentDir </> fileName
+
+minimumByMaybe :: (a -> a -> Ordering) -> [a] -> Maybe (a)
+minimumByMaybe _ [] = Nothing
+minimumByMaybe cmp xs = Just (minimumBy cmp xs)
+
 main :: IO ()
 main = do
     args <- getArgs
@@ -379,6 +449,55 @@ main = do
             printf "Errors written to %s\n" errorFile
             printf "Performance information written to %s\n" performanceFile
             
+            let baseName = takeBaseName dir
+                copyDirName = baseName ++ "_COPY"
+            putStrLn ("\nCreating " ++ copyDirName ++ "...")
+            createDirectoryIfMissing True copyDirName
+            
+            let warningFile = "conflicts_" ++ copyDirName ++ ".txt"
+            warningHandle <- openFile warningFile WriteMode
+            
+            let validFilesMap = Map.fromList [(path, content) | (path, content) <- validFiles]
+            forM_ groups (\pathGroup -> do
+                let groupWithContent = mapMaybe (\path -> 
+                        case Map.lookup path validFilesMap of
+                            Just content -> Just (path, content)
+                            Nothing -> Nothing) pathGroup
+                processDuplicateGroup copyDirName groupWithContent)
+            
+            let duplicatePaths = concat groups
+            let nonDuplicates = filter (\(path, _) -> not (path `elem` duplicatePaths)) validFiles
+            
+            forM_ nonDuplicates (\(path, content) -> do
+                case categoryFromPath path of
+                    Just cat -> do
+                        let tags = categoryToTag cat
+                        let relativePath = makeRelativePath path
+                        let newPath = copyDirName </> relativePath
+                        createDirectoryIfMissing True (takeDirectory newPath)
+                        BS.writeFile newPath (BSC.pack tags `BS.append` content)
+                    Nothing -> 
+                        putStrLn ("Warning: Unknown category for file: " ++ path))
+
+            let getTargetPath path = makeRelativePath path
+                dupGroupPaths = map (\group -> 
+                    (getTargetPath (head group), [head group])) groups
+                nonDupPaths = [(getTargetPath path, [path]) | (path, _) <- nonDuplicates]
+                allPathGroups = Map.fromListWith (++) (dupGroupPaths ++ nonDupPaths)
+                pathConflicts = Map.filter (\group -> length group > 1) allPathGroups
+
+            when (not (Map.null pathConflicts)) (do
+                putStrLn ("Warning: Found path conflicts in " ++ copyDirName ++ ". Check " ++ warningFile ++ " for details.")
+                
+                forM_ (Map.toList pathConflicts) (\(newPath, paths) -> do
+                    hPutStrLn warningHandle ("Following different (non-duplicate) files would all be copied to: " ++ 
+                                           (copyDirName </> newPath))
+                    forM_ (sort paths) (\path -> 
+                        hPutStrLn warningHandle ("  " ++ path))
+                    hPutStrLn warningHandle ""))
+
+            putStrLn (copyDirName ++ " creation completed")
+            hClose warningHandle
             hClose errorHandle
         
         _ -> putStrLn "Error: Wrong input"
