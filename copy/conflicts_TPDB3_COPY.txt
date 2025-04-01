@@ -1,0 +1,76 @@
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-10.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-10.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-10.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-106.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-106.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-106.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-113.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-113.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-113.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-115.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-115.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-115.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-120.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-120.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-120.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-123.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-123.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-123.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-126.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-126.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-126.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-141.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-141.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-141.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-152.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-152.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-152.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-202.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-202.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-202.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-216.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-216.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-216.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-26.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-26.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-26.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-27.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-27.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-27.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-33.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-33.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-33.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-45.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-45.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-45.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-65.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-65.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-65.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-77.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-77.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-77.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-78.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-78.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-78.ari
+
+Following different (non-duplicate) files would all be copied to: TPDB3_COPY\Waldmann_19\random-82.ari
+  TPDB3\SRS_Relative\Waldmann_19\random-82.ari
+  TPDB3\SRS_Standard\Waldmann_19\random-82.ari
+

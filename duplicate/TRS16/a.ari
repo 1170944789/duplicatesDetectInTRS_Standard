@@ -1,0 +1,6 @@
+Copy(format TRS)
+(fun f 1)
+(fun a 0)
+(fun b 0)
+(rule (f X) (f a))
+(rule b a)

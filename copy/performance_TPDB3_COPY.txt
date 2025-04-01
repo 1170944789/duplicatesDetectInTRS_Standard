@@ -1,0 +1,412 @@
+	Mon Feb 17 14:41 2025 Time and Allocation Profiling Report  (Final)
+
+	   MainCopy.exe +RTS -P -p -RTS TPDB3
+
+	total time  =       18.50 secs   (18495 ticks @ 1000 us, 1 processor)
+	total alloc = 576,833,133,608 bytes  (excludes profiling overheads)
+
+COST CENTRE                    MODULE SRC                            %time %alloc
+
+normalizeTRS.getFunPattern     Main   MainCopy.hs:(243,9)-(246,42)    49.3    3.1
+splitAtCost                    Main   MainCopy.hs:(193,1)-(199,34)    13.9   30.7
+trim                           Main   MainCopy.hs:238:1-58             9.0   29.2
+splitTermsInRule.parseTerms.go Main   MainCopy.hs:(209,9)-(223,42)     5.6   11.3
+main.nonDuplicates.\           Main   MainCopy.hs:475:55-86            5.1    0.0
+parseTerm.withoutParens        Main   MainCopy.hs:231:13-42            3.3   10.1
+collectVars                    Main   MainCopy.hs:(270,1)-(271,55)     1.2    1.3
+main.\                         Main   MainCopy.hs:(432,66)-(438,39)    1.1    0.1
+showList                       Main   MainCopy.hs:29:21-24             1.0    2.4
+normalizeTRS.sortedFuns.\      Main   MainCopy.hs:250:47-69            1.0    0.0
+checkTRS.ls                    Main   MainCopy.hs:93:9-87              0.8    1.6
+getRuleStructure               Main   MainCopy.hs:(56,1)-(70,41)       0.7    2.2
+parseTRS.ls                    Main   MainCopy.hs:169:9-73             0.6    1.6
+
+
+                                                                                                                                                             individual      inherited
+COST CENTRE                                           MODULE                            SRC                                              no.      entries  %time %alloc   %time %alloc
+
+MAIN                                                  MAIN                              <built-in>                                        380           0    0.0    0.0   100.0  100.0
+ CAF                                                  System.FilePath.Windows           <entire-module>                                   713           0    0.0    0.0     0.0    0.0
+ CAF                                                  System.Directory.Internal.Windows <entire-module>                                   712           0    0.0    0.0     0.0    0.0
+ CAF                                                  System.Directory.Internal.Common  <entire-module>                                   710           0    0.0    0.0     0.0    0.0
+ CAF                                                  System.Directory                  <entire-module>                                   709           0    0.0    0.0     0.0    0.0
+ CAF                                                  Text.Printf                       <entire-module>                                   683           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Read                          <entire-module>                                   658           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.StdHandles                 <entire-module>                                   642           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Handle.FD                  <entire-module>                                   636           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.FD                         <entire-module>                                   634           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Exception                  <entire-module>                                   633           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Encoding.CodePage          <entire-module>                                   624           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Encoding                   <entire-module>                                   623           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Float                         <entire-module>                                   610           0    0.0    0.0     0.0    0.0
+ CAF                                                  System.Win32.Types                <entire-module>                                   525           0    0.0    0.0     0.0    0.0
+ CAF                                                  Data.HashMap.Internal             <entire-module>                                   510           0    0.0    0.0     0.0    0.0
+  bitsPerSubkey                                       Data.HashMap.Internal             Data\HashMap\Internal.hs:2444:1-17                965           1    0.0    0.0     0.0    0.0
+  empty                                               Data.HashMap.Internal             Data\HashMap\Internal.hs:594:1-13                 954           1    0.0    0.0     0.0    0.0
+  maxChildren                                         Data.HashMap.Internal             Data\HashMap\Internal.hs:2448:1-44                994           1    0.0    0.0     0.0    0.0
+  subkeyMask                                          Data.HashMap.Internal             Data\HashMap\Internal.hs:2452:1-47                964           1    0.0    0.0     0.0    0.0
+ CAF:$fEqTRS1                                         Main                              <no location info>                                487           0    0.0    0.0     0.0    0.0
+ CAF:$fEqTRS2                                         Main                              <no location info>                                475           0    0.0    0.0     0.0    0.0
+ CAF:$fEqTRS3                                         Main                              <no location info>                                474           0    0.0    0.0     0.0    0.0
+ CAF:$fHashableTRS_$chash                             Main                              MainCopy.hs:35:10-21                              480           0    0.0    0.0     0.0    0.0
+  hash                                                Main                              MainCopy.hs:35:10-21                              860           1    0.0    0.0     0.0    0.0
+   defaultHash                                        Data.Hashable.Class               src\Data\Hashable\Class.hs:330:1-38               861           1    0.0    0.0     0.0    0.0
+    hashWithSalt                                      Main                              MainCopy.hs:36:5-30                               862           1    0.0    0.0     0.0    0.0
+ CAF:$fShowTerm_$cshowList                            Main                              MainCopy.hs:29:21-24                              476           0    0.0    0.0     0.0    0.0
+  showList                                            Main                              MainCopy.hs:29:21-24                              979           1    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle                             Main                              <no location info>                                431           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle1                            Main                              <no location info>                                432           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle10                           Main                              <no location info>                                441           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle2                            Main                              <no location info>                                433           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle3                            Main                              <no location info>                                434           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle4                            Main                              <no location info>                                435           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle5                            Main                              <no location info>                                436           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle6                            Main                              <no location info>                                437           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle7                            Main                              <no location info>                                438           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle8                            Main                              <no location info>                                439           0    0.0    0.0     0.0    0.0
+ CAF:categoryToTag_needle9                            Main                              <no location info>                                440           0    0.0    0.0     0.0    0.0
+ CAF:checkTRS2                                        Main                              <no location info>                                398           0    0.0    0.0     0.0    0.0
+ CAF:checkTRS5                                        Main                              <no location info>                                399           0    0.0    0.0     0.0    0.0
+ CAF:checkTRS9                                        Main                              <no location info>                                400           0    0.0    0.0     0.0    0.0
+ CAF:generateOutputNames3                             Main                              <no location info>                                467           0    0.0    0.0     0.0    0.0
+ CAF:getRuleStructure3                                Main                              <no location info>                                423           0    0.0    0.0     0.0    0.0
+ CAF:getRuleStructure6                                Main                              <no location info>                                424           0    0.0    0.0     0.0    0.0
+  getRuleStructure                                    Main                              MainCopy.hs:(56,1)-(70,41)                        984           0    0.0    0.0     0.0    0.0
+   getRuleStructure.varMap                            Main                              MainCopy.hs:62:9-74                               985           0    0.0    0.0     0.0    0.0
+    getRuleStructure.varMap.\                         Main                              MainCopy.hs:62:53-65                              986          37    0.0    0.0     0.0    0.0
+ CAF:h1_r9Cx                                          Main                              <no location info>                                420           0    0.0    0.0     0.0    0.0
+  normalizeTRS                                        Main                              MainCopy.hs:(241,1)-(259,49)                      892           0    0.0    0.0     0.0    0.0
+   normalizeTRS.newHash                               Main                              MainCopy.hs:258:9-78                              893           0    0.0    0.0     0.0    0.0
+    hashWithSalt1                                     Data.Hashable.Class               src\Data\Hashable\Class.hs:301:1-45               894           1    0.0    0.0     0.0    0.0
+     defaultLiftHashWithSalt                          Data.Hashable.Class               src\Data\Hashable\Class.hs:313:1-60               895           0    0.0    0.0     0.0    0.0
+ CAF:h2_r9Cw                                          Main                              <no location info>                                419           0    0.0    0.0     0.0    0.0
+  normalizeTRS                                        Main                              MainCopy.hs:(241,1)-(259,49)                      923           0    0.0    0.0     0.0    0.0
+   normalizeTRS.newHash                               Main                              MainCopy.hs:258:9-78                              924           0    0.0    0.0     0.0    0.0
+    hashWithSalt1                                     Data.Hashable.Class               src\Data\Hashable\Class.hs:301:1-45               925           1    0.0    0.0     0.0    0.0
+ CAF:h6_r9EU                                          Main                              <no location info>                                495           0    0.0    0.0     0.0    0.0
+  normalizeTRS                                        Main                              MainCopy.hs:(241,1)-(259,49)                      887           0    0.0    0.0     0.0    0.0
+   normalizeTRS.newHash                               Main                              MainCopy.hs:258:9-78                              888           0    0.0    0.0     0.0    0.0
+    hashWithSalt1                                     Data.Hashable.Class               src\Data\Hashable\Class.hs:301:1-45               889           1    0.0    0.0     0.0    0.0
+     defaultLiftHashWithSalt                          Data.Hashable.Class               src\Data\Hashable\Class.hs:313:1-60               890           1    0.0    0.0     0.0    0.0
+ CAF:lvl100_r9Ex                                      Main                              <no location info>                                489           0    0.0    0.0     0.0    0.0
+  insert'                                             Data.HashMap.Internal             Data\HashMap\Internal.hs:(806,1)-(837,76)         996           0    0.0    0.0     0.0    0.0
+ CAF:lvl10_r9AO                                       Main                              <no location info>                                390           0    0.0    0.0     0.0    0.0
+ CAF:lvl120_r9F0                                      Main                              <no location info>                                497           0    0.0    0.0     0.0    0.0
+ CAF:lvl121_r9F1                                      Main                              <no location info>                                498           0    0.0    0.0     0.0    0.0
+ CAF:lvl122_r9F5                                      Main                              <no location info>                                499           0    0.0    0.0     0.0    0.0
+ CAF:lvl125_r9F9                                      Main                              <no location info>                                500           0    0.0    0.0     0.0    0.0
+ CAF:lvl127_r9Fb                                      Main                              <no location info>                                501           0    0.0    0.0     0.0    0.0
+ CAF:lvl128_r9Fc                                      Main                              <no location info>                                502           0    0.0    0.0     0.0    0.0
+ CAF:lvl12_r9AQ                                       Main                              <no location info>                                391           0    0.0    0.0     0.0    0.0
+ CAF:lvl16_r9AV                                       Main                              <no location info>                                392           0    0.0    0.0     0.0    0.0
+ CAF:lvl27_r9Bg                                       Main                              <no location info>                                397           0    0.0    0.0     0.0    0.0
+ CAF:lvl32_r9Bu                                       Main                              <no location info>                                402           0    0.0    0.0     0.0    0.0
+  checkArities                                        Main                              MainCopy.hs:(115,1)-(127,5)                       787           0    0.0    0.0     0.0    0.0
+   checkArities.parseResult                           Main                              MainCopy.hs:123:11-57                             788           0    0.0    0.0     0.0    0.0
+ CAF:lvl3_r9AH                                        Main                              <no location info>                                387           0    0.0    0.0     0.0    0.0
+ CAF:lvl54_r9CB                                       Main                              <no location info>                                421           0    0.0    0.0     0.0    0.0
+  normalizeTRS                                        Main                              MainCopy.hs:(241,1)-(259,49)                      885           0    0.0    0.0     0.0    0.0
+   normalizeTRS.funMap                                Main                              MainCopy.hs:(252,9)-(254,92)                      886           0    0.0    0.0     0.0    0.0
+ CAF:lvl59_r9CI                                       Main                              <no location info>                                427           0    0.0    0.0     0.0    0.0
+  normalizeTRS                                        Main                              MainCopy.hs:(241,1)-(259,49)                      918           0    0.0    0.0     0.0    0.0
+   normalizeTRS.newHash                               Main                              MainCopy.hs:258:9-78                              919           0    0.0    0.0     0.0    0.0
+    hashWithSalt1                                     Data.Hashable.Class               src\Data\Hashable\Class.hs:301:1-45               920           0    0.0    0.0     0.0    0.0
+     defaultLiftHashWithSalt                          Data.Hashable.Class               src\Data\Hashable\Class.hs:313:1-60               921           1    0.0    0.0     0.0    0.0
+ CAF:lvl62_r9CL                                       Main                              <no location info>                                430           0    0.0    0.0     0.0    0.0
+ CAF:lvl64_r9CV                                       Main                              <no location info>                                442           0    0.0    0.0     0.0    0.0
+ CAF:lvl6_r9AK                                        Main                              <no location info>                                388           0    0.0    0.0     0.0    0.0
+ CAF:lvl8_r9AM                                        Main                              <no location info>                                389           0    0.0    0.0     0.0    0.0
+ CAF:lvl99_r9Ev                                       Main                              <no location info>                                488           0    0.0    0.0     0.0    0.0
+  adjust                                              Data.HashMap.Internal.Strict      Data\HashMap\Internal\Strict.hs:(266,1)-(289,23) 1009           0    0.0    0.0     0.0    0.0
+ CAF:main1                                            Main                              <no location info>                                504           0    0.0    0.0     0.0    0.0
+  main                                                Main                              MainCopy.hs:(420,1)-(516,42)                      760           1    0.0    0.0     0.0    0.0
+ CAF:normalizeRule1                                   Main                              <no location info>                                425           0    0.0    0.0     0.0    0.0
+  normalizeRule                                       Main                              MainCopy.hs:(262,1)-(267,13)                      951           0    0.0    0.0     0.0    0.0
+   normalizeRule.varMap                               Main                              MainCopy.hs:264:9-74                              952           0    0.0    0.0     0.0    0.0
+    normalizeRule.varMap.\                            Main                              MainCopy.hs:264:53-65                             953          33    0.0    0.0     0.0    0.0
+ CAF:parseFun14                                       Main                              <no location info>                                453           0    0.0    0.0     0.0    0.0
+  parseFun                                            Main                              MainCopy.hs:(178,1)-(180,38)                      882           0    0.0    0.0     0.0    0.0
+ CAF:parseRule3                                       Main                              <no location info>                                403           0    0.0    0.0     0.0    0.0
+ CAF:splitTermsInRule1                                Main                              <no location info>                                418           0    0.0    0.0     0.0    0.0
+ CAF:splitTermsInRule_parseTerms                      Main                              MainCopy.hs:207:5-14                              463           0    0.0    0.0     0.0    0.0
+  splitTermsInRule                                    Main                              MainCopy.hs:(202,1)-(223,42)                      803           0    0.0    0.0     0.0    0.0
+   splitTermsInRule.parseTerms                        Main                              MainCopy.hs:(207,5)-(223,42)                      804           1    0.0    0.0     0.0    0.0
+ CAF:trim                                             Main                              MainCopy.hs:238:1-4                               462           0    0.0    0.0     0.0    0.0
+  trim                                                Main                              MainCopy.hs:238:1-58                              796           1    0.0    0.0     0.0    0.0
+ main                                                 Main                              MainCopy.hs:(420,1)-(516,42)                      761           0    0.0    0.0   100.0  100.0
+  main.\                                              Main                              MainCopy.hs:(432,66)-(438,39)                     771       10769    1.1    0.1    21.4   45.8
+   processWithChecks                                  Main                              MainCopy.hs:(336,1)-(345,26)                      774       10769    0.0    0.0    20.2   45.8
+    checkTRS                                          Main                              MainCopy.hs:(92,1)-(102,9)                        776       10769    0.0    0.0    20.1   45.4
+     checkArities                                     Main                              MainCopy.hs:(115,1)-(127,5)                       784       10769    0.0    0.0     0.1    0.1
+      checkArities.arityStr                           Main                              MainCopy.hs:122:11-52                             789       96665    0.0    0.0     0.0    0.0
+      checkArities.parseResult                        Main                              MainCopy.hs:123:11-57                             786       96665    0.0    0.1     0.0    0.1
+      checkArities.parts                              Main                              MainCopy.hs:119:11-28                             785       96665    0.0    0.0     0.0    0.0
+     checkFunctionNames                               Main                              MainCopy.hs:(105,1)-(112,5)                       780       10769    0.0    0.0     0.0    0.0
+      checkFunctionNames.\                            Main                              MainCopy.hs:111:18-41                             783      395190    0.0    0.0     0.0    0.0
+      checkFunctionNames.fname                        Main                              MainCopy.hs:110:11-69                             782       96665    0.0    0.0     0.0    0.0
+      checkFunctionNames.parts                        Main                              MainCopy.hs:108:11-28                             781       96665    0.0    0.0     0.0    0.0
+     checkFunctionStructures                          Main                              MainCopy.hs:(130,1)-(139,5)                       790       10769    0.0    0.0     0.0    0.0
+      checkFunctionStructures.parts                   Main                              MainCopy.hs:134:11-28                             791       96665    0.0    0.0     0.0    0.0
+     checkRuleStructures                              Main                              MainCopy.hs:(142,1)-(153,5)                       794       10769    0.0    0.0     1.5    3.0
+      checkRuleStructures.afterRule                   Main                              MainCopy.hs:147:11-67                             800      289274    0.0    0.0     0.0    0.0
+      checkRuleStructures.terms                       Main                              MainCopy.hs:148:11-51                             795      289274    0.0    0.0     0.9    2.2
+       splitTermsInRule                               Main                              MainCopy.hs:(202,1)-(223,42)                      801      289274    0.0    0.0     0.8    1.8
+        splitAtCost                                   Main                              MainCopy.hs:(193,1)-(199,34)                      802      289274    0.5    1.1     0.6    1.5
+         splitAtCost.costValue                        Main                              MainCopy.hs:197:17-53                             840        3693    0.0    0.0     0.0    0.0
+         splitAtCost.terms                            Main                              MainCopy.hs:196:17-41                             839        3693    0.0    0.0     0.0    0.0
+         trim                                         Main                              MainCopy.hs:238:1-58                              806           0    0.1    0.4     0.1    0.4
+        splitTermsInRule.parseTerms                   Main                              MainCopy.hs:(207,5)-(223,42)                      805           0    0.0    0.0     0.2    0.3
+         splitTermsInRule.parseTerms.go               Main                              MainCopy.hs:(209,9)-(223,42)                      807    44107401    0.2    0.2     0.2    0.3
+          splitTermsInRule.parseTerms.go.newDepth     Main                              MainCopy.hs:215:24-43                             808     6022021    0.0    0.0     0.0    0.0
+       trim                                           Main                              MainCopy.hs:238:1-58                              797           0    0.1    0.4     0.1    0.4
+      checkRuleStructures.withoutOuterParens          Main                              MainCopy.hs:146:11-54                             798      289274    0.1    0.4     0.5    0.8
+       trim                                           Main                              MainCopy.hs:238:1-58                              799           0    0.4    0.4     0.4    0.4
+     checkTRS.funLines                                Main                              MainCopy.hs:94:9-62                               778       10769    0.0    0.0     0.0    0.0
+      checkTRS.funLines.\                             Main                              MainCopy.hs:94:34-58                              779      396708    0.0    0.0     0.0    0.0
+     checkTRS.ls                                      Main                              MainCopy.hs:93:9-87                               777       10769    0.8    1.6     0.8    1.6
+     checkTRS.ruleLines                               Main                              MainCopy.hs:95:9-64                               792       10769    0.0    0.0     0.0    0.0
+      checkTRS.ruleLines.\                            Main                              MainCopy.hs:95:35-60                              793      396708    0.0    0.0     0.0    0.0
+     checkVariableNames                               Main                              MainCopy.hs:(156,1)-(165,5)                       809       10769    0.1    0.0    17.7   40.7
+      checkVariableNames.\                            Main                              MainCopy.hs:164:18-41                             838     1630146    0.0    0.0     0.0    0.0
+      checkVariableNames.rule                         Main                              MainCopy.hs:160:11-31                             810      289274    0.0    0.0    17.3   40.4
+       parseRule                                      Main                              MainCopy.hs:(183,1)-(190,20)                      811      289274    0.0    0.0    17.3   40.4
+        parseTerm                                     Main                              MainCopy.hs:(226,1)-(235,27)                      824     7875401    0.3    0.1    15.8   37.2
+         parseTerm.s'                                 Main                              MainCopy.hs:227:9-19                              825     7875401    0.0    0.0     1.2    4.5
+          trim                                        Main                              MainCopy.hs:238:1-58                              826           0    1.1    4.5     1.1    4.5
+         parseTerm.args                               Main                              MainCopy.hs:234:13-45                             828     6022021    0.1    0.1     0.1    0.1
+         parseTerm.parts                              Main                              MainCopy.hs:232:13-50                             830     6022021    0.0    0.0    12.3   27.5
+          splitTermsInRule                            Main                              MainCopy.hs:(202,1)-(223,42)                      831     6022021    0.1    0.0    12.3   27.5
+           splitAtCost                                Main                              MainCopy.hs:(193,1)-(199,34)                      832     6022021    6.7   13.6     8.2   18.0
+            trim                                      Main                              MainCopy.hs:238:1-58                              834           0    1.5    4.3     1.5    4.3
+           splitTermsInRule.parseTerms                Main                              MainCopy.hs:(207,5)-(223,42)                      833           0    0.0    0.0     4.0    9.5
+            splitTermsInRule.parseTerms.go            Main                              MainCopy.hs:(209,9)-(223,42)                      835   524009378    2.6    5.0     4.0    9.5
+             splitTermsInRule.parseTerms.go.newDepth  Main                              MainCopy.hs:215:24-43                             836    69282389    0.3    0.4     0.3    0.4
+             trim                                     Main                              MainCopy.hs:238:1-58                              837           0    1.1    4.1     1.1    4.1
+         parseTerm.withoutParens                      Main                              MainCopy.hs:231:13-42                             829     6022021    1.9    5.0     1.9    5.0
+        parseRule.afterRule                           Main                              MainCopy.hs:185:9-65                              814      289274    0.0    0.0     0.0    0.0
+        parseRule.terms                               Main                              MainCopy.hs:186:9-42                              815      289274    0.0    0.0     0.9    2.3
+         splitTermsInRule                             Main                              MainCopy.hs:(202,1)-(223,42)                      816      289274    0.0    0.0     0.9    2.3
+          splitAtCost                                 Main                              MainCopy.hs:(193,1)-(199,34)                      817      289274    0.5    1.1     0.6    1.5
+           splitAtCost.costValue                      Main                              MainCopy.hs:197:17-53                             843        3693    0.0    0.0     0.0    0.0
+           splitAtCost.terms                          Main                              MainCopy.hs:196:17-41                             841        3693    0.0    0.0     0.0    0.0
+           trim                                       Main                              MainCopy.hs:238:1-58                              819           0    0.1    0.4     0.1    0.4
+          splitTermsInRule.parseTerms                 Main                              MainCopy.hs:(207,5)-(223,42)                      818           0    0.0    0.0     0.3    0.8
+           splitTermsInRule.parseTerms.go             Main                              MainCopy.hs:(209,9)-(223,42)                      820    44107401    0.2    0.4     0.3    0.8
+            splitTermsInRule.parseTerms.go.newDepth   Main                              MainCopy.hs:215:24-43                             821     6022021    0.0    0.0     0.0    0.0
+            trim                                      Main                              MainCopy.hs:238:1-58                              827           0    0.1    0.4     0.1    0.4
+        parseRule.withoutOuterParens                  Main                              MainCopy.hs:184:9-49                              812      289274    0.1    0.4     0.6    0.8
+         trim                                         Main                              MainCopy.hs:238:1-58                              813           0    0.4    0.4     0.4    0.4
+        trim                                          Main                              MainCopy.hs:238:1-58                              842           0    0.0    0.0     0.0    0.0
+      checkVariableNames.vars                         Main                              MainCopy.hs:162:11-57                             822      289274    0.0    0.0     0.3    0.3
+       collectVars                                    Main                              MainCopy.hs:(270,1)-(271,55)                      823     7875401    0.3    0.3     0.3    0.3
+    processWithChecks.input                           Main                              MainCopy.hs:337:9-34                              775       10769    0.1    0.3     0.1    0.3
+   reportProgress                                     Main                              MainCopy.hs:(73,1)-(77,41)                        772       10769    0.1    0.0     0.1    0.0
+    reportProgress.percentage                         Main                              MainCopy.hs:74:9-80                               773       10769    0.0    0.0     0.0    0.0
+  main.\                                              Main                              MainCopy.hs:(466,41)-(471,66)                    1023        2960    0.0    0.0     0.9    0.1
+   main.\.groupWithContent                            Main                              MainCopy.hs:(467,21)-(470,57)                    1031        2960    0.0    0.0     0.2    0.0
+    main.\.groupWithContent.\                         Main                              MainCopy.hs:(468,25)-(470,46)                    1032        9776    0.2    0.0     0.2    0.0
+   processDuplicateGroup                              Main                              MainCopy.hs:(391,1)-(406,90)                     1024        2960    0.6    0.1     0.7    0.1
+    processDuplicateGroup.(...)                       Main                              MainCopy.hs:392:9-39                             1030        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.bestContent                 Main                              MainCopy.hs:398:9-41                             1046        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.bestIdx                     Main                              MainCopy.hs:(394,9)-(396,35)                     1026        2960    0.0    0.0     0.0    0.0
+     minimumByMaybe                                   Main                              MainCopy.hs:(416,1)-(417,47)                     1027        2960    0.0    0.0     0.0    0.0
+      processDuplicateGroup.bestIdx.\                 Main                              MainCopy.hs:395:34-46                            1035        6816    0.0    0.0     0.0    0.0
+       compare                                        Main                              MainCopy.hs:359:25-27                            1036        6816    0.0    0.0     0.0    0.0
+    processDuplicateGroup.bestPath                    Main                              MainCopy.hs:397:9-35                             1025        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.categories                  Main                              MainCopy.hs:393:9-52                             1028        2960    0.0    0.0     0.0    0.0
+     categoryFromPath                                 Main                              MainCopy.hs:(362,1)-(374,28)                     1034        9776    0.0    0.0     0.0    0.0
+    processDuplicateGroup.contents                    Main                              MainCopy.hs:392:9-39                             1047        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.newPath                     Main                              MainCopy.hs:402:9-42                             1042        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.paths                       Main                              MainCopy.hs:392:9-39                             1029        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.relativePath                Main                              MainCopy.hs:401:9-48                             1037        2960    0.0    0.0     0.0    0.0
+     makeRelativePath                                 Main                              MainCopy.hs:(409,1)-(413,29)                     1038        2960    0.0    0.0     0.0    0.0
+      makeRelativePath.fileName                       Main                              MainCopy.hs:411:9-29                             1040        2960    0.0    0.0     0.0    0.0
+      makeRelativePath.parentDir                      Main                              MainCopy.hs:412:9-37                             1041        2960    0.0    0.0     0.0    0.0
+      makeRelativePath.parts                          Main                              MainCopy.hs:410:9-30                             1039        2960    0.0    0.0     0.0    0.0
+    processDuplicateGroup.tags                        Main                              MainCopy.hs:399:9-66                             1043        2960    0.0    0.0     0.0    0.0
+     ==                                               Main                              MainCopy.hs:359:21-22                            1044       12502    0.0    0.0     0.0    0.0
+     categoryToTag                                    Main                              MainCopy.hs:(377,1)-(388,65)                     1045        9775    0.0    0.0     0.0    0.0
+  main.\                                              Main                              MainCopy.hs:(477,54)-(486,81)                    1051         993    0.2    0.0     0.2    0.0
+   categoryFromPath                                   Main                              MainCopy.hs:(362,1)-(374,28)                     1052         993    0.0    0.0     0.0    0.0
+   main.\.newPath                                     Main                              MainCopy.hs:482:29-66                            1058         993    0.0    0.0     0.0    0.0
+   main.\.relativePath                                Main                              MainCopy.hs:481:29-64                            1053         993    0.0    0.0     0.0    0.0
+    makeRelativePath                                  Main                              MainCopy.hs:(409,1)-(413,29)                     1054         993    0.0    0.0     0.0    0.0
+     makeRelativePath.fileName                        Main                              MainCopy.hs:411:9-29                             1056         993    0.0    0.0     0.0    0.0
+     makeRelativePath.parentDir                       Main                              MainCopy.hs:412:9-37                             1057         993    0.0    0.0     0.0    0.0
+     makeRelativePath.parts                           Main                              MainCopy.hs:410:9-30                             1055         993    0.0    0.0     0.0    0.0
+   main.\.tags                                        Main                              MainCopy.hs:480:29-52                            1059         993    0.0    0.0     0.0    0.0
+    categoryToTag                                     Main                              MainCopy.hs:(377,1)-(388,65)                     1060         993    0.0    0.0     0.0    0.0
+  findAriFiles                                        Main                              MainCopy.hs:(302,1)-(313,25)                      768         226    0.0    0.0     0.5    0.4
+   findAriFiles.\                                     Main                              MainCopy.hs:(305,39)-(312,30)                     770       10994    0.5    0.3     0.5    0.3
+   findAriFiles.fullPaths                             Main                              MainCopy.hs:304:9-41                              769         226    0.0    0.0     0.0    0.0
+  main.\                                              Main                              MainCopy.hs:(505,73)-(510,46)                    1077          19    0.0    0.0     0.0    0.0
+   main.\.\                                           Main                              MainCopy.hs:509:25-62                            1078          38    0.0    0.0     0.0    0.0
+  main.(...)                                          Main                              MainCopy.hs:424:17-85                             763           1    0.0    0.0     0.0    0.0
+   generateOutputNames                                Main                              MainCopy.hs:(80,1)-(89,22)                        764           1    0.0    0.0     0.0    0.0
+    generateOutputNames.baseName                      Main                              MainCopy.hs:81:9-54                               766           1    0.0    0.0     0.0    0.0
+     generateOutputNames.replaceSlash                 Main                              MainCopy.hs:(87,5)-(89,22)                        767           5    0.0    0.0     0.0    0.0
+    generateOutputNames.duplicateFile                 Main                              MainCopy.hs:82:9-64                               848           1    0.0    0.0     0.0    0.0
+    generateOutputNames.errorFile                     Main                              MainCopy.hs:83:9-51                               765           1    0.0    0.0     0.0    0.0
+    generateOutputNames.performanceFile               Main                              MainCopy.hs:84:9-62                              1019           1    0.0    0.0     0.0    0.0
+  main.\                                              Main                              MainCopy.hs:(443,61)-(444,52)                     849           1    0.0    0.0     0.0    0.0
+   printOutputToHandle                                Main                              MainCopy.hs:(329,1)-(333,37)                      850        2960    0.0    0.0     0.0    0.0
+  main.allPathGroups                                  Main                              MainCopy.hs:496:17-84                            1062           1    0.0    0.0     0.0    0.0
+  main.baseName                                       Main                              MainCopy.hs:455:17-43                            1020           1    0.0    0.0     0.0    0.0
+  main.copyDirName                                    Main                              MainCopy.hs:456:17-49                            1021           1    0.0    0.0     0.0    0.0
+  main.dupGroupPaths                                  Main                              MainCopy.hs:(491,17)-(492,70)                    1061           1    0.0    0.0     0.0    0.0
+   main.dupGroupPaths.\                               Main                              MainCopy.hs:492:21-62                            1063        2960    0.0    0.0     0.0    0.0
+    main.getTargetPath                                Main                              MainCopy.hs:489:17-58                            1064        2960    0.0    0.0     0.0    0.0
+     makeRelativePath                                 Main                              MainCopy.hs:(409,1)-(413,29)                     1065        2960    0.0    0.0     0.0    0.0
+      makeRelativePath.fileName                       Main                              MainCopy.hs:411:9-29                             1067        2960    0.0    0.0     0.0    0.0
+      makeRelativePath.parentDir                      Main                              MainCopy.hs:412:9-37                             1068        2960    0.0    0.0     0.0    0.0
+      makeRelativePath.parts                          Main                              MainCopy.hs:410:9-30                             1066        2960    0.0    0.0     0.0    0.0
+  main.duplicateFile                                  Main                              MainCopy.hs:424:17-85                             847           1    0.0    0.0     0.0    0.0
+  main.duplicatePaths                                 Main                              MainCopy.hs:474:17-46                            1050           1    0.0    0.0     0.0    0.0
+  main.duration                                       Main                              MainCopy.hs:447:17-56                            1017           1    0.0    0.0     0.0    0.0
+  main.errorFile                                      Main                              MainCopy.hs:424:17-85                             762           1    0.0    0.0     0.0    0.0
+  main.groups                                         Main                              MainCopy.hs:442:17-50                             851           1    0.0    0.0    71.8   53.7
+   groupByContent                                     Main                              MainCopy.hs:(316,1)-(327,44)                      852           1    0.0    0.0    71.8   53.7
+    groupByContent.\                                  Main                              MainCopy.hs:327:22-33                            1016        3953    0.0    0.0     0.0    0.0
+    groupByContent.dupGroups                          Main                              MainCopy.hs:326:9-35                             1014           1    0.0    0.0     0.0    0.0
+     unArray                                          Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:126:7-13          1015        6312    0.0    0.0     0.0    0.0
+    groupByContent.groups                             Main                              MainCopy.hs:325:9-53                              854           1    0.0    0.0     0.4    0.0
+     groupByContent.buildGroups                       Main                              MainCopy.hs:(319,9)-(324,39)                      855       10770    0.0    0.0     0.4    0.0
+      groupByContent.buildGroups.groups'              Main                              MainCopy.hs:(321,17)-(323,55)                     857       10769    0.0    0.0     0.4    0.0
+       member                                         Data.HashMap.Internal             Data\HashMap\Internal.hs:(621,1)-(623,19)         858       10769    0.0    0.0     0.2    0.0
+        unArray                                       Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:126:7-13           995       28064    0.0    0.0     0.0    0.0
+        hash                                          Data.HashMap.Internal             Data\HashMap\Internal.hs:183:1-28                 859       10769    0.0    0.0     0.0    0.0
+         hash                                         Main                              MainCopy.hs:35:10-21                              863           0    0.0    0.0     0.0    0.0
+          defaultHash                                 Data.Hashable.Class               src\Data\Hashable\Class.hs:330:1-38               864           0    0.0    0.0     0.0    0.0
+           hashWithSalt                               Main                              MainCopy.hs:36:5-30                               865           0    0.0    0.0     0.0    0.0
+            hashValue                                 Main                              MainCopy.hs:24:5-13                               866       10769    0.0    0.0     0.0    0.0
+        ==                                            Main                              MainCopy.hs:25:19-20                              997        6816    0.0    0.0     0.2    0.0
+         ==                                           Main                              MainCopy.hs:29:27-28                              998     3591047    0.2    0.0     0.2    0.0
+       adjust                                         Data.HashMap.Internal.Strict      Data\HashMap\Internal\Strict.hs:(266,1)-(289,23)  999        6816    0.0    0.0     0.1    0.0
+        unArray                                       Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:126:7-13          1005       52483    0.0    0.0     0.0    0.0
+        unMArray                                      Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:158:7-14          1008       41970    0.0    0.0     0.0    0.0
+        ==                                            Main                              MainCopy.hs:25:19-20                             1006        6816    0.0    0.0     0.1    0.0
+         ==                                           Main                              MainCopy.hs:29:27-28                             1007     3591047    0.1    0.0     0.1    0.0
+        hash                                          Data.HashMap.Internal             Data\HashMap\Internal.hs:183:1-28                1000        6816    0.0    0.0     0.0    0.0
+         hash                                         Main                              MainCopy.hs:35:10-21                             1001           0    0.0    0.0     0.0    0.0
+          defaultHash                                 Data.Hashable.Class               src\Data\Hashable\Class.hs:330:1-38              1002           0    0.0    0.0     0.0    0.0
+           hashWithSalt                               Main                              MainCopy.hs:36:5-30                              1003           0    0.0    0.0     0.0    0.0
+            hashValue                                 Main                              MainCopy.hs:24:5-13                              1004        6816    0.0    0.0     0.0    0.0
+       insert                                         Data.HashMap.Internal.Strict      Data\HashMap\Internal\Strict.hs:179:1-27          955        3953    0.0    0.0     0.0    0.0
+        insert                                        Data.HashMap.Internal             Data\HashMap\Internal.hs:802:1-37                 956        3953    0.0    0.0     0.0    0.0
+         hash                                         Data.HashMap.Internal             Data\HashMap\Internal.hs:183:1-28                 957        3953    0.0    0.0     0.0    0.0
+          hash                                        Main                              MainCopy.hs:35:10-21                              958           0    0.0    0.0     0.0    0.0
+           defaultHash                                Data.Hashable.Class               src\Data\Hashable\Class.hs:330:1-38               959           0    0.0    0.0     0.0    0.0
+            hashWithSalt                              Main                              MainCopy.hs:36:5-30                               960           0    0.0    0.0     0.0    0.0
+             hashValue                                Main                              MainCopy.hs:24:5-13                               961        3953    0.0    0.0     0.0    0.0
+         insert'                                      Data.HashMap.Internal             Data\HashMap\Internal.hs:(806,1)-(837,76)         962        3953    0.0    0.0     0.0    0.0
+          unArray                                     Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:126:7-13           990       19736    0.0    0.0     0.0    0.0
+          unMArray                                    Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:158:7-14           966       19290    0.0    0.0     0.0    0.0
+          copy                                        Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:(297,1)-(302,30)   991        5630    0.0    0.0     0.0    0.0
+           unArray                                    Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:126:7-13           993        5630    0.0    0.0     0.0    0.0
+           unMArray                                   Data.HashMap.Internal.Array       Data\HashMap\Internal\Array.hs:158:7-14           992        5630    0.0    0.0     0.0    0.0
+    groupByContent.normalizedFiles                    Main                              MainCopy.hs:(317,9)-(318,69)                      853           1    0.0    0.0    71.5   53.7
+     groupByContent.normalizedFiles.\                 Main                              MainCopy.hs:318:13-62                             856       10769    0.0    0.3    71.5   53.7
+      normalizeTRS                                    Main                              MainCopy.hs:(241,1)-(259,49)                      867       10769    0.0    0.0    55.3   11.0
+       normalizeTRS.funMap                            Main                              MainCopy.hs:(252,9)-(254,92)                      884       10769    0.0    0.0     0.0    0.0
+       normalizeTRS.funsByArityAndStructure           Main                              MainCopy.hs:(247,9)-(249,40)                      880       10769    0.0    0.0    52.6    9.3
+        normalizeTRS.getFunPattern                    Main                              MainCopy.hs:(243,9)-(246,42)                      970       90991   49.3    3.1    52.6    9.3
+         getRuleStructure                             Main                              MainCopy.hs:(56,1)-(70,41)                        975      644457    0.7    2.2     3.2    6.3
+          showsPrec                                   Main                              MainCopy.hs:29:21-24                              978    22505422    0.2    0.4     1.3    2.7
+           showList                                   Main                              MainCopy.hs:29:21-24                              980           0    1.0    2.4     1.0    2.4
+          getRuleStructure.normLhs                    Main                              MainCopy.hs:67:9-43                               976      643061    0.0    0.0     0.3    0.3
+           getRuleStructure.normalizeForStructure     Main                              MainCopy.hs:(64,9)-(65,85)                        977    12440550    0.3    0.3     0.3    0.3
+          getRuleStructure.varMap                     Main                              MainCopy.hs:62:9-74                               983      628213    0.0    0.0     0.0    0.0
+          getRuleStructure.vars                       Main                              MainCopy.hs:61:9-55                               981      628213    0.0    0.0     0.8    0.8
+           collectVars                                Main                              MainCopy.hs:(270,1)-(271,55)                      982    22532447    0.7    0.8     0.7    0.8
+          getRuleStructure.normRhs                    Main                              MainCopy.hs:68:9-43                               987      618518    0.0    0.0     0.2    0.2
+           getRuleStructure.normalizeForStructure     Main                              MainCopy.hs:(64,9)-(65,85)                        988    10064872    0.2    0.2     0.2    0.2
+          getRuleStructure.costStr                    Main                              MainCopy.hs:69:9-57                               989      605766    0.0    0.0     0.0    0.0
+           getRuleStructure.costStr.\                 Main                              MainCopy.hs:69:35-51                             1013        3459    0.0    0.0     0.0    0.0
+        funs                                          Main                              MainCopy.hs:22:5-8                                881       10769    0.0    0.0     0.0    0.0
+       normalizeTRS.newHash                           Main                              MainCopy.hs:258:9-78                              868       10769    0.0    0.0     0.4    0.3
+        hashWithSalt1                                 Data.Hashable.Class               src\Data\Hashable\Class.hs:301:1-45               869    14889462    0.2    0.0     0.4    0.3
+         defaultHashWithSalt                          Data.Hashable.Class               src\Data\Hashable\Class.hs:323:1-50               896    32655639    0.0    0.0     0.1    0.2
+          hashInt                                     Data.Hashable.LowLevel            src\Data\Hashable\LowLevel.hs:64:1-72             897    32655639    0.1    0.1     0.1    0.2
+           mixHash                                    Data.Hashable.Mix                 src\Data\Hashable\Mix.hs:48:1-60                  898    32655639    0.0    0.1     0.0    0.1
+         hashInt                                      Data.Hashable.LowLevel            src\Data\Hashable\LowLevel.hs:64:1-72             899    15268325    0.1    0.0     0.1    0.1
+          mixHash                                     Data.Hashable.Mix                 src\Data\Hashable\Mix.hs:48:1-60                  900    15268325    0.0    0.0     0.0    0.0
+         hashWithSalt                                 Main                              MainCopy.hs:(32,5)-(33,102)                       945     7296853    0.0    0.0     0.0    0.0
+          hashInt                                     Data.Hashable.LowLevel            src\Data\Hashable\LowLevel.hs:64:1-72             946     7296853    0.0    0.0     0.0    0.0
+           mixHash                                    Data.Hashable.Mix                 src\Data\Hashable\Mix.hs:48:1-60                  947     7296853    0.0    0.0     0.0    0.0
+         defaultLiftHashWithSalt                      Data.Hashable.Class               src\Data\Hashable\Class.hs:313:1-60               891           0    0.0    0.0     0.0    0.0
+          hashWithSalt                                Main                              MainCopy.hs:(32,5)-(33,102)                       931      578548    0.0    0.0     0.0    0.0
+           hashInt                                    Data.Hashable.LowLevel            src\Data\Hashable\LowLevel.hs:64:1-72             932      578548    0.0    0.0     0.0    0.0
+            mixHash                                   Data.Hashable.Mix                 src\Data\Hashable\Mix.hs:48:1-60                  933      578548    0.0    0.0     0.0    0.0
+          hashInt                                     Data.Hashable.LowLevel            src\Data\Hashable\LowLevel.hs:64:1-72             901       96665    0.0    0.0     0.0    0.0
+           mixHash                                    Data.Hashable.Mix                 src\Data\Hashable\Mix.hs:48:1-60                  902       96665    0.0    0.0     0.0    0.0
+       normalizeTRS.normalizedFuns                    Main                              MainCopy.hs:(256,9)-(257,35)                      870       10769    0.0    0.0     0.0    0.0
+        normalizeTRS.normalizedFuns.\                 Main                              MainCopy.hs:256:47-81                             877       96665    0.0    0.0     0.0    0.0
+        funs                                          Main                              MainCopy.hs:22:5-8                                871       10769    0.0    0.0     0.0    0.0
+       normalizeTRS.normalizedRules                   Main                              MainCopy.hs:255:9-71                              903       10769    0.1    0.0     0.9    0.6
+        compare                                       Main                              MainCopy.hs:29:31-33                              963     4774817    0.1    0.0     0.1    0.0
+        normalizeRule                                 Main                              MainCopy.hs:(262,1)-(267,13)                      922      289274    0.0    0.0     0.8    0.6
+         normalizeTerm                                Main                              MainCopy.hs:(274,1)-(279,58)                      926     7875401    0.5    0.3     0.5    0.3
+         normalizeRule.varMap                         Main                              MainCopy.hs:264:9-74                              950      266306    0.0    0.0     0.0    0.0
+         normalizeRule.vars                           Main                              MainCopy.hs:263:9-55                              948      266306    0.0    0.0     0.3    0.3
+          collectVars                                 Main                              MainCopy.hs:(270,1)-(271,55)                      949     7701363    0.2    0.3     0.2    0.3
+        rules                                         Main                              MainCopy.hs:23:5-9                                904       10769    0.0    0.0     0.0    0.0
+       normalizeTRS.sortedFuns                        Main                              MainCopy.hs:(250,9)-(251,43)                      883       10769    0.0    0.0     1.0    0.0
+        normalizeTRS.sortedFuns.\                     Main                              MainCopy.hs:250:47-69                             969      169121    1.0    0.0     1.0    0.0
+       normalizeTRS.rulesWithFuns                     Main                              MainCopy.hs:242:9-72                              971       10242    0.0    0.0     0.3    0.7
+        getFunsInRule                                 Main                              MainCopy.hs:49:1-68                               973      265212    0.0    0.0     0.3    0.7
+         getFunsInTerm                                Main                              MainCopy.hs:(52,1)-(53,61)                        974     6979102    0.3    0.7     0.3    0.7
+        rules                                         Main                              MainCopy.hs:23:5-9                                972       10242    0.0    0.0     0.0    0.0
+      parseTRS                                        Main                              MainCopy.hs:(168,1)-(175,45)                      872       10769    0.0    0.0    16.2   42.3
+       parseTRS.funLines                              Main                              MainCopy.hs:170:9-48                              873       10769    0.0    0.0     0.0    0.0
+       parseTRS.ls                                    Main                              MainCopy.hs:169:9-73                              874       10769    0.6    1.6     0.6    1.6
+       parseTRS.parsedFuns                            Main                              MainCopy.hs:172:9-42                              875       10769    0.0    0.0     0.1    0.1
+        parseFun                                      Main                              MainCopy.hs:(178,1)-(180,38)                      876       96665    0.1    0.1     0.1    0.1
+         parseFun.parts                               Main                              MainCopy.hs:179:9-61                              878       96665    0.0    0.0     0.0    0.0
+          parseFun.parts.\                            Main                              MainCopy.hs:179:38-57                             879     1168570    0.0    0.0     0.0    0.0
+       parseTRS.parsedRules                           Main                              MainCopy.hs:173:9-50                              906       10769    0.0    0.0    15.4   40.7
+        parseRule                                     Main                              MainCopy.hs:(183,1)-(190,20)                      907      289274    0.0    0.0    15.4   40.7
+         parseTerm                                    Main                              MainCopy.hs:(226,1)-(235,27)                      927     7875401    0.4    0.1    13.9   37.5
+          parseTerm.s'                                Main                              MainCopy.hs:227:9-19                              928     7875401    0.0    0.0     1.1    4.5
+           trim                                       Main                              MainCopy.hs:238:1-58                              929           0    1.0    4.5     1.0    4.5
+          parseTerm.args                              Main                              MainCopy.hs:234:13-45                             944     6022021    0.1    0.1     0.1    0.1
+          parseTerm.funName                           Main                              MainCopy.hs:233:13-32                             934     6022021    0.0    0.0     0.0    0.0
+          parseTerm.parts                             Main                              MainCopy.hs:232:13-50                             936     6022021    0.0    0.0    10.8   27.8
+           splitTermsInRule                           Main                              MainCopy.hs:(202,1)-(223,42)                      937     6022021    0.1    0.0    10.8   27.8
+            splitAtCost                               Main                              MainCopy.hs:(193,1)-(199,34)                      938     6022021    5.7   13.6     7.1   18.0
+             trim                                     Main                              MainCopy.hs:238:1-58                              940           0    1.3    4.3     1.3    4.3
+            splitTermsInRule.parseTerms               Main                              MainCopy.hs:(207,5)-(223,42)                      939           0    0.0    0.0     3.7    9.8
+             splitTermsInRule.parseTerms.go           Main                              MainCopy.hs:(209,9)-(223,42)                      941   524009378    2.3    5.2     3.6    9.8
+              splitTermsInRule.parseTerms.go.newDepth Main                              MainCopy.hs:215:24-43                             942    69282389    0.2    0.4     0.2    0.4
+              trim                                    Main                              MainCopy.hs:238:1-58                              943           0    1.1    4.2     1.1    4.2
+          parseTerm.withoutParens                     Main                              MainCopy.hs:231:13-42                             935     6022021    1.4    5.0     1.4    5.0
+         parseRule.afterRule                          Main                              MainCopy.hs:185:9-65                              910      289274    0.0    0.0     0.0    0.0
+         parseRule.terms                              Main                              MainCopy.hs:186:9-42                              911      289274    0.0    0.0     0.9    2.3
+          splitTermsInRule                            Main                              MainCopy.hs:(202,1)-(223,42)                      912      289274    0.0    0.0     0.9    2.3
+           splitAtCost                                Main                              MainCopy.hs:(193,1)-(199,34)                      913      289274    0.5    1.1     0.6    1.5
+            splitAtCost.costValue                     Main                              MainCopy.hs:197:17-53                            1012        3693    0.0    0.0     0.0    0.0
+            splitAtCost.terms                         Main                              MainCopy.hs:196:17-41                            1010        3693    0.0    0.0     0.0    0.0
+            trim                                      Main                              MainCopy.hs:238:1-58                              915           0    0.1    0.4     0.1    0.4
+           splitTermsInRule.parseTerms                Main                              MainCopy.hs:(207,5)-(223,42)                      914           0    0.0    0.0     0.3    0.8
+            splitTermsInRule.parseTerms.go            Main                              MainCopy.hs:(209,9)-(223,42)                      916    44107401    0.3    0.4     0.3    0.8
+             splitTermsInRule.parseTerms.go.newDepth  Main                              MainCopy.hs:215:24-43                             917     6022021    0.0    0.0     0.0    0.0
+             trim                                     Main                              MainCopy.hs:238:1-58                              930           0    0.0    0.4     0.0    0.4
+         parseRule.withoutOuterParens                 Main                              MainCopy.hs:184:9-49                              908      289274    0.1    0.4     0.6    0.8
+          trim                                        Main                              MainCopy.hs:238:1-58                              909           0    0.5    0.4     0.5    0.4
+         trim                                         Main                              MainCopy.hs:238:1-58                             1011           0    0.0    0.0     0.0    0.0
+       parseTRS.ruleLines                             Main                              MainCopy.hs:171:9-50                              905       10769    0.0    0.0     0.0    0.0
+  main.nonDupPaths                                    Main                              MainCopy.hs:494:17-89                            1069           1    0.0    0.0     0.0    0.0
+   main.getTargetPath                                 Main                              MainCopy.hs:489:17-58                            1070         993    0.0    0.0     0.0    0.0
+    makeRelativePath                                  Main                              MainCopy.hs:(409,1)-(413,29)                     1071         993    0.0    0.0     0.0    0.0
+     makeRelativePath.fileName                        Main                              MainCopy.hs:411:9-29                             1073         993    0.0    0.0     0.0    0.0
+     makeRelativePath.parentDir                       Main                              MainCopy.hs:412:9-37                             1074         993    0.0    0.0     0.0    0.0
+     makeRelativePath.parts                           Main                              MainCopy.hs:410:9-30                             1072         993    0.0    0.0     0.0    0.0
+  main.nonDuplicates                                  Main                              MainCopy.hs:475:17-98                            1048           1    0.0    0.0     5.1    0.0
+   main.nonDuplicates.\                               Main                              MainCopy.hs:475:55-86                            1049       10769    5.1    0.0     5.1    0.0
+  main.pathConflicts                                  Main                              MainCopy.hs:498:17-85                            1075           1    0.0    0.0     0.0    0.0
+   main.pathConflicts.\                               Main                              MainCopy.hs:498:55-70                            1076        3934    0.0    0.0     0.0    0.0
+  main.performanceFile                                Main                              MainCopy.hs:424:17-85                            1018           1    0.0    0.0     0.0    0.0
+  main.validFiles                                     Main                              MainCopy.hs:439:17-53                             845           1    0.0    0.0     0.0    0.0
+  main.validFilesMap                                  Main                              MainCopy.hs:465:17-94                            1033           1    0.0    0.0     0.0    0.0
+  main.warningFile                                    Main                              MainCopy.hs:461:17-61                            1022           1    0.0    0.0     0.0    0.0
+  reportProgress                                      Main                              MainCopy.hs:(73,1)-(77,41)                        844           1    0.0    0.0     0.0    0.0
+   reportProgress.percentage                          Main                              MainCopy.hs:74:9-80                               846           1    0.0    0.0     0.0    0.0

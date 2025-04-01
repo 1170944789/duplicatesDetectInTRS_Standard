@@ -1,0 +1,12 @@
+Found 10769 .ari files
+Reading files: 10769/10769 (100.00%) 
+Processing: 10769/10769 (100.00%)
+
+Processing completed in 312.62 seconds
+Results written to duplicate_files_TPDB3.txt
+Errors written to errors_TPDB3.txt
+Performance information written to performance_TPDB3.txt
+
+Creating TPDB3_COPY...
+Warning: Found path conflicts in TPDB3_COPY. Check conflicts_TPDB3_COPY.txt for details.
+TPDB3_COPY creation completed

@@ -1,0 +1,6 @@
+(format TRS)
+(fun f 2)
+(fun g 1)
+(fun a 0)
+(rule (f x a) (g x))
+(rule (g x) (f x x))

@@ -1,0 +1,6 @@
+(format TRS)
+(fun plus 3)
+(fun s 1)
+(fun p 1)
+(rule (plus (s x) y z) (plus x z (s y)))
+(rule (plus (p x) y z) (plus x (p y) z))
