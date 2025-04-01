@@ -194,7 +194,7 @@ splitAtCost input =
     case break (==':') (reverse input) of
         (rev_rest, ':':rev_terms) | "cost" `isPrefixOf` (reverse rev_rest) -> 
             let terms = reverse rev_terms
-                costValue = drop 4 (reverse rev_rest)
+                costValue = trim (drop 4 (reverse rev_rest))
             in (trim terms, Just (":cost " ++ costValue))
         _ -> (trim input, Nothing)
 
