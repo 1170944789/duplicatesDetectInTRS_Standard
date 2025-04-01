@@ -1,0 +1,15 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/nesteql.xml"
+(format TRS)
+(fun nesteql 1)
+(fun Nil 0)
+(fun Cons 2)
+(fun eql 1)
+(fun number17 1)
+(fun goal 1)
+(rule (nesteql Nil) (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil Nil))))))))))))))))))
+(rule (nesteql (Cons x xs)) (nesteql (eql (Cons x xs))))
+(rule (eql Nil) Nil)
+(rule (eql (Cons x xs)) (eql (Cons x xs)))
+(rule (number17 n) (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil Nil))))))))))))))))))
+(rule (goal x) (nesteql x))

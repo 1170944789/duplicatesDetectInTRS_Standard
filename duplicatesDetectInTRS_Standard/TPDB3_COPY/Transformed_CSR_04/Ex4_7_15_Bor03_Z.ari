@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex4_7_15_Bor03_Z.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex4_7_15_Bor03_Z.xml"
+(format TRS)
+(fun f 1)
+(fun |0| 0)
+(fun cons 2)
+(fun n__f 1)
+(fun s 1)
+(fun p 1)
+(fun activate 1)
+(rule (f |0|) (cons |0| (n__f (s |0|))))
+(rule (f (s |0|)) (f (p (s |0|))))
+(rule (p (s |0|)) |0|)
+(rule (f X) (n__f X))
+(rule (activate (n__f X)) (f X))
+(rule (activate X) X)

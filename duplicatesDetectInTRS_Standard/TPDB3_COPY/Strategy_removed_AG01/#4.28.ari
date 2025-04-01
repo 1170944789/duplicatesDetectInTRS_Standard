@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.28.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.28.xml"
+(format TRS)
+(fun half 1)
+(fun |0| 0)
+(fun s 1)
+(fun bits 1)
+(rule (half |0|) |0|)
+(rule (half (s |0|)) |0|)
+(rule (half (s (s x))) (s (half x)))
+(rule (bits |0|) |0|)
+(rule (bits (s x)) (s (bits (half (s x)))))

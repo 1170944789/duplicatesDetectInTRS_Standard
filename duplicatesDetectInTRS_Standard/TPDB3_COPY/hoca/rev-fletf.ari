@@ -1,0 +1,20 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/rev-fletf.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/rev-fletf.xml"
+(format TRS)
+(fun |rev_l#2| 2)
+(fun Cons 2)
+(fun |step_x_f#1| 4)
+(fun rev_l 0)
+(fun step_x_f 3)
+(fun fleft_op_e_xs_1 0)
+(fun |foldr#3| 1)
+(fun Nil 0)
+(fun main 1)
+(rule (|rev_l#2| x8 x10) (Cons x10 x8))
+(rule (|step_x_f#1| rev_l x5 (step_x_f x2 x3 x4) x1) (|step_x_f#1| x2 x3 x4 (|rev_l#2| x1 x5)))
+(rule (|step_x_f#1| rev_l x5 fleft_op_e_xs_1 x3) (|rev_l#2| x3 x5))
+(rule (|foldr#3| Nil) fleft_op_e_xs_1)
+(rule (|foldr#3| (Cons x16 x6)) (step_x_f rev_l x16 (|foldr#3| x6)))
+(rule (main Nil) Nil)
+(rule (main (Cons x8 x9)) (|step_x_f#1| rev_l x8 (|foldr#3| x9) Nil))

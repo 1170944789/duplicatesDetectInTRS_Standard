@@ -1,0 +1,8 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/ex7.xml"
+(format TRS)
+(fun s 1)
+(fun f 1)
+(fun inf 0)
+(rule (f (s x)) (f x))
+(rule inf (s inf) :cost 0)

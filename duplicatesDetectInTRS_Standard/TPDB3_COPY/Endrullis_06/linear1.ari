@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Endrullis/linear1.trs
+; @xtcfilename "./TRS_Standard/Endrullis_06/linear1.xml"
+(format TRS)
+(fun a 1)
+(fun f 2)
+(fun b 0)
+(rule (a (a (f b (a x)))) (f (a (a (a x))) b))
+(rule (a (a x)) (f b (a (f (a x) b))))
+(rule (f (a x) b) (f b (a x)))

@@ -1,0 +1,34 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/PALINDROME_nosorts_iGM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/PALINDROME_nosorts_iGM.xml"
+(format TRS)
+(fun active 1)
+(fun __ 2)
+(fun mark 1)
+(fun nil 0)
+(fun and 2)
+(fun tt 0)
+(fun isNePal 1)
+(rule (active (__ (__ X Y) Z)) (mark (__ X (__ Y Z))))
+(rule (active (__ X nil)) (mark X))
+(rule (active (__ nil X)) (mark X))
+(rule (active (and tt X)) (mark X))
+(rule (active (isNePal (__ I (__ P I)))) (mark tt))
+(rule (mark (__ X1 X2)) (active (__ (mark X1) (mark X2))))
+(rule (mark nil) (active nil))
+(rule (mark (and X1 X2)) (active (and (mark X1) X2)))
+(rule (mark tt) (active tt))
+(rule (mark (isNePal X)) (active (isNePal (mark X))))
+(rule (__ (mark X1) X2) (__ X1 X2))
+(rule (__ X1 (mark X2)) (__ X1 X2))
+(rule (__ (active X1) X2) (__ X1 X2))
+(rule (__ X1 (active X2)) (__ X1 X2))
+(rule (and (mark X1) X2) (and X1 X2))
+(rule (and X1 (mark X2)) (and X1 X2))
+(rule (and (active X1) X2) (and X1 X2))
+(rule (and X1 (active X2)) (and X1 X2))
+(rule (isNePal (mark X)) (isNePal X))
+(rule (isNePal (active X)) (isNePal X))

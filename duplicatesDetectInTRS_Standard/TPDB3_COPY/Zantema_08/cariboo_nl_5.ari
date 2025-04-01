@@ -1,0 +1,9 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/cariboo_nl_5.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/cariboo_nl_5.xml"
+(format TRS)
+(fun f 2)
+(fun g 1)
+(fun a 0)
+(rule (f x x) (g (f x x)))
+(rule (g x) a)

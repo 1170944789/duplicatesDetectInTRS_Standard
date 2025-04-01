@@ -1,0 +1,11 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt3-1.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt3-1.xml"
+(format TRS)
+(fun a 0)
+(fun f 3)
+(fun g 1)
+(rule (f (g x) y z) (f x y (g z)))
+(rule (f x y (g z)) (f x (g y) z) :cost 0)
+(rule (f x a z) (f x (g a) z) :cost 0)
+(rule (f x y z) (f x y (g z)) :cost 0)

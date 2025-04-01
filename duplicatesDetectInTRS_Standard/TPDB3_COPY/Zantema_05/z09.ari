@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema/z09.trs
+; @xtcfilename "./TRS_Standard/Zantema_05/z09.xml"
+(format TRS)
+(fun a 2)
+(fun lambda 1)
+(fun p 2)
+(fun |1| 0)
+(fun t 0)
+(rule (a (lambda x) y) (lambda (a x (p |1| (a y t)))))
+(rule (a (p x y) z) (p (a x z) (a y z)))
+(rule (a (a x y) z) (a x (a y z)))
+(rule (lambda x) x)
+(rule (a x y) x)
+(rule (a x y) y)
+(rule (p x y) x)
+(rule (p x y) y)

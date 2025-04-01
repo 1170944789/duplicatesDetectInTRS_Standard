@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex9_Luc04_L.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex9_Luc04_L.xml"
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun c 0)
+(fun b 0)
+(rule (f a X) (f X X))
+(rule c a)
+(rule c b)

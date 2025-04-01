@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex1_2_Luc02c_Z.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex1_2_Luc02c_Z.xml"
+(format TRS)
+(fun |2nd| 1)
+(fun cons 2)
+(fun n__cons 2)
+(fun activate 1)
+(fun from 1)
+(fun n__from 1)
+(fun s 1)
+(rule (|2nd| (cons X (n__cons Y Z))) (activate Y))
+(rule (from X) (cons X (n__from (s X))))
+(rule (cons X1 X2) (n__cons X1 X2))
+(rule (from X) (n__from X))
+(rule (activate (n__cons X1 X2)) (cons X1 X2))
+(rule (activate (n__from X)) (from X))
+(rule (activate X) X)

@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HM/t007.trs
+; @xtcfilename "./TRS_Standard/HirokawaMiddeldorp_04/t007.xml"
+(format TRS)
+(fun f 1)
+(fun a 0)
+(fun b 0)
+(fun g 1)
+(rule (f a) (f b))
+(rule (g b) (g a))
+(rule (f x) (g x))

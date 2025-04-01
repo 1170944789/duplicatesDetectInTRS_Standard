@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/quotminus.trs
+; @xtcfilename "./TRS_Standard/Rubio_04/quotminus.xml"
+(format TRS)
+(fun plus 2)
+(fun |0| 0)
+(fun s 1)
+(fun min 2)
+(fun Z 0)
+(fun quot 2)
+(rule (plus |0| Y) Y)
+(rule (plus (s X) Y) (s (plus X Y)))
+(rule (min X |0|) X)
+(rule (min (s X) (s Y)) (min X Y))
+(rule (min (min X Y) Z) (min X (plus Y Z)))
+(rule (quot |0| (s Y)) |0|)
+(rule (quot (s X) (s Y)) (s (quot (min X Y) (s Y))))

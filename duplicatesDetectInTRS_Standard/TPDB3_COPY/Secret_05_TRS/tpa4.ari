@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret05/tpa4.trs
+; @xtcfilename "./TRS_Standard/Secret_05_TRS/tpa4.xml"
+(format TRS)
+(fun - 2)
+(fun |0| 0)
+(fun s 1)
+(fun + 2)
+(fun * 2)
+(fun p 1)
+(fun f 1)
+(rule (- x |0|) x)
+(rule (- (s x) (s y)) (- x y))
+(rule (+ |0| y) y)
+(rule (+ (s x) y) (s (+ x y)))
+(rule (* x |0|) |0|)
+(rule (* x (s y)) (+ x (* x y)))
+(rule (p (s x)) x)
+(rule (f (s x)) (f (- (p (* (s x) (s x))) (* (s x) (s x)))))

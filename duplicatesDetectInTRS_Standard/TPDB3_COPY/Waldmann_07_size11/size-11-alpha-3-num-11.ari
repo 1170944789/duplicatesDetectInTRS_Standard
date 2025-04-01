@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Waldmann07a/size-11-alpha-3-num-11.srs
+; @xtcfilename "./SRS_Standard/Waldmann_07_size11/size-11-alpha-3-num-11.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a x1) (b x1))
+(rule (a (c x1)) (c (c (a (b x1)))))
+(rule (b (b x1)) (a x1))

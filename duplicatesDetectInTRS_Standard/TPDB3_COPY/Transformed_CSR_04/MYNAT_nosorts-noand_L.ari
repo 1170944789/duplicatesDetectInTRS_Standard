@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/MYNAT_nosorts-noand_L.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/MYNAT_nosorts-noand_L.xml"
+(format TRS)
+(fun U12 1)
+(fun tt 0)
+(fun s 1)
+(fun plus 2)
+(fun U22 1)
+(fun x 2)
+(fun U11 1)
+(fun U21 1)
+(fun |0| 0)
+(rule (U12 tt) (s (plus N M)))
+(rule (U22 tt) (plus (x N M) N))
+(rule (U11 tt) (U12 tt))
+(rule (U21 tt) (U22 tt))
+(rule (plus N |0|) N)
+(rule (plus N (s M)) (U11 tt))
+(rule (x N |0|) |0|)
+(rule (x N (s M)) (U21 tt))

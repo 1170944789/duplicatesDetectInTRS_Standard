@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/logarquot.trs
+; @xtcfilename "./TRS_Standard/Rubio_04/logarquot.xml"
+(format TRS)
+(fun min 2)
+(fun |0| 0)
+(fun s 1)
+(fun quot 2)
+(fun log 1)
+(rule (min X |0|) X)
+(rule (min (s X) (s Y)) (min X Y))
+(rule (quot |0| (s Y)) |0|)
+(rule (quot (s X) (s Y)) (s (quot (min X Y) (s Y))))
+(rule (log (s |0|)) |0|)
+(rule (log (s (s X))) (s (log (s (quot X (s (s |0|)))))))

@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/otto10.trs
+; @xtcfilename "./TRS_Standard/AProVE_07/otto10.xml"
+(format TRS)
+(fun ge 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun rev 1)
+(fun if 5)
+(fun eq 2)
+(fun length 1)
+(fun nil 0)
+(fun help 4)
+(fun cons 2)
+(fun append 2)
+(rule (ge x |0|) true)
+(rule (ge |0| (s y)) false)
+(rule (ge (s x) (s y)) (ge x y))
+(rule (rev x) (if x (eq |0| (length x)) nil |0| (length x)))
+(rule (if x true z c l) z)
+(rule (if x false z c l) (help (s c) l x z))
+(rule (help c l (cons x y) z) (if (append y (cons x nil)) (ge c l) (cons x z) c l))
+(rule (append nil y) y)
+(rule (append (cons x y) z) (cons x (append y z)))
+(rule (length nil) |0|)
+(rule (length (cons x y)) (s (length y)))

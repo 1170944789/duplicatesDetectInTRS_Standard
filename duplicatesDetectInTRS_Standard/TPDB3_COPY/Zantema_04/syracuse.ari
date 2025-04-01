@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema/syracuse.srs
+; @xtcfilename "./SRS_Standard/Zantema_04/syracuse.xml"
+(format TRS)
+(fun h 1)
+(fun |1| 1)
+(fun b 1)
+(fun s 1)
+(fun t 1)
+(rule (h (|1| (|1| x1))) (|1| (h x1)))
+(rule (|1| (|1| (h (b x1)))) (|1| (|1| (s (b x1)))))
+(rule (|1| (s x1)) (s (|1| x1)))
+(rule (b (s x1)) (b (h x1)))
+(rule (h (|1| (b x1))) (t (|1| (|1| (b x1)))))
+(rule (|1| (t x1)) (t (|1| (|1| (|1| x1)))))
+(rule (b (t x1)) (b (h x1)))

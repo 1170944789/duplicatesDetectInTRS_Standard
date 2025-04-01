@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex24_GM04_FR.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex24_GM04_FR.xml"
+(format TRS)
+(fun f 3)
+(fun n__g 1)
+(fun activate 1)
+(fun g 1)
+(fun b 0)
+(fun c 0)
+(rule (f X (n__g X) Y) (f (activate Y) (activate Y) (activate Y)))
+(rule (g b) c)
+(rule b c)
+(rule (g X) (n__g X))
+(rule (activate (n__g X)) (g (activate X)))
+(rule (activate X) X)

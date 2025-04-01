@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex24_Luc06_C.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex24_Luc06_C.xml"
+(format TRS)
+(fun active 1)
+(fun f 3)
+(fun b 0)
+(fun c 0)
+(fun mark 1)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active (f b X c)) (mark (f X c X)))
+(rule (active c) (mark b))
+(rule (active (f X1 X2 X3)) (f X1 (active X2) X3))
+(rule (f X1 (mark X2) X3) (mark (f X1 X2 X3)))
+(rule (proper (f X1 X2 X3)) (f (proper X1) (proper X2) (proper X3)))
+(rule (proper b) (ok b))
+(rule (proper c) (ok c))
+(rule (f (ok X1) (ok X2) (ok X3)) (ok (f X1 X2 X3)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

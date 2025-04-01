@@ -1,0 +1,10 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/assoc_f_rhs.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/assoc_f_rhs.xml"
+(format TRS)
+(fun f 2)
+(fun c 0)
+(fun a 0)
+(rule (f (f x y) z) (f c x))
+(rule (f x (f y z)) (f (f x y) z))
+(rule a (f a a))

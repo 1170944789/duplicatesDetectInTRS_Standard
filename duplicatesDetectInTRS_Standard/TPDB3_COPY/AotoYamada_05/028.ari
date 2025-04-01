@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AotoYam/028.trs
+; @xtcfilename "./TRS_Standard/AotoYamada_05/028.xml"
+(format TRS)
+(fun app 2)
+(fun consif 0)
+(fun true 0)
+(fun cons 0)
+(fun false 0)
+(fun filter 0)
+(fun nil 0)
+(rule (app (app (app consif true) x) ys) (app (app cons x) ys))
+(rule (app (app (app consif false) x) ys) ys)
+(rule (app (app filter f) nil) nil)
+(rule (app (app filter f) (app (app cons x) xs)) (app (app (app consif (app f x)) x) (app (app filter f) xs)))

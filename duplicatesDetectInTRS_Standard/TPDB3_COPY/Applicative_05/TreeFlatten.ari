@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Bird/TreeFlatten.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/TreeFlatten.xml"
+(format TRS)
+(fun app 2)
+(fun map 0)
+(fun nil 0)
+(fun cons 0)
+(fun flatten 0)
+(fun node 0)
+(fun concat 0)
+(fun append 0)
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons x) xs)) (app (app cons (app f x)) (app (app map f) xs)))
+(rule (app flatten (app (app node x) xs)) (app (app cons x) (app concat (app (app map flatten) xs))))
+(rule (app concat nil) nil)
+(rule (app concat (app (app cons x) xs)) (app (app append x) (app concat xs)))
+(rule (app (app append nil) xs) xs)
+(rule (app (app append (app (app cons x) xs)) ys) (app (app cons x) (app (app append xs) ys)))

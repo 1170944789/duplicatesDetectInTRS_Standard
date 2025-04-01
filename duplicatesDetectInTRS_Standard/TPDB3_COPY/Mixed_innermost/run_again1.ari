@@ -1,0 +1,13 @@
+; @tag TRS_Innermost
+; @xtcfilename "./TRS_Innermost/Mixed_innermost/run_again1.xml"
+(format TRS)
+(fun ack 2)
+(fun |0| 0)
+(fun s 1)
+(fun init 0)
+(fun run_again 1)
+(rule (ack |0| y) (s y))
+(rule (ack (s x) |0|) (ack x (s |0|)))
+(rule (ack (s x) (s y)) (ack x (ack (s x) y)))
+(rule init (ack (s (s (s (s (s (s (s |0|))))))) |0|))
+(rule (run_again x) (run_again init))

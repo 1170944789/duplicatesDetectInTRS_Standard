@@ -1,0 +1,8 @@
+; @tag SRS_Cycle
+; @tag SRS_Standard
+; @origtpdbfilename /tmp/tmp0m10r99x.srs
+; @xtcfilename "./SRS_Standard/Wenzel_16/ababaabababa-abaababababaab.srs.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a (b (a (a (b (a (b (a (b (a x1)))))))))))) (a (b (a (a (b (a (b (a (b (a (b (a (a (b x1)))))))))))))))

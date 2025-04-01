@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.40.trs
+; @xtcfilename "./TRS_Standard/SK90/4.40.xml"
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(rule (f (f (f a x) y) z) (f (f x z) (f y z)))
+(rule (f (f b x) y) x)
+(rule (f c y) y)

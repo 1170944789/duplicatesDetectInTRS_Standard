@@ -1,0 +1,8 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/g_2_f_var.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/g_2_f_var.xml"
+(format TRS)
+(fun f 1)
+(fun g 1)
+(rule (f x) (g (f x)))
+(rule (g (g (f x))) x)

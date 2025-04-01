@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.38.trs
+; @xtcfilename "./TRS_Standard/SK90/2.38.xml"
+(format TRS)
+(fun ++ 2)
+(fun nil 0)
+(fun . 2)
+(rule (++ nil y) y)
+(rule (++ x nil) x)
+(rule (++ (. x y) z) (. x (++ y z)))
+(rule (++ (++ x y) z) (++ x (++ y z)))

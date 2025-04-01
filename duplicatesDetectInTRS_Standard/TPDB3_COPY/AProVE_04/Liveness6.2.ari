@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/Liveness6.2.trs
+; @xtcfilename "./TRS_Standard/AProVE_04/Liveness6.2.xml"
+(format TRS)
+(fun top 1)
+(fun sent 1)
+(fun check 1)
+(fun rest 1)
+(fun nil 0)
+(fun cons 2)
+(rule (top (sent x)) (top (check (rest x))))
+(rule (rest nil) (sent nil))
+(rule (rest (cons x y)) (sent y))
+(rule (check (sent x)) (sent (check x)))
+(rule (check (rest x)) (rest (check x)))
+(rule (check (cons x y)) (cons (check x) y))
+(rule (check (cons x y)) (cons x (check y)))
+(rule (check (cons x y)) (cons x y))

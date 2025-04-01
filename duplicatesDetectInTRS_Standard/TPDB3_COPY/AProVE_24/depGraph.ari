@@ -1,0 +1,11 @@
+; @tag TRS_Relative
+; @origtpdbfilename depGraph.trs
+; @xtcfilename "../xml/depGraph.trs.xml"
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 3)
+(rule (f a b x) (f x x x))
+(rule (f x y z) (f y x z) :cost 0)
+(rule (f x y z) (f x z y) :cost 0)
+(rule (f x y z) (f z y x) :cost 0)

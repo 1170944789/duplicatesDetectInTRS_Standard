@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret05/torpa4.srs
+; @xtcfilename "./SRS_Standard/Secret_05_SRS/torpa4.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(fun d 1)
+(fun f 1)
+(fun g 1)
+(rule (a (b (c (a x1)))) (b (a (c (b (a (b x1)))))))
+(rule (a (d x1)) (c x1))
+(rule (a (f (f x1))) (g x1))
+(rule (b (g x1)) (g (b x1)))
+(rule (c x1) (f (f x1)))
+(rule (c (a (c x1))) (b (c (a (b (c x1))))))
+(rule (c (d x1)) (a (a x1)))
+(rule (g x1) (c (a x1)))
+(rule (g x1) (d (d (d (d x1)))))

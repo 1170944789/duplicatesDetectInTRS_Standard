@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret07/TTT2/5.trs
+; @xtcfilename "./TRS_Standard/Secret_07_TRS/5.xml"
+(format TRS)
+(fun g 3)
+(fun c 0)
+(fun d 0)
+(fun e 0)
+(fun s 1)
+(fun f 2)
+(fun a 0)
+(fun h 2)
+(fun b 0)
+(rule (g x x x) (g c d e))
+(rule (g x y x) (g c d e))
+(rule (s (f x y)) (f y (f (s (s x)) a)))
+(rule (h (h x a) y) (h (h a y) (h a x)))
+(rule (f x (f y (f x y))) (f a (f x (f y b))))
+(rule (f (h a y) (g x b a)) (h (f x (s y)) (s b)))
+(rule (h (f x (s y)) b) (f a (g y a (f (s x) a))))
+(rule (f x (g x a (f (s x) y))) (f (h x b) (g a b y)))
+(rule (s y) b)

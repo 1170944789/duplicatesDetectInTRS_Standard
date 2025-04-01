@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExConc_Zan97_Z.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExConc_Zan97_Z.xml"
+(format TRS)
+(fun f 1)
+(fun g 1)
+(fun n__h 1)
+(fun h 1)
+(fun activate 1)
+(rule (f X) (g (n__h (f X))))
+(rule (h X) (n__h X))
+(rule (activate (n__h X)) (h X))
+(rule (activate X) X)

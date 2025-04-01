@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HM/t012.trs
+; @xtcfilename "./TRS_Standard/HirokawaMiddeldorp_04/t012.xml"
+(format TRS)
+(fun minus 1)
+(fun + 2)
+(fun * 2)
+(fun f 1)
+(rule (minus (minus x)) x)
+(rule (minus (+ x y)) (* (minus (minus (minus x))) (minus (minus (minus y)))))
+(rule (minus (* x y)) (+ (minus (minus (minus x))) (minus (minus (minus y)))))
+(rule (f (minus x)) (minus (minus (minus (f x)))))

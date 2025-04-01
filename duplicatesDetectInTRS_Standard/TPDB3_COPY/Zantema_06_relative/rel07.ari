@@ -1,0 +1,16 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/Zantema06/rel07.srs
+; @xtcfilename "./SRS_Relative/Zantema_06_relative/rel07.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun d 1)
+(fun c 1)
+(rule (a (d x1)) (d (b x1)))
+(rule (a x1) (b (b (b x1))))
+(rule (d x1) x1)
+(rule (a x1) x1)
+(rule (b (c x1)) (c (d (d x1))))
+(rule (a (c x1)) (b (b (c (d x1)))))
+(rule (b (d (b x1))) (a (d x1)) :cost 0)
+(rule (a (d x1)) (b (d (b x1))) :cost 0)

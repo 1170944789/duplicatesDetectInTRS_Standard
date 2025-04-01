@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Waldmann/jw3.srs
+; @xtcfilename "./SRS_Standard/Waldmann_06_SRS/jw3.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun P 1)
+(fun x 1)
+(fun Q 1)
+(rule (a (b (b x1))) (P (a (b x1))))
+(rule (a (P x1)) (P (a (x x1))))
+(rule (a (x x1)) (x (a x1)))
+(rule (b (P x1)) (b (Q x1)))
+(rule (Q (x x1)) (a (Q x1)))
+(rule (Q (a x1)) (b (b (a x1))))

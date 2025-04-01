@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret05/jambox2.srs
+; @xtcfilename "./SRS_Standard/Secret_05_SRS/jambox2.xml"
+(format TRS)
+(fun a 1)
+(fun c 1)
+(fun b 1)
+(rule (a (c (b (b x1)))) (b (b (b (c x1)))))
+(rule (b (b (c x1))) (b (a (b (b x1)))))
+(rule (c (a (a (a x1)))) (a (c x1)))
+(rule (b (b (b x1))) (c (b (a (c x1)))))

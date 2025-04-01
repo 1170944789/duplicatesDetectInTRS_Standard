@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/CSR/Ex6_9_Luc02c.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_CSR_05/Ex6_9_Luc02c.xml"
+(format TRS)
+(fun |2nd| 1)
+(fun cons1 2)
+(fun cons 2)
+(fun from 1)
+(fun s 1)
+(rule (|2nd| (cons1 X (cons Y Z))) Y)
+(rule (|2nd| (cons X X1)) (|2nd| (cons1 X X1)))
+(rule (from X) (cons X (from (s X))))

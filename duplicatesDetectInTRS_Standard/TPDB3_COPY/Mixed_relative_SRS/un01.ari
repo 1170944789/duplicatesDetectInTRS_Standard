@@ -1,0 +1,9 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/Trafo/un01.srs
+; @xtcfilename "./SRS_Relative/Mixed_relative_SRS/un01.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (b (b (a (a (b (a (b x1))))))) (b (a (b (b (a (b (b x1))))))))
+(rule (b (b (b x1))) (b (b (a (b (b x1))))))
+(rule (b (a (b x1))) (b (a (b (a (a (b x1)))))) :cost 0)

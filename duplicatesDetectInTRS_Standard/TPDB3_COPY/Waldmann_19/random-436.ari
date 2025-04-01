@@ -1,0 +1,9 @@
+; @tag SRS_Standard
+; @origtpdbfilename random-436.srs
+; @xtcfilename "./SRS_Standard/Waldmann_19/random-436.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (b (a x1)))) (a (b (a (b x1)))))
+(rule (a (a (b (a x1)))) (a (b (b (a x1)))))
+(rule (a (a (b (b x1)))) (b (b (a (a x1)))))

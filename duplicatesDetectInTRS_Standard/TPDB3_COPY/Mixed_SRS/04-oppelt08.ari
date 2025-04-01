@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/oppelt08/04.srs
+; @xtcfilename "./SRS_Standard/Mixed_SRS/04-oppelt08.xml"
+(format TRS)
+(fun b 1)
+(fun a 1)
+(fun c 1)
+(rule (b (b x1)) (b (a x1)))
+(rule (a (b x1)) (b (c (c x1))))
+(rule (a (c x1)) (a (a x1)))
+(rule (c (a x1)) (b (a (a x1))))

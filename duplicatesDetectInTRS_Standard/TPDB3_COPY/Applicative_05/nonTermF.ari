@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AProVE_HO/nonTermF.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/nonTermF.xml"
+(format TRS)
+(fun ap 2)
+(fun f 0)
+(fun cons 0)
+(fun nil 0)
+(fun foldr 0)
+(rule (ap (ap f x) x) (ap (ap x (ap f x)) (ap (ap cons x) nil)))
+(rule (ap (ap (ap foldr g) h) nil) h)
+(rule (ap (ap (ap foldr g) h) (ap (ap cons x) xs)) (ap (ap g x) (ap (ap (ap foldr g) h) xs)))

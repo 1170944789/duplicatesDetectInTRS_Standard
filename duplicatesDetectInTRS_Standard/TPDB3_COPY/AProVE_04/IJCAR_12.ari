@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/IJCAR_12.trs
+; @xtcfilename "./TRS_Standard/AProVE_04/IJCAR_12.xml"
+(format TRS)
+(fun plus 2)
+(fun |0| 0)
+(fun s 1)
+(fun times 2)
+(fun div 2)
+(fun quot 3)
+(rule (plus x |0|) x)
+(rule (plus |0| y) y)
+(rule (plus (s x) y) (s (plus x y)))
+(rule (times |0| y) |0|)
+(rule (times (s |0|) y) y)
+(rule (times (s x) y) (plus y (times x y)))
+(rule (div |0| y) |0|)
+(rule (div x y) (quot x y y))
+(rule (quot |0| (s y) z) |0|)
+(rule (quot (s x) (s y) z) (quot x y z))
+(rule (quot x |0| (s z)) (s (div x (s z))))
+(rule (div (div x y) z) (div x (times y z)))

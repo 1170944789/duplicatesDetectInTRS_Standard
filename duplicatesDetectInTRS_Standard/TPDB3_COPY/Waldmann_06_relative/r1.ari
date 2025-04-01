@@ -1,0 +1,8 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/Waldmann/r1.srs
+; @xtcfilename "./SRS_Relative/Waldmann_06_relative/r1.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (b (b (a x1))))) x1)
+(rule x1 (a (b (a x1))) :cost 0)

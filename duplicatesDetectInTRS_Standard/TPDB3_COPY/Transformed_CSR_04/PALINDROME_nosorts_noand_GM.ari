@@ -1,0 +1,35 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/PALINDROME_nosorts_noand_GM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/PALINDROME_nosorts_noand_GM.xml"
+(format TRS)
+(fun a____ 2)
+(fun __ 2)
+(fun mark 1)
+(fun nil 0)
+(fun a__U11 1)
+(fun tt 0)
+(fun a__U12 1)
+(fun a__isNePal 1)
+(fun U11 1)
+(fun U12 1)
+(fun isNePal 1)
+(rule (a____ (__ X Y) Z) (a____ (mark X) (a____ (mark Y) (mark Z))))
+(rule (a____ X nil) (mark X))
+(rule (a____ nil X) (mark X))
+(rule (a__U11 tt) (a__U12 tt))
+(rule (a__U12 tt) tt)
+(rule (a__isNePal (__ I (__ P I))) (a__U11 tt))
+(rule (mark (__ X1 X2)) (a____ (mark X1) (mark X2)))
+(rule (mark (U11 X)) (a__U11 (mark X)))
+(rule (mark (U12 X)) (a__U12 (mark X)))
+(rule (mark (isNePal X)) (a__isNePal (mark X)))
+(rule (mark nil) nil)
+(rule (mark tt) tt)
+(rule (a____ X1 X2) (__ X1 X2))
+(rule (a__U11 X) (U11 X))
+(rule (a__U12 X) (U12 X))
+(rule (a__isNePal X) (isNePal X))

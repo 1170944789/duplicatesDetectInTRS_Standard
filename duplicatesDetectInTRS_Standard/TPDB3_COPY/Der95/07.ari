@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/07.trs
+; @xtcfilename "./TRS_Standard/Der95/07.xml"
+(format TRS)
+(fun w 1)
+(fun r 1)
+(fun b 1)
+(rule (w (r x)) (r (w x)))
+(rule (b (r x)) (r (b x)))
+(rule (b (w x)) (w (b x)))

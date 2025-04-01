@@ -1,0 +1,26 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Bird/TreeHeight.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/TreeHeight.xml"
+(format TRS)
+(fun app 2)
+(fun map 0)
+(fun nil 0)
+(fun cons 0)
+(fun le 0)
+(fun |0| 0)
+(fun true 0)
+(fun s 0)
+(fun false 0)
+(fun maxlist 0)
+(fun if 0)
+(fun height 0)
+(fun node 0)
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons x) xs)) (app (app cons (app f x)) (app (app map f) xs)))
+(rule (app (app le |0|) y) true)
+(rule (app (app le (app s x)) |0|) false)
+(rule (app (app le (app s x)) (app s y)) (app (app le x) y))
+(rule (app (app maxlist x) (app (app cons y) ys)) (app (app if (app (app le x) y)) (app (app maxlist y) ys)))
+(rule (app (app maxlist x) nil) x)
+(rule (app height (app (app node x) xs)) (app s (app (app maxlist |0|) (app (app map height) xs))))

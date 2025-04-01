@@ -1,0 +1,11 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Zantema_15/ex13.xml"
+(format TRS)
+(fun f 2)
+(fun s 1)
+(fun d 1)
+(fun |0| 0)
+(rule (f x (s y)) (f (d x) y))
+(rule (f x |0|) (f (s |0|) x))
+(rule (d |0|) |0|)
+(rule (d (s x)) (s (s (d x))))

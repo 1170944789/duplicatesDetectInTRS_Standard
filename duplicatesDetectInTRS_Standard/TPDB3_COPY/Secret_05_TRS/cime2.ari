@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret05/cime2.trs
+; @xtcfilename "./TRS_Standard/Secret_05_TRS/cime2.xml"
+(format TRS)
+(fun circ 2)
+(fun cons 2)
+(fun msubst 2)
+(fun lift 0)
+(fun id 0)
+(fun subst 2)
+(rule (circ (cons a s) t) (cons (msubst a t) (circ s t)))
+(rule (circ (cons lift s) (cons a t)) (cons a (circ s t)))
+(rule (circ (cons lift s) (cons lift t)) (cons lift (circ s t)))
+(rule (circ (circ s t) u) (circ s (circ t u)))
+(rule (circ s id) s)
+(rule (circ id s) s)
+(rule (circ (cons lift s) (circ (cons lift t) u)) (circ (cons lift (circ s t)) u))
+(rule (subst a id) a)
+(rule (msubst a id) a)
+(rule (msubst (msubst a s) t) (msubst a (circ s t)))

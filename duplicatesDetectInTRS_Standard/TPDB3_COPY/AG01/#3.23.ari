@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.23.trs
+; @xtcfilename "./TRS_Standard/AG01/#3.23.xml"
+(format TRS)
+(fun f 2)
+(fun |0| 0)
+(fun s 1)
+(rule (f |0| y) |0|)
+(rule (f (s x) y) (f (f x y) y))

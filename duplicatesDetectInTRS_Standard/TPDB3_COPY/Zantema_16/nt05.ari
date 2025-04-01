@@ -1,0 +1,8 @@
+; @tag SRS_Cycle
+; @origtpdbfilename nt05.srs
+; @xtcfilename "./SRS_Cycle/Zantema_16/nt05.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (b (c x1))) (c (b (a x1))))

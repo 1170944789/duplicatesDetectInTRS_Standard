@@ -1,0 +1,12 @@
+; @tag SRS_Relative
+; @origtpdbfilename random-120.srs
+; @xtcfilename "./SRS_Relative/Waldmann_19/random-120.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (c (c (a x1))) (c (c (b x1))))
+(rule (b (b (c x1))) (a (a (b x1))))
+(rule (b (a (b x1))) (a (c (b x1))) :cost 0)
+(rule (c (a (a x1))) (b (a (b x1))) :cost 0)
+(rule (c (c (c x1))) (c (a (c x1))) :cost 0)

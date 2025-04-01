@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.03.trs
+; @xtcfilename "./TRS_Standard/SK90/4.03.xml"
+(format TRS)
+(fun + 2)
+(fun |0| 0)
+(fun minus 1)
+(fun * 2)
+(fun |1| 0)
+(rule (+ x |0|) x)
+(rule (+ (minus x) x) |0|)
+(rule (minus |0|) |0|)
+(rule (minus (minus x)) x)
+(rule (minus (+ x y)) (+ (minus y) (minus x)))
+(rule (* x |1|) x)
+(rule (* x |0|) |0|)
+(rule (* x (+ y z)) (+ (* x y) (* x z)))
+(rule (* x (minus y)) (minus (* x y)))

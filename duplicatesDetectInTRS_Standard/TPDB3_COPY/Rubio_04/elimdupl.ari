@@ -1,0 +1,27 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/elimdupl.trs
+; @xtcfilename "./TRS_Standard/Rubio_04/elimdupl.xml"
+(format TRS)
+(fun eq 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun rm 2)
+(fun nil 0)
+(fun add 2)
+(fun ifrm 3)
+(fun purge 1)
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s X)) false)
+(rule (eq (s X) |0|) false)
+(rule (eq (s X) (s Y)) (eq X Y))
+(rule (rm N nil) nil)
+(rule (rm N (add M X)) (ifrm (eq N M) N (add M X)))
+(rule (ifrm true N (add M X)) (rm N X))
+(rule (ifrm false N (add M X)) (add M (rm N X)))
+(rule (purge nil) nil)
+(rule (purge (add N X)) (add N (purge (rm N X))))

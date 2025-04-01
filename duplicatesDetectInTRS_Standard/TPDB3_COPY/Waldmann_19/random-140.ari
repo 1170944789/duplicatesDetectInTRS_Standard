@@ -1,0 +1,13 @@
+; @tag SRS_Relative
+; @origtpdbfilename random-140.srs
+; @xtcfilename "./SRS_Relative/Waldmann_19/random-140.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (c (c (c x1))) (a (a (c x1))))
+(rule (b (a (a x1))) (b (b (c x1))))
+(rule (c (a (c x1))) (a (c (c x1))))
+(rule (b (c (c x1))) (b (c (b x1))))
+(rule (a (a (b x1))) (c (b (a x1))) :cost 0)
+(rule (a (b (a x1))) (a (c (c x1))) :cost 0)

@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Trafo/dup14.srs
+; @xtcfilename "./SRS_Standard/Trafo_06/dup14.xml"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a (b (b (b (b (a (a x1)))))))) (a (a (c (c (a (a (b (b x1)))))))))
+(rule (a (a (c (c x1)))) (c (c (c (c (a (a x1)))))))
+(rule (c (c (c (c (c (c x1)))))) (b (b (c (c (b (b x1)))))))

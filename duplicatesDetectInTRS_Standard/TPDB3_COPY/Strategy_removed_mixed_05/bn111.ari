@@ -1,0 +1,9 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/Rubio-inn/bn111.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/bn111.xml"
+(format TRS)
+(fun f 2)
+(rule (f (f X Y) Z) (f X (f Y Z)))
+(rule (f X (f Y Z)) (f Y Y))

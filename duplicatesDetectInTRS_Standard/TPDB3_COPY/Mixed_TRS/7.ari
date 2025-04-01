@@ -1,0 +1,8 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HofWald/7.trs
+; @xtcfilename "./TRS_Standard/Mixed_TRS/7.xml"
+(format TRS)
+(fun f 2)
+(fun j 0)
+(rule (f (f (f (f j a) b) c) d) (f (f a b) (f (f a d) c)))

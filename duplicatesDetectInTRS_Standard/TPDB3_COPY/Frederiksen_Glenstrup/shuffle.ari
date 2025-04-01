@@ -1,0 +1,16 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/shuffle.xml"
+(format TRS)
+(fun shuffle 1)
+(fun Cons 2)
+(fun reverse 1)
+(fun append 2)
+(fun Nil 0)
+(fun goal 1)
+(rule (shuffle (Cons x xs)) (Cons x (shuffle (reverse xs))))
+(rule (reverse (Cons x xs)) (append (reverse xs) (Cons x Nil)))
+(rule (append (Cons x xs) ys) (Cons x (append xs ys)))
+(rule (shuffle Nil) Nil)
+(rule (reverse Nil) Nil)
+(rule (append Nil ys) ys)
+(rule (goal xs) (shuffle xs))

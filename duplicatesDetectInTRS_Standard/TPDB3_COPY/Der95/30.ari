@@ -1,0 +1,8 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/30.trs
+; @xtcfilename "./TRS_Standard/Der95/30.xml"
+(format TRS)
+(fun |:| 2)
+(fun C 0)
+(rule (|:| (|:| (|:| (|:| C x) y) z) u) (|:| (|:| x z) (|:| (|:| (|:| x y) z) u)))

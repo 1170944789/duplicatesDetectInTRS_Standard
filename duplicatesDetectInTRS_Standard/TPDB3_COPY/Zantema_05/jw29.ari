@@ -1,0 +1,9 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema/jw29.trs
+; @xtcfilename "./TRS_Standard/Zantema_05/jw29.xml"
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f (f a a) x) (f x (f (f a (f a a)) a)))

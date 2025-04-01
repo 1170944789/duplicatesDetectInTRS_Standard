@@ -1,0 +1,23 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename Frederiksen_Glenstrup/mergelists.tml.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/mergelists.xml"
+(format TRS)
+(fun <= 2)
+(fun |merge[Ite]| 3)
+(fun True 0)
+(fun S 1)
+(fun Cons 2)
+(fun Nil 0)
+(fun |0| 0)
+(fun merge 2)
+(fun goal 2)
+(fun False 0)
+(rule (merge (Cons x xs) Nil) (Cons x xs))
+(rule (merge (Cons |x'| |xs'|) (Cons x xs)) (|merge[Ite]| (<= |x'| x) (Cons |x'| |xs'|) (Cons x xs)))
+(rule (merge Nil ys) ys)
+(rule (goal xs ys) (merge xs ys))
+(rule (<= (S x) (S y)) (<= x y) :cost 0)
+(rule (<= |0| y) True :cost 0)
+(rule (<= (S x) |0|) False :cost 0)
+(rule (|merge[Ite]| False |xs'| (Cons x xs)) (Cons x (merge |xs'| xs)) :cost 0)
+(rule (|merge[Ite]| True (Cons x xs) ys) (Cons x (merge xs ys)) :cost 0)

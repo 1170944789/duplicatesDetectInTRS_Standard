@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.29.trs
+; @xtcfilename "./TRS_Standard/SK90/4.29.xml"
+(format TRS)
+(fun merge 2)
+(fun nil 0)
+(fun ++ 2)
+(fun u 0)
+(fun v 0)
+(rule (merge x nil) x)
+(rule (merge nil y) y)
+(rule (merge (++ x y) (++ u v)) (++ x (merge y (++ u v))))
+(rule (merge (++ x y) (++ u v)) (++ u (merge (++ x y) v)))

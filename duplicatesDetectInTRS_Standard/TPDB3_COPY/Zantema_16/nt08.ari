@@ -1,0 +1,10 @@
+; @tag SRS_Cycle
+; @origtpdbfilename nt08.srs
+; @xtcfilename "./SRS_Cycle/Zantema_16/nt08.xml"
+(format TRS)
+(fun |0| 1)
+(fun |1| 1)
+(fun a 1)
+(rule (|0| (|1| (a x1))) (a (|1| (|0| (|1| x1)))))
+(rule (|1| (|0| (a x1))) (a (|1| (|0| (|1| x1)))))
+(rule (|1| (|1| (a x1))) (a (|0| (|1| (|1| x1)))))

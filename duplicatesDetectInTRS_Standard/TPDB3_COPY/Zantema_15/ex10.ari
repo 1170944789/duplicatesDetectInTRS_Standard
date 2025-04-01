@@ -1,0 +1,11 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Zantema_15/ex10.xml"
+(format TRS)
+(fun R 2)
+(fun a 1)
+(fun b 0)
+(fun L 2)
+(rule (R x (a y)) (R (a x) y))
+(rule (R x b) (L x (a b)))
+(rule (L (a x) y) (L x (a y)))
+(rule (L b x) (R (a b) x))

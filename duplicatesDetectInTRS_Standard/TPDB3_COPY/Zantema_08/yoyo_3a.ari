@@ -1,0 +1,14 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/yoyo_3a.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/yoyo_3a.xml"
+(format TRS)
+(fun f 1)
+(fun c 0)
+(fun b 1)
+(fun u 1)
+(fun g 1)
+(rule (f (f (f x))) c)
+(rule (b (u x)) (b (f x)))
+(rule (f (g x)) (f (f x)))
+(rule (f (b x)) (u (g (b x))))
+(rule (f (u x)) (u (g x)))

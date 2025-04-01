@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/otto13.trs
+; @xtcfilename "./TRS_Standard/AProVE_07/otto13.xml"
+(format TRS)
+(fun le 3)
+(fun |0| 0)
+(fun greater 2)
+(fun s 1)
+(fun false 0)
+(fun first 0)
+(fun second 0)
+(fun double 1)
+(fun triple 1)
+(fun if 4)
+(fun true 0)
+(rule (le |0| y z) (greater y z))
+(rule (le (s x) |0| z) false)
+(rule (le (s x) (s y) |0|) false)
+(rule (le (s x) (s y) (s z)) (le x y z))
+(rule (greater x |0|) first)
+(rule (greater |0| (s y)) second)
+(rule (greater (s x) (s y)) (greater x y))
+(rule (double |0|) |0|)
+(rule (double (s x)) (s (s (double x))))
+(rule (triple x) (if (le x x (double x)) x |0| |0|))
+(rule (if false x y z) true)
+(rule (if first x y z) (if (le (s x) y (s z)) (s x) y (s z)))
+(rule (if second x y z) (if (le (s x) (s y) z) (s x) (s y) z))

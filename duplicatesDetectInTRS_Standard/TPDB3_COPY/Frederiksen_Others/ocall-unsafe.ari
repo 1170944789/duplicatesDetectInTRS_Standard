@@ -1,0 +1,11 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/ocall-unsafe.xml"
+(format TRS)
+(fun dbl 2)
+(fun S 1)
+(fun |0| 0)
+(fun unsafe 1)
+(rule (dbl (S |0|) (S |0|)) (S (S (S (S |0|)))))
+(rule (unsafe (S x)) (dbl (unsafe x) |0|))
+(rule (unsafe |0|) |0|)
+(rule (dbl |0| y) y)

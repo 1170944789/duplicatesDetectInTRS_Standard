@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.22.trs
+; @xtcfilename "./TRS_Standard/SK90/4.22.xml"
+(format TRS)
+(fun not 1)
+(fun and 2)
+(fun or 2)
+(rule (not (and x y)) (or (not x) (not y)))
+(rule (not (or x y)) (and (not x) (not y)))
+(rule (and x (or y z)) (or (and x y) (and x z)))

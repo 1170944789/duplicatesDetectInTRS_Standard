@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/HM/n001.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/n001.xml"
+(format TRS)
+(fun h 1)
+(fun f 1)
+(fun g 1)
+(rule (h (f (f x))) (h (f (g (f x)))))
+(rule (f (g (f x))) (f (f x)))
