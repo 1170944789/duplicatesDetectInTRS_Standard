@@ -58,19 +58,70 @@ countStatuses statusMap =
     in foldr (\s -> Map.insertWith (+) s 1) Map.empty statusList
 
 findInfoFiles :: FilePath -> IO [FilePath]
-
-
-
+findInfoFiles basePath = do
+    dirs <- listDirectory basePath
+    let infoDirs = filter (\d -> "_info" `isSuffixOf` d && not ("certified" `isInfixOf` d)) dirs
+    csvFiles <- forM infoDirs $ \dir -> do
+        let fullDir = basePath </> dir
+        subDirs <- listDirectory fullDir
+        allCsvs <- forM subDirs $ \subDir -> do
+            let jobDir = fullDir </> subDir
+            isDir <- doesDirectoryExist jobDir
+            if isDir
+            then do
+                files <- listDirectory jobDir
+                return [jobDir </> f | f <- files, takeExtension f == ".csv"]
+            else
+                return []
+        return (concat allCsvs)
+    return (concat csvFiles)
 
 findCertInfoFiles :: FilePath -> IO [FilePath]
-
-
-
+findCertInfoFiles basePath = do
+    dirs <- listDirectory basePath
+    let certInfoDirs = filter (\d -> "certified" `isInfixOf` d && "_info" `isInfixOf` d) dirs
+    csvFiles <- forM certInfoDirs $ \dir -> do
+        let fullDir = basePath </> dir
+        subDirs <- listDirectory fullDir
+        allCsvs <- forM subDirs $ \subDir -> do
+            let jobDir = fullDir </> subDir
+            isDir <- doesDirectoryExist jobDir
+            if isDir
+            then do
+                files <- listDirectory jobDir
+                return [jobDir </> f | f <- files, takeExtension f == ".csv"]
+            else
+                return []
+        return (concat allCsvs)
+    return (concat csvFiles)
 
 parseAndFilterInfoCSV :: Bool -> Handle -> [String] -> FilePath -> IO [Result]
-
-
-
+parseAndFilterInfoCSV isCertified yearStr logHandle validPaths path = do
+    content <- BL.readFile path
+    case CSV.decodeByName content of
+        Left err -> do
+            hPutStrLn logHandle ("Error parsing CSV " ++ path ++ ": " ++ err)
+            return []
+        Right (_, records) -> do
+            let allResults = catMaybes (map (parseCSVRecord isCertified yearStr) (VEC.toList records))
+                samplePaths = take 5 (map benchmarkPath allResults)
+                catFiltered = filter isBenchmarkInKnownCategories allResults
+                pathFiltered = filter (\r -> benchmarkPath r `elem` validPaths) catFiltered
+            hPutStrLn logHandle ("From " ++ path ++ " (" ++ yearStr ++ "):")
+            hPutStrLn logHandle ("  Total records: " ++ show (VEC.length records))
+            hPutStrLn logHandle ("  Valid results: " ++ show (length allResults))
+            hPutStrLn logHandle ("  Sample benchmark paths: " ++ show samplePaths)
+            hPutStrLn logHandle ("  After category filter: " ++ show (length catFiltered))
+            when (length allResults > length catFiltered && length allResults > 0) (do
+                let rejectedByCategory = filter (\r -> not (isBenchmarkInKnownCategories r)) (take 5 allResults)
+                hPutStrLn logHandle ("  Some paths rejected by category filter: " ++ 
+                                 show (map benchmarkPath rejectedByCategory)))
+            when (length catFiltered > length pathFiltered && length catFiltered > 0) (do
+                let rejectedByPath = filter (\r -> not (benchmarkPath r `elem` validPaths)) (take 5 catFiltered)
+                hPutStrLn logHandle ("  Some paths rejected by path filter: " ++ 
+                                 show (map benchmarkPath rejectedByPath)))
+            hPutStrLn logHandle ("  After path filter: " ++ show (length pathFiltered))
+            return pathFiltered
 
 isBenchmarkInKnownCategories :: Result -> Bool
 isBenchmarkInKnownCategories result =
@@ -144,9 +195,14 @@ findAriFiles dir = do
         return (concat paths)
 
 extractPossibleBenchmarkPaths :: FilePath -> String -> [String]
-
-
-
+extractPossibleBenchmarkPaths ariPath content = 
+    let tags = extractTags content
+        categoryTags = filter (\tag -> tag `elem` allCategories) tags
+        baseBenchName = extractBasePathFromAri ariPath
+        possiblePaths = [cat ++ "/" ++ baseBenchName ++ ".ari" | cat <- categoryTags]
+    in if null possiblePaths 
+       then [baseBenchName ++ ".ari"]
+       else possiblePaths
 
 extractTags :: String -> [String]
 extractTags content = 
