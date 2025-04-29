@@ -34,7 +34,8 @@ data Result = Result {
     benchmarkPath :: String,
     solver :: String,
     result :: String,
-    certified :: Bool
+    certified :: Bool,
+    year :: String
 } deriving (Show, Eq)
 
 allCategories :: [String]
@@ -95,19 +96,19 @@ findCertInfoFiles basePath = do
         return (concat allCsvs)
     return (concat csvFiles)
 
-parseAndFilterInfoCSV :: Bool -> Handle -> FilePath -> IO [Result]
-parseAndFilterInfoCSV isCertified logHandle validPaths path = do
+parseAndFilterInfoCSV :: Bool -> String -> Handle -> [String] -> FilePath -> IO [Result]
+parseAndFilterInfoCSV isCertified yearStr logHandle validPaths path = do
     content <- BL.readFile path
     case CSV.decodeByName content of
         Left err -> do
             hPutStrLn logHandle ("Error parsing CSV " ++ path ++ ": " ++ err)
             return []
         Right (_, records) -> do
-            let allResults = catMaybes (map (parseCSVRecord isCertified) (VEC.toList records))
+            let allResults = catMaybes (map (parseCSVRecord isCertified yearStr) (VEC.toList records))
                 samplePaths = take 5 (map benchmarkPath allResults)
                 catFiltered = filter isBenchmarkInKnownCategories allResults
                 pathFiltered = filter (\r -> benchmarkPath r `elem` validPaths) catFiltered
-            hPutStrLn logHandle ("From " ++ path ++ ":")
+            hPutStrLn logHandle ("From " ++ path ++ " (" ++ yearStr ++ "):")
             hPutStrLn logHandle ("  Total records: " ++ show (VEC.length records))
             hPutStrLn logHandle ("  Valid results: " ++ show (length allResults))
             hPutStrLn logHandle ("  Sample benchmark paths: " ++ show samplePaths)
@@ -128,8 +129,8 @@ isBenchmarkInKnownCategories result =
     let path = benchmarkPath result
     in any (\cat -> (cat ++ "/") `isPrefixOf` path) allCategories
 
-parseCSVRecord :: Bool -> CSV.NamedRecord -> Maybe Result
-parseCSVRecord isCertified record = do
+parseCSVRecord :: Bool -> String -> CSV.NamedRecord -> Maybe Result
+parseCSVRecord isCertified yearStr record = do
     benchmarkField <- HM.lookup "benchmark" record
     solverField <- HM.lookup "solver" record
     resultField <- HM.lookup "result" record
@@ -142,7 +143,7 @@ parseCSVRecord isCertified record = do
                          Nothing -> False
                      else False
     if resultValue `elem` ["YES", "NO"] 
-    then return (Result benchPath solverName resultValue certResult)
+    then return (Result benchPath solverName resultValue certResult yearStr)
     else Nothing
 
 buildPathMapping :: [(FilePath, [String])] -> Map.Map String FilePath
@@ -236,7 +237,7 @@ updateAriFilesWithStatus ariFiles statusMap logHandle = do
         reportProgress "Updating files" idx total
         case Map.lookup path statusMap of
             Just status -> updateSingleAriFile path status logHandle
-            Nothing -> return 0)
+            Nothing -> updateSingleAriFile path Unknown logHandle)
     return (sum results)
 
 updateSingleAriFile :: FilePath -> Status -> Handle -> IO Int
@@ -269,88 +270,96 @@ main :: IO ()
 main = do
     args <- getArgs
     case args of
-        [tpdbPath, resultsPath] -> do
-            startTime <- getCurrentTime
-            
-            let logFile = "status_computation.log"
-                statusFile = "benchmark_statuses.csv"
-            logHandle <- openFile logFile WriteMode
-            statusHandle <- openFile statusFile WriteMode
-            hSetBuffering logHandle LineBuffering
-            hSetBuffering statusHandle LineBuffering
-            
-            putStrLn "Finding ARI files in TPDB_COPY..."
-            ariFiles <- findAriFiles tpdbPath
-            putStrLn ("Found " ++ show (length ariFiles) ++ " .ari files")
-            
-            putStrLn "Reading ARI file contents and extracting possible original paths..."
-            ariMappings <- forM (zip [1..] ariFiles) (\(idx, path) -> do
-                reportProgress "Analyzing ARI files" idx (length ariFiles)
-                content <- BS.readFile path
-                let possiblePaths = extractPossibleBenchmarkPaths path (BSC.unpack content)
-                return (path, possiblePaths))
-            
-            let pathMapping = buildPathMapping ariMappings
-                allOriginalPaths = Map.keys pathMapping
-            
-            let sampleOrigPaths = take 10 allOriginalPaths
-            hPutStrLn logHandle ("Total ARI files in TPDB_COPY: " ++ show (length ariFiles))
-            hPutStrLn logHandle ("Total possible original paths: " ++ show (length allOriginalPaths))
-            hPutStrLn logHandle ("Sample original paths from ARI files: " ++ show sampleOrigPaths)
-            
-            putStrLn "Finding competition result files..."
-            infoFiles <- findInfoFiles resultsPath
-            certInfoFiles <- findCertInfoFiles resultsPath
-            
-            hPutStrLn logHandle ("Found " ++ show (length infoFiles) ++ " info files")
-            hPutStrLn logHandle ("Found " ++ show (length certInfoFiles) ++ " certified info files")
-            
-            putStrLn "Parsing and filtering competition results..."
-            infoResults <- concat (mapM (parseAndFilterInfoCSV False logHandle allOriginalPaths) infoFiles)
-            certResults <- concat (mapM (parseAndFilterInfoCSV True logHandle allOriginalPaths) certInfoFiles)
-            
-            let allResults = infoResults ++ certResults
-            hPutStrLn logHandle ("Total filtered results: " ++ show (length allResults))            
-            
-            let mergedResults = groupResultsByCopyPath allResults pathMapping
-            hPutStrLn logHandle ("Grouped results for " ++ show (length mergedResults) ++ " TPDB_COPY benchmarks")
-            
-            let statusMap = Map.fromList [(copyPath, computeStatus results) 
-                                         | (copyPath, results) <- mergedResults]
-            
-            putStrLn "Updating ARI files with status information..."
-            updatedCount <- updateAriFilesWithStatus ariFiles statusMap logHandle
-            
-            hPutStrLn statusHandle "benchmark,status"
-            forM_ (Map.toList statusMap) (\(path, status) -> do
-                hPrintf statusHandle "%s,%s\n" path (show status))
-            
-            let statusCounts = countStatuses statusMap
-            hPutStrLn logHandle "\nStatus statistics:"
-            forM_ (Map.toList statusCounts) (\(status, count) -> do
-                hPrintf logHandle "%s: %d\n" (show status) count)
-            
-            let missingStatusFiles = filter (\path -> not (Map.member path statusMap)) ariFiles
-            hPutStrLn logHandle ("\nBenchmarks without status: " ++ show (length missingStatusFiles))
-            forM_ (take 50 missingStatusFiles) (\path -> do
-                hPutStrLn logHandle ("  " ++ path))
-            when (length missingStatusFiles > 50) (
-                hPutStrLn logHandle ("  ... and " ++ show (length missingStatusFiles - 50) ++ " more"))
-            
-            endTime <- getCurrentTime
-            let duration = diffUTCTime endTime startTime
-            printf "\nProcessing completed in %.2f seconds\n" 
-                (realToFrac duration :: Double)
-            printf "Updated %d/%d ARI files with status information\n" 
-                updatedCount (length ariFiles)
-            printf "Results logged to %s\n" logFile
-            printf "Status summary written to %s\n" statusFile
-            
-            putStrLn "\nStatus statistics:"
-            forM_ (Map.toList statusCounts) (\(status, count) -> do
-                printf "%s: %d\n" (show status) count)
-            
-            hClose logHandle
-            hClose statusHandle
-            
-        _ -> putStrLn "Usage: Program <TPDB-path> <Results-path>"
+        (tpdbPath:resultsPaths) -> do
+
+            if null resultsPaths
+            then putStrLn "At least one result path is required."
+            else do
+                startTime <- getCurrentTime
+                
+                let logFile = "status_computation.log"
+                    statusFile = "benchmark_statuses.csv"
+                logHandle <- openFile logFile WriteMode
+                statusHandle <- openFile statusFile WriteMode
+                hSetBuffering logHandle LineBuffering
+                hSetBuffering statusHandle LineBuffering
+                
+                putStrLn "Finding ARI files in TPDB_COPY..."
+                ariFiles <- findAriFiles tpdbPath
+                putStrLn ("Found " ++ show (length ariFiles) ++ " .ari files")
+                
+                putStrLn "Reading ARI file contents and extracting possible original paths..."
+                ariMappings <- forM (zip [1..] ariFiles) (\(idx, path) -> do
+                    reportProgress "Analyzing ARI files" idx (length ariFiles)
+                    content <- BS.readFile path
+                    let possiblePaths = extractPossibleBenchmarkPaths path (BSC.unpack content)
+                    return (path, possiblePaths))
+                
+                let pathMapping = buildPathMapping ariMappings
+                    allOriginalPaths = Map.keys pathMapping
+                
+                let sampleOrigPaths = take 10 allOriginalPaths
+                hPutStrLn logHandle ("Total ARI files in TPDB_COPY: " ++ show (length ariFiles))
+                hPutStrLn logHandle ("Total possible original paths: " ++ show (length allOriginalPaths))
+                hPutStrLn logHandle ("Sample original paths from ARI files: " ++ show sampleOrigPaths)
+                
+                putStrLn "Processing multiple competition result directories..."
+                allResults <- forM (zip [1..] resultsPaths) (\(yearIdx, resultsPath) -> do
+                    let yearStr = "Year_" ++ show yearIdx
+                    putStrLn ("Processing results from " ++ yearStr ++ ": " ++ resultsPath)
+                    
+                    infoFiles <- findInfoFiles resultsPath
+                    certInfoFiles <- findCertInfoFiles resultsPath
+                    
+                    hPutStrLn logHandle (yearStr ++ ": Found " ++ show (length infoFiles) ++ " info files")
+                    hPutStrLn logHandle (yearStr ++ ": Found " ++ show (length certInfoFiles) ++ " certified info files")
+                    
+                    infoResults <- fmap concat (mapM (parseAndFilterInfoCSV False yearStr logHandle allOriginalPaths) infoFiles)
+                    certResults <- fmap concat (mapM (parseAndFilterInfoCSV True yearStr logHandle allOriginalPaths) certInfoFiles)
+                    
+                    return (infoResults ++ certResults))
+                
+                let combinedResults = concat allResults
+                hPutStrLn logHandle ("Total filtered results across all years: " ++ show (length combinedResults))
+                
+                let mergedResults = groupResultsByCopyPath combinedResults pathMapping
+                hPutStrLn logHandle ("Grouped results for " ++ show (length mergedResults) ++ " TPDB_COPY benchmarks")
+                
+                let statusMap = Map.fromList [(copyPath, computeStatus results) 
+                                             | (copyPath, results) <- mergedResults]
+                
+                putStrLn "Updating ARI files with status information..."
+                updatedCount <- updateAriFilesWithStatus ariFiles statusMap logHandle
+                
+                hPutStrLn statusHandle "benchmark,status"
+                forM_ (Map.toList statusMap) (\(path, status) -> do
+                    hPrintf statusHandle "%s,%s\n" path (show status))
+                
+                let statusCounts = countStatuses statusMap
+                hPutStrLn logHandle "\nStatus statistics:"
+                forM_ (Map.toList statusCounts) (\(status, count) -> do
+                    hPrintf logHandle "%s: %d\n" (show status) count)
+                
+                let missingStatusFiles = filter (\path -> not (Map.member path statusMap)) ariFiles
+                hPutStrLn logHandle ("\nBenchmarks without status: " ++ show (length missingStatusFiles))
+                forM_ (take 50 missingStatusFiles) (\path -> do
+                    hPutStrLn logHandle ("  " ++ path))
+                when (length missingStatusFiles > 50) (
+                    hPutStrLn logHandle ("  ... and " ++ show (length missingStatusFiles - 50) ++ " more"))
+                
+                endTime <- getCurrentTime
+                let duration = diffUTCTime endTime startTime
+                printf "\nProcessing completed in %.2f seconds\n" 
+                    (realToFrac duration :: Double)
+                printf "Updated %d/%d ARI files with status information\n" 
+                    updatedCount (length ariFiles)
+                printf "Results logged to %s\n" logFile
+                printf "Status summary written to %s\n" statusFile
+                
+                putStrLn "\nStatus statistics:"
+                forM_ (Map.toList statusCounts) (\(status, count) -> do
+                    printf "%s: %d\n" (show status) count)
+                
+                hClose logHandle
+                hClose statusHandle
+        _ -> putStrLn "Usage: program <TPDB-path> <Results-path1> <Results-path2> ..."
