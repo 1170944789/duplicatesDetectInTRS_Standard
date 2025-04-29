@@ -95,19 +95,19 @@ findCertInfoFiles basePath = do
         return (concat allCsvs)
     return (concat csvFiles)
 
-parseAndFilterInfoCSV :: Bool -> Handle -> [String] -> FilePath -> IO [Result]
-parseAndFilterInfoCSV isCertified yearStr logHandle validPaths path = do
+parseAndFilterInfoCSV :: Bool -> Handle -> FilePath -> IO [Result]
+parseAndFilterInfoCSV isCertified logHandle validPaths path = do
     content <- BL.readFile path
     case CSV.decodeByName content of
         Left err -> do
             hPutStrLn logHandle ("Error parsing CSV " ++ path ++ ": " ++ err)
             return []
         Right (_, records) -> do
-            let allResults = catMaybes (map (parseCSVRecord isCertified yearStr) (VEC.toList records))
+            let allResults = catMaybes (map (parseCSVRecord isCertified) (VEC.toList records))
                 samplePaths = take 5 (map benchmarkPath allResults)
                 catFiltered = filter isBenchmarkInKnownCategories allResults
                 pathFiltered = filter (\r -> benchmarkPath r `elem` validPaths) catFiltered
-            hPutStrLn logHandle ("From " ++ path ++ " (" ++ yearStr ++ "):")
+            hPutStrLn logHandle ("From " ++ path ++ ":")
             hPutStrLn logHandle ("  Total records: " ++ show (VEC.length records))
             hPutStrLn logHandle ("  Valid results: " ++ show (length allResults))
             hPutStrLn logHandle ("  Sample benchmark paths: " ++ show samplePaths)
