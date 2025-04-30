@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.05.trs
+; @xtcfilename "./TRS_Standard/SK90/2.05.xml"
+; @status CertifiedNO
+(format TRS)
+(fun + 2)
+(fun * 2)
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (* x (+ y z)) (+ (* x y) (* x z)))
+(rule (+ (+ x (* y z)) (* y u)) (+ x (* y (+ z u))))

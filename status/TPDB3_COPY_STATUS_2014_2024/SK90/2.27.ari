@@ -1,0 +1,27 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.27.trs
+; @xtcfilename "./TRS_Standard/SK90/2.27.xml"
+; @status CertifiedYES
+(format TRS)
+(fun fib 1)
+(fun |0| 0)
+(fun s 1)
+(fun sp 1)
+(fun g 1)
+(fun pair 2)
+(fun np 1)
+(fun + 2)
+(rule (fib |0|) |0|)
+(rule (fib (s |0|)) (s |0|))
+(rule (fib (s (s |0|))) (s |0|))
+(rule (fib (s (s x))) (sp (g x)))
+(rule (g |0|) (pair (s |0|) |0|))
+(rule (g (s |0|)) (pair (s |0|) (s |0|)))
+(rule (g (s x)) (np (g x)))
+(rule (sp (pair x y)) (+ x y))
+(rule (np (pair x y)) (pair (+ x y) x))
+(rule (+ x |0|) x)
+(rule (+ x (s y)) (s (+ x y)))

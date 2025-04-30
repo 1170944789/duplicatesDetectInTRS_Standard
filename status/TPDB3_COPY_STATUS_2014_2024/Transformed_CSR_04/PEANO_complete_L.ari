@@ -1,0 +1,39 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/PEANO_complete_L.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/PEANO_complete_L.xml"
+; @status CertifiedNO
+(format TRS)
+(fun U31 1)
+(fun tt 0)
+(fun U41 1)
+(fun s 1)
+(fun plus 2)
+(fun and 1)
+(fun U11 1)
+(fun U12 1)
+(fun isNat 0)
+(fun U13 1)
+(fun U21 1)
+(fun U22 1)
+(fun isNatKind 0)
+(fun |0| 0)
+(rule (U31 tt) N)
+(rule (U41 tt) (s (plus N M)))
+(rule (and tt) X)
+(rule (U11 tt) (U12 isNat))
+(rule (U12 tt) (U13 isNat))
+(rule (U13 tt) tt)
+(rule (U21 tt) (U22 isNat))
+(rule (U22 tt) tt)
+(rule isNat tt)
+(rule isNat (U11 (and isNatKind)))
+(rule isNat (U21 isNatKind))
+(rule isNatKind tt)
+(rule isNatKind (and isNatKind))
+(rule isNatKind isNatKind)
+(rule (plus N |0|) (U31 (and isNat)))
+(rule (plus N (s M)) (U41 (and (and isNat))))

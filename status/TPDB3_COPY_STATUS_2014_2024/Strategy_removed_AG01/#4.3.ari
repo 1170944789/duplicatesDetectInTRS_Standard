@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.3.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.3.xml"
+; @status CertifiedNO
+(format TRS)
+(fun f 3)
+(fun g 2)
+(rule (f (g x y) x z) (f z z z))
+(rule (g x y) x)
+(rule (g x y) y)

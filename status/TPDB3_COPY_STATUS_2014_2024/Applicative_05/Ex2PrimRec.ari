@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Lifantsev/Ex2PrimRec.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex2PrimRec.xml"
+; @status Unknown
+(format TRS)
+(fun app 2)
+(fun rec 0)
+(fun |0| 0)
+(fun s 0)
+(rule (app (app rec h) (app g |0|)) g)
+(rule (app (app rec h) (app g (app s x))) (app (app h x) (app (app rec h) (app g x))))

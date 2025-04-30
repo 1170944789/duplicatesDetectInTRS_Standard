@@ -1,0 +1,11 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema/z063.srs
+; @xtcfilename "./SRS_Standard/Zantema_04/z063.xml"
+; @status CertifiedYES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(fun c 1)
+(rule (b (a (b (c (c (b x1)))))) (a (b (b (c (c (b (a x1))))))))

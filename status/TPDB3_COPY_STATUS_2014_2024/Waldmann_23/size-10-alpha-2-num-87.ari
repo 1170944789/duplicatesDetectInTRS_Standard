@@ -1,0 +1,9 @@
+; @tag SRS_Relative
+; @xtcfilename "./SRS_Relative/Waldmann_23/size-10-alpha-2-num-87.xml"
+; @status NO
+(format TRS)
+(fun b 1)
+(fun a 1)
+(rule (b (b (b (b x)))) x)
+(rule x (a (b (a x))) :cost 0)
+(rule (a (a (a x))) x :cost 0)

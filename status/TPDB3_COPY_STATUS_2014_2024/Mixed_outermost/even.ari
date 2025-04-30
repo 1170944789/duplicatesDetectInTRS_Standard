@@ -1,0 +1,13 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/outermost/endrullis08/even.trs
+; @xtcfilename "./TRS_Outermost/Mixed_outermost/even.xml"
+; @status CertifiedNO
+(format TRS)
+(fun g 1)
+(fun b 0)
+(fun f 1)
+(fun c 0)
+(rule (g b) (g (f (f (f (f b))))))
+(rule (f (f b)) b)
+(rule (f b) b)
+(rule (g (f b)) c)

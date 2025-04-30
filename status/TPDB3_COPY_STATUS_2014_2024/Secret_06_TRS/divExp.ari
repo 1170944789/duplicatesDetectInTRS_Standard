@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/aprove/divExp.trs
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/divExp.xml"
+; @status CertifiedYES
+(format TRS)
+(fun minus 2)
+(fun |0| 0)
+(fun s 1)
+(fun div 2)
+(fun f 3)
+(rule (minus x x) |0|)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (minus |0| x) |0|)
+(rule (minus x |0|) x)
+(rule (div (s x) (s y)) (s (div (minus x y) (s y))))
+(rule (div |0| (s y)) |0|)
+(rule (f x |0| b) x)
+(rule (f x (s y) b) (div (f x (minus (s y) (s |0|)) b) b))

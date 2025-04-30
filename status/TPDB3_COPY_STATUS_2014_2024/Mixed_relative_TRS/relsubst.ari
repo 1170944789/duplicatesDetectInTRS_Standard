@@ -1,0 +1,20 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/Koprowski/relsubst.trs
+; @xtcfilename "./TRS_Relative/Mixed_relative_TRS/relsubst.xml"
+; @status Unknown
+(format TRS)
+(fun lambda 1)
+(fun |1| 0)
+(fun o 2)
+(fun d 2)
+(fun p 0)
+(rule (o (lambda x) y) (lambda (o x (d |1| (o y p)))))
+(rule (o (d x y) z) (d (o x z) (o y z)))
+(rule (o (o x y) z) (o x (o y z)))
+(rule (lambda x) x)
+(rule (o x y) x)
+(rule (o x y) y)
+(rule (d x y) x)
+(rule (d x y) y)
+(rule (o x y) (d x y) :cost 0)
+(rule (o x y) (d y x) :cost 0)

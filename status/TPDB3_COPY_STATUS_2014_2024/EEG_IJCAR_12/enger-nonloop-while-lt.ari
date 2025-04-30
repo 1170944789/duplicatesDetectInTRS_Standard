@@ -1,0 +1,13 @@
+; @tag TRS_Standard
+; @origtpdbfilename enger-nonloop-while-lt.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-while-lt.xml"
+; @status CertifiedNO
+(format TRS)
+(fun while 3)
+(fun true 0)
+(fun lt 2)
+(fun s 1)
+(fun |0| 0)
+(rule (while true x y) (while (lt x y) (s x) (s y)))
+(rule (lt (s x) (s y)) (lt x y))
+(rule (lt |0| y) true)

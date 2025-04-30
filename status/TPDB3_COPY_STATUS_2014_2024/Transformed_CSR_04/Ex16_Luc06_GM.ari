@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex16_Luc06_GM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex16_Luc06_GM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a__f 2)
+(fun a 0)
+(fun b 0)
+(fun a__b 0)
+(fun mark 1)
+(fun f 2)
+(rule (a__f X X) (a__f a b))
+(rule a__b a)
+(rule (mark (f X1 X2)) (a__f (mark X1) X2))
+(rule (mark b) a__b)
+(rule (mark a) a)
+(rule (a__f X1 X2) (f X1 X2))
+(rule a__b b)

@@ -1,0 +1,26 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Bird/TreeLevels.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/TreeLevels.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun map 0)
+(fun nil 0)
+(fun cons 0)
+(fun append 0)
+(fun zip 0)
+(fun combine 0)
+(fun levels 0)
+(fun node 0)
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons x) xs)) (app (app cons (app f x)) (app (app map f) xs)))
+(rule (app (app append xs) nil) xs)
+(rule (app (app append nil) ys) ys)
+(rule (app (app append (app (app cons x) xs)) ys) (app (app cons x) (app (app append xs) ys)))
+(rule (app (app zip nil) yss) yss)
+(rule (app (app zip xss) nil) xss)
+(rule (app (app zip (app (app cons xs) xss)) (app (app cons ys) yss)) (app (app cons (app (app append xs) ys)) (app (app zip xss) yss)))
+(rule (app (app combine xs) nil) xs)
+(rule (app (app combine xs) (app (app cons ys) yss)) (app (app combine (app (app zip xs) ys)) yss))
+(rule (app levels (app (app node x) xs)) (app (app cons (app (app cons x) nil)) (app (app combine nil) (app (app map levels) xs))))

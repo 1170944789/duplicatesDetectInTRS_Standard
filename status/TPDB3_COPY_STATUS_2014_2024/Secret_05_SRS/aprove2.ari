@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret05/aprove2.srs
+; @xtcfilename "./SRS_Standard/Secret_05_SRS/aprove2.xml"
+; @status CertifiedYES
+(format TRS)
+(fun g 1)
+(fun h 1)
+(fun f 1)
+(fun s 1)
+(fun b 1)
+(fun a 1)
+(rule (g (h x1)) (g (f (s x1))))
+(rule (f (s (s (s x1)))) (h (f (s (h x1)))))
+(rule (f (h x1)) (h (f (s (h x1)))))
+(rule (h x1) x1)
+(rule (f (f (s (s x1)))) (s (s (s (f (f x1))))))
+(rule (b (a x1)) (a (b x1)))
+(rule (a (a (a x1))) (b (a (a (b x1)))))
+(rule (b (b (b (b x1)))) (a x1))

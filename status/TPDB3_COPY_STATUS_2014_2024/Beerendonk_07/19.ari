@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Beerendonk/19.trs
+; @xtcfilename "./TRS_Standard/Beerendonk_07/19.xml"
+; @status CertifiedYES
+(format TRS)
+(fun cond1 4)
+(fun true 0)
+(fun cond2 4)
+(fun gr 2)
+(fun |0| 0)
+(fun or 2)
+(fun p 1)
+(fun false 0)
+(fun cond3 4)
+(fun s 1)
+(rule (cond1 true x y z) (cond2 (gr x |0|) x y z))
+(rule (cond2 true x y z) (cond1 (or (gr x z) (gr y z)) (p x) y z))
+(rule (cond2 false x y z) (cond3 (gr y |0|) x y z))
+(rule (cond3 true x y z) (cond1 (or (gr x z) (gr y z)) x (p y) z))
+(rule (cond3 false x y z) (cond1 (or (gr x z) (gr y z)) x y z))
+(rule (gr |0| x) false)
+(rule (gr (s x) |0|) true)
+(rule (gr (s x) (s y)) (gr x y))
+(rule (or false false) false)
+(rule (or true x) true)
+(rule (or x true) true)
+(rule (p |0|) |0|)
+(rule (p (s x)) x)

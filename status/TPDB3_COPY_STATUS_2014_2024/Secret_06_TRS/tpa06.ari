@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/tpa06.trs
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/tpa06.xml"
+; @status YES
+(format TRS)
+(fun min 2)
+(fun |0| 0)
+(fun s 1)
+(fun max 2)
+(fun p 1)
+(fun f 3)
+(rule (min |0| y) |0|)
+(rule (min x |0|) |0|)
+(rule (min (s x) (s y)) (s (min x y)))
+(rule (max |0| y) y)
+(rule (max x |0|) x)
+(rule (max (s x) (s y)) (s (max x y)))
+(rule (p (s x)) x)
+(rule (f (s x) (s y) (s z)) (f (max (s x) (max (s y) (s z))) (p (min (s x) (max (s y) (s z)))) (min (s x) (min (s y) (s z)))))
+(rule (f |0| y z) (max y z))
+(rule (f x |0| z) (max x z))
+(rule (f x y |0|) (max x y))

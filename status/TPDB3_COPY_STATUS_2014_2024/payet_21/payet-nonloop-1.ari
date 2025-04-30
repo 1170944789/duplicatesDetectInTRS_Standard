@@ -1,0 +1,10 @@
+; @tag TRS_Standard
+; @origtpdbfilename epayet-nonloop-1.trs
+; @xtcfilename "./TRS_Standard/payet_21/payet-nonloop-1.xml"
+; @status NO
+(format TRS)
+(fun f 2)
+(fun |0| 0)
+(fun s 1)
+(rule (f |0| Y) (f (s Y) (s Y)))
+(rule (f (s X) Y) (f X Y))

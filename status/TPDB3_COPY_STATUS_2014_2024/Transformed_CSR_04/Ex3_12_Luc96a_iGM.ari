@@ -1,0 +1,34 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex3_12_Luc96a_iGM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex3_12_Luc96a_iGM.xml"
+; @status YES
+(format TRS)
+(fun active 1)
+(fun from 1)
+(fun mark 1)
+(fun cons 2)
+(fun s 1)
+(fun sel 2)
+(fun |0| 0)
+(rule (active (from X)) (mark (cons X (from (s X)))))
+(rule (active (sel |0| (cons X Y))) (mark X))
+(rule (active (sel (s X) (cons Y Z))) (mark (sel X Z)))
+(rule (mark (from X)) (active (from (mark X))))
+(rule (mark (cons X1 X2)) (active (cons (mark X1) X2)))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (sel X1 X2)) (active (sel (mark X1) (mark X2))))
+(rule (mark |0|) (active |0|))
+(rule (from (mark X)) (from X))
+(rule (from (active X)) (from X))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (sel (mark X1) X2) (sel X1 X2))
+(rule (sel X1 (mark X2)) (sel X1 X2))
+(rule (sel (active X1) X2) (sel X1 X2))
+(rule (sel X1 (active X2)) (sel X1 X2))

@@ -1,0 +1,11 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwcime2.trs
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwcime2.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun h 1)
+(rule (f x (f y a)) (f (f (f (f a a) y) (h a)) x))

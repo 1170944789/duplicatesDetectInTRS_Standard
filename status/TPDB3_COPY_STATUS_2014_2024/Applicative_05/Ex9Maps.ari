@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Lifantsev/Ex9Maps.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex9Maps.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun map_1 0)
+(fun cons 0)
+(fun map_2 0)
+(fun map_3 0)
+(fun g 0)
+(rule (app (app map_1 f) (app (app cons h) t)) (app (app cons (app f h)) (app (app map_1 f) t)))
+(rule (app (app (app map_2 f) c) (app (app cons h) t)) (app (app cons (app (app f h) c)) (app (app (app map_2 f) c) t)))
+(rule (app (app (app (app map_3 f) g) c) (app (app cons h) t)) (app (app cons (app (app (app f g) h) c)) (app (app (app (app map_3 f) g) c) t)))

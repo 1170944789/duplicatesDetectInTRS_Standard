@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema06/beans3.srs
+; @xtcfilename "./SRS_Standard/Zantema_06/beans3.xml"
+; @status CertifiedYES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(fun c 1)
+(fun d 1)
+(fun L 1)
+(fun R 1)
+(rule (b (a (a x1))) (a (b (c x1))))
+(rule (c (a x1)) (a (c x1)))
+(rule (b (c (a x1))) (a (b (c x1))))
+(rule (c (b x1)) (d x1))
+(rule (a (d x1)) (d (a x1)))
+(rule (d x1) (b (a x1)))
+(rule (L (a (a x1))) (L (a (b (c x1)))))
+(rule (c (R x1)) (c (b (R x1))))

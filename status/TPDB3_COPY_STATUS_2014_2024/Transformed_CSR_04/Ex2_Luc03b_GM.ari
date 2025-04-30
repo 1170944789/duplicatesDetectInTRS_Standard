@@ -1,0 +1,41 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex2_Luc03b_GM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex2_Luc03b_GM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a__fst 2)
+(fun |0| 0)
+(fun nil 0)
+(fun s 1)
+(fun cons 2)
+(fun mark 1)
+(fun fst 2)
+(fun a__from 1)
+(fun from 1)
+(fun a__add 2)
+(fun add 2)
+(fun a__len 1)
+(fun len 1)
+(rule (a__fst |0| Z) nil)
+(rule (a__fst (s X) (cons Y Z)) (cons (mark Y) (fst X Z)))
+(rule (a__from X) (cons (mark X) (from (s X))))
+(rule (a__add |0| X) (mark X))
+(rule (a__add (s X) Y) (s (add X Y)))
+(rule (a__len nil) |0|)
+(rule (a__len (cons X Z)) (s (len Z)))
+(rule (mark (fst X1 X2)) (a__fst (mark X1) (mark X2)))
+(rule (mark (from X)) (a__from (mark X)))
+(rule (mark (add X1 X2)) (a__add (mark X1) (mark X2)))
+(rule (mark (len X)) (a__len (mark X)))
+(rule (mark |0|) |0|)
+(rule (mark (s X)) (s X))
+(rule (mark nil) nil)
+(rule (mark (cons X1 X2)) (cons (mark X1) X2))
+(rule (a__fst X1 X2) (fst X1 X2))
+(rule (a__from X) (from X))
+(rule (a__add X1 X2) (add X1 X2))
+(rule (a__len X) (len X))

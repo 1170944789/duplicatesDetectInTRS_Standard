@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/HofWald/3.srs
+; @xtcfilename "./SRS_Standard/Mixed_SRS/3.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a x1)) (a (b (a x1))))
+(rule (b (a (b x1))) (a (c (a x1))))

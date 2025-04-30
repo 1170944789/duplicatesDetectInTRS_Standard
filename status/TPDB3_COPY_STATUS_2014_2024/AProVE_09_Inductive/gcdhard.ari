@@ -1,0 +1,30 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./AProVE_09_Inductive/gcdhard.trs
+; @xtcfilename "./TRS_Standard/AProVE_09_Inductive/gcdhard.xml"
+; @status Unknown
+(format TRS)
+(fun minus 2)
+(fun |0| 0)
+(fun s 1)
+(fun mod 2)
+(fun if 3)
+(fun lt 2)
+(fun true 0)
+(fun false 0)
+(fun gcd 2)
+(rule (minus |0| x) |0|)
+(rule (minus (s x) |0|) (s x))
+(rule (minus (s x) (s y)) (minus x y))
+(rule (mod x |0|) |0|)
+(rule (mod x (s y)) (if (lt x (s y)) x (s y)))
+(rule (if true x y) x)
+(rule (if false x y) (mod (minus x y) y))
+(rule (gcd x |0|) x)
+(rule (gcd |0| (s y)) (s y))
+(rule (gcd (s x) (s y)) (gcd (mod (s x) (s y)) (mod (s y) (s x))))
+(rule (lt x |0|) false)
+(rule (lt |0| (s x)) true)
+(rule (lt (s x) (s y)) (lt x y))

@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Bird/Ex2_8_1ConstSubstFix.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex2_8_1ConstSubstFix.xml"
+; @status CertifiedNO
+(format TRS)
+(fun app 2)
+(fun const 0)
+(fun subst 0)
+(fun fix 0)
+(rule (app (app const x) y) x)
+(rule (app (app (app subst f) g) x) (app (app f x) (app g x)))
+(rule (app (app fix f) x) (app (app f (app fix f)) x))

@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Lifantsev/Ex3Lists.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex3Lists.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun append 0)
+(fun nil 0)
+(fun cons 0)
+(fun map 0)
+(rule (app (app append nil) l) l)
+(rule (app (app append (app (app cons h) t)) l) (app (app cons h) (app (app append t) l)))
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons h) t)) (app (app cons (app f h)) (app (app map f) t)))
+(rule (app (app append (app (app append l1) l2)) l3) (app (app append l1) (app (app append l2) l3)))
+(rule (app (app map f) (app (app append l1) l2)) (app (app append (app (app map f) l1)) (app (app map f) l2)))

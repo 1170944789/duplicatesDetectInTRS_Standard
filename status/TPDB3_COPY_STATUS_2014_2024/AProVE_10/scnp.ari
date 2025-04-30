@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/scnp.trs
+; @xtcfilename "./TRS_Standard/AProVE_10/scnp.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun s 1)
+(fun c 1)
+(rule (f (s x) y) (f x (s x)))
+(rule (f x (s y)) (f y x))
+(rule (f (c x) y) (f x (s x)))

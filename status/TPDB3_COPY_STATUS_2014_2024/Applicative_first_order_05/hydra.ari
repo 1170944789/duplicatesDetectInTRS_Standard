@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/currying/Ste92/hydra.trs
+; @xtcfilename "./TRS_Standard/Applicative_first_order_05/hydra.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun f 0)
+(fun cons 0)
+(fun nil 0)
+(fun copy 0)
+(fun n 0)
+(fun |0| 0)
+(fun s 0)
+(fun map 0)
+(fun filter 0)
+(fun filter2 0)
+(fun true 0)
+(fun false 0)
+(rule (app f (app (app cons nil) y)) y)
+(rule (app f (app (app cons (app f (app (app cons nil) y))) z)) (app (app (app copy n) y) z))
+(rule (app (app (app copy |0|) y) z) (app f z))
+(rule (app (app (app copy (app s x)) y) z) (app (app (app copy x) y) (app (app cons (app f y)) z)))
+(rule (app (app map |fun|) nil) nil)
+(rule (app (app map |fun|) (app (app cons x) xs)) (app (app cons (app |fun| x)) (app (app map |fun|) xs)))
+(rule (app (app filter |fun|) nil) nil)
+(rule (app (app filter |fun|) (app (app cons x) xs)) (app (app (app (app filter2 (app |fun| x)) |fun|) x) xs))
+(rule (app (app (app (app filter2 true) |fun|) x) xs) (app (app cons x) (app (app filter |fun|) xs)))
+(rule (app (app (app (app filter2 false) |fun|) x) xs) (app (app filter |fun|) xs))

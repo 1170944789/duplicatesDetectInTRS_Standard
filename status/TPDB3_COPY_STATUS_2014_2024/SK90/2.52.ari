@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.52.trs
+; @xtcfilename "./TRS_Standard/SK90/2.52.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 3)
+(fun |0| 0)
+(fun s 1)
+(rule (f x |0| |0|) (s x))
+(rule (f |0| y |0|) (s y))
+(rule (f |0| |0| z) (s z))
+(rule (f (s |0|) y z) (f |0| (s y) (s z)))
+(rule (f (s x) (s y) |0|) (f x y (s |0|)))
+(rule (f (s x) |0| (s z)) (f x (s |0|) z))
+(rule (f |0| (s |0|) (s |0|)) (s (s |0|)))
+(rule (f (s x) (s y) (s z)) (f x y (f (s x) (s y) z)))
+(rule (f |0| (s (s y)) (s |0|)) (f |0| y (s |0|)))
+(rule (f |0| (s |0|) (s (s z))) (f |0| (s |0|) z))
+(rule (f |0| (s (s y)) (s (s z))) (f |0| y (f |0| (s (s y)) (s z))))

@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.45.trs
+; @xtcfilename "./TRS_Standard/SK90/2.45.xml"
+; @status CertifiedYES
+(format TRS)
+(fun admit 2)
+(fun nil 0)
+(fun . 2)
+(fun w 0)
+(fun cond 2)
+(fun = 2)
+(fun sum 3)
+(fun carry 3)
+(fun true 0)
+(rule (admit x nil) nil)
+(rule (admit x (. u (. v (. w z)))) (cond (= (sum x u v) w) (. u (. v (. w (admit (carry x u v) z))))))
+(rule (cond true y) y)

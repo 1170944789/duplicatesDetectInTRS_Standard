@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/mfp90b.trs
+; @xtcfilename "./TRS_Standard/Rubio_04/mfp90b.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 0)
+(fun g 1)
+(fun c 0)
+(fun b 0)
+(fun f 2)
+(rule a (g c))
+(rule (g a) b)
+(rule (f (g X) b) (f a X))

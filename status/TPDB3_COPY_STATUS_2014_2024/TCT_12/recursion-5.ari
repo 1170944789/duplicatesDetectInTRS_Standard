@@ -1,0 +1,32 @@
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename tct_complexity/TCT_12/recursion-5.trs
+; @xtcfilename "./TRS_Standard/TCT_12/recursion-5.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f_0 1)
+(fun a 0)
+(fun f_1 1)
+(fun g_1 2)
+(fun s 1)
+(fun b 2)
+(fun f_2 1)
+(fun g_2 2)
+(fun f_3 1)
+(fun g_3 2)
+(fun f_4 1)
+(fun g_4 2)
+(fun f_5 1)
+(fun g_5 2)
+(rule (f_0 x) a)
+(rule (f_1 x) (g_1 x x))
+(rule (g_1 (s x) y) (b (f_0 y) (g_1 x y)))
+(rule (f_2 x) (g_2 x x))
+(rule (g_2 (s x) y) (b (f_1 y) (g_2 x y)))
+(rule (f_3 x) (g_3 x x))
+(rule (g_3 (s x) y) (b (f_2 y) (g_3 x y)))
+(rule (f_4 x) (g_4 x x))
+(rule (g_4 (s x) y) (b (f_3 y) (g_4 x y)))
+(rule (f_5 x) (g_5 x x))
+(rule (g_5 (s x) y) (b (f_4 y) (g_5 x y)))

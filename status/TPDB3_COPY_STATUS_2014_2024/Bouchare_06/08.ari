@@ -1,0 +1,11 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Bouchare/08.srs
+; @xtcfilename "./SRS_Standard/Bouchare_06/08.xml"
+; @status CertifiedNO
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a x1))) (b (b (b x1))))
+(rule (b (a (b x1))) (a (b (a x1))))

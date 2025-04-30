@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.8a.trs
+; @xtcfilename "./TRS_Standard/AG01/#3.8a.xml"
+; @status CertifiedYES
+(format TRS)
+(fun pred 1)
+(fun s 1)
+(fun minus 2)
+(fun |0| 0)
+(fun quot 2)
+(fun log 1)
+(rule (pred (s x)) x)
+(rule (minus x |0|) x)
+(rule (minus x (s y)) (pred (minus x y)))
+(rule (quot |0| (s y)) |0|)
+(rule (quot (s x) (s y)) (s (quot (minus x y) (s y))))
+(rule (log (s |0|)) |0|)
+(rule (log (s (s x))) (s (log (s (quot x (s (s |0|)))))))

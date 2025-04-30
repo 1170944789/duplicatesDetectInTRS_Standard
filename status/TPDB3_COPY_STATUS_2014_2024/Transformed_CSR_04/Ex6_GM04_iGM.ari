@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex6_GM04_iGM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex6_GM04_iGM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun active 1)
+(fun c 0)
+(fun mark 1)
+(fun f 1)
+(fun g 1)
+(rule (active c) (mark (f (g c))))
+(rule (active (f (g X))) (mark (g X)))
+(rule (mark c) (active c))
+(rule (mark (f X)) (active (f X)))
+(rule (mark (g X)) (active (g X)))
+(rule (f (mark X)) (f X))
+(rule (f (active X)) (f X))
+(rule (g (mark X)) (g X))
+(rule (g (active X)) (g X))

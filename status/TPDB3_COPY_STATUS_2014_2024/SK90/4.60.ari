@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.60.trs
+; @xtcfilename "./TRS_Standard/SK90/4.60.xml"
+; @status CertifiedYES
+(format TRS)
+(fun msort 1)
+(fun nil 0)
+(fun . 2)
+(fun min 2)
+(fun del 2)
+(fun if 3)
+(fun <= 2)
+(fun = 2)
+(rule (msort nil) nil)
+(rule (msort (. x y)) (. (min x y) (msort (del (min x y) (. x y)))))
+(rule (min x nil) x)
+(rule (min x (. y z)) (if (<= x y) (min x z) (min y z)))
+(rule (del x nil) nil)
+(rule (del x (. y z)) (if (= x y) z (. y (del x z))))

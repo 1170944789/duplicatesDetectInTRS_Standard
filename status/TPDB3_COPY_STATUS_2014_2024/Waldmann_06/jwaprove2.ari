@@ -1,0 +1,11 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwaprove2.trs
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwaprove2.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun h 1)
+(rule (f (f a x) y) (f a (f (f x (h y)) a)))

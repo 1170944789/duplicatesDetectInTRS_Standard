@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/cariboo/ex3.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/ex3.xml"
+; @status CertifiedNO
+(format TRS)
+(fun f 1)
+(fun g 1)
+(fun a 0)
+(fun s 1)
+(fun b 0)
+(rule (f (g a)) (f (s (g b))))
+(rule (f (f x)) b)
+(rule (g x) (f (g x)))

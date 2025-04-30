@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.38.trs
+; @xtcfilename "./TRS_Standard/AG01/#3.38.xml"
+; @status CertifiedYES
+(format TRS)
+(fun rev 1)
+(fun nil 0)
+(fun cons 2)
+(fun rev1 2)
+(fun rev2 2)
+(fun |0| 0)
+(fun s 1)
+(rule (rev nil) nil)
+(rule (rev (cons x l)) (cons (rev1 x l) (rev2 x l)))
+(rule (rev1 |0| nil) |0|)
+(rule (rev1 (s x) nil) (s x))
+(rule (rev1 x (cons y l)) (rev1 y l))
+(rule (rev2 x nil) nil)
+(rule (rev2 x (cons y l)) (rev (cons x (rev2 y l))))

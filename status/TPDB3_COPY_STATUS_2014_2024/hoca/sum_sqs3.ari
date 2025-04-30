@@ -1,0 +1,27 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/sum_sqs3.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/sum_sqs3.xml"
+; @status Unknown
+(format TRS)
+(fun |sum#1| 1)
+(fun Nil 0)
+(fun |0| 0)
+(fun Cons 2)
+(fun |plus#2| 2)
+(fun |map#2| 1)
+(fun |mult#2| 2)
+(fun |unfoldr#2| 1)
+(fun S 1)
+(fun main 1)
+(rule (|sum#1| Nil) |0|)
+(rule (|sum#1| (Cons x2 x1)) (|plus#2| x2 (|sum#1| x1)))
+(rule (|map#2| Nil) Nil)
+(rule (|map#2| (Cons x2 x5)) (Cons (|mult#2| x2 x2) (|map#2| x5)))
+(rule (|unfoldr#2| |0|) Nil)
+(rule (|unfoldr#2| (S x2)) (Cons x2 (|unfoldr#2| x2)))
+(rule (|mult#2| |0| x2) |0|)
+(rule (|mult#2| (S x4) x2) (|plus#2| x2 (|mult#2| x4 x2)))
+(rule (|plus#2| |0| x8) x8)
+(rule (|plus#2| (S x4) x2) (S (|plus#2| x4 x2)))
+(rule (main |0|) |0|)
+(rule (main (S x1)) (|sum#1| (|map#2| (Cons (S x1) (|unfoldr#2| (S x1))))))

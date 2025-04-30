@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex9_Luc06_FR.trs./TRS/TRCSR/Ex9_Luc06_Z.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex9_Luc06_FR.xml"
+; @status CertifiedNO
+(format TRS)
+(fun f 3)
+(fun n__a 0)
+(fun activate 1)
+(fun b 0)
+(fun n__b 0)
+(fun a 0)
+(rule (f n__a X X) (f (activate X) b n__b))
+(rule b a)
+(rule a n__a)
+(rule b n__b)
+(rule (activate n__a) a)
+(rule (activate n__b) b)
+(rule (activate X) X)

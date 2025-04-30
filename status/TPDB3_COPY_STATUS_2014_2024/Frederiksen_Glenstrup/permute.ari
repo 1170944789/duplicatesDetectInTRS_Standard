@@ -1,0 +1,20 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/permute.xml"
+; @status Unknown
+(format TRS)
+(fun select 3)
+(fun Cons 2)
+(fun mapconsapp 3)
+(fun permute 1)
+(fun revapp 2)
+(fun Nil 0)
+(fun goal 1)
+(rule (select |x'| revprefix (Cons x xs)) (mapconsapp |x'| (permute (revapp revprefix (Cons x xs))) (select x (Cons |x'| revprefix) xs)))
+(rule (revapp (Cons x xs) rest) (revapp xs (Cons x rest)))
+(rule (permute (Cons x xs)) (select x Nil xs))
+(rule (mapconsapp |x'| (Cons x xs) rest) (Cons (Cons |x'| x) (mapconsapp |x'| xs rest)))
+(rule (select x revprefix Nil) (mapconsapp x (permute (revapp revprefix Nil)) Nil))
+(rule (revapp Nil rest) rest)
+(rule (permute Nil) (Cons Nil Nil))
+(rule (mapconsapp x Nil rest) rest)
+(rule (goal xs) (permute xs))

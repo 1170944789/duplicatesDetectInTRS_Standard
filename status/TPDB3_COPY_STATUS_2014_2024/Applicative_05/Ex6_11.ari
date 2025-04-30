@@ -1,0 +1,10 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Kusakari/Ex6_11.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex6_11.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun F 0)
+(fun G 0)
+(rule (app (app F (app (app F f) x)) x) (app (app F (app G (app (app F f) x))) (app f x)))

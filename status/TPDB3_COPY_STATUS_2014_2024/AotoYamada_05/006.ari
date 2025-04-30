@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AotoYam/006.trs
+; @xtcfilename "./TRS_Standard/AotoYamada_05/006.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun mapbt 0)
+(fun leaf 0)
+(fun branch 0)
+(rule (app (app mapbt f) (app leaf x)) (app leaf (app f x)))
+(rule (app (app mapbt f) (app (app (app branch x) l) r)) (app (app (app branch (app f x)) (app (app mapbt f) l)) (app (app mapbt f) r)))

@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/Liveness6.1.trs
+; @xtcfilename "./TRS_Standard/AProVE_04/Liveness6.1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun top 1)
+(fun free 1)
+(fun check 1)
+(fun new 1)
+(fun old 1)
+(fun serve 0)
+(rule (top (free x)) (top (check (new x))))
+(rule (new (free x)) (free (new x)))
+(rule (old (free x)) (free (old x)))
+(rule (new serve) (free serve))
+(rule (old serve) (free serve))
+(rule (check (free x)) (free (check x)))
+(rule (check (new x)) (new (check x)))
+(rule (check (old x)) (old (check x)))
+(rule (check (old x)) (old x))

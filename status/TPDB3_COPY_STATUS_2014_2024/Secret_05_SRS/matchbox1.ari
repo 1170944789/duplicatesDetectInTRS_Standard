@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret05/matchbox1.srs
+; @xtcfilename "./SRS_Standard/Secret_05_SRS/matchbox1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun r 1)
+(fun e 1)
+(fun w 1)
+(fun i 1)
+(fun t 1)
+(rule (r (e x1)) (w (r x1)))
+(rule (i (t x1)) (e (r x1)))
+(rule (e (w x1)) (r (i x1)))
+(rule (t (e x1)) (r (e x1)))
+(rule (w (r x1)) (i (t x1)))
+(rule (e (r x1)) (e (w x1)))
+(rule (r (i (t (e (r x1))))) (e (w (r (i (t (e x1)))))))

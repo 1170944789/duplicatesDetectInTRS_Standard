@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/various/07.trs
+; @xtcfilename "./TRS_Standard/Various_04/07.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun h 2)
+(rule (f x y) (h x y))
+(rule (f x y) (h y x))
+(rule (h x x) x)

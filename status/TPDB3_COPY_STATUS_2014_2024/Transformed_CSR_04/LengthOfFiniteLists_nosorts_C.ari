@@ -1,0 +1,48 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/LengthOfFiniteLists_nosorts_C.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/LengthOfFiniteLists_nosorts_C.xml"
+; @status NO
+(format TRS)
+(fun active 1)
+(fun zeros 0)
+(fun mark 1)
+(fun cons 2)
+(fun |0| 0)
+(fun and 2)
+(fun tt 0)
+(fun length 1)
+(fun nil 0)
+(fun s 1)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active zeros) (mark (cons |0| zeros)))
+(rule (active (and tt X)) (mark X))
+(rule (active (length nil)) (mark |0|))
+(rule (active (length (cons N L))) (mark (s (length L))))
+(rule (active (cons X1 X2)) (cons (active X1) X2))
+(rule (active (and X1 X2)) (and (active X1) X2))
+(rule (active (length X)) (length (active X)))
+(rule (active (s X)) (s (active X)))
+(rule (cons (mark X1) X2) (mark (cons X1 X2)))
+(rule (and (mark X1) X2) (mark (and X1 X2)))
+(rule (length (mark X)) (mark (length X)))
+(rule (s (mark X)) (mark (s X)))
+(rule (proper zeros) (ok zeros))
+(rule (proper (cons X1 X2)) (cons (proper X1) (proper X2)))
+(rule (proper |0|) (ok |0|))
+(rule (proper (and X1 X2)) (and (proper X1) (proper X2)))
+(rule (proper tt) (ok tt))
+(rule (proper (length X)) (length (proper X)))
+(rule (proper nil) (ok nil))
+(rule (proper (s X)) (s (proper X)))
+(rule (cons (ok X1) (ok X2)) (ok (cons X1 X2)))
+(rule (and (ok X1) (ok X2)) (ok (and X1 X2)))
+(rule (length (ok X)) (ok (length X)))
+(rule (s (ok X)) (ok (s X)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

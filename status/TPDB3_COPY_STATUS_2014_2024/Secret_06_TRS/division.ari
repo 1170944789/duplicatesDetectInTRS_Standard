@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/aprove/division.trs
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/division.xml"
+; @status CertifiedYES
+(format TRS)
+(fun division 2)
+(fun div 3)
+(fun |0| 0)
+(fun if 4)
+(fun lt 2)
+(fun inc 1)
+(fun true 0)
+(fun false 0)
+(fun s 1)
+(fun minus 2)
+(rule (division x y) (div x y |0|))
+(rule (div x y z) (if (lt x y) x y (inc z)))
+(rule (if true x y z) z)
+(rule (if false x (s y) z) (div (minus x (s y)) (s y) z))
+(rule (minus x |0|) x)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (lt x |0|) false)
+(rule (lt |0| (s y)) true)
+(rule (lt (s x) (s y)) (lt x y))
+(rule (inc |0|) (s |0|))
+(rule (inc (s x)) (s (inc x)))

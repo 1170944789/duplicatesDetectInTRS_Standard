@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.23.trs
+; @xtcfilename "./TRS_Standard/SK90/4.23.xml"
+; @status CertifiedYES
+(format TRS)
+(fun if 3)
+(fun true 0)
+(fun false 0)
+(rule (if true x y) x)
+(rule (if false x y) y)
+(rule (if x y y) y)
+(rule (if (if x y z) u v) (if x (if y u v) (if z u v)))
+(rule (if x (if x y z) z) (if x y z))
+(rule (if x y (if x y z)) (if x y z))

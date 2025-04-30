@@ -1,0 +1,33 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex14_Luc06_iGM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex14_Luc06_iGM.xml"
+; @status NO
+(format TRS)
+(fun active 1)
+(fun h 1)
+(fun mark 1)
+(fun g 2)
+(fun a 0)
+(fun f 2)
+(fun b 0)
+(rule (active (h X)) (mark (g X X)))
+(rule (active (g a X)) (mark (f b X)))
+(rule (active (f X X)) (mark (h a)))
+(rule (active a) (mark b))
+(rule (mark (h X)) (active (h (mark X))))
+(rule (mark (g X1 X2)) (active (g (mark X1) X2)))
+(rule (mark a) (active a))
+(rule (mark (f X1 X2)) (active (f (mark X1) X2)))
+(rule (mark b) (active b))
+(rule (h (mark X)) (h X))
+(rule (h (active X)) (h X))
+(rule (g (mark X1) X2) (g X1 X2))
+(rule (g X1 (mark X2)) (g X1 X2))
+(rule (g (active X1) X2) (g X1 X2))
+(rule (g X1 (active X2)) (g X1 X2))
+(rule (f (mark X1) X2) (f X1 X2))
+(rule (f X1 (mark X2)) (f X1 X2))
+(rule (f (active X1) X2) (f X1 X2))
+(rule (f X1 (active X2)) (f X1 X2))

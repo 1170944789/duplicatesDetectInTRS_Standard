@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret07/TTT2/3.trs
+; @xtcfilename "./TRS_Standard/Secret_07_TRS/3.xml"
+; @status CertifiedYES
+(format TRS)
+(fun i 2)
+(fun a 0)
+(fun b 0)
+(fun g 2)
+(fun h 1)
+(fun s 1)
+(fun f 1)
+(fun c 0)
+(rule (i x x) (i a b))
+(rule (g x x) (g a b))
+(rule (h (s (f x))) (h (f x)))
+(rule (f (s x)) (s (s (f (h (s x))))))
+(rule (f (g (s x) y)) (f (g x (s y))))
+(rule (h (g x (s y))) (h (g (s x) y)))
+(rule (h (i x y)) (i (i c (h (h y))) x))
+(rule (g a (g x (g b (g a (g x y))))) (g a (g a (g a (g x (g b (g b y)))))))

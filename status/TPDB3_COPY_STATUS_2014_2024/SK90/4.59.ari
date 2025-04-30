@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.59.trs
+; @xtcfilename "./TRS_Standard/SK90/4.59.xml"
+; @status CertifiedYES
+(format TRS)
+(fun qsort 1)
+(fun nil 0)
+(fun . 2)
+(fun ++ 2)
+(fun lowers 2)
+(fun greaters 2)
+(fun if 3)
+(fun <= 2)
+(rule (qsort nil) nil)
+(rule (qsort (. x y)) (++ (qsort (lowers x y)) (. x (qsort (greaters x y)))))
+(rule (lowers x nil) nil)
+(rule (lowers x (. y z)) (if (<= y x) (. y (lowers x z)) (lowers x z)))
+(rule (greaters x nil) nil)
+(rule (greaters x (. y z)) (if (<= y x) (greaters x z) (. y (greaters x z))))

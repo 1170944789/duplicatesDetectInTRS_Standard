@@ -1,0 +1,11 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Gebhardt/19.srs
+; @xtcfilename "./SRS_Standard/Gebhardt_06/19.xml"
+; @status Unknown
+(format TRS)
+(fun |0| 1)
+(fun |1| 1)
+(rule (|0| (|0| (|0| (|0| x1)))) (|1| (|0| (|1| (|1| x1)))))
+(rule (|1| (|0| (|0| (|1| x1)))) (|0| (|0| (|1| (|0| x1)))))

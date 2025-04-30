@@ -1,0 +1,27 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rtL-me2.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rtL-me2.xml"
+; @status CertifiedYES
+(format TRS)
+(fun topA 3)
+(fun T1 0)
+(fun topB 3)
+(fun S1 0)
+(fun N1 0)
+(fun |1| 0)
+(fun |0| 0)
+(fun N2 0)
+(fun S2 0)
+(fun T2 0)
+(rule (topB i N1 y) (topA |1| T1 y))
+(rule (topA i x N2) (topB |0| x T2))
+(rule (topB i S1 y) (topA i N1 y))
+(rule (topA i x S2) (topB i x N2))
+(rule (topA i N1 T2) (topB i N1 S2))
+(rule (topA |1| T1 T2) (topB |1| T1 S2))
+(rule (topA i N1 y) (topA |1| T1 y) :cost 0)
+(rule (topB i x N2) (topB |0| x T2) :cost 0)
+(rule (topA i S1 y) (topA i N1 y) :cost 0)
+(rule (topB i x S2) (topB i x N2) :cost 0)
+(rule (topB i N1 T2) (topB i N1 S2) :cost 0)
+(rule (topB |1| T1 T2) (topB |1| T1 S2) :cost 0)

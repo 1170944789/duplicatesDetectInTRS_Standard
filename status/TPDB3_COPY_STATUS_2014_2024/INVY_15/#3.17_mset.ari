@@ -1,0 +1,20 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/#3.17_mset.xml"
+; @status CertifiedYES
+(format TRS)
+(fun s 1)
+(fun sum 1)
+(fun plus 2)
+(fun app 2)
+(fun |0| 0)
+(fun cons 2)
+(fun nil 0)
+(rule (app nil k) k)
+(rule (app l nil) l)
+(rule (app (cons x l) k) (cons x (app l k)))
+(rule (sum (cons x nil)) (cons x nil))
+(rule (sum (cons x (cons y l))) (sum (cons (plus x y) l)))
+(rule (sum (app l (cons x (cons y k)))) (sum (app l (sum (cons x (cons y k))))))
+(rule (plus |0| y) y)
+(rule (plus (s x) y) (s (plus x y)))
+(rule (cons x (cons y l)) (cons y (cons x l)) :cost 0)

@@ -1,0 +1,38 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex9_BLR02_GM.trs
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex9_BLR02_GM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a__filter 3)
+(fun cons 2)
+(fun |0| 0)
+(fun filter 3)
+(fun s 1)
+(fun mark 1)
+(fun a__sieve 1)
+(fun sieve 1)
+(fun a__nats 1)
+(fun nats 1)
+(fun a__zprimes 0)
+(fun zprimes 0)
+(rule (a__filter (cons X Y) |0| M) (cons |0| (filter Y M M)))
+(rule (a__filter (cons X Y) (s N) M) (cons (mark X) (filter Y N M)))
+(rule (a__sieve (cons |0| Y)) (cons |0| (sieve Y)))
+(rule (a__sieve (cons (s N) Y)) (cons (s (mark N)) (sieve (filter Y N N))))
+(rule (a__nats N) (cons (mark N) (nats (s N))))
+(rule a__zprimes (a__sieve (a__nats (s (s |0|)))))
+(rule (mark (filter X1 X2 X3)) (a__filter (mark X1) (mark X2) (mark X3)))
+(rule (mark (sieve X)) (a__sieve (mark X)))
+(rule (mark (nats X)) (a__nats (mark X)))
+(rule (mark zprimes) a__zprimes)
+(rule (mark (cons X1 X2)) (cons (mark X1) X2))
+(rule (mark |0|) |0|)
+(rule (mark (s X)) (s (mark X)))
+(rule (a__filter X1 X2 X3) (filter X1 X2 X3))
+(rule (a__sieve X) (sieve X))
+(rule (a__nats X) (nats X))
+(rule a__zprimes zprimes)

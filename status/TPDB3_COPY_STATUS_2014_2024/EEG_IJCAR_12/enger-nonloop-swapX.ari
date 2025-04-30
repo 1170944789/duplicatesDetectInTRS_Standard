@@ -1,0 +1,13 @@
+; @tag TRS_Standard
+; @origtpdbfilename enger-nonloop-swapX.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-swapX.xml"
+; @status CertifiedNO
+(format TRS)
+(fun g 2)
+(fun tt 0)
+(fun f 2)
+(fun s 1)
+(fun |0| 0)
+(rule (g tt x) (g (f x x) (s x)))
+(rule (f |0| y) tt)
+(rule (f (s x) y) (f x (s y)))

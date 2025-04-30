@@ -1,0 +1,15 @@
+; @tag TRS_Relative
+; @origtpdbfilename depGraph_2.trs
+; @xtcfilename "../xml/depGraph_2.trs.xml"
+; @status CertifiedYES
+(format TRS)
+(fun s 1)
+(fun f 3)
+(fun |0| 0)
+(fun h 2)
+(fun k 3)
+(fun g 2)
+(rule (f (s x) (s y) (s z)) (f (g z (s x)) (h (s y) z) (k (s z) x y)))
+(rule (g (s x) (s y)) (h (s (s y)) (s (s x))) :cost 0)
+(rule (h (s x) (s y)) (g (s (s y)) (s (s x))) :cost 0)
+(rule (k x y z) (f |0| y z) :cost 0)

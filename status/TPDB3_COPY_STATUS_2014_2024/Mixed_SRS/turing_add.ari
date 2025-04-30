@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Marche/turing_add.srs
+; @xtcfilename "./SRS_Standard/Mixed_SRS/turing_add.xml"
+; @status CertifiedYES
+(format TRS)
+(fun |1| 1)
+(fun q0 1)
+(fun |0| 1)
+(fun q1 1)
+(fun q2 1)
+(rule (|1| (q0 (|1| x1))) (|0| (|1| (q1 x1))))
+(rule (|1| (q0 (|0| x1))) (|0| (|0| (q1 x1))))
+(rule (|1| (q1 (|1| x1))) (|1| (|1| (q1 x1))))
+(rule (|1| (q1 (|0| x1))) (|1| (|0| (q1 x1))))
+(rule (|0| (q1 x1)) (q2 (|1| x1)))
+(rule (|1| (q2 x1)) (q2 (|1| x1)))
+(rule (|0| (q2 x1)) (|0| (q0 x1)))

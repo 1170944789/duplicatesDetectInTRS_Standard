@@ -1,0 +1,16 @@
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename tct_complexity/TCT_12/polycounter-5.trs
+; @xtcfilename "./TRS_Standard/TCT_12/polycounter-5.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 5)
+(fun s 1)
+(fun |0| 0)
+(rule (f (s x1) x2 x3 x4 x5) (f x1 x2 x3 x4 x5))
+(rule (f |0| (s x2) x3 x4 x5) (f x2 x2 x3 x4 x5))
+(rule (f |0| |0| (s x3) x4 x5) (f x3 x3 x3 x4 x5))
+(rule (f |0| |0| |0| (s x4) x5) (f x4 x4 x4 x4 x5))
+(rule (f |0| |0| |0| |0| (s x5)) (f x5 x5 x5 x5 x5))
+(rule (f |0| |0| |0| |0| |0|) |0|)

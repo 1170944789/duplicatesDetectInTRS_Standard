@@ -1,0 +1,32 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Cime/list-sum-prod-bin-assoc.trs
+; @xtcfilename "./TRS_Standard/CiME_04/list-sum-prod-bin-assoc.xml"
+; @status CertifiedYES
+(format TRS)
+(fun |0| 1)
+(fun |#| 0)
+(fun + 2)
+(fun |1| 1)
+(fun * 2)
+(fun sum 1)
+(fun nil 0)
+(fun cons 2)
+(fun prod 1)
+(rule (|0| |#|) |#|)
+(rule (+ x |#|) x)
+(rule (+ |#| x) x)
+(rule (+ (|0| x) (|0| y)) (|0| (+ x y)))
+(rule (+ (|0| x) (|1| y)) (|1| (+ x y)))
+(rule (+ (|1| x) (|0| y)) (|1| (+ x y)))
+(rule (+ (|1| x) (|1| y)) (|0| (+ (+ x y) (|1| |#|))))
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (* |#| x) |#|)
+(rule (* (|0| x) y) (|0| (* x y)))
+(rule (* (|1| x) y) (+ (|0| (* x y)) y))
+(rule (* (* x y) z) (* x (* y z)))
+(rule (sum nil) (|0| |#|))
+(rule (sum (cons x l)) (+ x (sum l)))
+(rule (prod nil) (|1| |#|))
+(rule (prod (cons x l)) (* x (prod l)))

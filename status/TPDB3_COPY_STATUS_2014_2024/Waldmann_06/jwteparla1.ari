@@ -1,0 +1,9 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwteparla1.trs
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwteparla1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f x (f a (f (f a a) a))) (f (f a x) x))

@@ -1,0 +1,12 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/ex6.xml"
+; @status Unknown
+(format TRS)
+(fun g 2)
+(fun S 1)
+(fun f 2)
+(fun |0| 0)
+(rule (g (S x) y) (g x (S y)))
+(rule (f y (S x)) (f (S y) x))
+(rule (g |0| x2) x2)
+(rule (f x1 |0|) (g x1 |0|))

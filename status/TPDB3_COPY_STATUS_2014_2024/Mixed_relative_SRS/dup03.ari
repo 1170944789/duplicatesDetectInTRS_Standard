@@ -1,0 +1,11 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/Trafo/dup03.srs
+; @xtcfilename "./SRS_Relative/Mixed_relative_SRS/dup03.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a (c (c (b (b x1)))))) (b (b (a (a (b (b (a (a x1)))))))))
+(rule (a (a (a (a x1)))) (a (a (b (b (a (a x1)))))))
+(rule (b (b x1)) (b (b (c (c x1)))) :cost 0)

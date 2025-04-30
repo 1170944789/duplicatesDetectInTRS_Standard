@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.21.trs
+; @xtcfilename "./TRS_Standard/AG01/#3.21.xml"
+; @status CertifiedYES
+(format TRS)
+(fun times 2)
+(fun plus 2)
+(fun |1| 0)
+(fun |0| 0)
+(rule (times x (plus y |1|)) (plus (times x (plus y (times |1| |0|))) x))
+(rule (times x |1|) x)
+(rule (plus x |0|) x)
+(rule (times x |0|) |0|)

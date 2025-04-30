@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Lifantsev/Ex5Sorting.trs
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex5Sorting.xml"
+; @status Unknown
+(format TRS)
+(fun app 2)
+(fun max 0)
+(fun |0| 0)
+(fun s 0)
+(fun min 0)
+(fun insert 0)
+(fun nil 0)
+(fun cons 0)
+(fun |sort| 0)
+(fun ascending_sort 0)
+(fun descending_sort 0)
+(rule (app (app max |0|) x) x)
+(rule (app (app max x) |0|) x)
+(rule (app (app max (app s x)) (app s y)) (app (app max x) y))
+(rule (app (app min |0|) x) |0|)
+(rule (app (app min x) |0|) |0|)
+(rule (app (app min (app s x)) (app s y)) (app (app min x) y))
+(rule (app (app (app (app insert f) g) nil) x) (app (app cons x) nil))
+(rule (app (app (app (app insert f) g) (app (app cons h) t)) x) (app (app cons (app (app f x) h)) (app (app (app (app insert f) g) t) (app (app g x) h))))
+(rule (app (app (app |sort| f) g) nil) nil)
+(rule (app (app (app |sort| f) g) (app (app cons h) t)) (app (app (app (app insert f) g) (app (app (app |sort| f) g) t)) h))
+(rule (app ascending_sort l) (app (app (app |sort| min) max) l))
+(rule (app descending_sort l) (app (app (app |sort| max) min) l))

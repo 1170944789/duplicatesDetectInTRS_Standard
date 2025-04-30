@@ -1,0 +1,36 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Thiemann/div_notTermin.trs
+; @xtcfilename "./TRS_Standard/AProVE_06/div_notTermin.xml"
+; @status Unknown
+(format TRS)
+(fun ge 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun minus 2)
+(fun plus 2)
+(fun div 2)
+(fun ify 3)
+(fun divByZeroError 0)
+(fun if 3)
+(rule (ge |0| |0|) true)
+(rule (ge (s x) |0|) (ge x |0|))
+(rule (ge |0| (s |0|)) false)
+(rule (ge |0| (s (s x))) (ge |0| (s x)))
+(rule (ge (s x) (s y)) (ge x y))
+(rule (minus |0| |0|) |0|)
+(rule (minus |0| (s x)) (minus |0| x))
+(rule (minus (s x) |0|) (s (minus x |0|)))
+(rule (minus (s x) (s y)) (minus x y))
+(rule (plus |0| |0|) |0|)
+(rule (plus |0| (s x)) (s (plus |0| x)))
+(rule (plus (s x) y) (s (plus x y)))
+(rule (div x y) (ify (ge y (s |0|)) x y))
+(rule (ify false x y) divByZeroError)
+(rule (ify true x y) (if (ge x y) x y))
+(rule (if false x y) |0|)
+(rule (if true x y) (s (div (minus x y) y)))
+(rule (div (plus x y) z) (plus (div x z) (div y z)))

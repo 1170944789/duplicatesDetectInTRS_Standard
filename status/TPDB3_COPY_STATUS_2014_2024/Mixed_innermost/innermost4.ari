@@ -1,0 +1,16 @@
+; @tag TRS_Innermost
+; @origtpdbfilename ./TRS/Thiemann/innermost4.trs
+; @xtcfilename "./TRS_Innermost/Mixed_innermost/innermost4.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 4)
+(fun a 1)
+(fun s 1)
+(fun b 0)
+(fun g 4)
+(fun h 4)
+(fun c 0)
+(rule (f (a x) y (s z) u) (f (a b) y z (g x y (s z) u)))
+(rule (g x y z u) (h x y z u))
+(rule (h b y z u) (f y y z u))
+(rule (a b) c)

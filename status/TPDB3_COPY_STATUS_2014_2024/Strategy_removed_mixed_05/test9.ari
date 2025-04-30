@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/Rubio-inn/test9.trs
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/test9.xml"
+; @status CertifiedNO
+(format TRS)
+(fun f 3)
+(fun |0| 0)
+(fun |1| 0)
+(fun h 2)
+(fun g 2)
+(rule (f |0| |1| X) (h X X))
+(rule (h |0| X) (f |0| X X))
+(rule (g X Y) X)
+(rule (g X Y) Y)

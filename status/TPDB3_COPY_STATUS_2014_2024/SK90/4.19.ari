@@ -1,0 +1,10 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.19.trs
+; @xtcfilename "./TRS_Standard/SK90/4.19.xml"
+; @status CertifiedYES
+(format TRS)
+(fun - 2)
+(fun neg 1)
+(rule (- (- (neg x) (neg x)) (- (neg y) (neg y))) (- (- x y) (- x y)))
