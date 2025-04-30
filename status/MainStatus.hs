@@ -273,7 +273,7 @@ main = do
         (tpdbPath:resultsPaths) -> do
 
             if null resultsPaths
-            then putStrLn "At least one result path is required."
+            then putStrLn "At least one competition result path is required."
             else do
                 startTime <- getCurrentTime
                 
