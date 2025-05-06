@@ -105,29 +105,30 @@ parseAndFilterInfoCSV isCertified yearStr logHandle validPaths path = do
             return []
         Right (_, records) -> do
             let allResults = catMaybes (map (parseCSVRecord isCertified yearStr) (VEC.toList records))
-                samplePaths = take 5 (map benchmarkPath allResults)
-                catFiltered = filter isBenchmarkInKnownCategories allResults
-                pathFiltered = filter (\r -> benchmarkPath r `elem` validPaths) catFiltered
+                normalizedResults = map normalizeResultPath allResults
+                samplePaths = take 5 (map benchmarkPath normalizedResults)
+                pathFiltered = filter (\r -> benchmarkPath r `elem` validPaths) normalizedResults
+            
             hPutStrLn logHandle ("From " ++ path ++ " (" ++ yearStr ++ "):")
             hPutStrLn logHandle ("  Total records: " ++ show (VEC.length records))
             hPutStrLn logHandle ("  Valid results: " ++ show (length allResults))
-            hPutStrLn logHandle ("  Sample benchmark paths: " ++ show samplePaths)
-            hPutStrLn logHandle ("  After category filter: " ++ show (length catFiltered))
-            when (length allResults > length catFiltered && length allResults > 0) (do
-                let rejectedByCategory = filter (\r -> not (isBenchmarkInKnownCategories r)) (take 5 allResults)
-                hPutStrLn logHandle ("  Some paths rejected by category filter: " ++ 
-                                 show (map benchmarkPath rejectedByCategory)))
-            when (length catFiltered > length pathFiltered && length catFiltered > 0) (do
-                let rejectedByPath = filter (\r -> not (benchmarkPath r `elem` validPaths)) (take 5 catFiltered)
+            hPutStrLn logHandle ("  Sample benchmark paths (normalized): " ++ show samplePaths)
+            
+            when (length normalizedResults > length pathFiltered && length normalizedResults > 0) (do
+                let rejectedByPath = filter (\r -> not (benchmarkPath r `elem` validPaths)) (take 5 normalizedResults)
                 hPutStrLn logHandle ("  Some paths rejected by path filter: " ++ 
                                  show (map benchmarkPath rejectedByPath)))
             hPutStrLn logHandle ("  After path filter: " ++ show (length pathFiltered))
             return pathFiltered
 
-isBenchmarkInKnownCategories :: Result -> Bool
-isBenchmarkInKnownCategories result =
+normalizeResultPath :: Result -> Result
+normalizeResultPath result =
     let path = benchmarkPath result
-    in any (\cat -> (cat ++ "/") `isPrefixOf` path) allCategories
+        normPath = case takeExtension path of
+            ".xml" -> dropExtension path
+            ".ari" -> dropExtension path
+            _ -> path
+    in result { benchmarkPath = normPath }
 
 parseCSVRecord :: Bool -> String -> CSV.NamedRecord -> Maybe Result
 parseCSVRecord isCertified yearStr record = do
@@ -195,40 +196,33 @@ findAriFiles dir = do
                  else return [])
         return (concat paths)
 
+extractXtcFilenames :: String -> [String]
+extractXtcFilenames content = 
+    let contentLines = lines content
+        xtcLines = filter (\l -> isPrefixOf "; @xtcfilename" l) contentLines
+        
+        extractXtcPath line = 
+            let start = drop 15 line
+                noQuotes = if isPrefixOf "\"" start && isSuffixOf "\"" start
+                          then init (tail start)
+                          else start
+                noPrefix = if isPrefixOf "./" noQuotes
+                          then drop 2 noQuotes
+                          else noQuotes
+                noExt = dropExtension noPrefix
+            in trim noExt
+            
+    in nub (map extractXtcPath xtcLines)
+
 extractPossibleBenchmarkPaths :: FilePath -> String -> [String]
 extractPossibleBenchmarkPaths ariPath content = 
-    let tags = extractTags content
-        categoryTags = filter (\tag -> tag `elem` allCategories) tags
-        baseBenchName = extractBasePathFromAri ariPath
-        possiblePaths = [cat ++ "/" ++ baseBenchName ++ ".ari" | cat <- categoryTags]
-    in if null possiblePaths 
-       then [baseBenchName ++ ".ari"]
-       else possiblePaths
-
-extractTags :: String -> [String]
-extractTags content = 
-    let contentLines = lines content
-        tagLines = filter (\l -> isPrefixOf "; @tag" l) contentLines
-    in map (trim . drop 7) tagLines
+    let xtcPaths = extractXtcFilenames content
+    in if null xtcPaths
+       then []
+       else xtcPaths
 
 trim :: String -> String
 trim = dropWhile isSpace . reverse . dropWhile isSpace . reverse
-
-extractBasePathFromAri :: FilePath -> String
-extractBasePathFromAri path =
-    let parts = splitDirectories path
-        fileName = takeBaseName (last parts)
-        parentDir = if length parts >= 2
-                    then parts !! (length parts - 2)
-                    else ""
-        (finalParentDir, finalFileName) = 
-            if parentDir `elem` map (takeFileName . joinPath . splitDirectories) allCategories
-            then
-                if length parts >= 3
-                then (parts !! (length parts - 3), fileName)
-                else (parentDir, fileName)
-            else (parentDir, fileName)
-    in finalParentDir ++ "/" ++ finalFileName
 
 updateAriFilesWithStatus :: [FilePath] -> Map.Map FilePath Status -> Handle -> IO Int
 updateAriFilesWithStatus ariFiles statusMap logHandle = do
@@ -288,7 +282,7 @@ main = do
                 ariFiles <- findAriFiles tpdbPath
                 putStrLn ("Found " ++ show (length ariFiles) ++ " .ari files")
                 
-                putStrLn "Reading ARI file contents and extracting possible original paths..."
+                putStrLn "Reading ARI file contents and extracting XTC filenames..."
                 ariMappings <- forM (zip [1..] ariFiles) (\(idx, path) -> do
                     reportProgress "Analyzing ARI files" idx (length ariFiles)
                     content <- BS.readFile path
@@ -302,6 +296,13 @@ main = do
                 hPutStrLn logHandle ("Total ARI files in TPDB_COPY: " ++ show (length ariFiles))
                 hPutStrLn logHandle ("Total possible original paths: " ++ show (length allOriginalPaths))
                 hPutStrLn logHandle ("Sample original paths from ARI files: " ++ show sampleOrigPaths)
+                
+                let ariFilesWithoutXtc = [path | (path, paths) <- ariMappings, null paths]
+                hPutStrLn logHandle ("ARI files without XTC filenames: " ++ show (length ariFilesWithoutXtc))
+                forM_ (take 20 ariFilesWithoutXtc) (\path -> 
+                    hPutStrLn logHandle ("  " ++ path))
+                when (length ariFilesWithoutXtc > 20) (
+                    hPutStrLn logHandle ("  ... and " ++ show (length ariFilesWithoutXtc - 20) ++ " more"))
                 
                 putStrLn "Processing multiple competition result directories..."
                 allResults <- forM (zip [1..] resultsPaths) (\(yearIdx, resultsPath) -> do
@@ -328,6 +329,35 @@ main = do
                 let statusMap = Map.fromList [(copyPath, computeStatus results) 
                                              | (copyPath, results) <- mergedResults]
                 
+
+
+
+                -- for Conflict and CertifiedConflict log
+                let conflictBenchmarks = [(path, results) | (path, results) <- mergedResults, 
+                           let stat = computeStatus results,
+                           stat == Conflict || stat == CertifiedConflict]
+
+                hPutStrLn logHandle "\nDetailed conflict analysis:"
+                forM_ conflictBenchmarks (\(path, results) -> do
+                    let status = computeStatus results
+                    hPutStrLn logHandle ("\nBenchmark with " ++ show status ++ ": " ++ path)
+
+                    let yesResults = filter (\r -> result r == "YES") results
+                        noResults = filter (\r -> result r == "NO") results
+                        
+                    hPutStrLn logHandle "YES results:"
+                    forM_ yesResults (\r -> 
+                        hPrintf logHandle "  %s: solver=%s, certified=%s, year=%s\n" 
+                            (benchmarkPath r) (solver r) (show (certified r)) (year r))
+                    
+                    hPutStrLn logHandle "NO results:"
+                    forM_ noResults (\r -> 
+                        hPrintf logHandle "  %s: solver=%s, certified=%s, year=%s\n" 
+                            (benchmarkPath r) (solver r) (show (certified r)) (year r)))
+
+
+
+
                 putStrLn "Updating ARI files with status information..."
                 updatedCount <- updateAriFilesWithStatus ariFiles statusMap logHandle
                 
