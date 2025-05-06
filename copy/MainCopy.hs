@@ -387,21 +387,52 @@ categoryToTag cat = "; @tag " ++ case cat of
     DC_Innermost -> "Derivational_Complexity_Innermost_Rewriting"
     SRS_Cycle -> "SRS_Cycle"
 
-processDuplicateGroup :: FilePath -> [(FilePath, BS.ByteString)] -> IO ()
-processDuplicateGroup destDir files = do
+processDuplicateGroup :: FilePath -> [(FilePath, BS.ByteString)] -> (FilePath -> Bool) -> IO ()
+processDuplicateGroup destDir files hasConflict = do
     let (paths, contents) = unzip files
         categories = mapMaybe categoryFromPath paths
+        categoryTags = sort (map categoryToTag (nub categories))
+        allFileTags = concatMap extractFileTags contents
+        allUniqueFileTags = nub allFileTags
         bestIdx = maybe 0 fst (minimumByMaybe 
             (\(_, c1) (_, c2) -> compare c1 c2) 
             (zip [0..] categories))
         bestPath = paths !! bestIdx
         bestContent = contents !! bestIdx
-        tags = concat (intersperse "\n" (sort (map categoryToTag (nub categories)))) ++ "\n"
-        relativePath = makeRelativePath bestPath
-        newPath = destDir </> relativePath
+        bestCategory = categories !! bestIdx
+        bestContentStr = BSC.unpack bestContent
+        bestContentLines = lines bestContentStr
+        isNotTagLine line = not (isPrefixOf "; @origtpdbfilename" line || isPrefixOf "; @xtcfilename" line || isPrefixOf "; @tag" line)
+        contentWithoutTags = unlines (filter isNotTagLine bestContentLines)
+        allTags = concat (intersperse "\n" (categoryTags ++ allUniqueFileTags)) ++ "\n"
+        
+        newPath = if hasConflict bestPath
+                then makeConflictFreePath destDir bestCategory bestPath
+                else destDir </> makeRelativePath bestPath
 
     createDirectoryIfMissing True (takeDirectory newPath)
-    BS.writeFile newPath (BSC.pack tags `BS.append` bestContent)
+    BS.writeFile newPath (BSC.pack allTags `BS.append` BSC.pack contentWithoutTags)
+
+processNonDuplicateFile :: FilePath -> FilePath -> BS.ByteString -> (FilePath -> Bool) -> IO ()
+processNonDuplicateFile destDir path content hasConflict = do
+    case categoryFromPath path of
+        Just cat -> do
+            let categoryTag = categoryToTag cat
+                fileTags = extractFileTags content
+                contentStr = BSC.unpack content
+                contentLines = lines contentStr
+                isNotTagLine line = not (isPrefixOf "; @origtpdbfilename" line || isPrefixOf "; @xtcfilename" line || isPrefixOf "; @tag" line)
+                contentWithoutTags = unlines (filter isNotTagLine contentLines)
+                allTags = concat (intersperse "\n" (categoryTag : fileTags)) ++ "\n"
+
+                newPath = if hasConflict path
+                        then makeConflictFreePath destDir cat path
+                        else destDir </> makeRelativePath path
+                
+            createDirectoryIfMissing True (takeDirectory newPath)
+            BS.writeFile newPath (BSC.pack allTags `BS.append` BSC.pack contentWithoutTags)
+        Nothing -> 
+            putStrLn ("Warning: Unknown category for file: " ++ path)
 
 makeRelativePath :: FilePath -> FilePath
 makeRelativePath path = 
@@ -433,6 +464,13 @@ makeConflictFreePath destDir category path =
             SRS_Cycle -> "SRS_Cycle"
         newPath = destDir </> parentDir </> categoryName </> fileName
     in newPath
+
+extractFileTags :: BS.ByteString -> [String]
+extractFileTags content = 
+    let contentStr = BSC.unpack content
+        lines' = lines contentStr
+        isTagLine line = isPrefixOf "; @origtpdbfilename" line || isPrefixOf "; @xtcfilename" line
+    in filter isTagLine lines'
 
 main :: IO ()
 main = do
@@ -517,34 +555,11 @@ main = do
                             Just content -> Just (path, content)
                             Nothing -> Nothing) pathGroup
                         
-                let (paths, contents) = unzip groupWithContent
-                    categories = mapMaybe categoryFromPath paths
-                    bestIdx = maybe 0 fst (minimumByMaybe 
-                        (\(_, c1) (_, c2) -> compare c1 c2) 
-                        (zip [0..] categories))
-                    bestPath = paths !! bestIdx
-                    bestContent = contents !! bestIdx
-                    bestCategory = categories !! bestIdx
-                    tags = concat (intersperse "\n" (sort (map categoryToTag (nub categories)))) ++ "\n"
-                    
-                    newPath = if hasConflict bestPath
-                            then makeConflictFreePath copyDirName bestCategory bestPath
-                            else copyDirName </> makeRelativePath bestPath
-                
-                createDirectoryIfMissing True (takeDirectory newPath)
-                BS.writeFile newPath (BSC.pack tags `BS.append` bestContent))
+                processDuplicateGroup copyDirName groupWithContent hasConflict)
 
             forM_ nonDuplicates (\(path, content) -> do
-                case categoryFromPath path of
-                    Just cat -> do
-                        let tags = categoryToTag cat
-                        let newPath = if hasConflict path
-                                     then makeConflictFreePath copyDirName cat path
-                                     else copyDirName </> makeRelativePath path
-                        createDirectoryIfMissing True (takeDirectory newPath)
-                        BS.writeFile newPath (BSC.pack (tags ++ "\n") `BS.append` content)
-                    Nothing -> 
-                        putStrLn ("Warning: Unknown category for file: " ++ path))
+                processNonDuplicateFile copyDirName path content hasConflict)
+
 
             putStrLn (copyDirName ++ " creation completed")
             hClose warningHandle
