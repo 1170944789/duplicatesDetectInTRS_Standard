@@ -1,4 +1,4 @@
-Resolving dependencies...
+2025/30/04:
 Finding ARI files in TPDB_COPY...
 Found 3953 .ari files
 Reading ARI file contents and extracting possible original paths...
@@ -28,3 +28,37 @@ CertifiedYES: 2697
 CertifiedNO: 497
 YES: 306
 NO: 69
+
+
+2025/06/05:
+Finding ARI files in TPDB_COPY...
+Found 3953 .ari files
+Reading ARI file contents and extracting XTC filenames...
+Analyzing ARI files: 3953/3953 (100.00%) 
+Processing multiple competition result directories...
+Processing results from Year_1: ./2014
+Processing results from Year_2: ./2015
+Processing results from Year_3: ./2016
+Processing results from Year_4: ./2017
+Processing results from Year_5: ./2018
+Processing results from Year_6: ./2019
+Processing results from Year_7: ./2020
+Processing results from Year_8: ./2021
+Processing results from Year_9: ./2022
+Processing results from Year_10: ./2023
+Processing results from Year_11: ./2024
+Updating ARI files with status information...
+Updating files: 3953/3953 (100.00%) 
+
+Processing completed in 57.47 seconds
+Updated 3953/3953 ARI files with status information
+Results logged to status_computation.log
+Status summary written to benchmark_statuses.csv
+
+Status statistics:
+CertifiedYES: 2781
+CertifiedNO: 475
+YES: 228
+NO: 82
+Conflict: 6
+CertifiedConflict: 28
