@@ -1,0 +1,10 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret05/matchbox1.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_05_TRS/matchbox1.xml"
+; @xtcfilename "./TRS_Standard/Secret_05_TRS/matchbox1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f (f x a) y) (f y (f x y)))

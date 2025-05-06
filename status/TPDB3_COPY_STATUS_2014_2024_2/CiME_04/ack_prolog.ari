@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Cime/ack_prolog.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/CiME_04/ack_prolog.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/CiME_04/ack_prolog.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/CiME_04/ack_prolog.xml"
+; @xtcfilename "./TRS_Standard/CiME_04/ack_prolog.xml"
+; @status CertifiedYES
+(format TRS)
+(fun ack_in 2)
+(fun |0| 0)
+(fun ack_out 1)
+(fun s 1)
+(fun u11 1)
+(fun u21 2)
+(fun u22 1)
+(rule (ack_in |0| n) (ack_out (s n)))
+(rule (ack_in (s m) |0|) (u11 (ack_in m (s |0|))))
+(rule (u11 (ack_out n)) (ack_out n))
+(rule (ack_in (s m) (s n)) (u21 (ack_in (s m) n) m))
+(rule (u21 (ack_out n) m) (u22 (ack_in m n)))
+(rule (u22 (ack_out n)) (ack_out n))

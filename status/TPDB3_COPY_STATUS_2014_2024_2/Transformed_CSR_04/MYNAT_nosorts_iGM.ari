@@ -1,0 +1,43 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/MYNAT_nosorts_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/MYNAT_nosorts_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/MYNAT_nosorts_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/MYNAT_nosorts_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/MYNAT_nosorts_iGM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun active 1)
+(fun and 2)
+(fun tt 0)
+(fun mark 1)
+(fun plus 2)
+(fun |0| 0)
+(fun s 1)
+(fun x 2)
+(rule (active (and tt X)) (mark X))
+(rule (active (plus N |0|)) (mark N))
+(rule (active (plus N (s M))) (mark (s (plus N M))))
+(rule (active (x N |0|)) (mark |0|))
+(rule (active (x N (s M))) (mark (plus (x N M) N)))
+(rule (mark (and X1 X2)) (active (and (mark X1) X2)))
+(rule (mark tt) (active tt))
+(rule (mark (plus X1 X2)) (active (plus (mark X1) (mark X2))))
+(rule (mark |0|) (active |0|))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (x X1 X2)) (active (x (mark X1) (mark X2))))
+(rule (and (mark X1) X2) (and X1 X2))
+(rule (and X1 (mark X2)) (and X1 X2))
+(rule (and (active X1) X2) (and X1 X2))
+(rule (and X1 (active X2)) (and X1 X2))
+(rule (plus (mark X1) X2) (plus X1 X2))
+(rule (plus X1 (mark X2)) (plus X1 X2))
+(rule (plus (active X1) X2) (plus X1 X2))
+(rule (plus X1 (active X2)) (plus X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (x (mark X1) X2) (x X1 X2))
+(rule (x X1 (mark X2)) (x X1 X2))
+(rule (x (active X1) X2) (x X1 X2))
+(rule (x X1 (active X2)) (x X1 X2))

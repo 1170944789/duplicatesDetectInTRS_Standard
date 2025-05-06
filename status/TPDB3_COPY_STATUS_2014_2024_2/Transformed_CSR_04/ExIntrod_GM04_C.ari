@@ -1,0 +1,59 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExIntrod_GM04_C.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_C.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM04_C.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_C.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/ExIntrod_GM04_C.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/ExIntrod_GM04_C.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExIntrod_GM04_C.xml"
+; @status CertifiedYES
+(format TRS)
+(fun active 1)
+(fun nats 0)
+(fun mark 1)
+(fun adx 1)
+(fun zeros 0)
+(fun cons 2)
+(fun |0| 0)
+(fun incr 1)
+(fun s 1)
+(fun hd 1)
+(fun tl 1)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active nats) (mark (adx zeros)))
+(rule (active zeros) (mark (cons |0| zeros)))
+(rule (active (incr (cons X Y))) (mark (cons (s X) (incr Y))))
+(rule (active (adx (cons X Y))) (mark (incr (cons X (adx Y)))))
+(rule (active (hd (cons X Y))) (mark X))
+(rule (active (tl (cons X Y))) (mark Y))
+(rule (active (adx X)) (adx (active X)))
+(rule (active (incr X)) (incr (active X)))
+(rule (active (hd X)) (hd (active X)))
+(rule (active (tl X)) (tl (active X)))
+(rule (adx (mark X)) (mark (adx X)))
+(rule (incr (mark X)) (mark (incr X)))
+(rule (hd (mark X)) (mark (hd X)))
+(rule (tl (mark X)) (mark (tl X)))
+(rule (proper nats) (ok nats))
+(rule (proper (adx X)) (adx (proper X)))
+(rule (proper zeros) (ok zeros))
+(rule (proper (cons X1 X2)) (cons (proper X1) (proper X2)))
+(rule (proper |0|) (ok |0|))
+(rule (proper (incr X)) (incr (proper X)))
+(rule (proper (s X)) (s (proper X)))
+(rule (proper (hd X)) (hd (proper X)))
+(rule (proper (tl X)) (tl (proper X)))
+(rule (adx (ok X)) (ok (adx X)))
+(rule (cons (ok X1) (ok X2)) (ok (cons X1 X2)))
+(rule (incr (ok X)) (ok (incr X)))
+(rule (s (ok X)) (ok (s X)))
+(rule (hd (ok X)) (ok (hd X)))
+(rule (tl (ok X)) (ok (tl X)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

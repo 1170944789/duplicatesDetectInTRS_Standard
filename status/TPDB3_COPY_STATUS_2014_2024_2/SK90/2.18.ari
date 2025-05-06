@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.18.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.18.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/2.18.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/SK90/2.18.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.18.xml"
+; @status CertifiedYES
+(format TRS)
+(fun sum 1)
+(fun |0| 0)
+(fun s 1)
+(fun + 2)
+(rule (sum |0|) |0|)
+(rule (sum (s x)) (+ (sum x) (s x)))
+(rule (+ x |0|) x)
+(rule (+ x (s y)) (s (+ x y)))

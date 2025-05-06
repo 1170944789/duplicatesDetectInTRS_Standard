@@ -1,0 +1,11 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt3-5.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt3-5.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun g 1)
+(rule (f (g (f x))) (f (g (g (g (f x))))))
+(rule (g x) (g (g x)) :cost 0)
+(rule (g x) (g (g (f (g (g x))))) :cost 0)
+(rule (f x) (g (g (f (g (g x))))) :cost 0)

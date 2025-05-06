@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/13.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/13.xml"
+; @xtcfilename "./TRS_Standard/Der95/13.xml"
+; @status CertifiedYES
+(format TRS)
+(fun * 2)
+(fun + 2)
+(rule (* x (+ y z)) (+ (* x y) (* x z)))
+(rule (* (+ y z) x) (+ (* x y) (* x z)))
+(rule (* (* x y) z) (* x (* y z)))
+(rule (+ (+ x y) z) (+ x (+ y z)))

@@ -1,0 +1,24 @@
+; @tag TRS_Relative
+; @origtpdbfilename mset_b2.trs
+; @xtcfilename "../xml/mset_b2.trs.xml"
+; @status Unknown
+(format TRS)
+(fun s 1)
+(fun div 2)
+(fun divL 2)
+(fun pred 1)
+(fun |0| 0)
+(fun minus 2)
+(fun cons 2)
+(fun consSwap 2)
+(fun nil 0)
+(rule (pred (s x)) x)
+(rule (minus x |0|) x)
+(rule (minus x (s y)) (pred (minus x y)))
+(rule (div |0| (s y)) |0|)
+(rule (div (s x) (s y)) (s (div (minus x y) (s y))))
+(rule (divL x nil) x)
+(rule (divL x (cons y xs)) (divL (div x y) xs))
+(rule (divL z (cons x xs)) (divL z (consSwap x xs)) :cost 0)
+(rule (consSwap x xs) (cons x xs) :cost 0)
+(rule (consSwap x (cons y xs)) (cons y (consSwap x xs)) :cost 0)

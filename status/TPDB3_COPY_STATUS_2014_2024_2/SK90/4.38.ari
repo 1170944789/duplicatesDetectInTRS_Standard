@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.38.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/4.38.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.38.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/4.38.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/SK90/4.38.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.38.xml"
+; @status CertifiedYES
+(format TRS)
+(fun g 2)
+(fun f 2)
+(fun h 2)
+(rule (g (f x y) z) (f x (g y z)))
+(rule (g (h x y) z) (g x (f y z)))
+(rule (g x (h y z)) (h (g x y) z))

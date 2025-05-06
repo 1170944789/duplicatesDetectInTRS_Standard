@@ -1,0 +1,13 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/div2.xml"
+; @status Unknown
+(format TRS)
+(fun div2 1)
+(fun + 2)
+(fun S 1)
+(fun |0| 0)
+(rule (div2 (S (S x))) (+ (S |0|) (div2 x)))
+(rule (div2 (S |0|)) |0|)
+(rule (div2 |0|) |0|)
+(rule (+ x (S |0|)) (S x) :cost 0)
+(rule (+ (S |0|) y) (S y) :cost 0)

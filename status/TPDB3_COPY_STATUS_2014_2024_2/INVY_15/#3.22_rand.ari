@@ -1,0 +1,16 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/#3.22_rand.xml"
+; @status YES
+(format TRS)
+(fun s 1)
+(fun plus 2)
+(fun |0| 0)
+(fun times 2)
+(fun rand 1)
+(rule (times x (plus y (s z))) (plus (times x (plus y (times (s z) |0|))) (times x (s z))))
+(rule (times x |0|) |0|)
+(rule (times x (s y)) (plus (times x y) x))
+(rule (plus x |0|) x)
+(rule (plus x (s y)) (s (plus x y)))
+(rule (rand x) x :cost 0)
+(rule (rand x) (rand (s x)) :cost 0)

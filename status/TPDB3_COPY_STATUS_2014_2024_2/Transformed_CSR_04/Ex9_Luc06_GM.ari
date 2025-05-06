@@ -1,0 +1,27 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex9_Luc06_GM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex9_Luc06_GM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_Luc06_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex9_Luc06_GM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex9_Luc06_GM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex9_Luc06_GM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex9_Luc06_GM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a__f 3)
+(fun a 0)
+(fun a__b 0)
+(fun b 0)
+(fun mark 1)
+(fun f 3)
+(rule (a__f a X X) (a__f X a__b b))
+(rule a__b a)
+(rule (mark (f X1 X2 X3)) (a__f X1 (mark X2) X3))
+(rule (mark b) a__b)
+(rule (mark a) a)
+(rule (a__f X1 X2 X3) (f X1 X2 X3))
+(rule a__b b)

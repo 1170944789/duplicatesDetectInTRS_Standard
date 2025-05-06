@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AotoYam/025.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AotoYamada_05/025.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AotoYamada_05/025.xml"
+; @xtcfilename "./TRS_Standard/AotoYamada_05/025.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun apply 0)
+(rule (app (app apply f) x) (app f x))

@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/PEANO_nosorts_FR.trs./TRS/TRCSR/PEANO_nosorts_Z.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/PEANO_nosorts_FR.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/PEANO_nosorts_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/PEANO_nosorts_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/PEANO_nosorts_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/PEANO_nosorts_FR.xml"
+; @status CertifiedYES
+(format TRS)
+(fun and 2)
+(fun tt 0)
+(fun activate 1)
+(fun plus 2)
+(fun |0| 0)
+(fun s 1)
+(rule (and tt X) (activate X))
+(rule (plus N |0|) N)
+(rule (plus N (s M)) (s (plus N M)))
+(rule (activate X) X)

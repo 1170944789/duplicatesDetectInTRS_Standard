@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/rta3.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/rta3.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_04/rta3.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_04/rta3.xml"
+; @xtcfilename "./TRS_Standard/AProVE_04/rta3.xml"
+; @status CertifiedYES
+(format TRS)
+(fun ack 2)
+(fun |0| 0)
+(fun s 1)
+(fun f 2)
+(rule (ack |0| y) (s y))
+(rule (ack (s x) |0|) (ack x (s |0|)))
+(rule (ack (s x) (s y)) (ack x (ack (s x) y)))
+(rule (f (s x) y) (f x (s x)))
+(rule (f x (s y)) (f y x))
+(rule (f x y) (ack x y))
+(rule (ack (s x) y) (f x x))

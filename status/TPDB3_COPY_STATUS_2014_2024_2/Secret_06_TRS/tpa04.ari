@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/tpa04.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_TRS/tpa04.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Secret_06_TRS/tpa04.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Secret_06_TRS/tpa04.xml"
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/tpa04.xml"
+; @status Unknown
+(format TRS)
+(fun min 2)
+(fun |0| 0)
+(fun s 1)
+(fun max 2)
+(fun twice 1)
+(fun - 2)
+(fun p 1)
+(fun f 2)
+(rule (min |0| y) |0|)
+(rule (min x |0|) |0|)
+(rule (min (s x) (s y)) (s (min x y)))
+(rule (max |0| y) y)
+(rule (max x |0|) x)
+(rule (max (s x) (s y)) (s (max x y)))
+(rule (twice |0|) |0|)
+(rule (twice (s x)) (s (s (twice x))))
+(rule (- x |0|) x)
+(rule (- (s x) (s y)) (- x y))
+(rule (p (s x)) x)
+(rule (f (s x) (s y)) (f (- (max (s x) (s y)) (min (s x) (s y))) (p (twice (min x y)))))

@@ -1,0 +1,28 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/isort-fold.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/isort-fold.xml"
+; @status Unknown
+(format TRS)
+(fun |fold#3| 2)
+(fun insert_ord 1)
+(fun Nil 0)
+(fun Cons 2)
+(fun |insert_ord#2| 3)
+(fun cond_insert_ord_x_ys_1 4)
+(fun True 0)
+(fun False 0)
+(fun leq 0)
+(fun |leq#2| 2)
+(fun |0| 0)
+(fun S 1)
+(fun main 1)
+(rule (|fold#3| (insert_ord x2) Nil) Nil)
+(rule (|fold#3| (insert_ord x6) (Cons x4 x2)) (|insert_ord#2| x6 x4 (|fold#3| (insert_ord x6) x2)))
+(rule (cond_insert_ord_x_ys_1 True x3 x2 x1) (Cons x3 (Cons x2 x1)))
+(rule (cond_insert_ord_x_ys_1 False x0 x5 x2) (Cons x5 (|insert_ord#2| leq x0 x2)))
+(rule (|insert_ord#2| leq x2 Nil) (Cons x2 Nil))
+(rule (|insert_ord#2| leq x6 (Cons x4 x2)) (cond_insert_ord_x_ys_1 (|leq#2| x6 x4) x6 x4 x2))
+(rule (|leq#2| |0| x8) True)
+(rule (|leq#2| (S x12) |0|) False)
+(rule (|leq#2| (S x4) (S x2)) (|leq#2| x4 x2))
+(rule (main x3) (|fold#3| (insert_ord leq) x3))

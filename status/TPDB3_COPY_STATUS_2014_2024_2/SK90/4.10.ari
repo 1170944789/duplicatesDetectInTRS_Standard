@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.10.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.10.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/4.10.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.10.xml"
+; @status CertifiedYES
+(format TRS)
+(fun * 2)
+(fun otimes 2)
+(fun |1| 0)
+(fun + 2)
+(fun oplus 2)
+(rule (* x (* y z)) (* (otimes x y) z))
+(rule (* |1| y) y)
+(rule (* (+ x y) z) (oplus (* x z) (* y z)))
+(rule (* x (oplus y z)) (oplus (* x y) (* x z)))

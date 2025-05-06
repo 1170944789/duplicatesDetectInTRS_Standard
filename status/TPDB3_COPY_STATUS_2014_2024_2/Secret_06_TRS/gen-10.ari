@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/matchbox/gen-10.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_TRS/gen-10.xml"
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/gen-10.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun b 2)
+(fun a 0)
+(fun c 3)
+(rule (f (b a z)) z)
+(rule (b y (b a z)) (b (f (c y y a)) (b (f z) a)))
+(rule (f (f (f (c z x a)))) (b (f x) z))

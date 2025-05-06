@@ -1,0 +1,53 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/LengthOfFiniteLists_nosorts_noand_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/LengthOfFiniteLists_nosorts_noand_iGM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/LengthOfFiniteLists_nosorts_noand_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/LengthOfFiniteLists_nosorts_noand_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/LengthOfFiniteLists_nosorts_noand_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/LengthOfFiniteLists_nosorts_noand_iGM.xml"
+; @status NO
+(format TRS)
+(fun active 1)
+(fun zeros 0)
+(fun mark 1)
+(fun cons 2)
+(fun |0| 0)
+(fun U11 2)
+(fun tt 0)
+(fun U12 2)
+(fun s 1)
+(fun length 1)
+(fun nil 0)
+(rule (active zeros) (mark (cons |0| zeros)))
+(rule (active (U11 tt L)) (mark (U12 tt L)))
+(rule (active (U12 tt L)) (mark (s (length L))))
+(rule (active (length nil)) (mark |0|))
+(rule (active (length (cons N L))) (mark (U11 tt L)))
+(rule (mark zeros) (active zeros))
+(rule (mark (cons X1 X2)) (active (cons (mark X1) X2)))
+(rule (mark |0|) (active |0|))
+(rule (mark (U11 X1 X2)) (active (U11 (mark X1) X2)))
+(rule (mark tt) (active tt))
+(rule (mark (U12 X1 X2)) (active (U12 (mark X1) X2)))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (length X)) (active (length (mark X))))
+(rule (mark nil) (active nil))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (U11 (mark X1) X2) (U11 X1 X2))
+(rule (U11 X1 (mark X2)) (U11 X1 X2))
+(rule (U11 (active X1) X2) (U11 X1 X2))
+(rule (U11 X1 (active X2)) (U11 X1 X2))
+(rule (U12 (mark X1) X2) (U12 X1 X2))
+(rule (U12 X1 (mark X2)) (U12 X1 X2))
+(rule (U12 (active X1) X2) (U12 X1 X2))
+(rule (U12 X1 (active X2)) (U12 X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (length (mark X)) (length X))
+(rule (length (active X)) (length X))

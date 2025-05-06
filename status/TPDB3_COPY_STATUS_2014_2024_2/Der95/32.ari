@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/32.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/32.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Der95/32.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Der95/32.xml"
+; @xtcfilename "./TRS_Standard/Der95/32.xml"
+; @status CertifiedYES
+(format TRS)
+(fun |sort| 1)
+(fun nil 0)
+(fun cons 2)
+(fun insert 2)
+(fun choose 4)
+(fun |0| 0)
+(fun s 1)
+(rule (|sort| nil) nil)
+(rule (|sort| (cons x y)) (insert x (|sort| y)))
+(rule (insert x nil) (cons x nil))
+(rule (insert x (cons v w)) (choose x (cons v w) x v))
+(rule (choose x (cons v w) y |0|) (cons x (cons v w)))
+(rule (choose x (cons v w) |0| (s z)) (cons v (insert x w)))
+(rule (choose x (cons v w) (s y) (s z)) (choose x (cons v w) y z))

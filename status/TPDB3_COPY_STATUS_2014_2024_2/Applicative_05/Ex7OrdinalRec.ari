@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Lifantsev/Ex7OrdinalRec.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/Ex7OrdinalRec.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex7OrdinalRec.xml"
+; @status Unknown
+(format TRS)
+(fun app 2)
+(fun rec 0)
+(fun |0| 0)
+(fun s 0)
+(fun lim 0)
+(fun rectuv 0)
+(fun n 0)
+(rule (app (app (app (app rec t) u) v) |0|) t)
+(rule (app (app (app (app rec t) u) v) (app s x)) (app (app u x) (app (app (app (app rec t) u) v) x)))
+(rule (app (app (app (app rec t) u) v) (app lim f)) (app (app v f) (app (app (app (app rectuv t) u) v) (app f n))))
+(rule (app (app (app (app rectuv t) u) v) n) (app (app (app (app rec t) u) v) n))

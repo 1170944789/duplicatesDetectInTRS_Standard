@@ -1,0 +1,44 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/ma96.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/ma96.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/ma96.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/ma96.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/ma96.xml"
+; @status CertifiedYES
+(format TRS)
+(fun and 2)
+(fun false 0)
+(fun true 0)
+(fun eq 2)
+(fun nil 0)
+(fun cons 2)
+(fun var 1)
+(fun apply 2)
+(fun lambda 2)
+(fun if 3)
+(fun ren 3)
+(rule (and false false) false)
+(rule (and true false) false)
+(rule (and false true) false)
+(rule (and true true) true)
+(rule (eq nil nil) true)
+(rule (eq (cons T L) nil) false)
+(rule (eq nil (cons T L)) false)
+(rule (eq (cons T L) (cons Tp Lp)) (and (eq T Tp) (eq L Lp)))
+(rule (eq (var L) (var Lp)) (eq L Lp))
+(rule (eq (var L) (apply T S)) false)
+(rule (eq (var L) (lambda X T)) false)
+(rule (eq (apply T S) (var L)) false)
+(rule (eq (apply T S) (apply Tp Sp)) (and (eq T Tp) (eq S Sp)))
+(rule (eq (apply T S) (lambda X Tp)) false)
+(rule (eq (lambda X T) (var L)) false)
+(rule (eq (lambda X T) (apply Tp Sp)) false)
+(rule (eq (lambda X T) (lambda Xp Tp)) (and (eq T Tp) (eq X Xp)))
+(rule (if true (var K) (var L)) (var K))
+(rule (if false (var K) (var L)) (var L))
+(rule (ren (var L) (var K) (var Lp)) (if (eq L Lp) (var K) (var Lp)))
+(rule (ren X Y (apply T S)) (apply (ren X Y T) (ren X Y S)))
+(rule (ren X Y (lambda Z T)) (lambda (var (cons X (cons Y (cons (lambda Z T) nil)))) (ren X Y (ren Z (var (cons X (cons Y (cons (lambda Z T) nil)))) T))))

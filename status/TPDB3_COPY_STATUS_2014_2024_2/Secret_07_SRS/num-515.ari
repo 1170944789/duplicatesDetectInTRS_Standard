@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret07/matchbox/num-515.srs./SRS/Waldmann07b/size-12-alpha-3-num-515.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_07_SRS/num-515.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_07_SRS/num-515.xml"
+; @xtcfilename "./SRS_Standard/Secret_07_SRS/num-515.xml"
+; @status CertifiedNO
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a (a x1))) (b x1))
+(rule (b (c x1)) (c (c (a (a (a (a x1)))))))

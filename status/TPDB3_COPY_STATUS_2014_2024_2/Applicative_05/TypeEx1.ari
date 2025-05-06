@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AProVE_HO/TypeEx1.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/TypeEx1.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/TypeEx1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun ap 2)
+(fun ff 0)
+(fun cons 0)
+(fun nil 0)
+(rule (ap (ap ff x) x) (ap (ap x (ap ff x)) (ap (ap cons x) nil)))

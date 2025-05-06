@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.21.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.21.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.21.xml"
+; @origtpdbfilename ./TRS/AG01/#4.21.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.21.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.21.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun |1| 0)
+(fun g 1)
+(fun |0| 0)
+(rule (f |1|) (f (g |1|)))
+(rule (f (f x)) (f x))
+(rule (g |0|) (g (f |0|)))
+(rule (g (g x)) (g x))

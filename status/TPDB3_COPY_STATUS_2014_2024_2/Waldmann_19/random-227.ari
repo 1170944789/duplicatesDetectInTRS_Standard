@@ -1,0 +1,14 @@
+; @tag SRS_Relative
+; @origtpdbfilename random-227.srs
+; @xtcfilename "./SRS_Relative/Waldmann_19/random-227.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (c (b (c x1))) (c (a (b x1))))
+(rule (c (b (b x1))) (a (a (c x1))))
+(rule (a (a (b x1))) (b (b (c x1))))
+(rule (b (b (c x1))) (a (b (c x1))))
+(rule (b (b (b x1))) (b (a (b x1))))
+(rule (c (b (a x1))) (b (a (c x1))) :cost 0)

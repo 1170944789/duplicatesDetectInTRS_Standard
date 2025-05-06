@@ -1,0 +1,32 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @origtpdbfilename tct_complexity/raML/rationalPotential.raml.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/raML/rationalPotential.raml.xml"
+; @xtcfilename "./TRS_Innermost/raML/rationalPotential.raml.xml"
+; @status CertifiedYES
+(format TRS)
+(fun group3 1)
+(fun |group3#1| 1)
+(fun |::| 2)
+(fun |group3#2| 2)
+(fun nil 0)
+(fun |group3#3| 3)
+(fun |tuple#3| 3)
+(fun zip3 3)
+(fun |zip3#1| 3)
+(fun |zip3#2| 4)
+(fun |zip3#3| 5)
+(rule (group3 @l) (|group3#1| @l))
+(rule (|group3#1| (|::| @x @xs)) (|group3#2| @xs @x))
+(rule (|group3#1| nil) nil)
+(rule (|group3#2| (|::| @y @ys) @x) (|group3#3| @ys @x @y))
+(rule (|group3#2| nil @x) nil)
+(rule (|group3#3| (|::| @z @zs) @x @y) (|::| (|tuple#3| @x @y @z) (group3 @zs)))
+(rule (|group3#3| nil @x @y) nil)
+(rule (zip3 @l1 @l2 @l3) (|zip3#1| @l1 @l2 @l3))
+(rule (|zip3#1| (|::| @x @xs) @l2 @l3) (|zip3#2| @l2 @l3 @x @xs))
+(rule (|zip3#1| nil @l2 @l3) nil)
+(rule (|zip3#2| (|::| @y @ys) @l3 @x @xs) (|zip3#3| @l3 @x @xs @y @ys))
+(rule (|zip3#2| nil @l3 @x @xs) nil)
+(rule (|zip3#3| (|::| @z @zs) @x @xs @y @ys) (|::| (|tuple#3| @x @y @z) (zip3 @xs @ys @zs)))
+(rule (|zip3#3| nil @x @xs @y @ys) nil)

@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExConc_Zan97_L.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExConc_Zan97_L.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExConc_Zan97_L.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/ExConc_Zan97_L.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/ExConc_Zan97_L.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExConc_Zan97_L.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun g 0)
+(rule (f X) g)

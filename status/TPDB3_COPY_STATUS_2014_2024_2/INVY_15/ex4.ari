@@ -1,0 +1,14 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/ex4.xml"
+; @status CertifiedYES
+(format TRS)
+(fun s 1)
+(fun a 0)
+(fun b 0)
+(fun c 2)
+(fun y 0)
+(fun f 1)
+(fun z 0)
+(rule a b)
+(rule (f (s x)) (c x (f x)) :cost 0)
+(rule (c x (c y z)) (c y (c x z)) :cost 0)

@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema/z14.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_05/z14.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_05/z14.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Zantema_05/z14.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Zantema_05/z14.xml"
+; @xtcfilename "./TRS_Standard/Zantema_05/z14.xml"
+; @status YES
+(format TRS)
+(fun f 2)
+(fun a 1)
+(fun b 1)
+(rule (f x (a (b y))) (f (a (a (b x))) y))
+(rule (f (a x) y) (f x (a y)))
+(rule (f (b x) y) (f x (b y)))

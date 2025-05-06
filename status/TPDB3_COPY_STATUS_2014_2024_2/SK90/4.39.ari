@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.39.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/4.39.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.39.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.39.xml"
+; @status CertifiedYES
+(format TRS)
+(fun * 2)
+(fun minus 1)
+(rule (* x (* (minus y) y)) (* (minus (* y y)) x))

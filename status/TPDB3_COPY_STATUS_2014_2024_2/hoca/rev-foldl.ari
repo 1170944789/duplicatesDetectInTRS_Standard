@@ -1,0 +1,12 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/rev-foldl.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/rev-foldl.xml"
+; @status Unknown
+(format TRS)
+(fun |foldl#3| 2)
+(fun Nil 0)
+(fun Cons 2)
+(fun main 1)
+(rule (|foldl#3| x2 Nil) x2)
+(rule (|foldl#3| x16 (Cons x24 x6)) (|foldl#3| (Cons x24 x16) x6))
+(rule (main x1) (|foldl#3| Nil x1))

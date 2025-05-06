@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/PALINDROME_nosorts_FR.trs./TRS/TRCSR/PALINDROME_nosorts_Z.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/PALINDROME_nosorts_FR.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/PALINDROME_nosorts_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/PALINDROME_nosorts_FR.xml"
+; @status CertifiedYES
+(format TRS)
+(fun __ 2)
+(fun nil 0)
+(fun and 2)
+(fun tt 0)
+(fun activate 1)
+(fun isNePal 1)
+(rule (__ (__ X Y) Z) (__ X (__ Y Z)))
+(rule (__ X nil) X)
+(rule (__ nil X) X)
+(rule (and tt X) (activate X))
+(rule (isNePal (__ I (__ P I))) tt)
+(rule (activate X) X)

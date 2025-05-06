@@ -1,0 +1,30 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExProp7_Luc06_FR.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExProp7_Luc06_FR.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExProp7_Luc06_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/ExProp7_Luc06_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExProp7_Luc06_FR.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun |0| 0)
+(fun cons 2)
+(fun n__f 1)
+(fun n__s 1)
+(fun n__0 0)
+(fun s 1)
+(fun p 1)
+(fun activate 1)
+(rule (f |0|) (cons |0| (n__f (n__s n__0))))
+(rule (f (s |0|)) (f (p (s |0|))))
+(rule (p (s X)) X)
+(rule (f X) (n__f X))
+(rule (s X) (n__s X))
+(rule |0| n__0)
+(rule (activate (n__f X)) (f (activate X)))
+(rule (activate (n__s X)) (s (activate X)))
+(rule (activate n__0) |0|)
+(rule (activate X) X)

@@ -1,0 +1,9 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/28.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/28.xml"
+; @xtcfilename "./TRS_Standard/Der95/28.xml"
+; @status CertifiedYES
+(format TRS)
+(fun if 3)
+(rule (if (if x y z) u v) (if x (if y u v) (if z u v)))

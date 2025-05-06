@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Waldmann/pi.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_06_SRS/pi.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06_SRS/pi.xml"
+; @xtcfilename "./SRS_Standard/Waldmann_06_SRS/pi.xml"
+; @status CertifiedYES
+(format TRS)
+(fun |3| 1)
+(fun |1| 1)
+(fun |4| 1)
+(fun |5| 1)
+(fun |9| 1)
+(fun |2| 1)
+(fun |6| 1)
+(fun |8| 1)
+(fun |7| 1)
+(fun |0| 1)
+(rule (|3| (|1| x1)) (|4| (|1| x1)))
+(rule (|5| (|9| x1)) (|2| (|6| (|5| x1))))
+(rule (|3| (|5| x1)) (|8| (|9| (|7| x1))))
+(rule (|9| x1) (|3| (|2| (|3| x1))))
+(rule (|8| (|4| x1)) (|6| x1))
+(rule (|2| (|6| x1)) (|4| (|3| x1)))
+(rule (|3| (|8| x1)) (|3| (|2| (|7| x1))))
+(rule (|9| x1) (|5| (|0| (|2| x1))))
+(rule (|8| (|8| (|4| x1))) (|1| (|9| x1)))
+(rule (|7| (|1| x1)) (|6| (|9| x1)))
+(rule (|3| (|9| x1)) (|9| (|3| x1)))
+(rule (|7| (|5| x1)) (|1| (|0| x1)))

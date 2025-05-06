@@ -1,0 +1,16 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/add.xml"
+; @status Unknown
+(format TRS)
+(fun add0 2)
+(fun Cons 2)
+(fun Nil 0)
+(fun notEmpty 1)
+(fun True 0)
+(fun False 0)
+(fun goal 2)
+(rule (add0 |x'| (Cons x xs)) (add0 (Cons (Cons Nil Nil) |x'|) xs))
+(rule (notEmpty (Cons x xs)) True)
+(rule (notEmpty Nil) False)
+(rule (add0 x Nil) x)
+(rule (goal x y) (add0 x y))

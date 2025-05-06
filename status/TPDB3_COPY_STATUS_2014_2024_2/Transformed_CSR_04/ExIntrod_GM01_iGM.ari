@@ -1,0 +1,56 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExIntrod_GM01_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM01_iGM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM01_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/ExIntrod_GM01_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/ExIntrod_GM01_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExIntrod_GM01_iGM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun active 1)
+(fun incr 1)
+(fun nil 0)
+(fun mark 1)
+(fun cons 2)
+(fun s 1)
+(fun adx 1)
+(fun nats 0)
+(fun zeros 0)
+(fun |0| 0)
+(fun head 1)
+(fun tail 1)
+(rule (active (incr nil)) (mark nil))
+(rule (active (incr (cons X L))) (mark (cons (s X) (incr L))))
+(rule (active (adx nil)) (mark nil))
+(rule (active (adx (cons X L))) (mark (incr (cons X (adx L)))))
+(rule (active nats) (mark (adx zeros)))
+(rule (active zeros) (mark (cons |0| zeros)))
+(rule (active (head (cons X L))) (mark X))
+(rule (active (tail (cons X L))) (mark L))
+(rule (mark (incr X)) (active (incr (mark X))))
+(rule (mark nil) (active nil))
+(rule (mark (cons X1 X2)) (active (cons (mark X1) X2)))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (adx X)) (active (adx (mark X))))
+(rule (mark nats) (active nats))
+(rule (mark zeros) (active zeros))
+(rule (mark |0|) (active |0|))
+(rule (mark (head X)) (active (head (mark X))))
+(rule (mark (tail X)) (active (tail (mark X))))
+(rule (incr (mark X)) (incr X))
+(rule (incr (active X)) (incr X))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (adx (mark X)) (adx X))
+(rule (adx (active X)) (adx X))
+(rule (head (mark X)) (head X))
+(rule (head (active X)) (head X))
+(rule (tail (mark X)) (tail X))
+(rule (tail (active X)) (tail X))

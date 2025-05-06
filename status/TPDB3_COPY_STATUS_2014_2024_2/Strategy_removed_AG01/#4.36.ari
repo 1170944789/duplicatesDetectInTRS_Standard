@@ -1,0 +1,45 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.36.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.36.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.36.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.36.xml"
+; @origtpdbfilename ./TRS/AG01/#4.36.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.36.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.36.xml"
+; @status CertifiedYES
+(format TRS)
+(fun eq 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun le 2)
+(fun min 1)
+(fun cons 2)
+(fun nil 0)
+(fun if_min 2)
+(fun replace 3)
+(fun if_replace 4)
+(fun |sort| 1)
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s m)) false)
+(rule (eq (s n) |0|) false)
+(rule (eq (s n) (s m)) (eq n m))
+(rule (le |0| m) true)
+(rule (le (s n) |0|) false)
+(rule (le (s n) (s m)) (le n m))
+(rule (min (cons |0| nil)) |0|)
+(rule (min (cons (s n) nil)) (s n))
+(rule (min (cons n (cons m x))) (if_min (le n m) (cons n (cons m x))))
+(rule (if_min true (cons n (cons m x))) (min (cons n x)))
+(rule (if_min false (cons n (cons m x))) (min (cons m x)))
+(rule (replace n m nil) nil)
+(rule (replace n m (cons k x)) (if_replace (eq n k) n m (cons k x)))
+(rule (if_replace true n m (cons k x)) (cons m x))
+(rule (if_replace false n m (cons k x)) (cons k (replace n m x)))
+(rule (|sort| nil) nil)
+(rule (|sort| (cons n x)) (cons (min (cons n x)) (|sort| (replace (min (cons n x)) n x))))

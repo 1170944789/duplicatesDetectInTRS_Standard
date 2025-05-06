@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret05/teparla3.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_05_TRS/teparla3.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_05_TRS/teparla3.xml"
+; @xtcfilename "./TRS_Standard/Secret_05_TRS/teparla3.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f y (f x (f a x))) (f (f a (f x a)) (f a y)))
+(rule (f x (f x y)) (f (f (f x a) a) a))

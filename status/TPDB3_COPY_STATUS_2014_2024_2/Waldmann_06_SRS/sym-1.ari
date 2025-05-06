@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Waldmann/sym-1.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_06_SRS/sym-1.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06_SRS/sym-1.xml"
+; @xtcfilename "./SRS_Standard/Waldmann_06_SRS/sym-1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (a x1)) (a (b (a x1))))
+(rule (b (b x1)) (a (a x1)))
+(rule (a (b (b (a x1)))) x1)

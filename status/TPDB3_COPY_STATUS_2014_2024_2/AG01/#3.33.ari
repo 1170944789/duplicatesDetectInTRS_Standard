@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.33.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AG01/#3.33.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AG01/#3.33.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AG01/#3.33.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AG01/#3.33.xml"
+; @xtcfilename "./TRS_Standard/AG01/#3.33.xml"
+; @status CertifiedYES
+(format TRS)
+(fun p 1)
+(fun f 1)
+(fun q 1)
+(fun g 1)
+(rule (p (f (f x))) (q (f (g x))))
+(rule (p (g (g x))) (q (g (f x))))
+(rule (q (f (f x))) (p (f (g x))))
+(rule (q (g (g x))) (p (g (f x))))

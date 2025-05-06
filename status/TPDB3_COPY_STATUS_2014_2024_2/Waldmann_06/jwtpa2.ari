@@ -1,0 +1,13 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwtpa2.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwtpa2.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwtpa2.xml"
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwtpa2.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun h 1)
+(rule (f x (f a y)) (f a (f (f (f a x) (h a)) y)))

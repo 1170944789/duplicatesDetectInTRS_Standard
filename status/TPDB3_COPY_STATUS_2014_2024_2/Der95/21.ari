@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/21.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/21.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Der95/21.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Der95/21.xml"
+; @xtcfilename "./TRS_Standard/Der95/21.xml"
+; @status CertifiedYES
+(format TRS)
+(fun p 1)
+(fun s 1)
+(fun fact 1)
+(fun |0| 0)
+(fun * 2)
+(fun + 2)
+(rule (p (s x)) x)
+(rule (fact |0|) (s |0|))
+(rule (fact (s x)) (* (s x) (fact (p (s x)))))
+(rule (* |0| y) |0|)
+(rule (* (s x) y) (+ (* x y) y))
+(rule (+ x |0|) x)
+(rule (+ x (s y)) (s (+ x y)))

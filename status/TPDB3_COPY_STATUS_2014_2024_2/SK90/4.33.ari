@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.33.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/4.33.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.33.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.33.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a x))) (b (a (b x))))

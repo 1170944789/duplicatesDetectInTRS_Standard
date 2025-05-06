@@ -1,0 +1,49 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Bird/Hamming.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/Hamming.xml"
+; @origtpdbfilename ./TRS/outermost/higher-order/Bird/Hamming.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/Hamming.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/Hamming.xml"
+; @status CertifiedNO
+(format TRS)
+(fun app 2)
+(fun if 0)
+(fun true 0)
+(fun false 0)
+(fun lt 0)
+(fun s 0)
+(fun |0| 0)
+(fun eq 0)
+(fun merge 0)
+(fun nil 0)
+(fun cons 0)
+(fun map 0)
+(fun mult 0)
+(fun plus 0)
+(fun list1 0)
+(fun hamming 0)
+(fun list2 0)
+(fun list3 0)
+(rule (app (app (app if true) xs) ys) xs)
+(rule (app (app (app if false) xs) ys) ys)
+(rule (app (app lt (app s x)) (app s y)) (app (app lt x) y))
+(rule (app (app lt |0|) (app s y)) true)
+(rule (app (app lt y) |0|) false)
+(rule (app (app eq x) x) true)
+(rule (app (app eq (app s x)) |0|) false)
+(rule (app (app eq |0|) (app s x)) false)
+(rule (app (app merge xs) nil) xs)
+(rule (app (app merge nil) ys) ys)
+(rule (app (app merge (app (app cons x) xs)) (app (app cons y) ys)) (app (app (app if (app (app lt x) y)) (app (app cons x) (app (app merge xs) (app (app cons y) ys)))) (app (app (app if (app (app eq x) y)) (app (app cons x) (app (app merge xs) ys))) (app (app cons y) (app (app merge (app (app cons x) xs)) ys)))))
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons x) xs)) (app (app cons (app f x)) (app (app map f) xs)))
+(rule (app (app mult |0|) x) |0|)
+(rule (app (app mult (app s x)) y) (app (app plus y) (app (app mult x) y)))
+(rule (app (app plus |0|) x) |0|)
+(rule (app (app plus (app s x)) y) (app s (app (app plus x) y)))
+(rule list1 (app (app map (app mult (app s (app s |0|)))) hamming))
+(rule list2 (app (app map (app mult (app s (app s (app s |0|))))) hamming))
+(rule list3 (app (app map (app mult (app s (app s (app s (app s (app s |0|))))))) hamming))
+(rule hamming (app (app cons (app s |0|)) (app (app merge list1) (app (app merge list2) list3))))

@@ -1,0 +1,28 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret05/cime4.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_05_TRS/cime4.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Secret_05_TRS/cime4.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Secret_05_TRS/cime4.xml"
+; @origtpdbfilename ./TRS/outermost/secret05/cime4.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/cime4.xml"
+; @xtcfilename "./TRS_Standard/Secret_05_TRS/cime4.xml"
+; @status CertifiedNO
+(format TRS)
+(fun g 1)
+(fun u 3)
+(fun h 1)
+(fun d 0)
+(fun c 1)
+(fun k 1)
+(fun a 0)
+(fun b 0)
+(fun f 3)
+(rule (g X) (u (h X) (h X) X))
+(rule (u d (c Y) X) (k Y))
+(rule (h d) (c a))
+(rule (h d) (c b))
+(rule (f (k a) (k b) X) (f X X X))

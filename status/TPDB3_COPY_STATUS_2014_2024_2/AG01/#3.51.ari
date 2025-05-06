@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.51.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AG01/#3.51.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AG01/#3.51.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AG01/#3.51.xml"
+; @xtcfilename "./TRS_Standard/AG01/#3.51.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun c 1)
+(fun d 1)
+(fun g 1)
+(fun h 1)
+(fun |0| 0)
+(fun |1| 0)
+(rule (f (f x)) (f (c (f x))))
+(rule (f (f x)) (f (d (f x))))
+(rule (g (c x)) x)
+(rule (g (d x)) x)
+(rule (g (c (h |0|))) (g (d |1|)))
+(rule (g (c |1|)) (g (d (h |0|))))
+(rule (g (h x)) (g x))

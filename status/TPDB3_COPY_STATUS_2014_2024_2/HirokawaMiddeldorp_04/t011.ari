@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HM/t011.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/HirokawaMiddeldorp_04/t011.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/HirokawaMiddeldorp_04/t011.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/HirokawaMiddeldorp_04/t011.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/HirokawaMiddeldorp_04/t011.xml"
+; @xtcfilename "./TRS_Standard/HirokawaMiddeldorp_04/t011.xml"
+; @status CertifiedYES
+(format TRS)
+(fun g 2)
+(fun f 1)
+(fun h 2)
+(rule (g (f x) y) (f (h x y)))
+(rule (h x y) (g x (f y)))

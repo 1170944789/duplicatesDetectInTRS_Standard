@@ -1,0 +1,24 @@
+; @tag TRS_Relative
+; @origtpdbfilename lasso.trs
+; @xtcfilename "../xml/lasso.trs.xml"
+; @status Unknown
+(format TRS)
+(fun s 1)
+(fun a 0)
+(fun b 0)
+(fun c 2)
+(fun half 1)
+(fun div 2)
+(fun |0| 0)
+(fun minus 2)
+(fun gen 2)
+(rule (minus x |0|) x)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (div |0| (s y)) |0|)
+(rule (div (s x) (s y)) (s (div (minus x y) (s y))))
+(rule (half (s (s x))) (div x (s (s |0|))))
+(rule (gen (s x) a) (c (s (s |0|)) (gen (s x) b)) :cost 0)
+(rule (gen (s x) a) (c (half (s (s |0|))) (gen x a)) :cost 0)
+(rule (gen |0| a) (gen |0| a) :cost 0)
+(rule (gen (s x) b) (gen (s x) b) :cost 0)
+(rule (gen (s x) b) (gen x a) :cost 0)

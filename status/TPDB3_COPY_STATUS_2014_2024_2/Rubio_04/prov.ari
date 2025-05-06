@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/prov.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/prov.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/prov.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/prov.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/prov.xml"
+; @status CertifiedYES
+(format TRS)
+(fun ackin 2)
+(fun s 1)
+(fun u21 2)
+(fun ackout 1)
+(fun u22 1)
+(rule (ackin (s X) (s Y)) (u21 (ackin (s X) Y) X))
+(rule (u21 (ackout X) Y) (u22 (ackin Y X)))

@@ -1,0 +1,10 @@
+; @tag SRS_Relative
+; @xtcfilename "./SRS_Relative/Waldmann_23/size-8-alpha-3-num-32.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun c 1)
+(fun b 1)
+(rule (a (c (b x))) (c x))
+(rule x (a (b x)) :cost 0)
+(rule (a (b x)) x :cost 0)

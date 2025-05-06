@@ -1,0 +1,26 @@
+; @tag TRS_Relative
+; @origtpdbfilename purge.trs
+; @xtcfilename "../xml/purge.trs.xml"
+; @status Unknown
+(format TRS)
+(fun s 1)
+(fun true 0)
+(fun eq 2)
+(fun ifrm 3)
+(fun |0| 0)
+(fun purge 1)
+(fun rm 2)
+(fun cons 2)
+(fun false 0)
+(fun nil 0)
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s x)) false)
+(rule (eq (s x) |0|) false)
+(rule (eq (s x) (s y)) (eq x y))
+(rule (rm n nil) nil)
+(rule (rm n (cons m x)) (ifrm (eq n m) n (cons m x)))
+(rule (ifrm true n (cons m x)) (rm n x))
+(rule (ifrm false n (cons m x)) (cons m (rm n x)))
+(rule (purge nil) nil)
+(rule (purge (cons n x)) (cons n (purge (rm n x))))
+(rule (purge (cons n (cons m x))) (purge (cons m (cons n x))) :cost 0)

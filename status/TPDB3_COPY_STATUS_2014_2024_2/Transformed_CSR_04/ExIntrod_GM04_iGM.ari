@@ -1,0 +1,52 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExIntrod_GM04_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_iGM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM04_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/ExIntrod_GM04_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/ExIntrod_GM04_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExIntrod_GM04_iGM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun active 1)
+(fun nats 0)
+(fun mark 1)
+(fun adx 1)
+(fun zeros 0)
+(fun cons 2)
+(fun |0| 0)
+(fun incr 1)
+(fun s 1)
+(fun hd 1)
+(fun tl 1)
+(rule (active nats) (mark (adx zeros)))
+(rule (active zeros) (mark (cons |0| zeros)))
+(rule (active (incr (cons X Y))) (mark (cons (s X) (incr Y))))
+(rule (active (adx (cons X Y))) (mark (incr (cons X (adx Y)))))
+(rule (active (hd (cons X Y))) (mark X))
+(rule (active (tl (cons X Y))) (mark Y))
+(rule (mark nats) (active nats))
+(rule (mark (adx X)) (active (adx (mark X))))
+(rule (mark zeros) (active zeros))
+(rule (mark (cons X1 X2)) (active (cons X1 X2)))
+(rule (mark |0|) (active |0|))
+(rule (mark (incr X)) (active (incr (mark X))))
+(rule (mark (s X)) (active (s X)))
+(rule (mark (hd X)) (active (hd (mark X))))
+(rule (mark (tl X)) (active (tl (mark X))))
+(rule (adx (mark X)) (adx X))
+(rule (adx (active X)) (adx X))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (incr (mark X)) (incr X))
+(rule (incr (active X)) (incr X))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (hd (mark X)) (hd X))
+(rule (hd (active X)) (hd X))
+(rule (tl (mark X)) (tl X))
+(rule (tl (active X)) (tl X))

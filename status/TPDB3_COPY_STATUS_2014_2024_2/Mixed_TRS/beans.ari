@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema06/beans.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_TRS/beans.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/beans.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/beans.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun s 1)
+(fun L 1)
+(fun |0| 0)
+(fun nil 0)
+(rule (f x (f (s (s y)) (f z w))) (f (s x) (f y (f (s z) w))))
+(rule (L (f (s (s y)) (f z w))) (L (f (s |0|) (f y (f (s z) w)))))
+(rule (f x (f (s (s y)) nil)) (f (s x) (f y (f (s |0|) nil))))

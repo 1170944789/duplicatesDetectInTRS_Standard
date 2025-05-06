@@ -1,0 +1,37 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex25_Luc06_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex25_Luc06_iGM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex25_Luc06_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex25_Luc06_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex25_Luc06_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex25_Luc06_iGM.xml"
+; @status CertifiedYES
+(format TRS)
+(fun active 1)
+(fun f 1)
+(fun mark 1)
+(fun c 1)
+(fun g 1)
+(fun d 1)
+(fun h 1)
+(rule (active (f (f X))) (mark (c (f (g (f X))))))
+(rule (active (c X)) (mark (d X)))
+(rule (active (h X)) (mark (c (d X))))
+(rule (mark (f X)) (active (f (mark X))))
+(rule (mark (c X)) (active (c X)))
+(rule (mark (g X)) (active (g X)))
+(rule (mark (d X)) (active (d X)))
+(rule (mark (h X)) (active (h (mark X))))
+(rule (f (mark X)) (f X))
+(rule (f (active X)) (f X))
+(rule (c (mark X)) (c X))
+(rule (c (active X)) (c X))
+(rule (g (mark X)) (g X))
+(rule (g (active X)) (g X))
+(rule (d (mark X)) (d X))
+(rule (d (active X)) (d X))
+(rule (h (mark X)) (h X))
+(rule (h (active X)) (h X))

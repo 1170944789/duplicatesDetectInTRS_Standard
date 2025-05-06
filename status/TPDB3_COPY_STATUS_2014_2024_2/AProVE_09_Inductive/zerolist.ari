@@ -1,0 +1,28 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./AProVE_09_Inductive/zerolist.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_09_Inductive/zerolist.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_09_Inductive/zerolist.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_09_Inductive/zerolist.xml"
+; @xtcfilename "./TRS_Standard/AProVE_09_Inductive/zerolist.xml"
+; @status YES
+(format TRS)
+(fun sub 2)
+(fun |0| 0)
+(fun s 1)
+(fun zero 1)
+(fun nil 0)
+(fun zero2 2)
+(fun cons 2)
+(rule (sub |0| |0|) |0|)
+(rule (sub (s x) |0|) (s x))
+(rule (sub |0| (s x)) |0|)
+(rule (sub (s x) (s y)) (sub x y))
+(rule (zero nil) (zero2 |0| nil))
+(rule (zero (cons x xs)) (zero2 (sub x x) (cons x xs)))
+(rule (zero2 |0| nil) nil)
+(rule (zero2 |0| (cons x xs)) (cons (sub x x) (zero xs)))
+(rule (zero2 (s y) nil) (zero nil))
+(rule (zero2 (s y) (cons x xs)) (zero (cons x xs)))

@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AotoYam/Ex5TermProof.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AotoYamada_05/Ex5TermProof.xml"
+; @xtcfilename "./TRS_Standard/AotoYamada_05/Ex5TermProof.xml"
+; @status CertifiedYES
+(format TRS)
+(fun app 2)
+(fun add 0)
+(fun |0| 0)
+(fun s 0)
+(fun mult 0)
+(fun rec 0)
+(fun fact 0)
+(rule (app (app add |0|) y) y)
+(rule (app (app add (app s x)) y) (app s (app (app add x) y)))
+(rule (app (app mult |0|) y) |0|)
+(rule (app (app mult (app s x)) y) (app (app add (app (app mult x) y)) y))
+(rule (app (app (app rec f) x) |0|) x)
+(rule (app (app (app rec f) x) (app s y)) (app (app f (app s y)) (app (app (app rec f) x) y)))
+(rule fact (app (app rec mult) (app s |0|)))

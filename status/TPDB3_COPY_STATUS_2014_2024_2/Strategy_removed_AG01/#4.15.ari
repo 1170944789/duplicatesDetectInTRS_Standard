@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.15.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.15.xml"
+; @origtpdbfilename ./TRS/AG01/#4.15.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.15.xml"
+; @origtpdbfilename ./TRS/outermost/nontermin/AG01/#4.15.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/#4.15.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.15.xml"
+; @status CertifiedConflict
+(format TRS)
+(fun f 4)
+(fun |0| 0)
+(fun |1| 0)
+(fun g 2)
+(fun h 1)
+(rule (f |0| |1| (g x y) z) (f (g x y) (g x y) (g x y) (h x)))
+(rule (g |0| |1|) |0|)
+(rule (g |0| |1|) |1|)
+(rule (h (g x y)) (h x))

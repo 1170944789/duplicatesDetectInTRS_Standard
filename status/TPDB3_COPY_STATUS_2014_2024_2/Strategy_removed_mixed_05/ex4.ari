@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/cariboo/ex4.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Strategy_removed_mixed_05/ex4.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/ex4.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/ex4.xml"
+; @origtpdbfilename ./TRS/cariboo/ex4.trs
+; @xtcfilename "./TRS_Outermost/Mixed_outermost/ex4.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/ex4.xml"
+; @status CertifiedNO
+(format TRS)
+(fun f 1)
+(fun h 1)
+(fun i 1)
+(fun a 0)
+(rule (f (h x)) (f (i x)))
+(rule (f (i x)) a)
+(rule (i x) (h x))

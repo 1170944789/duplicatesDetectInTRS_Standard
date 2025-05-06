@@ -1,0 +1,37 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.13.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AG01/#3.13.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AG01/#3.13.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AG01/#3.13.xml"
+; @xtcfilename "./TRS_Standard/AG01/#3.13.xml"
+; @status CertifiedYES
+(format TRS)
+(fun eq 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun or 2)
+(fun union 2)
+(fun empty 0)
+(fun edge 3)
+(fun reach 4)
+(fun if_reach_1 5)
+(fun if_reach_2 5)
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s x)) false)
+(rule (eq (s x) |0|) false)
+(rule (eq (s x) (s y)) (eq x y))
+(rule (or true y) true)
+(rule (or false y) y)
+(rule (union empty h) h)
+(rule (union (edge x y i) h) (edge x y (union i h)))
+(rule (reach x y empty h) false)
+(rule (reach x y (edge u v i) h) (if_reach_1 (eq x u) x y (edge u v i) h))
+(rule (if_reach_1 true x y (edge u v i) h) (if_reach_2 (eq y v) x y (edge u v i) h))
+(rule (if_reach_2 true x y (edge u v i) h) true)
+(rule (if_reach_2 false x y (edge u v i) h) (or (reach x y i h) (reach v y (union i h) empty)))
+(rule (if_reach_1 false x y (edge u v i) h) (reach x y i (edge u v h)))

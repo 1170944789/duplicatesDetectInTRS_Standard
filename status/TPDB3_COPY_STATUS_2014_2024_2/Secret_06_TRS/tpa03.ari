@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/tpa03.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_TRS/tpa03.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_TRS/tpa03.xml"
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/tpa03.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f x (f y x)) (f (f x x) (f a y)))

@@ -1,0 +1,9 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt2-1.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt2-1.xml"
+; @status CertifiedYES
+(format TRS)
+(fun I 1)
+(fun T 2)
+(rule (T (I x) y) (T x y))
+(rule (T x y) (T x (I y)) :cost 0)

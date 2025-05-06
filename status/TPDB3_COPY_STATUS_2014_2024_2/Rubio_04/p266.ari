@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/p266.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Rubio_04/p266.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/p266.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/p266.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/p266.xml"
+; @status CertifiedYES
+(format TRS)
+(fun f 1)
+(fun a 1)
+(fun b 1)
+(fun g 1)
+(rule (f (f X)) (f (a (b (f X)))))
+(rule (f (a (g X))) (b X))
+(rule (b X) (a X))

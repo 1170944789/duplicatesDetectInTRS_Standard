@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Trafo/hom02.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Trafo_06/hom02.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Trafo_06/hom02.xml"
+; @xtcfilename "./SRS_Standard/Trafo_06/hom02.xml"
+; @status CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a x1) (b (b x1)))
+(rule (a (b (b x1))) (b (b (c (c (c (a x1)))))))
+(rule (b (b x1)) (c (c (c x1))))
+(rule (c (c (c (b (b x1))))) (a x1))
