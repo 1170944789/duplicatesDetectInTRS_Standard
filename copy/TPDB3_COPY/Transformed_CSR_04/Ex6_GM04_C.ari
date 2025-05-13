@@ -1,0 +1,35 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex6_GM04_C.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex6_GM04_C.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex6_GM04_C.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex6_GM04_C.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex6_GM04_C.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex6_GM04_C.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex6_GM04_C.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex6_GM04_C.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex6_GM04_C.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex6_GM04_C.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex6_GM04_C.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex6_GM04_C.ari"
+(format TRS)
+(fun active 1)
+(fun c 0)
+(fun mark 1)
+(fun f 1)
+(fun g 1)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active c) (mark (f (g c))))
+(rule (active (f (g X))) (mark (g X)))
+(rule (proper c) (ok c))
+(rule (proper (f X)) (f (proper X)))
+(rule (proper (g X)) (g (proper X)))
+(rule (f (ok X)) (ok (f X)))
+(rule (g (ok X)) (ok (g X)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

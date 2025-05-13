@@ -1,0 +1,9 @@
+; @tag SRS_Standard
+; @xtcfilename "./SRS_Standard/Waldmann_23/2.xml"
+; @origariname "./SRS_Standard/Waldmann_23/2.ari"
+; @status Unknown
+(format TRS)
+(fun |0| 1)
+(fun |1| 1)
+(rule (|0| (|0| (|0| x))) (|1| (|0| (|1| x))))
+(rule (|1| (|0| (|1| (|1| (|1| x))))) (|0| (|1| (|1| (|1| (|0| x))))))

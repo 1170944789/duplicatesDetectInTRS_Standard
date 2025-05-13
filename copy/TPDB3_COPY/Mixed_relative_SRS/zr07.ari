@@ -1,0 +1,11 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/relative/zr07.srs
+; @xtcfilename "./SRS_Relative/Mixed_relative_SRS/zr07.xml"
+; @origariname "./SRS_Relative/Mixed_relative_SRS/zr07.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (c (b x1))) (b (a (b (a x1)))))
+(rule (a (a x1)) (a (b (a x1))))
+(rule (b x1) (b (c x1)) :cost 0)

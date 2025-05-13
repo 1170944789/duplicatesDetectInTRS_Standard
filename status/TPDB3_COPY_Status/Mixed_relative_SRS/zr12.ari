@@ -1,0 +1,15 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/relative/zr12.srs
+; @xtcfilename "./SRS_Relative/Mixed_relative_SRS/zr12.xml"
+; @origariname "./SRS_Relative/Mixed_relative_SRS/zr12.ari"
+; @status_SRS_Relative CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun d 1)
+(fun c 1)
+(rule (a (b x1)) (a x1))
+(rule (d (b x1)) (b x1))
+(rule (d (c x1)) (c x1))
+(rule (a x1) (d (a x1)) :cost 0)
+(rule (c x1) (c (b x1)) :cost 0)

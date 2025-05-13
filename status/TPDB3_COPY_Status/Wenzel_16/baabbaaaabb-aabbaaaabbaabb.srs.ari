@@ -1,0 +1,12 @@
+; @tag SRS_Cycle
+; @tag SRS_Standard
+; @origtpdbfilename /tmp/tmpd_cg28nx.srs
+; @xtcfilename "./SRS_Cycle/Wenzel_16/baabbaaaabb-aabbaaaabbaabb.srs.xml"
+; @xtcfilename "./SRS_Standard/Wenzel_16/baabbaaaabb-aabbaaaabbaabb.srs.xml"
+; @origariname "./SRS_Cycle/Wenzel_16/baabbaaaabb-aabbaaaabbaabb.srs.ari"
+; @origariname "./SRS_Standard/Wenzel_16/baabbaaaabb-aabbaaaabbaabb.srs.ari"
+; @status_SRS_Standard YES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(rule (b (a (a (b (b (a (a (a (a (b (b x1))))))))))) (a (a (b (b (a (a (a (a (b (b (a (a (b (b x1)))))))))))))))

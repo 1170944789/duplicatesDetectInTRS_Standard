@@ -1,0 +1,11 @@
+; @tag TRS_Standard
+; @origtpdbfilename payet-nonloop-2.trs
+; @xtcfilename "./TRS_Standard/Payet_23/payet-nonloop-2_1.xml"
+; @origariname "./TRS_Standard/Payet_23/payet-nonloop-2_1.ari"
+(format TRS)
+(fun f 2)
+(fun h 1)
+(fun |0| 0)
+(fun g 2)
+(rule (f X (h |0|)) (f (g (h |0|) (h |0|)) X))
+(rule (f X (g Y Y)) (f (g X X) Y))

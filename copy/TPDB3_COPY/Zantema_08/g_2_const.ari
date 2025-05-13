@@ -1,0 +1,10 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/g_2_const.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/g_2_const.xml"
+; @origariname "./TRS_Outermost/Zantema_08/g_2_const.ari"
+(format TRS)
+(fun f 1)
+(fun g 1)
+(fun c 0)
+(rule (f x) (g (f x)))
+(rule (g (g x)) c)

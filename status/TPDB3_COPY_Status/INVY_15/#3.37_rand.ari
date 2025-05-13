@@ -1,0 +1,19 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/#3.37_rand.xml"
+; @origariname "./TRS_Relative/INVY_15/#3.37_rand.ari"
+; @status_TRS_Relative CertifiedYES
+(format TRS)
+(fun s 1)
+(fun true 0)
+(fun |0| 0)
+(fun not 1)
+(fun evenodd 2)
+(fun rand 1)
+(fun false 0)
+(rule (not true) false)
+(rule (not false) true)
+(rule (evenodd x |0|) (not (evenodd x (s |0|))))
+(rule (evenodd |0| (s |0|)) false)
+(rule (evenodd (s x) (s |0|)) (evenodd x |0|))
+(rule (rand x) x :cost 0)
+(rule (rand x) (rand (s x)) :cost 0)

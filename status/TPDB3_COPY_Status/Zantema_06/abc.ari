@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema06/abc.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_06/abc.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/abc.xml"
+; @xtcfilename "./SRS_Standard/Zantema_06/abc.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_06/abc.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/abc.ari"
+; @origariname "./SRS_Standard/Zantema_06/abc.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (b (c x1))) (c (c (b (b (a (a x1)))))))
+(rule (a x1) x1)
+(rule (b x1) x1)
+(rule (c x1) x1)

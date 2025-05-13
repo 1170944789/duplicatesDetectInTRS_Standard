@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex24_GM04_Z.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex24_GM04_Z.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex24_GM04_Z.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex24_GM04_Z.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex24_GM04_Z.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex24_GM04_Z.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex24_GM04_Z.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun f 3)
+(fun n__g 1)
+(fun activate 1)
+(fun g 1)
+(fun b 0)
+(fun c 0)
+(rule (f X (n__g X) Y) (f (activate Y) (activate Y) (activate Y)))
+(rule (g b) c)
+(rule b c)
+(rule (g X) (n__g X))
+(rule (activate (n__g X)) (g X))
+(rule (activate X) X)

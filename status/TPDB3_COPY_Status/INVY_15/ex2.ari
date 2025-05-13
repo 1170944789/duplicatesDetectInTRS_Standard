@@ -1,0 +1,11 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/ex2.xml"
+; @origariname "./TRS_Relative/INVY_15/ex2.ari"
+; @status_TRS_Relative YES
+(format TRS)
+(fun s 1)
+(fun f 2)
+(fun g 2)
+(rule (g (s x) y) (g (f x y) y))
+(rule (f x y) x :cost 0)
+(rule (f x y) (f x (s y)) :cost 0)

@@ -1,0 +1,9 @@
+; @tag SRS_Relative
+; @xtcfilename "./SRS_Relative/Waldmann_23/size-10-alpha-2-num-48.xml"
+; @origariname "./SRS_Relative/Waldmann_23/size-10-alpha-2-num-48.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (b (a x)))) x)
+(rule x (a x) :cost 0)
+(rule x (a (a (a (b (a x))))) :cost 0)

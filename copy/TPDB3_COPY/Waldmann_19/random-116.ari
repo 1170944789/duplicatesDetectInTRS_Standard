@@ -1,0 +1,14 @@
+; @tag SRS_Relative
+; @origtpdbfilename random-116.srs
+; @xtcfilename "./SRS_Relative/Waldmann_19/random-116.xml"
+; @origariname "./SRS_Relative/Waldmann_19/random-116.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (b (c (a x1))) (a (b (a x1))))
+(rule (a (a (a x1))) (c (c (c x1))))
+(rule (a (a (a x1))) (a (b (a x1))))
+(rule (c (c (a x1))) (c (a (c x1))) :cost 0)
+(rule (b (a (b x1))) (b (c (c x1))) :cost 0)
+(rule (c (a (b x1))) (a (c (b x1))) :cost 0)

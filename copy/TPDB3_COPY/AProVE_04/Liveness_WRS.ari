@@ -1,0 +1,33 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/Liveness_WRS.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AProVE_04/Liveness_WRS.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/Liveness_WRS.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_04/Liveness_WRS.xml"
+; @xtcfilename "./TRS_Standard/AProVE_04/Liveness_WRS.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/AProVE_04/Liveness_WRS.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/Liveness_WRS.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_04/Liveness_WRS.ari"
+; @origariname "./TRS_Standard/AProVE_04/Liveness_WRS.ari"
+(format TRS)
+(fun active 1)
+(fun f 1)
+(fun mark 1)
+(fun chk 1)
+(fun no 1)
+(fun mat 2)
+(fun X 0)
+(fun y 0)
+(fun c 0)
+(fun tp 1)
+(rule (active (f x)) (mark (f (f x))))
+(rule (chk (no (f x))) (f (chk (mat (f (f (f (f (f (f (f (f (f (f X)))))))))) x))))
+(rule (mat (f x) (f y)) (f (mat x y)))
+(rule (chk (no c)) (active c))
+(rule (mat (f x) c) (no c))
+(rule (f (active x)) (active (f x)))
+(rule (f (no x)) (no (f x)))
+(rule (f (mark x)) (mark (f x)))
+(rule (tp (mark x)) (tp (chk (mat (f (f (f (f (f (f (f (f (f (f X)))))))))) x))))

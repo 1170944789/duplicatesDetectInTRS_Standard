@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename fossacs2011.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/fossacs.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/fossacs.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/fossacs.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/fossacs.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/fossacs.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/fossacs.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/fossacs.ari"
+; @origariname "./TRS_Standard/Mixed_TRS/fossacs.ari"
+(format TRS)
+(fun f 1)
+(fun node 2)
+(fun s 1)
+(fun addchild 2)
+(fun select 1)
+(fun cons 2)
+(rule (f (node (s n) xs)) (f (addchild (select xs) (node n xs))))
+(rule (select (cons ap xs)) ap)
+(rule (select (cons ap xs)) (select xs))
+(rule (addchild (node y ys) (node n xs)) (node y (cons (node n xs) ys)))

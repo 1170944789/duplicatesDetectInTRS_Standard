@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/gm.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/gm.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/gm.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/gm.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/gm.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/gm.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Rubio_04/gm.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/gm.ari"
+; @origariname "./TRS_Standard/Rubio_04/gm.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun minus 2)
+(fun |0| 0)
+(fun s 1)
+(fun p 1)
+(fun div 2)
+(rule (minus X |0|) X)
+(rule (minus (s X) (s Y)) (p (minus X Y)))
+(rule (p (s X)) X)
+(rule (div |0| (s Y)) |0|)
+(rule (div (s X) (s Y)) (s (div (minus X Y) (s Y))))

@@ -1,0 +1,13 @@
+; @tag TRS_Standard
+; @origtpdbfilename enger-nonloop-swapXY2.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-swapXY2.xml"
+; @origariname "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-swapXY2.ari"
+(format TRS)
+(fun g 3)
+(fun tt 0)
+(fun swap 2)
+(fun s 1)
+(fun |0| 0)
+(rule (g tt x y) (g (swap x y) (s x) y))
+(rule (swap |0| y) tt)
+(rule (swap (s x) y) (swap x (s y)))

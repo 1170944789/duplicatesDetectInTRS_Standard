@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/CSR/Ex24_GM04.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_CSR_05/Ex24_GM04.xml"
+; @origtpdbfilename ./TRS/outermost/nontermin/CSR/Ex24_GM04.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/Ex24_GM04.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_CSR_05/Ex24_GM04.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_CSR_05/Ex24_GM04.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/Ex24_GM04.ari"
+; @origariname "./TRS_Standard/Strategy_removed_CSR_05/Ex24_GM04.ari"
+(format TRS)
+(fun f 3)
+(fun g 1)
+(fun b 0)
+(fun c 0)
+(rule (f X (g X) Y) (f Y Y Y))
+(rule (g b) c)
+(rule b c)

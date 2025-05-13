@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.21.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.21.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.21.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/4.21.ari"
+; @origariname "./TRS_Standard/SK90/4.21.ari"
+(format TRS)
+(fun and 2)
+(fun or 2)
+(fun true 0)
+(fun false 0)
+(rule (and x (or y z)) (or (and x y) (and x z)))
+(rule (and x (and y y)) (and x y))
+(rule (or (or x y) (and y z)) (or x y))
+(rule (or x (and x y)) x)
+(rule (or true y) true)
+(rule (or x false) x)
+(rule (or x x) x)
+(rule (or x (or y y)) (or x y))
+(rule (and x true) x)
+(rule (and false y) false)
+(rule (and x x) x)

@@ -1,0 +1,36 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex9_BLR02_L.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex9_BLR02_L.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex9_BLR02_L.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex9_BLR02_L.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_BLR02_L.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex9_BLR02_L.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex9_BLR02_L.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun filter 3)
+(fun cons 1)
+(fun |0| 0)
+(fun s 1)
+(fun sieve 1)
+(fun nats 1)
+(fun zprimes 0)
+(rule (filter (cons X) |0| M) (cons |0|))
+(rule (filter (cons X) (s N) M) (cons X))
+(rule (sieve (cons |0|)) (cons |0|))
+(rule (sieve (cons (s N))) (cons (s N)))
+(rule (nats N) (cons N))
+(rule zprimes (sieve (nats (s (s |0|)))))

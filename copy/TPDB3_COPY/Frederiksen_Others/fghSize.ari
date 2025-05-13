@@ -1,0 +1,18 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/fghSize.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/fghSize.ari"
+(format TRS)
+(fun f 2)
+(fun S 1)
+(fun h 2)
+(fun g 2)
+(fun |0| 0)
+(rule (f (S |x'|) (S x)) (h (g |x'| (S x)) (f (S (S |x'|)) x)))
+(rule (h |0| (S x)) (h |0| x))
+(rule (h |0| |0|) |0|)
+(rule (g (S x) (S |x'|)) (h (f (S x) (S |x'|)) (g x (S (S |x'|)))))
+(rule (g (S x) |0|) |0|)
+(rule (f (S x) |0|) |0|)
+(rule (h (S x) x2) (h x x2))
+(rule (g |0| x2) |0|)
+(rule (f |0| x2) |0|)

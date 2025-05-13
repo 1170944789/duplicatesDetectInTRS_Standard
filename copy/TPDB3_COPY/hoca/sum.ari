@@ -1,0 +1,17 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/sum.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/sum.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/hoca/sum.ari"
+(format TRS)
+(fun |plus#2| 2)
+(fun |0| 0)
+(fun S 1)
+(fun |fold#3| 1)
+(fun Nil 0)
+(fun Cons 2)
+(fun main 1)
+(rule (|plus#2| |0| x12) x12)
+(rule (|plus#2| (S x4) x2) (S (|plus#2| x4 x2)))
+(rule (|fold#3| Nil) |0|)
+(rule (|fold#3| (Cons x4 x2)) (|plus#2| x4 (|fold#3| x2)))
+(rule (main x1) (|fold#3| x1))

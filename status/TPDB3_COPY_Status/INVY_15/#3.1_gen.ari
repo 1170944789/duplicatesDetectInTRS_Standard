@@ -1,0 +1,16 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/#3.1_gen.xml"
+; @origariname "./TRS_Relative/INVY_15/#3.1_gen.ari"
+; @status_TRS_Relative CertifiedNO
+(format TRS)
+(fun s 1)
+(fun |0| 0)
+(fun - 2)
+(fun gen 0)
+(fun quot 2)
+(rule (- x |0|) x)
+(rule (- (s x) (s y)) (- x y))
+(rule (quot |0| (s y)) |0|)
+(rule (quot (s x) (s y)) (s (quot (- x y) (s y))))
+(rule gen |0| :cost 0)
+(rule gen (s gen) :cost 0)

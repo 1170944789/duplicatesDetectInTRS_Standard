@@ -1,0 +1,38 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Thiemann/tower_sizeChange.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AProVE_06/tower_sizeChange.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_06/tower_sizeChange.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_06/tower_sizeChange.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_06/tower_sizeChange.xml"
+; @xtcfilename "./TRS_Standard/AProVE_06/tower_sizeChange.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/AProVE_06/tower_sizeChange.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_06/tower_sizeChange.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_06/tower_sizeChange.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_06/tower_sizeChange.ari"
+; @origariname "./TRS_Standard/AProVE_06/tower_sizeChange.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun tower 1)
+(fun f 3)
+(fun a 0)
+(fun s 1)
+(fun |0| 0)
+(fun b 0)
+(fun half 1)
+(fun exp 1)
+(fun double 1)
+(rule (tower x) (f a x (s |0|)))
+(rule (f a |0| y) y)
+(rule (f a (s x) y) (f b y (s x)))
+(rule (f b y x) (f a (half x) (exp y)))
+(rule (exp |0|) (s |0|))
+(rule (exp (s x)) (double (exp x)))
+(rule (double |0|) |0|)
+(rule (double (s x)) (s (s (double x))))
+(rule (half |0|) (double |0|))
+(rule (half (s |0|)) (half |0|))
+(rule (half (s (s x))) (s (half x)))

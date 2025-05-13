@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwno9.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwno9.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwno9.xml"
+; @origtpdbfilename ./TRS/outermost/Waldmann/jwno9.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/jwno9.xml"
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwno9.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwno9.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwno9.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/jwno9.ari"
+; @origariname "./TRS_Standard/Waldmann_06/jwno9.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f x (f a y)) (f a (f (f (f a a) y) x)))

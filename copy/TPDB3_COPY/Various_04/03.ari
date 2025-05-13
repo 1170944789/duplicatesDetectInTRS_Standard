@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/various/03.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Various_04/03.xml"
+; @xtcfilename "./TRS_Standard/Various_04/03.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Various_04/03.ari"
+; @origariname "./TRS_Standard/Various_04/03.ari"
+(format TRS)
+(fun f 4)
+(fun g 1)
+(fun h 1)
+(fun |0| 0)
+(fun |2| 0)
+(rule (f (g x) (h x) y x) (f y y y x))
+(rule (f x y z |0|) |2|)
+(rule (g |0|) |2|)
+(rule (h |0|) |2|)

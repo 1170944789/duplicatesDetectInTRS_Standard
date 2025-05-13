@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwttt.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwttt.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwttt.xml"
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwttt.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwttt.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwttt.ari"
+; @origariname "./TRS_Standard/Waldmann_06/jwttt.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun h 1)
+(rule (f x (f a y)) (f a (f (f a (h (f a x))) y)))

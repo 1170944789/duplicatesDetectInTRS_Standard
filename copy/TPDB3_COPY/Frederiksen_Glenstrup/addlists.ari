@@ -1,0 +1,19 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/addlists.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/addlists.ari"
+(format TRS)
+(fun addlist 2)
+(fun Cons 2)
+(fun S 1)
+(fun |0| 0)
+(fun Nil 0)
+(fun notEmpty 1)
+(fun True 0)
+(fun False 0)
+(fun goal 2)
+(rule (addlist (Cons x |xs'|) (Cons (S |0|) xs)) (Cons (S x) (addlist |xs'| xs)))
+(rule (addlist (Cons (S |0|) |xs'|) (Cons x xs)) (Cons (S x) (addlist |xs'| xs)))
+(rule (addlist Nil ys) Nil)
+(rule (notEmpty (Cons x xs)) True)
+(rule (notEmpty Nil) False)
+(rule (goal xs ys) (addlist xs ys))

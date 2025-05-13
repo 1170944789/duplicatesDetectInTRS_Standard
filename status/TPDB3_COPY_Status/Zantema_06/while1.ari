@@ -1,0 +1,30 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema06/while1.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_06/while1.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/while1.xml"
+; @xtcfilename "./SRS_Standard/Zantema_06/while1.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_06/while1.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/while1.ari"
+; @origariname "./SRS_Standard/Zantema_06/while1.ari"
+; @status_SRS_Standard NO
+(format TRS)
+(fun R 1)
+(fun |2| 1)
+(fun |3| 1)
+(fun |1| 1)
+(fun L 1)
+(fun |0| 1)
+(fun b 1)
+(fun c 1)
+(rule (R (|2| x1)) (|2| (R x1)))
+(rule (R (|3| x1)) (|3| (R x1)))
+(rule (R (|1| x1)) (L (|3| x1)))
+(rule (|3| (L x1)) (L (|3| x1)))
+(rule (|2| (L x1)) (L (|2| x1)))
+(rule (|0| (L x1)) (|2| (R x1)))
+(rule (R (b x1)) (c (|1| (b x1))))
+(rule (|3| (c x1)) (c (|1| x1)))
+(rule (|2| (c (|1| x1))) (c (|0| (R (|1| x1)))))
+(rule (|2| (c (|0| x1))) (c (|0| (|0| x1))))

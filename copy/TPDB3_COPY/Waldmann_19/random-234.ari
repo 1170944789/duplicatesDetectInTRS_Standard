@@ -1,0 +1,10 @@
+; @tag SRS_Standard
+; @origtpdbfilename random-234.srs
+; @xtcfilename "./SRS_Standard/Waldmann_19/random-234.xml"
+; @origariname "./SRS_Standard/Waldmann_19/random-234.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (b (a x1)))) (b (b (a (a x1)))))
+(rule (b (b (b (a x1)))) (a (a (a (a x1)))))
+(rule (a (b (a (a x1)))) (b (a (b (b x1)))))

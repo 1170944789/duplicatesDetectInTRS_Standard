@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Endrullis/pair2hard.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Endrullis_06/pair2hard.xml"
+; @xtcfilename "./TRS_Standard/Endrullis_06/pair2hard.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Endrullis_06/pair2hard.ari"
+; @origariname "./TRS_Standard/Endrullis_06/pair2hard.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun p 2)
+(fun a 1)
+(fun b 1)
+(rule (p (a x0) (p (b (a x1)) x2)) (p x1 (p (a (b (a x1))) x2)))
+(rule (a (b (a x0))) (b (a (b x0))))

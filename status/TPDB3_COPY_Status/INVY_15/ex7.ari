@@ -1,0 +1,10 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/ex7.xml"
+; @origariname "./TRS_Relative/INVY_15/ex7.ari"
+; @status_TRS_Relative CertifiedNO
+(format TRS)
+(fun s 1)
+(fun f 1)
+(fun inf 0)
+(rule (f (s x)) (f x))
+(rule inf (s inf) :cost 0)

@@ -1,0 +1,14 @@
+; @tag TRS_Standard
+; @origtpdbfilename enger-nonloop-isList.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-isList.xml"
+; @origariname "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-isList.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun f 2)
+(fun tt 0)
+(fun isList 1)
+(fun Cons 2)
+(fun nil 0)
+(rule (f tt x) (f (isList x) (Cons tt x)))
+(rule (isList (Cons x xs)) (isList xs))
+(rule (isList nil) tt)

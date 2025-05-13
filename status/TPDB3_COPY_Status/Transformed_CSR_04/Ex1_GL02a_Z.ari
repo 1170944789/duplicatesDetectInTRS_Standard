@@ -1,0 +1,52 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex1_GL02a_Z.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex1_GL02a_Z.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex1_GL02a_Z.xml"
+; @origtpdbfilename ./TRS/outermost/TRCSR/Ex1_GL02a_Z.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/Ex1_GL02a_Z.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex1_GL02a_Z.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex1_GL02a_Z.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex1_GL02a_Z.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/Ex1_GL02a_Z.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex1_GL02a_Z.ari"
+; @status_TRS_Outermost YES
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun eq 2)
+(fun n__0 0)
+(fun true 0)
+(fun n__s 1)
+(fun activate 1)
+(fun false 0)
+(fun inf 1)
+(fun cons 2)
+(fun n__inf 1)
+(fun s 1)
+(fun take 2)
+(fun |0| 0)
+(fun nil 0)
+(fun n__take 2)
+(fun length 1)
+(fun n__length 1)
+(rule (eq n__0 n__0) true)
+(rule (eq (n__s X) (n__s Y)) (eq (activate X) (activate Y)))
+(rule (eq X Y) false)
+(rule (inf X) (cons X (n__inf (s X))))
+(rule (take |0| X) nil)
+(rule (take (s X) (cons Y L)) (cons (activate Y) (n__take (activate X) (activate L))))
+(rule (length nil) |0|)
+(rule (length (cons X L)) (s (n__length (activate L))))
+(rule |0| n__0)
+(rule (s X) (n__s X))
+(rule (inf X) (n__inf X))
+(rule (take X1 X2) (n__take X1 X2))
+(rule (length X) (n__length X))
+(rule (activate n__0) |0|)
+(rule (activate (n__s X)) (s X))
+(rule (activate (n__inf X)) (inf X))
+(rule (activate (n__take X1 X2)) (take X1 X2))
+(rule (activate (n__length X)) (length X))
+(rule (activate X) X)

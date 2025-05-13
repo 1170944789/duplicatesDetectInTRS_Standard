@@ -1,0 +1,42 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Trafo/dup11.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Trafo_06/dup11.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Trafo_06/dup11.xml"
+; @xtcfilename "./SRS_Standard/Trafo_06/dup11.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Trafo_06/dup11.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Trafo_06/dup11.ari"
+; @origariname "./SRS_Standard/Trafo_06/dup11.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun C 1)
+(fun c 1)
+(fun A 1)
+(fun B 1)
+(rule (a (a (b (b x1)))) (C (C x1)))
+(rule (b (b (c (c x1)))) (A (A x1)))
+(rule (c (c (a (a x1)))) (B (B x1)))
+(rule (A (A (C (C x1)))) (b (b x1)))
+(rule (C (C (B (B x1)))) (a (a x1)))
+(rule (B (B (A (A x1)))) (c (c x1)))
+(rule (a (a (a (a (a (a (a (a (a (a x1)))))))))) (A (A (A (A (A (A x1)))))))
+(rule (A (A (A (A (A (A (A (A x1)))))))) (a (a (a (a (a (a (a (a x1)))))))))
+(rule (b (b (b (b (b (b (b (b (b (b x1)))))))))) (B (B (B (B (B (B x1)))))))
+(rule (B (B (B (B (B (B (B (B x1)))))))) (b (b (b (b (b (b (b (b x1)))))))))
+(rule (c (c (c (c (c (c (c (c (c (c x1)))))))))) (C (C (C (C (C (C x1)))))))
+(rule (C (C (C (C (C (C (C (C x1)))))))) (c (c (c (c (c (c (c (c x1)))))))))
+(rule (B (B (a (a (a (a (a (a (a (a x1)))))))))) (c (c (A (A (A (A (A (A x1)))))))))
+(rule (A (A (A (A (A (A (b (b x1)))))))) (a (a (a (a (a (a (a (a (C (C x1)))))))))))
+(rule (C (C (b (b (b (b (b (b (b (b x1)))))))))) (a (a (B (B (B (B (B (B x1)))))))))
+(rule (B (B (B (B (B (B (c (c x1)))))))) (b (b (b (b (b (b (b (b (A (A x1)))))))))))
+(rule (A (A (c (c (c (c (c (c (c (c x1)))))))))) (b (b (C (C (C (C (C (C x1)))))))))
+(rule (C (C (C (C (C (C (a (a x1)))))))) (c (c (c (c (c (c (c (c (B (B x1)))))))))))
+(rule (a (a (A (A x1)))) x1)
+(rule (A (A (a (a x1)))) x1)
+(rule (b (b (B (B x1)))) x1)
+(rule (B (B (b (b x1)))) x1)
+(rule (c (c (C (C x1)))) x1)
+(rule (C (C (c (c x1)))) x1)

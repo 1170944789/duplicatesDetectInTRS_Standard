@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AotoYam/001.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AotoYamada_05/001.xml"
+; @origtpdbfilename ./TRS/outermost/higher-order/AotoYam/001.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/001.xml"
+; @xtcfilename "./TRS_Standard/AotoYamada_05/001.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AotoYamada_05/001.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/001.ari"
+; @origariname "./TRS_Standard/AotoYamada_05/001.ari"
+(format TRS)
+(fun app 2)
+(fun iterate 0)
+(fun cons 0)
+(rule (app (app iterate f) x) (app (app cons x) (app (app iterate f) (app f x))))

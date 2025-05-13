@@ -1,0 +1,11 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/bintree.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/bintree.xml"
+; @origariname "./TRS_Outermost/Zantema_08/bintree.ari"
+(format TRS)
+(fun |0| 0)
+(fun b 2)
+(fun c 0)
+(rule |0| (b |0| |0|))
+(rule (b (b x y) z) c)
+(rule (b x (b y z)) c)

@@ -1,0 +1,10 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/permut.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/permut.ari"
+; @status Unknown
+(format TRS)
+(fun f 2)
+(fun S 1)
+(fun |0| 0)
+(rule (f (S x) x2) (f x2 x))
+(rule (f |0| x2) |0|)

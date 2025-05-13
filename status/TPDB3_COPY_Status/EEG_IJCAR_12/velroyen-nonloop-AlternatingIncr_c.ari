@@ -1,0 +1,33 @@
+; @tag TRS_Standard
+; @origtpdbfilename velroyen-nonloop-AlternatingIncr_c.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/velroyen-nonloop-AlternatingIncr_c.xml"
+; @origariname "./TRS_Standard/EEG_IJCAR_12/velroyen-nonloop-AlternatingIncr_c.ari"
+; @status Unknown
+(format TRS)
+(fun while 2)
+(fun true 0)
+(fun s 1)
+(fun gt 2)
+(fun |0| 0)
+(fun f 1)
+(fun if 2)
+(fun eq 2)
+(fun mod2 1)
+(fun false 0)
+(fun plus 2)
+(rule (while true (s (s (s (s (s i)))))) (while (gt (s (s (s (s (s i))))) |0|) (f (s (s (s (s (s i))))))))
+(rule (f i) (if (eq (mod2 i) |0|) i))
+(rule (gt (s x) (s y)) (gt x y))
+(rule (gt (s x) |0|) true)
+(rule (gt |0| y) false)
+(rule (if true i) (plus i (s |0|)))
+(rule (if false i) (plus i (s (s (s |0|)))))
+(rule (mod2 (s (s x))) (mod2 x))
+(rule (mod2 (s |0|)) (s |0|))
+(rule (mod2 |0|) |0|)
+(rule (eq (s x) (s y)) (eq x y))
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s y)) false)
+(rule (eq (s x) |0|) false)
+(rule (plus (s x) y) (plus x (s y)))
+(rule (plus |0| y) y)

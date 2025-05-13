@@ -1,0 +1,58 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExIntrod_GM04_GM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/ExIntrod_GM04_GM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/ExIntrod_GM04_GM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExIntrod_GM04_GM.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExIntrod_GM04_GM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/ExIntrod_GM04_GM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/ExIntrod_GM04_GM.ari"
+(format TRS)
+(fun a__nats 0)
+(fun a__adx 1)
+(fun a__zeros 0)
+(fun cons 2)
+(fun |0| 0)
+(fun zeros 0)
+(fun a__incr 1)
+(fun s 1)
+(fun incr 1)
+(fun adx 1)
+(fun a__hd 1)
+(fun mark 1)
+(fun a__tl 1)
+(fun nats 0)
+(fun hd 1)
+(fun tl 1)
+(rule a__nats (a__adx a__zeros))
+(rule a__zeros (cons |0| zeros))
+(rule (a__incr (cons X Y)) (cons (s X) (incr Y)))
+(rule (a__adx (cons X Y)) (a__incr (cons X (adx Y))))
+(rule (a__hd (cons X Y)) (mark X))
+(rule (a__tl (cons X Y)) (mark Y))
+(rule (mark nats) a__nats)
+(rule (mark (adx X)) (a__adx (mark X)))
+(rule (mark zeros) a__zeros)
+(rule (mark (incr X)) (a__incr (mark X)))
+(rule (mark (hd X)) (a__hd (mark X)))
+(rule (mark (tl X)) (a__tl (mark X)))
+(rule (mark (cons X1 X2)) (cons X1 X2))
+(rule (mark |0|) |0|)
+(rule (mark (s X)) (s X))
+(rule a__nats nats)
+(rule (a__adx X) (adx X))
+(rule a__zeros zeros)
+(rule (a__incr X) (incr X))
+(rule (a__hd X) (hd X))
+(rule (a__tl X) (tl X))

@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/12.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/12.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Der95/12.xml"
+; @xtcfilename "./TRS_Standard/Der95/12.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Der95/12.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Der95/12.ari"
+; @origariname "./TRS_Standard/Der95/12.ari"
+(format TRS)
+(fun not 1)
+(fun or 2)
+(fun and 2)
+(rule (not (not x)) x)
+(rule (not (or x y)) (and (not x) (not y)))
+(rule (not (and x y)) (or (not x) (not y)))
+(rule (and x (or y z)) (or (and x y) (and x z)))
+(rule (and (or y z) x) (or (and x y) (and x z)))

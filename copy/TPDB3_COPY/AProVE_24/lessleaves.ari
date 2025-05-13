@@ -1,0 +1,18 @@
+; @tag TRS_Relative
+; @origtpdbfilename lessleaves.trs
+; @xtcfilename "../xml/lessleaves.trs.xml"
+; @origariname "./TRS_Relative/AProVE_24/lessleaves.ari"
+(format TRS)
+(fun true 0)
+(fun concat 2)
+(fun leaf 0)
+(fun node 2)
+(fun lessleaves 2)
+(fun false 0)
+(rule (concat leaf y) y)
+(rule (concat (node u v) y) (node u (concat v y)))
+(rule (lessleaves x leaf) false)
+(rule (lessleaves leaf (node w z)) true)
+(rule (lessleaves (node u v) (node w z)) (lessleaves (concat u v) (concat w z)))
+(rule (lessleaves (node u v) (node w z)) (lessleaves (node v u) (node w z)) :cost 0)
+(rule (lessleaves (node u v) (node w z)) (lessleaves (node u v) (node z w)) :cost 0)

@@ -1,0 +1,48 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.35.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.35.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.35.xml"
+; @origtpdbfilename ./TRS/AG01/#4.35.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.35.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.35.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.35.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.35.ari"
+; @origariname "./TRS_Innermost/AG01_innermost/#4.35.ari"
+; @origariname "./TRS_Standard/Strategy_removed_AG01/#4.35.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun and 2)
+(fun true 0)
+(fun false 0)
+(fun eq 2)
+(fun nil 0)
+(fun cons 2)
+(fun var 1)
+(fun apply 2)
+(fun lambda 2)
+(fun if 3)
+(fun ren 3)
+(rule (and true y) y)
+(rule (and false y) false)
+(rule (eq nil nil) true)
+(rule (eq (cons t l) nil) false)
+(rule (eq nil (cons t l)) false)
+(rule (eq (cons t l) (cons |t'| |l'|)) (and (eq t |t'|) (eq l |l'|)))
+(rule (eq (var l) (var |l'|)) (eq l |l'|))
+(rule (eq (var l) (apply t s)) false)
+(rule (eq (var l) (lambda x t)) false)
+(rule (eq (apply t s) (var l)) false)
+(rule (eq (apply t s) (apply |t'| |s'|)) (and (eq t |t'|) (eq s |s'|)))
+(rule (eq (apply t s) (lambda x t)) false)
+(rule (eq (lambda x t) (var l)) false)
+(rule (eq (lambda x t) (apply t s)) false)
+(rule (eq (lambda x t) (lambda |x'| |t'|)) (and (eq x |x'|) (eq t |t'|)))
+(rule (if true (var k) (var |l'|)) (var k))
+(rule (if false (var k) (var |l'|)) (var |l'|))
+(rule (ren (var l) (var k) (var |l'|)) (if (eq l |l'|) (var k) (var |l'|)))
+(rule (ren x y (apply t s)) (apply (ren x y t) (ren x y s)))
+(rule (ren x y (lambda z t)) (lambda (var (cons x (cons y (cons (lambda z t) nil)))) (ren x y (ren z (var (cons x (cons y (cons (lambda z t) nil)))) t))))

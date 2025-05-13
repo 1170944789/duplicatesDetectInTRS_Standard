@@ -1,0 +1,22 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Hydras/hydra_touzet.xml"
+; @origariname "./TRS_Standard/Hydras/hydra_touzet.ari"
+(format TRS)
+(fun o 1)
+(fun a 1)
+(fun l 1)
+(fun H 2)
+(fun |0| 0)
+(fun c1 2)
+(fun c2 3)
+(rule (o x) (a (l x)))
+(rule (a (l x)) (l (a (a x))))
+(rule (l (o x)) (o (l x)))
+(rule (a x) x)
+(rule (H |0| x) (o x))
+(rule (a (H (H |0| y) z)) (c1 y z))
+(rule (a (H (H (H |0| x) y) z)) (c2 x y z))
+(rule (c2 x y z) (o (H y z)))
+(rule (a (c1 x y)) (c1 x (H x y)))
+(rule (a (c2 x y z)) (c2 x (H x y) z))
+(rule (c1 y z) (o z))

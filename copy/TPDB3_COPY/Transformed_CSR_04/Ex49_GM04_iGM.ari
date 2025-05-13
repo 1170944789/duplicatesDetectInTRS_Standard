@@ -1,0 +1,59 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex49_GM04_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex49_GM04_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex49_GM04_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex49_GM04_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex49_GM04_iGM.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex49_GM04_iGM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex49_GM04_iGM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex49_GM04_iGM.ari"
+(format TRS)
+(fun active 1)
+(fun minus 2)
+(fun |0| 0)
+(fun mark 1)
+(fun s 1)
+(fun geq 2)
+(fun true 0)
+(fun false 0)
+(fun div 2)
+(fun if 3)
+(rule (active (minus |0| Y)) (mark |0|))
+(rule (active (minus (s X) (s Y))) (mark (minus X Y)))
+(rule (active (geq X |0|)) (mark true))
+(rule (active (geq |0| (s Y))) (mark false))
+(rule (active (geq (s X) (s Y))) (mark (geq X Y)))
+(rule (active (div |0| (s Y))) (mark |0|))
+(rule (active (div (s X) (s Y))) (mark (if (geq X Y) (s (div (minus X Y) (s Y))) |0|)))
+(rule (active (if true X Y)) (mark X))
+(rule (active (if false X Y)) (mark Y))
+(rule (mark (minus X1 X2)) (active (minus X1 X2)))
+(rule (mark |0|) (active |0|))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (geq X1 X2)) (active (geq X1 X2)))
+(rule (mark true) (active true))
+(rule (mark false) (active false))
+(rule (mark (div X1 X2)) (active (div (mark X1) X2)))
+(rule (mark (if X1 X2 X3)) (active (if (mark X1) X2 X3)))
+(rule (minus (mark X1) X2) (minus X1 X2))
+(rule (minus X1 (mark X2)) (minus X1 X2))
+(rule (minus (active X1) X2) (minus X1 X2))
+(rule (minus X1 (active X2)) (minus X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (geq (mark X1) X2) (geq X1 X2))
+(rule (geq X1 (mark X2)) (geq X1 X2))
+(rule (geq (active X1) X2) (geq X1 X2))
+(rule (geq X1 (active X2)) (geq X1 X2))
+(rule (div (mark X1) X2) (div X1 X2))
+(rule (div X1 (mark X2)) (div X1 X2))
+(rule (div (active X1) X2) (div X1 X2))
+(rule (div X1 (active X2)) (div X1 X2))
+(rule (if (mark X1) X2 X3) (if X1 X2 X3))
+(rule (if X1 (mark X2) X3) (if X1 X2 X3))
+(rule (if X1 X2 (mark X3)) (if X1 X2 X3))
+(rule (if (active X1) X2 X3) (if X1 X2 X3))
+(rule (if X1 (active X2) X3) (if X1 X2 X3))
+(rule (if X1 X2 (active X3)) (if X1 X2 X3))

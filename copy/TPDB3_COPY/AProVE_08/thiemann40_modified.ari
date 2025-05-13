@@ -1,0 +1,34 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/aprove08/thiemann40_modified.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_08/thiemann40_modified.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_08/thiemann40_modified.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_08/thiemann40_modified.xml"
+; @xtcfilename "./TRS_Standard/AProVE_08/thiemann40_modified.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_08/thiemann40_modified.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_08/thiemann40_modified.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_08/thiemann40_modified.ari"
+; @origariname "./TRS_Standard/AProVE_08/thiemann40_modified.ari"
+(format TRS)
+(fun nonZero 1)
+(fun |0| 0)
+(fun false 0)
+(fun s 1)
+(fun true 0)
+(fun p 1)
+(fun id_inc 1)
+(fun random 1)
+(fun rand 2)
+(fun if 3)
+(rule (nonZero |0|) false)
+(rule (nonZero (s x)) true)
+(rule (p (s |0|)) |0|)
+(rule (p (s (s x))) (s (p (s x))))
+(rule (id_inc x) x)
+(rule (id_inc x) (s x))
+(rule (random x) (rand x |0|))
+(rule (rand x y) (if (nonZero x) x y))
+(rule (if false x y) y)
+(rule (if true x y) (rand (p x) (id_inc y)))

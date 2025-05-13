@@ -1,0 +1,43 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex6_Luc98_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex6_Luc98_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex6_Luc98_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex6_Luc98_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex6_Luc98_iGM.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex6_Luc98_iGM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex6_Luc98_iGM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex6_Luc98_iGM.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun active 1)
+(fun first 2)
+(fun |0| 0)
+(fun mark 1)
+(fun nil 0)
+(fun s 1)
+(fun cons 2)
+(fun from 1)
+(rule (active (first |0| X)) (mark nil))
+(rule (active (first (s X) (cons Y Z))) (mark (cons Y (first X Z))))
+(rule (active (from X)) (mark (cons X (from (s X)))))
+(rule (mark (first X1 X2)) (active (first (mark X1) (mark X2))))
+(rule (mark |0|) (active |0|))
+(rule (mark nil) (active nil))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (cons X1 X2)) (active (cons (mark X1) X2)))
+(rule (mark (from X)) (active (from (mark X))))
+(rule (first (mark X1) X2) (first X1 X2))
+(rule (first X1 (mark X2)) (first X1 X2))
+(rule (first (active X1) X2) (first X1 X2))
+(rule (first X1 (active X2)) (first X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (from (mark X)) (from X))
+(rule (from (active X)) (from X))

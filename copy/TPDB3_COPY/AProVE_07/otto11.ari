@@ -1,0 +1,34 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/otto11.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/otto11.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_07/otto11.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/otto11.xml"
+; @xtcfilename "./TRS_Standard/AProVE_07/otto11.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/otto11.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_07/otto11.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/otto11.ari"
+; @origariname "./TRS_Standard/AProVE_07/otto11.ari"
+(format TRS)
+(fun times 2)
+(fun help 3)
+(fun |0| 0)
+(fun if 4)
+(fun lt 2)
+(fun true 0)
+(fun plus 2)
+(fun s 1)
+(fun false 0)
+(rule (times x y) (help x y |0|))
+(rule (help x y c) (if (lt c y) x y c))
+(rule (if true x y c) (plus x (help x y (s c))))
+(rule (if false x y c) |0|)
+(rule (lt |0| (s x)) true)
+(rule (lt (s x) |0|) false)
+(rule (lt (s x) (s y)) (lt x y))
+(rule (plus x |0|) x)
+(rule (plus |0| x) x)
+(rule (plus x (s y)) (s (plus x y)))
+(rule (plus (s x) y) (s (plus x y)))

@@ -1,0 +1,12 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/ex5.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/ex5.xml"
+; @origariname "./TRS_Outermost/Zantema_08/ex5.ari"
+; @status_TRS_Outermost YES
+(format TRS)
+(fun f 2)
+(fun s 1)
+(fun c 0)
+(rule (f x (f y z)) (f (f x y) z))
+(rule (f x y) (s (f y x)))
+(rule (s (s x)) c)

@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/ex5.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AProVE_10/ex5.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/ex5.xml"
+; @xtcfilename "./TRS_Standard/AProVE_10/ex5.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/AProVE_10/ex5.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/ex5.ari"
+; @origariname "./TRS_Standard/AProVE_10/ex5.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun g 1)
+(fun |0| 0)
+(fun s 1)
+(fun f 1)
+(rule (g |0|) |0|)
+(rule (g (s x)) (f (g x)))
+(rule (f |0|) |0|)

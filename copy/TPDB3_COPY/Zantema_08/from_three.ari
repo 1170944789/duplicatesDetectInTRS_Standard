@@ -1,0 +1,11 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/from_three.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/from_three.xml"
+; @origariname "./TRS_Outermost/Zantema_08/from_three.ari"
+(format TRS)
+(fun from 1)
+(fun cons 2)
+(fun s 1)
+(fun nil 0)
+(rule (from x) (cons x (from (s x))))
+(rule (cons (s (s (s x))) xs) nil)

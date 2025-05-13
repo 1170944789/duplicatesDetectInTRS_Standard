@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret07/matchbox/num-520.srs./SRS/Waldmann07b/size-12-alpha-3-num-520.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_07_SRS/num-520.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_07_SRS/num-520.xml"
+; @xtcfilename "./SRS_Standard/Secret_07_SRS/num-520.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_07_SRS/num-520.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_07_SRS/num-520.ari"
+; @origariname "./SRS_Standard/Secret_07_SRS/num-520.ari"
+; @status_SRS_Standard CertifiedNO
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a (b x1))) (a (b (c (a x1)))))
+(rule (a (c x1)) (b (a (a x1))))

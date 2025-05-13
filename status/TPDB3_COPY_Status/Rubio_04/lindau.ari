@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/lindau.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Rubio_04/lindau.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/lindau.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/lindau.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Rubio_04/lindau.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/lindau.ari"
+; @origariname "./TRS_Standard/Rubio_04/lindau.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun c 1)
+(fun b 1)
+(fun a 1)
+(fun e 0)
+(rule (c (b (a X))) (a (a (b (b (c (c X)))))))
+(rule (a X) e)
+(rule (b X) e)
+(rule (c X) e)

@@ -1,0 +1,17 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt3-8.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt3-8.xml"
+; @origariname "./TRS_Relative/Relative_05/rt3-8.ari"
+(format TRS)
+(fun + 2)
+(fun f 2)
+(fun - 2)
+(fun |0| 0)
+(fun s 1)
+(rule (f (s x) y) (f (- (s x) y) y))
+(rule (+ |0| y) y :cost 0)
+(rule (+ (s x) y) (s (+ x y)) :cost 0)
+(rule (- x |0|) x :cost 0)
+(rule (- |0| y) |0| :cost 0)
+(rule (- (s x) (s y)) (- x y) :cost 0)
+(rule (f x y) (f x (+ x y)) :cost 0)

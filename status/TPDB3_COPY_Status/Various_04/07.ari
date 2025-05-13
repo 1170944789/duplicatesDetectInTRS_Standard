@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/various/07.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Various_04/07.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Various_04/07.xml"
+; @xtcfilename "./TRS_Standard/Various_04/07.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Various_04/07.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Various_04/07.ari"
+; @origariname "./TRS_Standard/Various_04/07.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun h 2)
+(rule (f x y) (h x y))
+(rule (f x y) (h y x))
+(rule (h x x) x)

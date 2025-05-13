@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HofWald/2.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_TRS/2.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/2.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/2.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Mixed_TRS/2.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/2.ari"
+; @origariname "./TRS_Standard/Mixed_TRS/2.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f a (f (f a a) x)) (f (f a a) (f a (f a x))))

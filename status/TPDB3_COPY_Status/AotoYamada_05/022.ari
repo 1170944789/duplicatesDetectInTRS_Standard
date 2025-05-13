@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AotoYam/022.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AotoYamada_05/022.xml"
+; @xtcfilename "./TRS_Standard/AotoYamada_05/022.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AotoYamada_05/022.ari"
+; @origariname "./TRS_Standard/AotoYamada_05/022.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun app 2)
+(fun mapt 0)
+(fun leaf 0)
+(fun node 0)
+(fun maptlist 0)
+(fun nil 0)
+(fun cons 0)
+(rule (app (app mapt f) (app leaf x)) (app leaf (app f x)))
+(rule (app (app mapt f) (app node xs)) (app node (app (app maptlist f) xs)))
+(rule (app (app maptlist f) nil) nil)
+(rule (app (app maptlist f) (app (app cons x) xs)) (app (app cons (app (app mapt f) x)) (app (app maptlist f) xs)))

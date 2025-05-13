@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/secret06/jambox/5.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_TRS/5.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_TRS/5.xml"
+; @xtcfilename "./TRS_Standard/Secret_06_TRS/5.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_06_TRS/5.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_06_TRS/5.ari"
+; @origariname "./TRS_Standard/Secret_06_TRS/5.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun a 2)
+(fun |0| 0)
+(fun c 1)
+(rule (a (a y |0|) |0|) y)
+(rule (c (c y)) y)
+(rule (c (a (c (c y)) x)) (a (c (c (c (a x |0|)))) y))

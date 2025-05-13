@@ -1,0 +1,42 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./AProVE_09_Inductive/divhard.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_09_Inductive/divhard.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_09_Inductive/divhard.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_09_Inductive/divhard.xml"
+; @xtcfilename "./TRS_Standard/AProVE_09_Inductive/divhard.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_09_Inductive/divhard.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_09_Inductive/divhard.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_09_Inductive/divhard.ari"
+; @origariname "./TRS_Standard/AProVE_09_Inductive/divhard.ari"
+(format TRS)
+(fun minus 2)
+(fun if 3)
+(fun gt 2)
+(fun true 0)
+(fun s 1)
+(fun p 1)
+(fun false 0)
+(fun |0| 0)
+(fun ge 2)
+(fun div 2)
+(fun if1 3)
+(fun if2 3)
+(rule (minus x y) (if (gt x y) x y))
+(rule (if true x y) (s (minus (p x) y)))
+(rule (if false x y) |0|)
+(rule (p |0|) |0|)
+(rule (p (s x)) x)
+(rule (ge x |0|) true)
+(rule (ge |0| (s x)) false)
+(rule (ge (s x) (s y)) (ge x y))
+(rule (gt |0| y) false)
+(rule (gt (s x) |0|) true)
+(rule (gt (s x) (s y)) (gt x y))
+(rule (div x y) (if1 (ge x y) x y))
+(rule (if1 true x y) (if2 (gt y |0|) x y))
+(rule (if1 false x y) |0|)
+(rule (if2 true x y) (s (div (minus x y) y)))
+(rule (if2 false x y) |0|)

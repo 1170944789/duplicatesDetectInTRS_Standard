@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.05.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.05.xml"
+; @origtpdbfilename ./TRS/outermost/SK90/2.05.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/2.05.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.05.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.05.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/2.05.ari"
+; @origariname "./TRS_Standard/SK90/2.05.ari"
+(format TRS)
+(fun + 2)
+(fun * 2)
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (* x (+ y z)) (+ (* x y) (* x z)))
+(rule (+ (+ x (* y z)) (* y u)) (+ x (* y (+ z u))))

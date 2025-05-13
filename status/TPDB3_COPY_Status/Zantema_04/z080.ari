@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @tag TRS_Innermost
+; @origtpdbfilename ./SRS/Zantema/z080.srs./TRS/nontermin/AG01/#4.31.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_04/z080.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_04/z080.xml"
+; @xtcfilename "./SRS_Standard/Zantema_04/z080.xml"
+; @origtpdbfilename ./TRS/AG01/#4.31.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.31.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_04/z080.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_04/z080.ari"
+; @origariname "./SRS_Standard/Zantema_04/z080.ari"
+; @origariname "./TRS_Innermost/AG01_innermost/#4.31.ari"
+; @status_SRS_Standard CertifiedYES
+; @status_TRS_Innermost CertifiedYES
+(format TRS)
+(fun A 1)
+(fun b 1)
+(fun a 1)
+(fun B 1)
+(rule (A (b x1)) (b (a (B (A x1)))))
+(rule (B (a x1)) (a (b (A (B x1)))))
+(rule (A (a x1)) x1)
+(rule (B (b x1)) x1)

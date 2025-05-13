@@ -1,0 +1,14 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/decrease.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/decrease.ari"
+; @status Unknown
+(format TRS)
+(fun decrease 1)
+(fun Cons 2)
+(fun Nil 0)
+(fun number42 1)
+(fun goal 1)
+(rule (decrease (Cons x xs)) (decrease xs))
+(rule (decrease Nil) (number42 Nil))
+(rule (number42 x) (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil Nil)))))))))))))))))))))))))))))))))))))))))))
+(rule (goal x) (decrease x))

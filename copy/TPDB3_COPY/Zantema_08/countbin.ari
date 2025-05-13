@@ -1,0 +1,14 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/countbin.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/countbin.xml"
+; @origariname "./TRS_Outermost/Zantema_08/countbin.ari"
+(format TRS)
+(fun a 0)
+(fun f 1)
+(fun b 0)
+(fun |0| 1)
+(fun |1| 1)
+(rule a (f a))
+(rule (f (f x)) b)
+(rule (|0| (f x)) (|1| x))
+(rule (|1| (f x)) (f (|0| x)))

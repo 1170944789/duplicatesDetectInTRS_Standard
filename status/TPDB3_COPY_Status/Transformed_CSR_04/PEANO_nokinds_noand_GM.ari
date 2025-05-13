@@ -1,0 +1,70 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/PEANO_nokinds_noand_GM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/PEANO_nokinds_noand_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/PEANO_nokinds_noand_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/PEANO_nokinds_noand_GM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/PEANO_nokinds_noand_GM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/PEANO_nokinds_noand_GM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/PEANO_nokinds_noand_GM.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/PEANO_nokinds_noand_GM.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/PEANO_nokinds_noand_GM.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/PEANO_nokinds_noand_GM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/PEANO_nokinds_noand_GM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/PEANO_nokinds_noand_GM.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun a__U11 2)
+(fun tt 0)
+(fun a__U12 1)
+(fun a__isNat 1)
+(fun a__U21 1)
+(fun a__U31 2)
+(fun mark 1)
+(fun a__U41 3)
+(fun a__U42 3)
+(fun s 1)
+(fun a__plus 2)
+(fun |0| 0)
+(fun plus 2)
+(fun U11 2)
+(fun U12 1)
+(fun isNat 1)
+(fun U21 1)
+(fun U31 2)
+(fun U41 3)
+(fun U42 3)
+(rule (a__U11 tt V2) (a__U12 (a__isNat V2)))
+(rule (a__U12 tt) tt)
+(rule (a__U21 tt) tt)
+(rule (a__U31 tt N) (mark N))
+(rule (a__U41 tt M N) (a__U42 (a__isNat N) M N))
+(rule (a__U42 tt M N) (s (a__plus (mark N) (mark M))))
+(rule (a__isNat |0|) tt)
+(rule (a__isNat (plus V1 V2)) (a__U11 (a__isNat V1) V2))
+(rule (a__isNat (s V1)) (a__U21 (a__isNat V1)))
+(rule (a__plus N |0|) (a__U31 (a__isNat N) N))
+(rule (a__plus N (s M)) (a__U41 (a__isNat M) M N))
+(rule (mark (U11 X1 X2)) (a__U11 (mark X1) X2))
+(rule (mark (U12 X)) (a__U12 (mark X)))
+(rule (mark (isNat X)) (a__isNat X))
+(rule (mark (U21 X)) (a__U21 (mark X)))
+(rule (mark (U31 X1 X2)) (a__U31 (mark X1) X2))
+(rule (mark (U41 X1 X2 X3)) (a__U41 (mark X1) X2 X3))
+(rule (mark (U42 X1 X2 X3)) (a__U42 (mark X1) X2 X3))
+(rule (mark (plus X1 X2)) (a__plus (mark X1) (mark X2)))
+(rule (mark tt) tt)
+(rule (mark (s X)) (s (mark X)))
+(rule (mark |0|) |0|)
+(rule (a__U11 X1 X2) (U11 X1 X2))
+(rule (a__U12 X) (U12 X))
+(rule (a__isNat X) (isNat X))
+(rule (a__U21 X) (U21 X))
+(rule (a__U31 X1 X2) (U31 X1 X2))
+(rule (a__U41 X1 X2 X3) (U41 X1 X2 X3))
+(rule (a__U42 X1 X2 X3) (U42 X1 X2 X3))
+(rule (a__plus X1 X2) (plus X1 X2))

@@ -1,0 +1,17 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/nestimeql.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/nestimeql.ari"
+; @status Unknown
+(format TRS)
+(fun immatcopy 1)
+(fun Cons 2)
+(fun Nil 0)
+(fun nestimeql 1)
+(fun number42 1)
+(fun goal 1)
+(rule (immatcopy (Cons x xs)) (Cons Nil (immatcopy xs)))
+(rule (nestimeql Nil) (number42 Nil))
+(rule (nestimeql (Cons x xs)) (nestimeql (immatcopy (Cons x xs))))
+(rule (immatcopy Nil) Nil)
+(rule (number42 x) (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil (Cons Nil Nil)))))))))))))))))))))))))))))))))))))))))))
+(rule (goal x) (nestimeql x))

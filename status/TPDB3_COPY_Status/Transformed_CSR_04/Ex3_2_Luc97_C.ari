@@ -1,0 +1,67 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex3_2_Luc97_C.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex3_2_Luc97_C.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex3_2_Luc97_C.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex3_2_Luc97_C.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex3_2_Luc97_C.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex3_2_Luc97_C.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex3_2_Luc97_C.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex3_2_Luc97_C.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex3_2_Luc97_C.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex3_2_Luc97_C.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun active 1)
+(fun dbl 1)
+(fun |0| 0)
+(fun mark 1)
+(fun s 1)
+(fun dbls 1)
+(fun nil 0)
+(fun cons 2)
+(fun sel 2)
+(fun indx 2)
+(fun from 1)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active (dbl |0|)) (mark |0|))
+(rule (active (dbl (s X))) (mark (s (s (dbl X)))))
+(rule (active (dbls nil)) (mark nil))
+(rule (active (dbls (cons X Y))) (mark (cons (dbl X) (dbls Y))))
+(rule (active (sel |0| (cons X Y))) (mark X))
+(rule (active (sel (s X) (cons Y Z))) (mark (sel X Z)))
+(rule (active (indx nil X)) (mark nil))
+(rule (active (indx (cons X Y) Z)) (mark (cons (sel X Z) (indx Y Z))))
+(rule (active (from X)) (mark (cons X (from (s X)))))
+(rule (active (dbl X)) (dbl (active X)))
+(rule (active (dbls X)) (dbls (active X)))
+(rule (active (sel X1 X2)) (sel (active X1) X2))
+(rule (active (sel X1 X2)) (sel X1 (active X2)))
+(rule (active (indx X1 X2)) (indx (active X1) X2))
+(rule (dbl (mark X)) (mark (dbl X)))
+(rule (dbls (mark X)) (mark (dbls X)))
+(rule (sel (mark X1) X2) (mark (sel X1 X2)))
+(rule (sel X1 (mark X2)) (mark (sel X1 X2)))
+(rule (indx (mark X1) X2) (mark (indx X1 X2)))
+(rule (proper (dbl X)) (dbl (proper X)))
+(rule (proper |0|) (ok |0|))
+(rule (proper (s X)) (s (proper X)))
+(rule (proper (dbls X)) (dbls (proper X)))
+(rule (proper nil) (ok nil))
+(rule (proper (cons X1 X2)) (cons (proper X1) (proper X2)))
+(rule (proper (sel X1 X2)) (sel (proper X1) (proper X2)))
+(rule (proper (indx X1 X2)) (indx (proper X1) (proper X2)))
+(rule (proper (from X)) (from (proper X)))
+(rule (dbl (ok X)) (ok (dbl X)))
+(rule (s (ok X)) (ok (s X)))
+(rule (dbls (ok X)) (ok (dbls X)))
+(rule (cons (ok X1) (ok X2)) (ok (cons X1 X2)))
+(rule (sel (ok X1) (ok X2)) (ok (sel X1 X2)))
+(rule (indx (ok X1) (ok X2)) (ok (indx X1 X2)))
+(rule (from (ok X)) (ok (from X)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

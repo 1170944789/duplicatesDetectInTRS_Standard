@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/cariboo/ex2.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/ex2.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/ex2.xml"
+; @origtpdbfilename ./TRS/cariboo/ex2.trs
+; @xtcfilename "./TRS_Outermost/Mixed_outermost/ex2.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/ex2.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/ex2.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/ex2.ari"
+; @origariname "./TRS_Outermost/Mixed_outermost/ex2.ari"
+; @origariname "./TRS_Standard/Strategy_removed_mixed_05/ex2.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun cons 2)
+(fun big 0)
+(fun inf 1)
+(fun s 1)
+(rule (cons x (cons y z)) big)
+(rule (inf x) (cons x (inf (s x))))

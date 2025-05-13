@@ -1,0 +1,43 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/otto01.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/otto01.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_07/otto01.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/otto01.xml"
+; @xtcfilename "./TRS_Standard/AProVE_07/otto01.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/otto01.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_07/otto01.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/otto01.ari"
+; @origariname "./TRS_Standard/AProVE_07/otto01.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun min 2)
+(fun |0| 0)
+(fun s 1)
+(fun len 1)
+(fun nil 0)
+(fun cons 2)
+(fun sum 2)
+(fun le 2)
+(fun true 0)
+(fun false 0)
+(fun take 2)
+(fun addList 2)
+(fun if 5)
+(rule (min |0| y) |0|)
+(rule (min (s x) |0|) |0|)
+(rule (min (s x) (s y)) (min x y))
+(rule (len nil) |0|)
+(rule (len (cons x xs)) (s (len xs)))
+(rule (sum x |0|) x)
+(rule (sum x (s y)) (s (sum x y)))
+(rule (le |0| x) true)
+(rule (le (s x) |0|) false)
+(rule (le (s x) (s y)) (le x y))
+(rule (take |0| (cons y ys)) y)
+(rule (take (s x) (cons y ys)) (take x ys))
+(rule (addList x y) (if (le |0| (min (len x) (len y))) |0| x y nil))
+(rule (if false c x y z) z)
+(rule (if true c xs ys z) (if (le (s c) (min (len xs) (len ys))) (s c) xs ys (cons (sum (take c xs) (take c ys)) z)))

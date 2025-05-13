@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Bouchare/03.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Bouchare_06/03.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Bouchare_06/03.xml"
+; @xtcfilename "./SRS_Standard/Bouchare_06/03.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Bouchare_06/03.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Bouchare_06/03.ari"
+; @origariname "./SRS_Standard/Bouchare_06/03.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(rule (b (b x1)) (a (a (a x1))))
+(rule (a (a (b x1))) (b x1))
+(rule (a (b (a x1))) (a (b (b x1))))

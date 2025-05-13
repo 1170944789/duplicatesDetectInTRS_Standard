@@ -1,0 +1,30 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/Rubio-inn/muladd.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/muladd.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/muladd.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/muladd.xml"
+; @origtpdbfilename ./TRS/Rubio-inn/muladd.trs
+; @xtcfilename "./TRS_Innermost/Mixed_innermost/muladd.xml"
+; @origtpdbfilename ./TRS/outermost/nontermin/Rubio-inn/muladd.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/muladd.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/muladd.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/muladd.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/muladd.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/muladd.ari"
+; @origariname "./TRS_Innermost/Mixed_innermost/muladd.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/muladd.ari"
+; @origariname "./TRS_Standard/Strategy_removed_mixed_05/muladd.ari"
+(format TRS)
+(fun * 2)
+(fun + 2)
+(fun |1| 0)
+(fun |0| 0)
+(rule (* X (+ Y |1|)) (+ (* X (+ Y (* |1| |0|))) X))
+(rule (* X |1|) X)
+(rule (* X |0|) X)
+(rule (* X |0|) |0|)

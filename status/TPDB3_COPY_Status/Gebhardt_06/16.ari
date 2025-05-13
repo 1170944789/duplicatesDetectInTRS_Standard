@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Gebhardt/16.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Gebhardt_06/16.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Gebhardt_06/16.xml"
+; @xtcfilename "./SRS_Standard/Gebhardt_06/16.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Gebhardt_06/16.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Gebhardt_06/16.ari"
+; @origariname "./SRS_Standard/Gebhardt_06/16.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun |0| 1)
+(fun |1| 1)
+(rule (|0| (|0| (|0| (|0| x1)))) (|1| (|0| (|0| (|1| x1)))))
+(rule (|0| (|1| (|0| (|1| x1)))) (|0| (|0| (|1| (|0| x1)))))

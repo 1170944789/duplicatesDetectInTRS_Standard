@@ -1,0 +1,24 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/Koprowski/gcd.trs
+; @xtcfilename "./TRS_Relative/Mixed_relative_TRS/gcd.xml"
+; @origariname "./TRS_Relative/Mixed_relative_TRS/gcd.ari"
+(format TRS)
+(fun max 2)
+(fun - 2)
+(fun s 1)
+(fun |0| 0)
+(fun gcd 2)
+(fun min 2)
+(rule (min x |0|) |0|)
+(rule (min |0| y) |0|)
+(rule (min (s x) (s y)) (s (min x y)))
+(rule (max x |0|) x)
+(rule (max |0| y) y)
+(rule (max (s x) (s y)) (s (max x y)))
+(rule (- x |0|) x)
+(rule (- (s x) (s y)) (- x y))
+(rule (gcd (s x) (s y)) (gcd (- (max x y) (min x y)) (s (min x y))))
+(rule (gcd (s x) |0|) (s x))
+(rule (gcd |0| (s y)) (s y))
+(rule (min x y) (min y x) :cost 0)
+(rule (max x y) (max y x) :cost 0)

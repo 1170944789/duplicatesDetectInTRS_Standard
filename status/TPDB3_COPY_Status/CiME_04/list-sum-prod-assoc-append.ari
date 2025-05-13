@@ -1,0 +1,37 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Cime/list-sum-prod-assoc-append.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/CiME_04/list-sum-prod-assoc-append.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/CiME_04/list-sum-prod-assoc-append.xml"
+; @xtcfilename "./TRS_Standard/CiME_04/list-sum-prod-assoc-append.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/CiME_04/list-sum-prod-assoc-append.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/CiME_04/list-sum-prod-assoc-append.ari"
+; @origariname "./TRS_Standard/CiME_04/list-sum-prod-assoc-append.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun + 2)
+(fun |0| 0)
+(fun s 1)
+(fun * 2)
+(fun app 2)
+(fun nil 0)
+(fun cons 2)
+(fun sum 1)
+(fun prod 1)
+(rule (+ x |0|) x)
+(rule (+ |0| x) x)
+(rule (+ (s x) (s y)) (s (s (+ x y))))
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (* x |0|) |0|)
+(rule (* |0| x) |0|)
+(rule (* (s x) (s y)) (s (+ (* x y) (+ x y))))
+(rule (* (* x y) z) (* x (* y z)))
+(rule (app nil l) l)
+(rule (app (cons x l1) l2) (cons x (app l1 l2)))
+(rule (sum nil) |0|)
+(rule (sum (cons x l)) (+ x (sum l)))
+(rule (sum (app l1 l2)) (+ (sum l1) (sum l2)))
+(rule (prod nil) (s |0|))
+(rule (prod (cons x l)) (* x (prod l)))
+(rule (prod (app l1 l2)) (* (prod l1) (prod l2)))

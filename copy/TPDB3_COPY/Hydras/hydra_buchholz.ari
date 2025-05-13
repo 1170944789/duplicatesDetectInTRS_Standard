@@ -1,0 +1,14 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Hydras/hydra_buchholz.xml"
+; @origariname "./TRS_Standard/Hydras/hydra_buchholz.ari"
+(format TRS)
+(fun h 2)
+(fun g 2)
+(fun d 2)
+(fun |0| 0)
+(rule (h (g x y) z) (h (d (g x y) z) (g z |0|)))
+(rule (d |0| z) |0|)
+(rule (d (g x |0|) z) x)
+(rule (d (g x (g y |0|)) |0|) x)
+(rule (d (g x (g y |0|)) (g z v)) (g (d (g x (g y |0|)) z) y))
+(rule (d (g x (g y (g u v))) z) (g x (d (g y (g u v)) z)))

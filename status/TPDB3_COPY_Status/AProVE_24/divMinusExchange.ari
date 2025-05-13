@@ -1,0 +1,24 @@
+; @tag TRS_Relative
+; @origtpdbfilename divMinusExchange.trs
+; @xtcfilename "../xml/divMinusExchange.trs.xml"
+; @origariname "./TRS_Relative/AProVE_24/divMinusExchange.ari"
+; @status_TRS_Relative YES
+(format TRS)
+(fun s 1)
+(fun div1 2)
+(fun div2 2)
+(fun minus1 2)
+(fun |0| 0)
+(fun minus2 2)
+(rule (minus1 x |0|) x)
+(rule (minus1 (s x) (s y)) (minus1 x y))
+(rule (div1 |0| (s y)) |0|)
+(rule (div1 (s x) (s y)) (s (div1 (minus1 x y) (s y))))
+(rule (minus2 |0| x) x)
+(rule (minus2 (s x) (s y)) (minus2 x y))
+(rule (div2 (s y) |0|) |0|)
+(rule (div2 (s x) (s y)) (s (div2 (s x) (minus2 x y))))
+(rule (minus1 x y) (minus2 y x) :cost 0)
+(rule (minus2 x y) (minus1 y x) :cost 0)
+(rule (div1 x y) (div2 y x) :cost 0)
+(rule (div2 x y) (div1 y x) :cost 0)

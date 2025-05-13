@@ -1,0 +1,26 @@
+; @tag TRS_Relative
+; @origtpdbfilename subsets_2.trs
+; @xtcfilename "../xml/subsets_2.trs.xml"
+; @origariname "./TRS_Relative/AProVE_24/subsets_2.ari"
+; @status_TRS_Relative YES
+(format TRS)
+(fun s 1)
+(fun |0| 0)
+(fun remove 2)
+(fun cons 2)
+(fun first 2)
+(fun sublist 2)
+(fun consSwap 2)
+(fun nil 0)
+(rule (remove nil x) nil)
+(rule (remove (cons x xs) |0|) (cons x xs))
+(rule (remove (cons x xs) (s y)) (remove xs y))
+(rule (first nil x) nil)
+(rule (first (cons x xs) |0|) nil)
+(rule (first (cons x xs) (s y)) (cons x (first xs y)))
+(rule (sublist nil x) nil)
+(rule (sublist (cons x xs) |0|) nil)
+(rule (sublist (cons x xs) (s y)) (cons (cons x (first xs y)) (sublist (remove xs y) (s y))))
+(rule (sublist (cons x xs) z) (sublist (consSwap x xs) z) :cost 0)
+(rule (consSwap x xs) (cons x xs) :cost 0)
+(rule (consSwap x (cons y xs)) (cons y (consSwap x xs)) :cost 0)

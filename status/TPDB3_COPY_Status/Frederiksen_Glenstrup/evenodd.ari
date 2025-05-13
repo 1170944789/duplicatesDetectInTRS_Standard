@@ -1,0 +1,20 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/evenodd.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/evenodd.ari"
+; @status Unknown
+(format TRS)
+(fun odd 1)
+(fun Cons 2)
+(fun even 1)
+(fun Nil 0)
+(fun False 0)
+(fun notEmpty 1)
+(fun True 0)
+(fun evenodd 1)
+(rule (odd (Cons x xs)) (even xs))
+(rule (odd Nil) False)
+(rule (even (Cons x xs)) (odd xs))
+(rule (notEmpty (Cons x xs)) True)
+(rule (notEmpty Nil) False)
+(rule (even Nil) True)
+(rule (evenodd x) (even x))

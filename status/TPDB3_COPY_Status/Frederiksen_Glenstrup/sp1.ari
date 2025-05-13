@@ -1,0 +1,20 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/sp1.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/sp1.ari"
+; @status Unknown
+(format TRS)
+(fun g 2)
+(fun Cons 2)
+(fun h 2)
+(fun Nil 0)
+(fun f 2)
+(fun sp1 2)
+(fun r 2)
+(rule (g (Cons x xs) y) (Cons x xs))
+(rule (h Nil y) (h Nil y))
+(rule (h (Cons x xs) y) (f (Cons x xs) y))
+(rule (g Nil y) (h Nil y))
+(rule (f Nil y) (g Nil y))
+(rule (f (Cons x xs) y) (h (Cons x xs) y))
+(rule (sp1 x y) (f x y))
+(rule (r x y) x)

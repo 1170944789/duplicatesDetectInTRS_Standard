@@ -1,0 +1,48 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/selsort.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/selsort.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/selsort.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/selsort.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/selsort.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/selsort.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Rubio_04/selsort.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/selsort.ari"
+; @origariname "./TRS_Standard/Rubio_04/selsort.ari"
+(format TRS)
+(fun eq 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun le 2)
+(fun min 1)
+(fun cons 2)
+(fun nil 0)
+(fun ifmin 2)
+(fun replace 3)
+(fun ifrepl 4)
+(fun selsort 1)
+(fun ifselsort 2)
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s Y)) false)
+(rule (eq (s X) |0|) false)
+(rule (eq (s X) (s Y)) (eq X Y))
+(rule (le |0| Y) true)
+(rule (le (s X) |0|) false)
+(rule (le (s X) (s Y)) (le X Y))
+(rule (min (cons |0| nil)) |0|)
+(rule (min (cons (s N) nil)) (s N))
+(rule (min (cons N (cons M L))) (ifmin (le N M) (cons N (cons M L))))
+(rule (ifmin true (cons N (cons M L))) (min (cons N L)))
+(rule (ifmin false (cons N (cons M L))) (min (cons M L)))
+(rule (replace N M nil) nil)
+(rule (replace N M (cons K L)) (ifrepl (eq N K) N M (cons K L)))
+(rule (ifrepl true N M (cons K L)) (cons M L))
+(rule (ifrepl false N M (cons K L)) (cons K (replace N M L)))
+(rule (selsort nil) nil)
+(rule (selsort (cons N L)) (ifselsort (eq N (min (cons N L))) (cons N L)))
+(rule (ifselsort true (cons N L)) (cons N (selsort L)))
+(rule (ifselsort false (cons N L)) (cons (min (cons N L)) (selsort (replace (min (cons N L)) N L))))

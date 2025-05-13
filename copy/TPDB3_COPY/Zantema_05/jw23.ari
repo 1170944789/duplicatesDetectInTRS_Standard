@@ -1,0 +1,14 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema/jw23.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_05/jw23.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_05/jw23.xml"
+; @xtcfilename "./TRS_Standard/Zantema_05/jw23.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_05/jw23.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_05/jw23.ari"
+; @origariname "./TRS_Standard/Zantema_05/jw23.ari"
+(format TRS)
+(fun f 2)
+(fun a 0)
+(rule (f x (f a a)) (f (f (f (f a a) a) x) a))

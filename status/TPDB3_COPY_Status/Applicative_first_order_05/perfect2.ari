@@ -1,0 +1,44 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/currying/Ste92/perfect2.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_first_order_05/perfect2.xml"
+; @xtcfilename "./TRS_Standard/Applicative_first_order_05/perfect2.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Applicative_first_order_05/perfect2.ari"
+; @origariname "./TRS_Standard/Applicative_first_order_05/perfect2.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun app 2)
+(fun minus 0)
+(fun |0| 0)
+(fun s 0)
+(fun le 0)
+(fun true 0)
+(fun false 0)
+(fun if 0)
+(fun perfectp 0)
+(fun f 0)
+(fun map 0)
+(fun nil 0)
+(fun cons 0)
+(fun filter 0)
+(fun filter2 0)
+(rule (app (app minus |0|) y) |0|)
+(rule (app (app minus (app s x)) |0|) (app s x))
+(rule (app (app minus (app s x)) (app s y)) (app (app minus x) y))
+(rule (app (app le |0|) y) true)
+(rule (app (app le (app s x)) |0|) false)
+(rule (app (app le (app s x)) (app s y)) (app (app le x) y))
+(rule (app (app (app if true) x) y) x)
+(rule (app (app (app if false) x) y) y)
+(rule (app perfectp |0|) false)
+(rule (app perfectp (app s x)) (app (app (app (app f x) (app s |0|)) (app s x)) (app s x)))
+(rule (app (app (app (app f |0|) y) |0|) u) true)
+(rule (app (app (app (app f |0|) y) (app s z)) u) false)
+(rule (app (app (app (app f (app s x)) |0|) z) u) (app (app (app (app f x) u) (app (app minus z) (app s x))) u))
+(rule (app (app (app (app f (app s x)) (app s y)) z) u) (app (app (app if (app (app le x) y)) (app (app (app (app f (app s x)) (app (app minus y) x)) z) u)) (app (app (app (app f x) u) z) u)))
+(rule (app (app map |fun|) nil) nil)
+(rule (app (app map |fun|) (app (app cons x) xs)) (app (app cons (app |fun| x)) (app (app map |fun|) xs)))
+(rule (app (app filter |fun|) nil) nil)
+(rule (app (app filter |fun|) (app (app cons x) xs)) (app (app (app (app filter2 (app |fun| x)) |fun|) x) xs))
+(rule (app (app (app (app filter2 true) |fun|) x) xs) (app (app cons x) (app (app filter |fun|) xs)))
+(rule (app (app (app (app filter2 false) |fun|) x) xs) (app (app filter |fun|) xs))

@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Waldmann07a/size-11-alpha-3-num-14.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_07_size11/size-11-alpha-3-num-14.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_07_size11/size-11-alpha-3-num-14.xml"
+; @xtcfilename "./SRS_Standard/Waldmann_07_size11/size-11-alpha-3-num-14.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Waldmann_07_size11/size-11-alpha-3-num-14.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Waldmann_07_size11/size-11-alpha-3-num-14.ari"
+; @origariname "./SRS_Standard/Waldmann_07_size11/size-11-alpha-3-num-14.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a x1)) x1)
+(rule (a (b x1)) (c (c x1)))
+(rule (c (b x1)) (b (b (a x1))))

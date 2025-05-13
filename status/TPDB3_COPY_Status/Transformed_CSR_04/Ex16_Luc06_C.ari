@@ -1,0 +1,38 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex16_Luc06_C.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex16_Luc06_C.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex16_Luc06_C.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex16_Luc06_C.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex16_Luc06_C.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex16_Luc06_C.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex16_Luc06_C.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex16_Luc06_C.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex16_Luc06_C.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex16_Luc06_C.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex16_Luc06_C.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex16_Luc06_C.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun active 1)
+(fun f 2)
+(fun mark 1)
+(fun a 0)
+(fun b 0)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active (f X X)) (mark (f a b)))
+(rule (active b) (mark a))
+(rule (active (f X1 X2)) (f (active X1) X2))
+(rule (f (mark X1) X2) (mark (f X1 X2)))
+(rule (proper (f X1 X2)) (f (proper X1) (proper X2)))
+(rule (proper a) (ok a))
+(rule (proper b) (ok b))
+(rule (f (ok X1) (ok X2)) (ok (f X1 X2)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

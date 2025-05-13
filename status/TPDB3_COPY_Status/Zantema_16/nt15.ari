@@ -1,0 +1,12 @@
+; @tag SRS_Cycle
+; @origtpdbfilename nt15.srs
+; @xtcfilename "./SRS_Cycle/Zantema_16/nt15.xml"
+; @origariname "./SRS_Cycle/Zantema_16/nt15.ari"
+; @status Unknown
+(format TRS)
+(fun a 1)
+(fun |0| 1)
+(fun |1| 1)
+(fun b 1)
+(rule (a (|0| (|0| (|0| x1)))) (|1| (|1| (a x1))))
+(rule (b (|1| (|1| (|1| x1)))) (|0| (|0| (|0| (|0| (|0| (b x1)))))))

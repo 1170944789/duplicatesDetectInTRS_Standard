@@ -1,0 +1,42 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/thiemann38.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/thiemann38.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_07/thiemann38.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/thiemann38.xml"
+; @xtcfilename "./TRS_Standard/AProVE_07/thiemann38.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/thiemann38.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_07/thiemann38.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/thiemann38.ari"
+; @origariname "./TRS_Standard/AProVE_07/thiemann38.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun length 1)
+(fun nil 0)
+(fun |0| 0)
+(fun cons 2)
+(fun s 1)
+(fun lt 2)
+(fun false 0)
+(fun true 0)
+(fun head 1)
+(fun undefined 0)
+(fun tail 1)
+(fun reverse 1)
+(fun rev 4)
+(fun if 5)
+(rule (length nil) |0|)
+(rule (length (cons x l)) (s (length l)))
+(rule (lt x |0|) false)
+(rule (lt |0| (s y)) true)
+(rule (lt (s x) (s y)) (lt x y))
+(rule (head (cons x l)) x)
+(rule (head nil) undefined)
+(rule (tail nil) nil)
+(rule (tail (cons x l)) l)
+(rule (reverse l) (rev |0| l nil l))
+(rule (rev x l accu orig) (if (lt x (length orig)) x l accu orig))
+(rule (if true x l accu orig) (rev (s x) (tail l) (cons (head l) accu) orig))
+(rule (if false x l accu orig) accu)

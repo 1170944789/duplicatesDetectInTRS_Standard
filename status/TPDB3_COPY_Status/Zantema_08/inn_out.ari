@@ -1,0 +1,11 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/inn_out.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/inn_out.xml"
+; @origariname "./TRS_Outermost/Zantema_08/inn_out.ari"
+; @status_TRS_Outermost CertifiedNO
+(format TRS)
+(fun f 1)
+(fun g 1)
+(fun a 0)
+(rule (f (g x)) (f (g (g x))))
+(rule (g (g (g x))) a)

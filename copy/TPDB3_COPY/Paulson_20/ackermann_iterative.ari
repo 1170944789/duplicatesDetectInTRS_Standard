@@ -1,0 +1,11 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Paulson_20/ackermann_iterative.xml"
+; @origariname "./TRS_Standard/Paulson_20/ackermann_iterative.ari"
+(format TRS)
+(fun c 2)
+(fun A 0)
+(fun |0| 0)
+(fun S 1)
+(rule (c A (c n (c |0| L))) (c A (c (S n) L)))
+(rule (c A (c |0| (c (S m) L))) (c A (c (S |0|) (c m L))))
+(rule (c A (c (S n) (c (S m) L))) (c A (c n (c (S m) (c m L)))))

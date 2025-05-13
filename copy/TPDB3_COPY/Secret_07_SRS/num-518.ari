@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret07/matchbox/num-518.srs./SRS/Waldmann07b/size-12-alpha-3-num-518.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_07_SRS/num-518.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_07_SRS/num-518.xml"
+; @xtcfilename "./SRS_Standard/Secret_07_SRS/num-518.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_07_SRS/num-518.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_07_SRS/num-518.ari"
+; @origariname "./SRS_Standard/Secret_07_SRS/num-518.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (a (a x1))) (b (b (c (c x1)))))
+(rule (c (b x1)) (a (a (c x1))))

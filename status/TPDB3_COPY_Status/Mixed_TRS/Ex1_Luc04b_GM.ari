@@ -1,0 +1,57 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/CSR/Ex1_Luc04b_GM.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/Ex1_Luc04b_GM.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/Ex1_Luc04b_GM.ari"
+; @origariname "./TRS_Standard/Mixed_TRS/Ex1_Luc04b_GM.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun a__nats 0)
+(fun cons 2)
+(fun |0| 0)
+(fun incr 1)
+(fun nats 0)
+(fun a__pairs 0)
+(fun odds 0)
+(fun a__odds 0)
+(fun a__incr 1)
+(fun s 1)
+(fun mark 1)
+(fun a__head 1)
+(fun a__tail 1)
+(fun pairs 0)
+(fun head 1)
+(fun tail 1)
+(fun nil 0)
+(rule a__nats (cons |0| (incr nats)))
+(rule a__pairs (cons |0| (incr odds)))
+(rule a__odds (a__incr a__pairs))
+(rule (a__incr (cons X XS)) (cons (s (mark X)) (incr XS)))
+(rule (a__head (cons X XS)) (mark X))
+(rule (a__tail (cons X XS)) (mark XS))
+(rule (mark nats) a__nats)
+(rule (mark pairs) a__pairs)
+(rule (mark odds) a__odds)
+(rule (mark (incr X)) (a__incr (mark X)))
+(rule (mark (head X)) (a__head (mark X)))
+(rule (mark (tail X)) (a__tail (mark X)))
+(rule (mark |0|) |0|)
+(rule (mark (s X)) (s (mark X)))
+(rule (mark nil) nil)
+(rule (mark (cons X1 X2)) (cons (mark X1) X2))
+(rule a__nats nats)
+(rule a__pairs pairs)
+(rule a__odds odds)
+(rule (a__incr X) (incr X))
+(rule (a__head X) (head X))
+(rule (a__tail X) (tail X))

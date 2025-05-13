@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/ex1.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/ex1.xml"
+; @xtcfilename "./TRS_Standard/AProVE_10/ex1.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/ex1.ari"
+; @origariname "./TRS_Standard/AProVE_10/ex1.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun f 2)
+(fun cond 3)
+(fun lt 2)
+(fun tt 0)
+(fun s 1)
+(fun |0| 0)
+(rule (f x y) (cond (lt x y) x y))
+(rule (cond tt x y) (f (s x) (s y)))
+(rule (lt |0| y) tt)
+(rule (lt (s x) (s y)) (lt x y))

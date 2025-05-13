@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/Rubio-inn/test830.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Strategy_removed_mixed_05/test830.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/test830.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/test830.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/test830.xml"
+; @origtpdbfilename ./TRS/Rubio-inn/test830.trs
+; @xtcfilename "./TRS_Innermost/Mixed_innermost/test830.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/test830.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Strategy_removed_mixed_05/test830.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/test830.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Strategy_removed_mixed_05/test830.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/test830.ari"
+; @origariname "./TRS_Innermost/Mixed_innermost/test830.ari"
+; @origariname "./TRS_Standard/Strategy_removed_mixed_05/test830.ari"
+(format TRS)
+(fun f 1)
+(fun s 1)
+(fun g 1)
+(fun cons 2)
+(fun |0| 0)
+(fun h 1)
+(rule (f (s X)) (f X))
+(rule (g (cons |0| Y)) (g Y))
+(rule (g (cons (s X) Y)) (s X))
+(rule (h (cons X Y)) (h (g (cons X Y))))

@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret06/jambox/8.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/8.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/8.xml"
+; @xtcfilename "./SRS_Standard/Secret_06_SRS/8.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/8.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/8.ari"
+; @origariname "./SRS_Standard/Secret_06_SRS/8.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (b (a x1)))) (b (a (a (b x1)))))
+(rule (b (a (b x1))) (a (b (b (b x1)))))

@@ -1,0 +1,26 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename Frederiksen_Others/match.tml.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/match.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Others/match.ari"
+; @status Unknown
+(format TRS)
+(fun |loop[Ite]| 5)
+(fun !EQ 2)
+(fun True 0)
+(fun S 1)
+(fun loop 4)
+(fun Cons 2)
+(fun Nil 0)
+(fun |0| 0)
+(fun False 0)
+(fun match1 2)
+(rule (loop (Cons x xs) Nil pp ss) False)
+(rule (loop (Cons |x'| |xs'|) (Cons x xs) pp ss) (|loop[Ite]| (!EQ |x'| x) (Cons |x'| |xs'|) (Cons x xs) pp ss))
+(rule (loop Nil s pp ss) True)
+(rule (match1 p s) (loop p s p s))
+(rule (!EQ (S x) (S y)) (!EQ x y) :cost 0)
+(rule (!EQ |0| (S y)) False :cost 0)
+(rule (!EQ (S x) |0|) False :cost 0)
+(rule (!EQ |0| |0|) True :cost 0)
+(rule (|loop[Ite]| False p s pp (Cons x xs)) (loop pp xs pp xs) :cost 0)
+(rule (|loop[Ite]| True (Cons |x'| |xs'|) (Cons x xs) pp ss) (loop |xs'| xs pp ss) :cost 0)

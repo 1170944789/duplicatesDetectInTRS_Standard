@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/isNat.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/isNat.xml"
+; @xtcfilename "./TRS_Standard/AProVE_10/isNat.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/isNat.ari"
+; @origariname "./TRS_Standard/AProVE_10/isNat.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun f 2)
+(fun tt 0)
+(fun isNat 1)
+(fun s 1)
+(fun |0| 0)
+(rule (f tt x) (f (isNat x) (s x)))
+(rule (isNat (s x)) (isNat x))
+(rule (isNat |0|) tt)

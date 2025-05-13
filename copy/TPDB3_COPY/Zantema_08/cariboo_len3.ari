@@ -1,0 +1,11 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/cariboo_len3.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/cariboo_len3.xml"
+; @origariname "./TRS_Outermost/Zantema_08/cariboo_len3.ari"
+(format TRS)
+(fun cons 2)
+(fun big 0)
+(fun inf 1)
+(fun s 1)
+(rule (cons x (cons y (cons z xs))) big)
+(rule (inf x) (cons x (inf (s x))))

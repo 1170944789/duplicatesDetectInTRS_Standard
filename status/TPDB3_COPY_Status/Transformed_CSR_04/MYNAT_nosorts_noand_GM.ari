@@ -1,0 +1,59 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/MYNAT_nosorts_noand_GM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/MYNAT_nosorts_noand_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/MYNAT_nosorts_noand_GM.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/MYNAT_nosorts_noand_GM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/MYNAT_nosorts_noand_GM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/MYNAT_nosorts_noand_GM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/MYNAT_nosorts_noand_GM.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/MYNAT_nosorts_noand_GM.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/MYNAT_nosorts_noand_GM.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/MYNAT_nosorts_noand_GM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/MYNAT_nosorts_noand_GM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/MYNAT_nosorts_noand_GM.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun a__U11 3)
+(fun tt 0)
+(fun a__U12 3)
+(fun s 1)
+(fun a__plus 2)
+(fun mark 1)
+(fun a__U21 3)
+(fun a__U22 3)
+(fun a__x 2)
+(fun |0| 0)
+(fun U11 3)
+(fun U12 3)
+(fun plus 2)
+(fun U21 3)
+(fun U22 3)
+(fun x 2)
+(rule (a__U11 tt M N) (a__U12 tt M N))
+(rule (a__U12 tt M N) (s (a__plus (mark N) (mark M))))
+(rule (a__U21 tt M N) (a__U22 tt M N))
+(rule (a__U22 tt M N) (a__plus (a__x (mark N) (mark M)) (mark N)))
+(rule (a__plus N |0|) (mark N))
+(rule (a__plus N (s M)) (a__U11 tt M N))
+(rule (a__x N |0|) |0|)
+(rule (a__x N (s M)) (a__U21 tt M N))
+(rule (mark (U11 X1 X2 X3)) (a__U11 (mark X1) X2 X3))
+(rule (mark (U12 X1 X2 X3)) (a__U12 (mark X1) X2 X3))
+(rule (mark (plus X1 X2)) (a__plus (mark X1) (mark X2)))
+(rule (mark (U21 X1 X2 X3)) (a__U21 (mark X1) X2 X3))
+(rule (mark (U22 X1 X2 X3)) (a__U22 (mark X1) X2 X3))
+(rule (mark (x X1 X2)) (a__x (mark X1) (mark X2)))
+(rule (mark tt) tt)
+(rule (mark (s X)) (s (mark X)))
+(rule (mark |0|) |0|)
+(rule (a__U11 X1 X2 X3) (U11 X1 X2 X3))
+(rule (a__U12 X1 X2 X3) (U12 X1 X2 X3))
+(rule (a__plus X1 X2) (plus X1 X2))
+(rule (a__U21 X1 X2 X3) (U21 X1 X2 X3))
+(rule (a__U22 X1 X2 X3) (U22 X1 X2 X3))
+(rule (a__x X1 X2) (x X1 X2))

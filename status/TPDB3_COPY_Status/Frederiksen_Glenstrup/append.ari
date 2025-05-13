@@ -1,0 +1,12 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/append.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/append.ari"
+; @status Unknown
+(format TRS)
+(fun append 2)
+(fun Cons 2)
+(fun Nil 0)
+(fun goal 2)
+(rule (append (Cons x xs) ys) (Cons x (append xs ys)))
+(rule (append Nil ys) ys)
+(rule (goal x y) (append x y))

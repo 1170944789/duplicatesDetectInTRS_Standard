@@ -1,0 +1,50 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Cime/lse.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/CiME_04/lse.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/CiME_04/lse.xml"
+; @xtcfilename "./TRS_Standard/CiME_04/lse.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/CiME_04/lse.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/CiME_04/lse.ari"
+; @origariname "./TRS_Standard/CiME_04/lse.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun Term_sub 2)
+(fun Case 3)
+(fun Frozen 4)
+(fun Sum_sub 2)
+(fun Sum_constant 1)
+(fun Left 0)
+(fun Right 0)
+(fun Sum_term_var 1)
+(fun Term_app 2)
+(fun Term_pair 2)
+(fun Term_inl 1)
+(fun Term_inr 1)
+(fun Term_var 1)
+(fun Id 0)
+(fun Cons_usual 3)
+(fun Cons_sum 3)
+(fun Concat 2)
+(rule (Term_sub (Case m xi n) s) (Frozen m (Sum_sub xi s) n s))
+(rule (Frozen m (Sum_constant Left) n s) (Term_sub m s))
+(rule (Frozen m (Sum_constant Right) n s) (Term_sub n s))
+(rule (Frozen m (Sum_term_var xi) n s) (Case (Term_sub m s) xi (Term_sub n s)))
+(rule (Term_sub (Term_app m n) s) (Term_app (Term_sub m s) (Term_sub n s)))
+(rule (Term_sub (Term_pair m n) s) (Term_pair (Term_sub m s) (Term_sub n s)))
+(rule (Term_sub (Term_inl m) s) (Term_inl (Term_sub m s)))
+(rule (Term_sub (Term_inr m) s) (Term_inr (Term_sub m s)))
+(rule (Term_sub (Term_var x) Id) (Term_var x))
+(rule (Term_sub (Term_var x) (Cons_usual y m s)) m)
+(rule (Term_sub (Term_var x) (Cons_usual y m s)) (Term_sub (Term_var x) s))
+(rule (Term_sub (Term_var x) (Cons_sum xi k s)) (Term_sub (Term_var x) s))
+(rule (Term_sub (Term_sub m s) t) (Term_sub m (Concat s t)))
+(rule (Sum_sub xi Id) (Sum_term_var xi))
+(rule (Sum_sub xi (Cons_sum psi k s)) (Sum_constant k))
+(rule (Sum_sub xi (Cons_sum psi k s)) (Sum_sub xi s))
+(rule (Sum_sub xi (Cons_usual y m s)) (Sum_sub xi s))
+(rule (Concat (Concat s t) u) (Concat s (Concat t u)))
+(rule (Concat (Cons_usual x m s) t) (Cons_usual x (Term_sub m t) (Concat s t)))
+(rule (Concat (Cons_sum xi k s) t) (Cons_sum xi k (Concat s t)))
+(rule (Concat Id s) s)

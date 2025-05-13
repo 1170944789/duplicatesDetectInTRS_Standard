@@ -1,0 +1,30 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @origtpdbfilename tct_complexity/raML/appendAll.raml.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/raML/appendAll.raml.xml"
+; @xtcfilename "./TRS_Innermost/raML/appendAll.raml.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/raML/appendAll.raml.ari"
+; @origariname "./TRS_Innermost/raML/appendAll.raml.ari"
+(format TRS)
+(fun append 2)
+(fun |append#1| 2)
+(fun |::| 2)
+(fun nil 0)
+(fun appendAll 1)
+(fun |appendAll#1| 1)
+(fun appendAll2 1)
+(fun |appendAll2#1| 1)
+(fun appendAll3 1)
+(fun |appendAll3#1| 1)
+(rule (append @l1 @l2) (|append#1| @l1 @l2))
+(rule (|append#1| (|::| @x @xs) @l2) (|::| @x (append @xs @l2)))
+(rule (|append#1| nil @l2) @l2)
+(rule (appendAll @l) (|appendAll#1| @l))
+(rule (|appendAll#1| (|::| @l1 @ls)) (append @l1 (appendAll @ls)))
+(rule (|appendAll#1| nil) nil)
+(rule (appendAll2 @l) (|appendAll2#1| @l))
+(rule (|appendAll2#1| (|::| @l1 @ls)) (append (appendAll @l1) (appendAll2 @ls)))
+(rule (|appendAll2#1| nil) nil)
+(rule (appendAll3 @l) (|appendAll3#1| @l))
+(rule (|appendAll3#1| (|::| @l1 @ls)) (append (appendAll2 @l1) (appendAll3 @ls)))
+(rule (|appendAll3#1| nil) nil)

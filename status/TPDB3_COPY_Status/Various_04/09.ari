@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/various/09.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Various_04/09.xml"
+; @xtcfilename "./TRS_Standard/Various_04/09.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Various_04/09.ari"
+; @origariname "./TRS_Standard/Various_04/09.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 5)
+(fun a 0)
+(fun g1 4)
+(fun g2 4)
+(fun h 2)
+(rule (f x y w w a) (g1 x x y w))
+(rule (f x y w a a) (g1 y x x w))
+(rule (f x y a a w) (g2 x y y w))
+(rule (f x y a w w) (g2 y y x w))
+(rule (g1 x x y a) (h x y))
+(rule (g1 y x x a) (h x y))
+(rule (g2 x y y a) (h x y))
+(rule (g2 y y x a) (h x y))
+(rule (h x x) x)

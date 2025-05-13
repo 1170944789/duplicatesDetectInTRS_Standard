@@ -1,0 +1,48 @@
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename tct_complexity/TCT_12/sat.trs
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/TCT_12/sat.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/TCT_12/sat.xml"
+; @xtcfilename "./TRS_Standard/TCT_12/sat.xml"
+; @origariname "./Runtime_Complexity_Full_Rewriting/TCT_12/sat.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/TCT_12/sat.ari"
+; @origariname "./TRS_Standard/TCT_12/sat.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun if 3)
+(fun true 0)
+(fun false 0)
+(fun member 2)
+(fun nil 0)
+(fun cons 2)
+(fun eq 2)
+(fun O 1)
+(fun |0| 1)
+(fun |1| 1)
+(fun negate 1)
+(fun choice 1)
+(fun guess 1)
+(fun verify 1)
+(fun sat 1)
+(fun satck 2)
+(fun unsat 0)
+(rule (if true t e) t)
+(rule (if false t e) e)
+(rule (member x nil) false)
+(rule (member x (cons y ys)) (if (eq x y) true (member x ys)))
+(rule (eq nil nil) true)
+(rule (eq (O x) (|0| y)) (eq x y))
+(rule (eq (|0| x) (|1| y)) false)
+(rule (eq (|1| x) (|0| y)) false)
+(rule (eq (|1| x) (|1| y)) (eq x y))
+(rule (negate (|0| x)) (|1| x))
+(rule (negate (|1| x)) (|0| x))
+(rule (choice (cons x xs)) x)
+(rule (choice (cons x xs)) (choice xs))
+(rule (guess nil) nil)
+(rule (guess (cons clause cnf)) (cons (choice clause) (guess cnf)))
+(rule (verify nil) true)
+(rule (verify (cons l ls)) (if (member (negate l) ls) false (verify ls)))
+(rule (sat cnf) (satck cnf (guess cnf)))
+(rule (satck cnf assign) (if (verify assign) assign unsat))

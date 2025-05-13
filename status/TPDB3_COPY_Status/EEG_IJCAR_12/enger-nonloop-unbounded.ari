@@ -1,0 +1,16 @@
+; @tag TRS_Standard
+; @origtpdbfilename enger-nonloop-unbounded.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-unbounded.xml"
+; @origariname "./TRS_Standard/EEG_IJCAR_12/enger-nonloop-unbounded.ari"
+; @status_TRS_Standard CertifiedNO
+(format TRS)
+(fun h 3)
+(fun true 0)
+(fun gt 2)
+(fun s 1)
+(fun |0| 0)
+(fun false 0)
+(rule (h true x y) (h (gt x y) (s x) (s y)))
+(rule (gt |0| x) false)
+(rule (gt (s x) |0|) true)
+(rule (gt (s x) (s y)) (gt x y))

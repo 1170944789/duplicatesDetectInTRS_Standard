@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/forward_instantiation.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/forward_instantiation.xml"
+; @xtcfilename "./TRS_Standard/AProVE_04/forward_instantiation.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/forward_instantiation.ari"
+; @origariname "./TRS_Standard/AProVE_04/forward_instantiation.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 3)
+(fun g 3)
+(fun |0| 0)
+(fun |1| 0)
+(rule (f x y z) (g x y z))
+(rule (g |0| |1| x) (f x x x))

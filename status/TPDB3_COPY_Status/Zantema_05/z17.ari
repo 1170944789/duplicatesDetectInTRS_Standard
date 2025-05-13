@@ -1,0 +1,26 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema/z17.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_05/z17.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_05/z17.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Zantema_05/z17.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Zantema_05/z17.xml"
+; @xtcfilename "./TRS_Standard/Zantema_05/z17.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_05/z17.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_05/z17.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Zantema_05/z17.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Zantema_05/z17.ari"
+; @origariname "./TRS_Standard/Zantema_05/z17.ari"
+; @status Unknown
+(format TRS)
+(fun f 2)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(fun d 1)
+(rule (f x (a (b y))) (f (c (d x)) y))
+(rule (f (c x) y) (f x (a y)))
+(rule (f (d x) y) (f x (b y)))

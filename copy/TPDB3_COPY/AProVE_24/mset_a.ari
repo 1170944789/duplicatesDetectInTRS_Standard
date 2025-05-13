@@ -1,0 +1,20 @@
+; @tag TRS_Relative
+; @origtpdbfilename mset_a.trs
+; @xtcfilename "../xml/mset_a.trs.xml"
+; @origariname "./TRS_Relative/AProVE_24/mset_a.ari"
+(format TRS)
+(fun s 1)
+(fun o 0)
+(fun div 2)
+(fun divL 2)
+(fun |0| 0)
+(fun minus 2)
+(fun cons 2)
+(fun nil 0)
+(rule (minus x o) x)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (div |0| (s y)) |0|)
+(rule (div (s x) (s y)) (s (div (minus x y) (s y))))
+(rule (divL x nil) x)
+(rule (divL x (cons y xs)) (divL (div x y) xs))
+(rule (divL z (cons x (cons y xs))) (divL z (cons y (cons x xs))) :cost 0)

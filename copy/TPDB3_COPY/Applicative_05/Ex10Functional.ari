@@ -1,0 +1,40 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Lifantsev/Ex10Functional.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/Ex10Functional.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex10Functional.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/Ex10Functional.ari"
+; @origariname "./TRS_Standard/Applicative_05/Ex10Functional.ari"
+(format TRS)
+(fun app 2)
+(fun apply 0)
+(fun id 0)
+(fun uncurry 0)
+(fun swap 0)
+(fun compose 0)
+(fun const 0)
+(fun listify 0)
+(fun cons 0)
+(fun nil 0)
+(fun fold 0)
+(fun sum 0)
+(fun add 0)
+(fun |0| 0)
+(fun append 0)
+(fun reverse 0)
+(fun length 0)
+(fun |1| 0)
+(rule (app (app apply f_1) x) (app f_1 x))
+(rule (app id x) x)
+(rule (app (app (app uncurry f_2) x) y) (app (app f_2 x) y))
+(rule (app (app (app swap f_2) y) x) (app (app f_2 x) y))
+(rule (app (app (app compose g_1) f_1) x) (app g_1 (app f_1 x)))
+(rule (app (app const x) y) x)
+(rule (app listify x) (app (app cons x) nil))
+(rule (app (app (app (app fold f_3) g_2) x) nil) x)
+(rule (app (app (app (app fold f_3) g_2) x) (app (app cons z) t)) (app (app f_3 (app g_2 z)) (app (app (app (app fold f_3) g_2) x) t)))
+(rule (app sum l) (app (app (app (app fold add) id) |0|) l))
+(rule (app (app uncurry (app (app fold cons) id)) nil) id)
+(rule append (app (app compose (app (app swap fold) cons)) id))
+(rule reverse (app (app uncurry (app (app fold (app swap append)) listify)) nil))
+(rule length (app (app uncurry (app (app fold add) (app cons |1|))) |0|))

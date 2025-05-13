@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Hofbauer/touzet.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/touzet.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/touzet.xml"
+; @xtcfilename "./SRS_Standard/Mixed_SRS/touzet.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/touzet.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/touzet.ari"
+; @origariname "./SRS_Standard/Mixed_SRS/touzet.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b x1)) (b (b (b x1))))
+(rule (b (a x1)) (a (a (a x1))))
+(rule (a x1) x1)
+(rule (b x1) x1)

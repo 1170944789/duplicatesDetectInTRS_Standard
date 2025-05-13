@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/halfdouble.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/halfdouble.xml"
+; @xtcfilename "./TRS_Standard/AProVE_10/halfdouble.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/halfdouble.ari"
+; @origariname "./TRS_Standard/AProVE_10/halfdouble.ari"
+(format TRS)
+(fun f 2)
+(fun tt 0)
+(fun eq 2)
+(fun half 1)
+(fun double 1)
+(fun s 1)
+(fun |0| 0)
+(rule (f tt x) (f (eq x (half (double x))) (s x)))
+(rule (eq (s x) (s y)) (eq x y))
+(rule (eq |0| |0|) tt)
+(rule (double (s x)) (s (s (double x))))
+(rule (double |0|) |0|)
+(rule (half (s (s x))) (s (half x)))
+(rule (half |0|) |0|)

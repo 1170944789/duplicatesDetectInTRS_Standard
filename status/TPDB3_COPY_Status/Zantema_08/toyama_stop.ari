@@ -1,0 +1,17 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/toyama_stop.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/toyama_stop.xml"
+; @origariname "./TRS_Outermost/Zantema_08/toyama_stop.ari"
+; @status_TRS_Outermost YES
+(format TRS)
+(fun f 3)
+(fun g 2)
+(fun c 0)
+(fun |0| 0)
+(fun |1| 0)
+(rule (f (g u v) y z) c)
+(rule (f |0| |1| x) (f x x x))
+(rule (g x y) x)
+(rule (g x y) y)
+(rule (f (f x y z) u v) c)
+(rule (f |0| u v) c)

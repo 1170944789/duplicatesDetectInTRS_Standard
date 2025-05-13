@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.18.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.18.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.18.xml"
+; @origtpdbfilename ./TRS/AG01/#4.18.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.18.xml"
+; @origtpdbfilename ./TRS/outermost/nontermin/AG01/#4.18.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/#4.18.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.18.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.18.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.18.ari"
+; @origariname "./TRS_Innermost/AG01_innermost/#4.18.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/#4.18.ari"
+; @origariname "./TRS_Standard/Strategy_removed_AG01/#4.18.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a (b x)))) (b (a (b (a (a (b x)))))))

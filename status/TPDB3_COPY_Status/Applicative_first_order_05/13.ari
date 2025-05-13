@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/currying/D33/13.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_first_order_05/13.xml"
+; @xtcfilename "./TRS_Standard/Applicative_first_order_05/13.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Applicative_first_order_05/13.ari"
+; @origariname "./TRS_Standard/Applicative_first_order_05/13.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun app 2)
+(fun * 0)
+(fun + 0)
+(fun map 0)
+(fun nil 0)
+(fun cons 0)
+(fun filter 0)
+(fun filter2 0)
+(fun true 0)
+(fun false 0)
+(rule (app (app * x) (app (app + y) z)) (app (app + (app (app * x) y)) (app (app * x) z)))
+(rule (app (app * (app (app + y) z)) x) (app (app + (app (app * x) y)) (app (app * x) z)))
+(rule (app (app * (app (app * x) y)) z) (app (app * x) (app (app * y) z)))
+(rule (app (app + (app (app + x) y)) z) (app (app + x) (app (app + y) z)))
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons x) xs)) (app (app cons (app f x)) (app (app map f) xs)))
+(rule (app (app filter f) nil) nil)
+(rule (app (app filter f) (app (app cons x) xs)) (app (app (app (app filter2 (app f x)) f) x) xs))
+(rule (app (app (app (app filter2 true) f) x) xs) (app (app cons x) (app (app filter f) xs)))
+(rule (app (app (app (app filter2 false) f) x) xs) (app (app filter f) xs))

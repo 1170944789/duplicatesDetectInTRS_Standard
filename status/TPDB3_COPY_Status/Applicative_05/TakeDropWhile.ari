@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AProVE_HO/TakeDropWhile.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/TakeDropWhile.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/TakeDropWhile.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/TakeDropWhile.ari"
+; @origariname "./TRS_Standard/Applicative_05/TakeDropWhile.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun app 2)
+(fun if 0)
+(fun true 0)
+(fun takeWhile 0)
+(fun nil 0)
+(fun cons 0)
+(fun dropWhile 0)
+(rule (app (app (app if true) x) y) x)
+(rule (app (app (app if true) x) y) y)
+(rule (app (app takeWhile p) nil) nil)
+(rule (app (app takeWhile p) (app (app cons x) xs)) (app (app (app if (app p x)) (app (app cons x) (app (app takeWhile p) xs))) nil))
+(rule (app (app dropWhile p) nil) nil)
+(rule (app (app dropWhile p) (app (app cons x) xs)) (app (app (app if (app p x)) (app (app dropWhile p) xs)) (app (app cons x) xs)))

@@ -1,0 +1,22 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/Zantema06/carbridge.trs
+; @xtcfilename "./TRS_Relative/Mixed_relative_TRS/carbridge.xml"
+; @origariname "./TRS_Relative/Mixed_relative_TRS/carbridge.ari"
+; @status_TRS_Relative CertifiedYES
+(format TRS)
+(fun car 2)
+(fun left 2)
+(fun bot 0)
+(fun right 2)
+(fun new 0)
+(fun old 0)
+(fun top 1)
+(rule (top (left (car x y) (car old z))) (top (right y (car old z))))
+(rule (top (left (car x (car old y)) z)) (top (right (car old y) z)))
+(rule (top (right x (car y (car old z)))) (top (left x (car old z))))
+(rule (top (right (car old x) (car y z))) (top (left (car old x) z)))
+(rule (top (left bot (car old x))) (top (right bot (car old x))))
+(rule (top (right (car old x) bot)) (top (left (car old x) bot)))
+(rule (top (left (car x y) z)) (top (left y z)) :cost 0)
+(rule (top (right x (car y z))) (top (right x z)) :cost 0)
+(rule bot (car new bot) :cost 0)

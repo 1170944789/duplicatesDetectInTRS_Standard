@@ -1,0 +1,37 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/Liveness6.3.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/AProVE_04/Liveness6.3.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/Liveness6.3.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_04/Liveness6.3.xml"
+; @xtcfilename "./TRS_Standard/AProVE_04/Liveness6.3.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/AProVE_04/Liveness6.3.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/Liveness6.3.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_04/Liveness6.3.ari"
+; @origariname "./TRS_Standard/AProVE_04/Liveness6.3.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun rec 1)
+(fun sent 1)
+(fun no 1)
+(fun bot 0)
+(fun up 1)
+(fun top 1)
+(fun check 1)
+(rule (rec (rec x)) (sent (rec x)))
+(rule (rec (sent x)) (sent (rec x)))
+(rule (rec (no x)) (sent (rec x)))
+(rule (rec bot) (up (sent bot)))
+(rule (rec (up x)) (up (rec x)))
+(rule (sent (up x)) (up (sent x)))
+(rule (no (up x)) (up (no x)))
+(rule (top (rec (up x))) (top (check (rec x))))
+(rule (top (sent (up x))) (top (check (rec x))))
+(rule (top (no (up x))) (top (check (rec x))))
+(rule (check (up x)) (up (check x)))
+(rule (check (sent x)) (sent (check x)))
+(rule (check (rec x)) (rec (check x)))
+(rule (check (no x)) (no (check x)))
+(rule (check (no x)) (no x))

@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret06/torpa/secr6.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/secr6.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/secr6.xml"
+; @xtcfilename "./SRS_Standard/Secret_06_SRS/secr6.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/secr6.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/secr6.ari"
+; @origariname "./SRS_Standard/Secret_06_SRS/secr6.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (b (c x1))) (c (c (c (b (b (b (a (a (a x1))))))))))
+(rule (c (b x1)) (a (a (a x1))))
+(rule (a x1) x1)
+(rule (b x1) x1)
+(rule (c x1) x1)

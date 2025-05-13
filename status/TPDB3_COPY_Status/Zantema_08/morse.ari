@@ -1,0 +1,18 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/morse.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/morse.xml"
+; @origariname "./TRS_Outermost/Zantema_08/morse.ari"
+; @status Unknown
+(format TRS)
+(fun M 0)
+(fun h 1)
+(fun cons 2)
+(fun |0| 0)
+(fun tail 1)
+(fun |1| 0)
+(fun garbage 0)
+(rule M (h (cons |0| (tail M))))
+(rule (tail (cons x s)) s)
+(rule (h (cons |0| s)) (cons |0| (cons |1| (h s))))
+(rule (h (cons |1| s)) (cons |1| (cons |0| (h s))))
+(rule (cons x s) garbage)

@@ -1,0 +1,39 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Beerendonk/20.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Beerendonk_07/20.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Beerendonk_07/20.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Beerendonk_07/20.xml"
+; @xtcfilename "./TRS_Standard/Beerendonk_07/20.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Beerendonk_07/20.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Beerendonk_07/20.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Beerendonk_07/20.ari"
+; @origariname "./TRS_Standard/Beerendonk_07/20.ari"
+(format TRS)
+(fun cond1 3)
+(fun true 0)
+(fun cond2 3)
+(fun gr 2)
+(fun |0| 0)
+(fun p 1)
+(fun false 0)
+(fun and 2)
+(fun eq 2)
+(fun s 1)
+(rule (cond1 true x y) (cond2 (gr y |0|) x y))
+(rule (cond2 true x y) (cond2 (gr y |0|) (p x) (p y)))
+(rule (cond2 false x y) (cond1 (and (eq x y) (gr x |0|)) x y))
+(rule (gr |0| x) false)
+(rule (gr (s x) |0|) true)
+(rule (gr (s x) (s y)) (gr x y))
+(rule (p |0|) |0|)
+(rule (p (s x)) x)
+(rule (eq |0| |0|) true)
+(rule (eq (s x) |0|) false)
+(rule (eq |0| (s x)) false)
+(rule (eq (s x) (s y)) (eq x y))
+(rule (and true true) true)
+(rule (and false x) false)
+(rule (and x false) false)

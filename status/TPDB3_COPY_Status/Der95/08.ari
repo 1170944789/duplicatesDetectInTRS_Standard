@@ -1,0 +1,28 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/08.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/08.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Der95/08.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Der95/08.xml"
+; @xtcfilename "./TRS_Standard/Der95/08.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Der95/08.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Der95/08.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Der95/08.ari"
+; @origariname "./TRS_Standard/Der95/08.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun D 1)
+(fun t 0)
+(fun |1| 0)
+(fun constant 0)
+(fun |0| 0)
+(fun + 2)
+(fun * 2)
+(fun - 2)
+(rule (D t) |1|)
+(rule (D constant) |0|)
+(rule (D (+ x y)) (+ (D x) (D y)))
+(rule (D (* x y)) (+ (* y (D x)) (* x (D y))))
+(rule (D (- x y)) (- (D x) (D y)))

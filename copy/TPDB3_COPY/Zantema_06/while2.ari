@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema06/while2.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_06/while2.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/while2.xml"
+; @xtcfilename "./SRS_Standard/Zantema_06/while2.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_06/while2.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/while2.ari"
+; @origariname "./SRS_Standard/Zantema_06/while2.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun d 1)
+(fun c 1)
+(fun f 1)
+(rule (a (b x1)) (d x1))
+(rule (b (a x1)) (a (b x1)))
+(rule (d (c x1)) (f (a (b (b (c x1))))))
+(rule (d (f x1)) (f (a (b x1))))
+(rule (a (f x1)) (a x1))

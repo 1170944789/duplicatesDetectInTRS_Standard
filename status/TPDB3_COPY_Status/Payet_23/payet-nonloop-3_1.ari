@@ -1,0 +1,12 @@
+; @tag TRS_Standard
+; @origtpdbfilename payet-nonloop-3.trs
+; @xtcfilename "./TRS_Standard/Payet_23/payet-nonloop-3_1.xml"
+; @origariname "./TRS_Standard/Payet_23/payet-nonloop-3_1.ari"
+; @status_TRS_Standard NO
+(format TRS)
+(fun f 2)
+(fun |0| 0)
+(fun g 3)
+(fun h 1)
+(rule (f X |0|) (f (g |0| (h |0|) |0|) (g (g (g X (h |0|) X) (h |0|) (g X (h |0|) X)) (h |0|) (g (g X (h |0|) X) (h |0|) (g X (h |0|) X)))))
+(rule (f X (g Y (h |0|) Y)) (f (g (g X (h |0|) X) (h |0|) (g X (h |0|) X)) Y))

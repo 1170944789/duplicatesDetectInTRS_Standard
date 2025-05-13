@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.60.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/2.60.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.60.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.60.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/SK90/2.60.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.60.ari"
+; @origariname "./TRS_Standard/SK90/2.60.ari"
+(format TRS)
+(fun f 1)
+(fun g 2)
+(fun a 0)
+(fun h 2)
+(rule (f (g (f a) (h a (f a)))) (f (h (g (f a) a) (g (f a) (f a)))))

@@ -1,0 +1,17 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/power.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/power.ari"
+(format TRS)
+(fun power 2)
+(fun Cons 2)
+(fun mult 2)
+(fun add0 2)
+(fun Nil 0)
+(fun goal 2)
+(rule (power |x'| (Cons x xs)) (mult |x'| (power |x'| xs)))
+(rule (mult |x'| (Cons x xs)) (add0 |x'| (mult |x'| xs)))
+(rule (add0 |x'| (Cons x xs)) (Cons (Cons Nil Nil) (add0 |x'| xs)))
+(rule (power x Nil) (Cons Nil Nil))
+(rule (mult x Nil) Nil)
+(rule (add0 x Nil) x)
+(rule (goal x y) (power x y))

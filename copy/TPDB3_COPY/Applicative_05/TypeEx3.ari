@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/AProVE_HO/TypeEx3.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/TypeEx3.xml"
+; @origtpdbfilename ./TRS/outermost/higher-order/AProVE_HO/TypeEx3.trs
+; @xtcfilename "./TRS_Outermost/Strategy_outermost_added_08/TypeEx3.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/TypeEx3.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/TypeEx3.ari"
+; @origariname "./TRS_Outermost/Strategy_outermost_added_08/TypeEx3.ari"
+; @origariname "./TRS_Standard/Applicative_05/TypeEx3.ari"
+(format TRS)
+(fun app 2)
+(fun |0| 0)
+(fun hd 0)
+(fun map 0)
+(fun cons 0)
+(fun nil 0)
+(rule (app (app f |0|) n) (app (app hd (app (app map f) (app (app cons |0|) nil))) n))
+(rule (app (app map f) nil) nil)
+(rule (app (app map f) (app (app cons x) xs)) (app (app cons (app f x)) (app (app map f) xs)))

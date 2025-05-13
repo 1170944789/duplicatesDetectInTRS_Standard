@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.24.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.24.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/2.24.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/SK90/2.24.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.24.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.24.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/SK90/2.24.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/SK90/2.24.ari"
+; @origariname "./TRS_Standard/SK90/2.24.ari"
+(format TRS)
+(fun fib 1)
+(fun |0| 0)
+(fun s 1)
+(fun + 2)
+(rule (fib |0|) |0|)
+(rule (fib (s |0|)) (s |0|))
+(rule (fib (s (s x))) (+ (fib (s x)) (fib x)))

@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Waldmann/jwno7.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwno7.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwno7.xml"
+; @xtcfilename "./TRS_Standard/Waldmann_06/jwno7.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Waldmann_06/jwno7.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Waldmann_06/jwno7.ari"
+; @origariname "./TRS_Standard/Waldmann_06/jwno7.ari"
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun h 1)
+(rule (f x (f y a)) (h (f a (f (f x a) y))))

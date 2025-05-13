@@ -1,0 +1,37 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/cade17.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/GTSSK07/cade17.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/GTSSK07/cade17.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/GTSSK07/cade17.xml"
+; @xtcfilename "./TRS_Standard/GTSSK07/cade17.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/GTSSK07/cade17.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/GTSSK07/cade17.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/GTSSK07/cade17.ari"
+; @origariname "./TRS_Standard/GTSSK07/cade17.ari"
+; @status Unknown
+(format TRS)
+(fun log 2)
+(fun s 1)
+(fun cond 3)
+(fun le 2)
+(fun true 0)
+(fun |0| 0)
+(fun false 0)
+(fun double 1)
+(fun square 1)
+(fun plus 2)
+(rule (log x (s (s y))) (cond (le x (s (s y))) x y))
+(rule (cond true x y) (s |0|))
+(rule (cond false x y) (double (log x (square (s (s y))))))
+(rule (le |0| v) true)
+(rule (le (s u) |0|) false)
+(rule (le (s u) (s v)) (le u v))
+(rule (double |0|) |0|)
+(rule (double (s x)) (s (s (double x))))
+(rule (square |0|) |0|)
+(rule (square (s x)) (s (plus (square x) (double x))))
+(rule (plus n |0|) n)
+(rule (plus n (s m)) (s (plus n m)))

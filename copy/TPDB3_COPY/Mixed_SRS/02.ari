@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Endrullis/02.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/02.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/02.xml"
+; @xtcfilename "./SRS_Standard/Mixed_SRS/02.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/02.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/02.ari"
+; @origariname "./SRS_Standard/Mixed_SRS/02.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (a (a (a x1)))) (b (a (a (b x1)))))
+(rule (b (a (b x1))) (a (b (a x1))))

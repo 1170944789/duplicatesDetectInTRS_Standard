@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/improved_usable.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/improved_usable.xml"
+; @xtcfilename "./TRS_Standard/AProVE_04/improved_usable.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/improved_usable.ari"
+; @origariname "./TRS_Standard/AProVE_04/improved_usable.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun h 1)
+(fun g 1)
+(rule (f a (h x)) (f (g x) (h x)))
+(rule (h (g x)) (h a))
+(rule (g (h x)) (g x))
+(rule (h (h x)) x)

@@ -1,0 +1,46 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/otto06.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/otto06.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_07/otto06.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/otto06.xml"
+; @xtcfilename "./TRS_Standard/AProVE_07/otto06.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/otto06.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_07/otto06.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/otto06.ari"
+; @origariname "./TRS_Standard/AProVE_07/otto06.ari"
+(format TRS)
+(fun app 2)
+(fun helpa 4)
+(fun |0| 0)
+(fun plus 2)
+(fun length 1)
+(fun s 1)
+(fun nil 0)
+(fun cons 2)
+(fun if 5)
+(fun ge 2)
+(fun true 0)
+(fun false 0)
+(fun helpb 4)
+(fun greater 2)
+(fun smaller 2)
+(fun helpc 3)
+(rule (app x y) (helpa |0| (plus (length x) (length y)) x y))
+(rule (plus x |0|) x)
+(rule (plus x (s y)) (s (plus x y)))
+(rule (length nil) |0|)
+(rule (length (cons x y)) (s (length y)))
+(rule (helpa c l ys zs) (if (ge c l) c l ys zs))
+(rule (ge x |0|) true)
+(rule (ge |0| (s x)) false)
+(rule (ge (s x) (s y)) (ge x y))
+(rule (if true c l ys zs) nil)
+(rule (if false c l ys zs) (helpb c l (greater ys zs) (smaller ys zs)))
+(rule (greater ys zs) (helpc (ge (length ys) (length zs)) ys zs))
+(rule (smaller ys zs) (helpc (ge (length ys) (length zs)) zs ys))
+(rule (helpc true ys zs) ys)
+(rule (helpc false ys zs) zs)
+(rule (helpb c l (cons y ys) zs) (cons y (helpa (s c) l ys zs)))

@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/koen.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Rubio_04/koen.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/koen.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/koen.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/koen.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Rubio_04/koen.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/koen.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Rubio_04/koen.ari"
+; @origariname "./TRS_Standard/Rubio_04/koen.ari"
+(format TRS)
+(fun f 2)
+(fun s 1)
+(fun a 1)
+(fun c 1)
+(rule (f (s X) X) (f X (a X)))
+(rule (f X (c X)) (f (s X) X))
+(rule (f X X) (c X))

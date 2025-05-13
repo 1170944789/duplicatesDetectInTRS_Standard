@@ -1,0 +1,52 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/cade15.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/GTSSK07/cade15.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/GTSSK07/cade15.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/GTSSK07/cade15.xml"
+; @xtcfilename "./TRS_Standard/GTSSK07/cade15.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/GTSSK07/cade15.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/GTSSK07/cade15.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/GTSSK07/cade15.ari"
+; @origariname "./TRS_Standard/GTSSK07/cade15.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun |sort| 1)
+(fun st 2)
+(fun |0| 0)
+(fun cond1 3)
+(fun member 2)
+(fun true 0)
+(fun cons 2)
+(fun s 1)
+(fun false 0)
+(fun cond2 3)
+(fun gt 2)
+(fun max 1)
+(fun nil 0)
+(fun or 2)
+(fun equal 2)
+(fun if 3)
+(rule (|sort| l) (st |0| l))
+(rule (st n l) (cond1 (member n l) n l))
+(rule (cond1 true n l) (cons n (st (s n) l)))
+(rule (cond1 false n l) (cond2 (gt n (max l)) n l))
+(rule (cond2 true n l) nil)
+(rule (cond2 false n l) (st (s n) l))
+(rule (member n nil) false)
+(rule (member n (cons m l)) (or (equal n m) (member n l)))
+(rule (or x true) true)
+(rule (or x false) x)
+(rule (equal |0| |0|) true)
+(rule (equal (s x) |0|) false)
+(rule (equal |0| (s y)) false)
+(rule (equal (s x) (s y)) (equal x y))
+(rule (gt |0| v) false)
+(rule (gt (s u) |0|) true)
+(rule (gt (s u) (s v)) (gt u v))
+(rule (max nil) |0|)
+(rule (max (cons u l)) (if (gt u (max l)) u (max l)))
+(rule (if true u v) u)
+(rule (if false u v) v)

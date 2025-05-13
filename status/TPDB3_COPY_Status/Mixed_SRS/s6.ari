@@ -1,0 +1,62 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Marche/s6.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/s6.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/s6.xml"
+; @xtcfilename "./SRS_Standard/Mixed_SRS/s6.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/s6.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/s6.ari"
+; @origariname "./SRS_Standard/Mixed_SRS/s6.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun a12 1)
+(fun a13 1)
+(fun a14 1)
+(fun a15 1)
+(fun a16 1)
+(fun a23 1)
+(fun a24 1)
+(fun a25 1)
+(fun a26 1)
+(fun a34 1)
+(fun a35 1)
+(fun a36 1)
+(fun a45 1)
+(fun a46 1)
+(fun a56 1)
+(rule (a12 (a12 x1)) x1)
+(rule (a13 (a13 x1)) x1)
+(rule (a14 (a14 x1)) x1)
+(rule (a15 (a15 x1)) x1)
+(rule (a16 (a16 x1)) x1)
+(rule (a23 (a23 x1)) x1)
+(rule (a24 (a24 x1)) x1)
+(rule (a25 (a25 x1)) x1)
+(rule (a26 (a26 x1)) x1)
+(rule (a34 (a34 x1)) x1)
+(rule (a35 (a35 x1)) x1)
+(rule (a36 (a36 x1)) x1)
+(rule (a45 (a45 x1)) x1)
+(rule (a46 (a46 x1)) x1)
+(rule (a56 (a56 x1)) x1)
+(rule (a13 x1) (a12 (a23 (a12 x1))))
+(rule (a14 x1) (a12 (a23 (a34 (a23 (a12 x1))))))
+(rule (a15 x1) (a12 (a23 (a34 (a45 (a34 (a23 (a12 x1))))))))
+(rule (a16 x1) (a12 (a23 (a34 (a45 (a56 (a45 (a34 (a23 (a12 x1))))))))))
+(rule (a24 x1) (a23 (a34 (a23 x1))))
+(rule (a25 x1) (a23 (a34 (a45 (a34 (a23 x1))))))
+(rule (a26 x1) (a23 (a34 (a45 (a56 (a45 (a34 (a23 x1))))))))
+(rule (a35 x1) (a34 (a45 (a34 x1))))
+(rule (a36 x1) (a34 (a45 (a56 (a45 (a34 x1))))))
+(rule (a46 x1) (a45 (a56 (a45 x1))))
+(rule (a12 (a23 (a12 (a23 (a12 (a23 x1)))))) x1)
+(rule (a23 (a34 (a23 (a34 (a23 (a34 x1)))))) x1)
+(rule (a34 (a45 (a34 (a45 (a34 (a45 x1)))))) x1)
+(rule (a45 (a56 (a45 (a56 (a45 (a56 x1)))))) x1)
+(rule (a12 (a34 x1)) (a34 (a12 x1)))
+(rule (a12 (a45 x1)) (a45 (a12 x1)))
+(rule (a12 (a56 x1)) (a56 (a12 x1)))
+(rule (a23 (a45 x1)) (a45 (a23 x1)))
+(rule (a23 (a56 x1)) (a56 (a23 x1)))
+(rule (a34 (a56 x1)) (a56 (a34 x1)))

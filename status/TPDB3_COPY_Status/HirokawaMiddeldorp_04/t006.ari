@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HM/t006.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/HirokawaMiddeldorp_04/t006.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/HirokawaMiddeldorp_04/t006.xml"
+; @xtcfilename "./TRS_Standard/HirokawaMiddeldorp_04/t006.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/HirokawaMiddeldorp_04/t006.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/HirokawaMiddeldorp_04/t006.ari"
+; @origariname "./TRS_Standard/HirokawaMiddeldorp_04/t006.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun g 2)
+(rule (f (g x y) (f y y)) (f (g y x) y))

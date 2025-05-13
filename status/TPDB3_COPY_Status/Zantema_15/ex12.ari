@@ -1,0 +1,10 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Zantema_15/ex12.xml"
+; @origariname "./TRS_Standard/Zantema_15/ex12.ari"
+; @status_TRS_Standard NO
+(format TRS)
+(fun f 2)
+(fun s 1)
+(fun |0| 0)
+(rule (f x (s y)) (f (s (s x)) y))
+(rule (f x |0|) (f (s |0|) x))

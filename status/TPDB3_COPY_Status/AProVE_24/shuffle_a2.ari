@@ -1,0 +1,22 @@
+; @tag TRS_Relative
+; @origtpdbfilename shuffle_a2.trs
+; @xtcfilename "../xml/shuffle_a2.trs.xml"
+; @origariname "./TRS_Relative/AProVE_24/shuffle_a2.ari"
+; @status_TRS_Relative CertifiedYES
+(format TRS)
+(fun reverse 1)
+(fun app 2)
+(fun xs 0)
+(fun cons 2)
+(fun shuffle 1)
+(fun consSwap 2)
+(fun nil 0)
+(rule (app nil y) y)
+(rule (app (cons n x) y) (cons n (app x y)))
+(rule (reverse nil) nil)
+(rule (reverse (cons n x)) (app (reverse x) (cons n nil)))
+(rule (shuffle nil) nil)
+(rule (shuffle (cons n x)) (cons n (shuffle (reverse x))))
+(rule (shuffle (cons x xs)) (shuffle (consSwap x xs)) :cost 0)
+(rule (consSwap x xs) (cons x xs) :cost 0)
+(rule (consSwap x (cons y xs)) (cons y (consSwap x xs)) :cost 0)

@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.33.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/2.33.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.33.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.33.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/SK90/2.33.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.33.ari"
+; @origariname "./TRS_Standard/SK90/2.33.ari"
+(format TRS)
+(fun or 2)
+(fun and 2)
+(fun not 1)
+(rule (or x x) x)
+(rule (and x x) x)
+(rule (not (not x)) x)
+(rule (not (and x y)) (or (not x) (not y)))
+(rule (not (or x y)) (and (not x) (not y)))

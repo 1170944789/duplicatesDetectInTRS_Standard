@@ -1,0 +1,30 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex23_Luc06_FR.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex23_Luc06_FR.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex23_Luc06_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex23_Luc06_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex23_Luc06_FR.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex23_Luc06_FR.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex23_Luc06_FR.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex23_Luc06_FR.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex23_Luc06_FR.ari"
+(format TRS)
+(fun f 1)
+(fun a 0)
+(fun c 1)
+(fun n__f 1)
+(fun n__g 1)
+(fun n__a 0)
+(fun g 1)
+(fun activate 1)
+(rule (f (f a)) (c (n__f (n__g (n__f n__a)))))
+(rule (f X) (n__f X))
+(rule (g X) (n__g X))
+(rule a n__a)
+(rule (activate (n__f X)) (f (activate X)))
+(rule (activate (n__g X)) (g (activate X)))
+(rule (activate n__a) a)
+(rule (activate X) X)

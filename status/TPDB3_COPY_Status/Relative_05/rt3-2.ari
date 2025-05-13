@@ -1,0 +1,12 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt3-2.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt3-2.xml"
+; @origariname "./TRS_Relative/Relative_05/rt3-2.ari"
+; @status_TRS_Relative CertifiedYES
+(format TRS)
+(fun s 1)
+(fun |0| 0)
+(fun p 2)
+(rule (p |0| y) y)
+(rule (p (s x) y) (s (p x y)))
+(rule (p x y) (p x (s y)) :cost 0)

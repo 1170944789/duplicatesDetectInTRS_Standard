@@ -1,0 +1,11 @@
+; @tag SRS_Cycle
+; @origtpdbfilename nt09.srs
+; @xtcfilename "./SRS_Cycle/Zantema_16/nt09.xml"
+; @origariname "./SRS_Cycle/Zantema_16/nt09.ari"
+(format TRS)
+(fun X 1)
+(fun a 1)
+(fun b 1)
+(fun Y 1)
+(rule (X (a (a x1))) (b (b (X x1))))
+(rule (Y (b (b (b x1)))) (a (a (a (Y x1)))))

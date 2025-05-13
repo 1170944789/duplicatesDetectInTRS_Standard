@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/03.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Der95/03.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/03.xml"
+; @xtcfilename "./TRS_Standard/Der95/03.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Der95/03.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Der95/03.ari"
+; @origariname "./TRS_Standard/Der95/03.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 1)
+(fun g 1)
+(rule (f (f x)) (g (f x)))

@@ -1,0 +1,26 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret05/torpa3.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_05_SRS/torpa3.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_05_SRS/torpa3.xml"
+; @xtcfilename "./SRS_Standard/Secret_05_SRS/torpa3.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_05_SRS/torpa3.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_05_SRS/torpa3.ari"
+; @origariname "./SRS_Standard/Secret_05_SRS/torpa3.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun b 1)
+(fun c 1)
+(fun d 1)
+(fun g 1)
+(fun f 1)
+(fun a 1)
+(rule (b (b x1)) (c (d x1)))
+(rule (c (c x1)) (d (d (d x1))))
+(rule (c x1) (g x1))
+(rule (d (d x1)) (c (f x1)))
+(rule (d (d (d x1))) (g (c x1)))
+(rule (f x1) (a (g x1)))
+(rule (g x1) (d (a (b x1))))
+(rule (g (g x1)) (b (c x1)))

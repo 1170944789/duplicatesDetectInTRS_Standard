@@ -1,0 +1,14 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/intlookup.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/intlookup.ari"
+; @status Unknown
+(format TRS)
+(fun lookup 2)
+(fun Cons 2)
+(fun Nil 0)
+(fun run 2)
+(fun intlookup 2)
+(rule (lookup (Cons |x'| |xs'|) (Cons x xs)) (lookup |xs'| xs))
+(rule (lookup Nil (Cons x xs)) x)
+(rule (run e p) (intlookup e p))
+(rule (intlookup e p) (intlookup (lookup e p) p))

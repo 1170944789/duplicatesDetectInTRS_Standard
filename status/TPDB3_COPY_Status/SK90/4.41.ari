@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.41.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.41.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.41.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/4.41.ari"
+; @origariname "./TRS_Standard/SK90/4.41.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun g 1)
+(fun b 0)
+(rule (f a y) (f y (g y)))
+(rule (g a) b)
+(rule (g b) b)

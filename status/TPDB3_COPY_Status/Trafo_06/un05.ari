@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Trafo/un05.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Trafo_06/un05.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Trafo_06/un05.xml"
+; @xtcfilename "./SRS_Standard/Trafo_06/un05.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Trafo_06/un05.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Trafo_06/un05.ari"
+; @origariname "./SRS_Standard/Trafo_06/un05.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(rule (b (b (b (b x1)))) (b (b (b (a (b x1))))))
+(rule (b (a (b (b (a (b x1)))))) (b (b (a (b (b x1))))))

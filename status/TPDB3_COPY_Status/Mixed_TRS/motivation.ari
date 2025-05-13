@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Ste92/motivation.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/motivation.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/motivation.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/motivation.ari"
+; @origariname "./TRS_Standard/Mixed_TRS/motivation.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun g 1)
+(fun h 1)
+(fun f 2)
+(rule (g (h (g x))) (g x))
+(rule (g (g x)) (g (h (g x))))
+(rule (h (h x)) (h (f (h x) x)))

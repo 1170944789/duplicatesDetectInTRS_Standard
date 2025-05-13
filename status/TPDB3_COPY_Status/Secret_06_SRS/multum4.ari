@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret06/multum4.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/multum4.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/multum4.xml"
+; @xtcfilename "./SRS_Standard/Secret_06_SRS/multum4.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/multum4.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/multum4.ari"
+; @origariname "./SRS_Standard/Secret_06_SRS/multum4.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(rule (b (b (a (b (b (a (b (b (b (b (b (b (a (b x1)))))))))))))) (b (b (b (b (b (a (b (b (a (b (b (a (b (b (b (b (b (b x1)))))))))))))))))))

@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.17.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.17.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/4.17.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/SK90/4.17.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.17.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/4.17.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/SK90/4.17.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/SK90/4.17.ari"
+; @origariname "./TRS_Standard/SK90/4.17.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun fac 1)
+(fun s 1)
+(fun * 2)
+(fun p 1)
+(fun |0| 0)
+(rule (fac (s x)) (* (fac (p (s x))) (s x)))
+(rule (p (s |0|)) |0|)
+(rule (p (s (s x))) (s (p (s x))))

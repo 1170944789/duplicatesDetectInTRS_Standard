@@ -1,0 +1,35 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex8_BLR02_FR.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex8_BLR02_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex8_BLR02_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex8_BLR02_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex8_BLR02_FR.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex8_BLR02_FR.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex8_BLR02_FR.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex8_BLR02_FR.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex8_BLR02_FR.ari"
+(format TRS)
+(fun fib 1)
+(fun sel 2)
+(fun fib1 2)
+(fun s 1)
+(fun |0| 0)
+(fun cons 2)
+(fun n__fib1 2)
+(fun n__add 2)
+(fun add 2)
+(fun activate 1)
+(rule (fib N) (sel N (fib1 (s |0|) (s |0|))))
+(rule (fib1 X Y) (cons X (n__fib1 Y (n__add X Y))))
+(rule (add |0| X) X)
+(rule (add (s X) Y) (s (add X Y)))
+(rule (sel |0| (cons X XS)) X)
+(rule (sel (s N) (cons X XS)) (sel N (activate XS)))
+(rule (fib1 X1 X2) (n__fib1 X1 X2))
+(rule (add X1 X2) (n__add X1 X2))
+(rule (activate (n__fib1 X1 X2)) (fib1 (activate X1) (activate X2)))
+(rule (activate (n__add X1 X2)) (add (activate X1) (activate X2)))
+(rule (activate X) X)

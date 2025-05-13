@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/Zantema06-03-modified.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/Zantema06-03-modified.xml"
+; @xtcfilename "./TRS_Standard/AProVE_10/Zantema06-03-modified.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/Zantema06-03-modified.ari"
+; @origariname "./TRS_Standard/AProVE_10/Zantema06-03-modified.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(fun dup 1)
+(fun |A'| 1)
+(fun collapse 2)
+(rule (a (a (b (b x)))) (b (b (b (a (a (a x)))))))
+(rule (a (c x)) (c (a x)))
+(rule (c (b x)) (b (c x)))
+(rule (dup (|A'| (a (b (b x))))) (collapse (|A'| (a x)) (|A'| (a x))))
+(rule (collapse x y) (dup x))
+(rule (collapse x y) (dup y))

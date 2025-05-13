@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.48.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/2.48.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.48.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/2.48.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/SK90/2.48.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.48.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/SK90/2.48.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.48.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/SK90/2.48.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/SK90/2.48.ari"
+; @origariname "./TRS_Standard/SK90/2.48.ari"
+(format TRS)
+(fun d 1)
+(fun e 1)
+(fun u 1)
+(fun c 1)
+(fun b 1)
+(fun v 1)
+(fun a 1)
+(rule (d x) (e (u x)))
+(rule (d (u x)) (c x))
+(rule (c (u x)) (b x))
+(rule (v (e x)) x)
+(rule (b (u x)) (a (e x)))

@@ -1,0 +1,36 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex1_GM99_C.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex1_GM99_C.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex1_GM99_C.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex1_GM99_C.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex1_GM99_C.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex1_GM99_C.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex1_GM99_C.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/Ex1_GM99_C.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex1_GM99_C.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex1_GM99_C.ari"
+(format TRS)
+(fun active 1)
+(fun f 3)
+(fun a 0)
+(fun b 0)
+(fun mark 1)
+(fun c 0)
+(fun proper 1)
+(fun ok 1)
+(fun top 1)
+(rule (active (f a b X)) (mark (f X X X)))
+(rule (active c) (mark a))
+(rule (active c) (mark b))
+(rule (active (f X1 X2 X3)) (f X1 X2 (active X3)))
+(rule (f X1 X2 (mark X3)) (mark (f X1 X2 X3)))
+(rule (proper (f X1 X2 X3)) (f (proper X1) (proper X2) (proper X3)))
+(rule (proper a) (ok a))
+(rule (proper b) (ok b))
+(rule (proper c) (ok c))
+(rule (f (ok X1) (ok X2) (ok X3)) (ok (f X1 X2 X3)))
+(rule (top (mark X)) (top (proper X)))
+(rule (top (ok X)) (top (active X)))

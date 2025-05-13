@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret06/matchbox/1.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/1-matchbox.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/1-matchbox.xml"
+; @xtcfilename "./SRS_Standard/Secret_06_SRS/1-matchbox.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/1-matchbox.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/1-matchbox.ari"
+; @origariname "./SRS_Standard/Secret_06_SRS/1-matchbox.ari"
+; @status_SRS_Standard CertifiedNO
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (a (b (b x1)))) (b (b (b (a (a (a x1)))))))
+(rule (a x1) x1)

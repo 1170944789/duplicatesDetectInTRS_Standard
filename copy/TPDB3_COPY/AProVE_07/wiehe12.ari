@@ -1,0 +1,58 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/wiehe12.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/wiehe12.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_07/wiehe12.xml"
+; @xtcfilename "./TRS_Standard/AProVE_07/wiehe12.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/wiehe12.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_07/wiehe12.ari"
+; @origariname "./TRS_Standard/AProVE_07/wiehe12.ari"
+(format TRS)
+(fun g 2)
+(fun s 1)
+(fun if 3)
+(fun and 2)
+(fun f 1)
+(fun t 1)
+(fun k 2)
+(fun minus 2)
+(fun m 2)
+(fun n 2)
+(fun |0| 0)
+(fun p 2)
+(fun gt 2)
+(fun not 1)
+(fun id 1)
+(fun true 0)
+(fun false 0)
+(fun h 1)
+(rule (g (s x) (s y)) (if (and (f (s x)) (f (s y))) (t (g (k (minus (m x y) (n x y)) (s (s |0|))) (k (n (s x) (s y)) (s (s |0|))))) (g (minus (m x y) (n x y)) (n (s x) (s y)))))
+(rule (n |0| y) |0|)
+(rule (n x |0|) |0|)
+(rule (n (s x) (s y)) (s (n x y)))
+(rule (m |0| y) y)
+(rule (m x |0|) x)
+(rule (m (s x) (s y)) (s (m x y)))
+(rule (k |0| (s y)) |0|)
+(rule (k (s x) (s y)) (s (k (minus x y) (s y))))
+(rule (t x) (p x x))
+(rule (p (s x) (s y)) (s (s (p (if (gt x y) x y) (if (not (gt x y)) (id x) (id y))))))
+(rule (p (s x) x) (p (if (gt x x) (id x) (id x)) (s x)))
+(rule (p |0| y) y)
+(rule (p (id x) (s y)) (s (p x (if (gt (s y) y) y (s y)))))
+(rule (minus x |0|) x)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (id x) x)
+(rule (if true x y) x)
+(rule (if false x y) y)
+(rule (not x) (if x false true))
+(rule (and x false) false)
+(rule (and true true) true)
+(rule (f |0|) true)
+(rule (f (s x)) (h x))
+(rule (h |0|) false)
+(rule (h (s x)) (f x))
+(rule (gt (s x) |0|) true)
+(rule (gt |0| y) false)
+(rule (gt (s x) (s y)) (gt x y))

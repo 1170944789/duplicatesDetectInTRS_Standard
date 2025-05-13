@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Zantema06/while.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/while.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/while.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/while.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/while.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/while.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/while.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/while.ari"
+; @origariname "./TRS_Standard/Mixed_TRS/while.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 3)
+(fun t 0)
+(fun g 2)
+(fun s 1)
+(fun |0| 0)
+(rule (f t x y) (f (g x y) x (s y)))
+(rule (g (s x) |0|) t)
+(rule (g (s x) (s y)) (g x y))

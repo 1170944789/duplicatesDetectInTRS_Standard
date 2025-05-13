@@ -1,0 +1,34 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SchneiderKamp/trs/thiemann31.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/thiemann31.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_07/thiemann31.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/thiemann31.xml"
+; @xtcfilename "./TRS_Standard/AProVE_07/thiemann31.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_07/thiemann31.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_07/thiemann31.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_07/thiemann31.ari"
+; @origariname "./TRS_Standard/AProVE_07/thiemann31.ari"
+(format TRS)
+(fun le 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun mod 2)
+(fun modZeroErro 0)
+(fun modIter 4)
+(fun if 5)
+(fun if2 5)
+(rule (le |0| y) true)
+(rule (le (s x) |0|) false)
+(rule (le (s x) (s y)) (le x y))
+(rule (mod x |0|) modZeroErro)
+(rule (mod x (s y)) (modIter x (s y) |0| |0|))
+(rule (modIter x (s y) z u) (if (le x z) x (s y) z u))
+(rule (if true x y z u) u)
+(rule (if false x y z u) (if2 (le y (s u)) x y (s z) (s u)))
+(rule (if2 false x y z u) (modIter x y z u))
+(rule (if2 true x y z u) (modIter x y z |0|))

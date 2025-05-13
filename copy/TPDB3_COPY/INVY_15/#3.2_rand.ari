@@ -1,0 +1,17 @@
+; @tag TRS_Relative
+; @xtcfilename "./TRS_Relative/INVY_15/#3.2_rand.xml"
+; @origariname "./TRS_Relative/INVY_15/#3.2_rand.ari"
+(format TRS)
+(fun s 1)
+(fun pred 1)
+(fun |0| 0)
+(fun minus 2)
+(fun rand 1)
+(fun quot 2)
+(rule (pred (s x)) x)
+(rule (minus x |0|) x)
+(rule (minus x (s y)) (pred (minus x y)))
+(rule (quot |0| (s y)) |0|)
+(rule (quot (s x) (s y)) (s (quot (minus x y) (s y))))
+(rule (rand x) x :cost 0)
+(rule (rand x) (rand (s x)) :cost 0)

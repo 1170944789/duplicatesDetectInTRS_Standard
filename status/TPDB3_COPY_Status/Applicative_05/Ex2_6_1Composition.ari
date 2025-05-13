@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/higher-order/Bird/Ex2_6_1Composition.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Applicative_05/Ex2_6_1Composition.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/Ex2_6_1Composition.xml"
+; @xtcfilename "./TRS_Standard/Applicative_05/Ex2_6_1Composition.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Applicative_05/Ex2_6_1Composition.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Applicative_05/Ex2_6_1Composition.ari"
+; @origariname "./TRS_Standard/Applicative_05/Ex2_6_1Composition.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun app 2)
+(fun compose 0)
+(rule (app (app (app compose f) g) x) (app f (app g x)))

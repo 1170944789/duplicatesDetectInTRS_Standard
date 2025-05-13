@@ -1,0 +1,17 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/dfs-flatten.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/dfs-flatten.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/hoca/dfs-flatten.ari"
+(format TRS)
+(fun |revApp#2| 2)
+(fun Nil 0)
+(fun Cons 2)
+(fun |dfsAcc#3| 2)
+(fun Leaf 1)
+(fun Node 2)
+(fun main 1)
+(rule (|revApp#2| Nil x16) x16)
+(rule (|revApp#2| (Cons x6 x4) x2) (|revApp#2| x4 (Cons x6 x2)))
+(rule (|dfsAcc#3| (Leaf x8) x16) (Cons x8 x16))
+(rule (|dfsAcc#3| (Node x6 x4) x2) (|dfsAcc#3| x4 (|dfsAcc#3| x6 x2)))
+(rule (main x1) (|revApp#2| (|dfsAcc#3| x1 Nil) Nil))

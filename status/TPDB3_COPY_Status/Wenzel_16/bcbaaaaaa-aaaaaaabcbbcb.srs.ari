@@ -1,0 +1,13 @@
+; @tag SRS_Cycle
+; @tag SRS_Standard
+; @origtpdbfilename /tmp/tmp5tvfvnga.srs
+; @xtcfilename "./SRS_Cycle/Wenzel_16/bcbaaaaaa-aaaaaaabcbbcb.srs.xml"
+; @xtcfilename "./SRS_Standard/Wenzel_16/bcbaaaaaa-aaaaaaabcbbcb.srs.xml"
+; @origariname "./SRS_Cycle/Wenzel_16/bcbaaaaaa-aaaaaaabcbbcb.srs.ari"
+; @origariname "./SRS_Standard/Wenzel_16/bcbaaaaaa-aaaaaaabcbbcb.srs.ari"
+; @status_SRS_Standard CertifiedNO
+(format TRS)
+(fun b 1)
+(fun c 1)
+(fun a 1)
+(rule (b (c (b (a (a (a (a (a (a x1))))))))) (a (a (a (a (a (a (a (b (c (b (b (c (b x1))))))))))))))

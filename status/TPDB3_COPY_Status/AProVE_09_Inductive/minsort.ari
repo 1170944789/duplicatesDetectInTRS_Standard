@@ -1,0 +1,46 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./AProVE_09_Inductive/minsort.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_09_Inductive/minsort.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_09_Inductive/minsort.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_09_Inductive/minsort.xml"
+; @xtcfilename "./TRS_Standard/AProVE_09_Inductive/minsort.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_09_Inductive/minsort.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_09_Inductive/minsort.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_09_Inductive/minsort.ari"
+; @origariname "./TRS_Standard/AProVE_09_Inductive/minsort.ari"
+; @status_TRS_Standard YES
+(format TRS)
+(fun le 2)
+(fun |0| 0)
+(fun true 0)
+(fun s 1)
+(fun false 0)
+(fun eq 2)
+(fun minsort 1)
+(fun nil 0)
+(fun cons 2)
+(fun min 1)
+(fun rm 2)
+(fun if1 4)
+(fun if2 4)
+(rule (le |0| y) true)
+(rule (le (s x) |0|) false)
+(rule (le (s x) (s y)) (le x y))
+(rule (eq |0| |0|) true)
+(rule (eq |0| (s y)) false)
+(rule (eq (s x) |0|) false)
+(rule (eq (s x) (s y)) (eq x y))
+(rule (minsort nil) nil)
+(rule (minsort (cons x xs)) (cons (min (cons x xs)) (minsort (rm (min (cons x xs)) (cons x xs)))))
+(rule (min nil) |0|)
+(rule (min (cons x nil)) x)
+(rule (min (cons x (cons y xs))) (if1 (le x y) x y xs))
+(rule (if1 true x y xs) (min (cons x xs)))
+(rule (if1 false x y xs) (min (cons y xs)))
+(rule (rm x nil) nil)
+(rule (rm x (cons y xs)) (if2 (eq x y) x y xs))
+(rule (if2 true x y xs) (rm x xs))
+(rule (if2 false x y xs) (cons y (rm x xs)))

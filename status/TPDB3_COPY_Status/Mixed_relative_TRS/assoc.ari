@@ -1,0 +1,12 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/Zantema06/assoc.trs
+; @xtcfilename "./TRS_Relative/Mixed_relative_TRS/assoc.xml"
+; @origariname "./TRS_Relative/Mixed_relative_TRS/assoc.ari"
+; @status_TRS_Relative CertifiedNO
+(format TRS)
+(fun b 0)
+(fun a 0)
+(fun f 2)
+(rule (f a x) (f x (f b x)))
+(rule (f (f x y) z) (f x (f y z)) :cost 0)
+(rule (f x (f y z)) (f (f x y) z) :cost 0)

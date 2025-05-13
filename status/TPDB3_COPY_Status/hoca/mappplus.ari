@@ -1,0 +1,19 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename hoca/mappplus.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/hoca/mappplus.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/hoca/mappplus.ari"
+; @status Unknown
+(format TRS)
+(fun |plus_x#1| 2)
+(fun |0| 0)
+(fun S 1)
+(fun |map#2| 2)
+(fun plus_x 1)
+(fun Nil 0)
+(fun Cons 2)
+(fun main 2)
+(rule (|plus_x#1| |0| x8) x8)
+(rule (|plus_x#1| (S x12) x14) (S (|plus_x#1| x12 x14)))
+(rule (|map#2| (plus_x x2) Nil) Nil)
+(rule (|map#2| (plus_x x6) (Cons x4 x2)) (Cons (|plus_x#1| x6 x4) (|map#2| (plus_x x6) x2)))
+(rule (main x5 x12) (|map#2| (plus_x x12) x5))

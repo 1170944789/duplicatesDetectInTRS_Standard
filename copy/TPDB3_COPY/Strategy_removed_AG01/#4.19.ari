@@ -1,0 +1,24 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.19.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.19.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.19.xml"
+; @origtpdbfilename ./TRS/AG01/#4.19.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.19.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.19.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.19.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.19.ari"
+; @origariname "./TRS_Innermost/AG01_innermost/#4.19.ari"
+; @origariname "./TRS_Standard/Strategy_removed_AG01/#4.19.ari"
+(format TRS)
+(fun f 3)
+(fun c 1)
+(fun s 1)
+(fun g 2)
+(rule (f x (c x) (c y)) (f y y (f y x y)))
+(rule (f (s x) y z) (f x (s (c y)) (c z)))
+(rule (f (c x) x y) (c y))
+(rule (g x y) x)
+(rule (g x y) y)

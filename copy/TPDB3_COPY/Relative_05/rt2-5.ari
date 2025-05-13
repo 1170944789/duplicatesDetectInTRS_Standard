@@ -1,0 +1,9 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt2-5.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt2-5.xml"
+; @origariname "./TRS_Relative/Relative_05/rt2-5.ari"
+(format TRS)
+(fun f 1)
+(fun g 1)
+(rule (f (f x)) x)
+(rule (f x) (g (f (g (f x)))) :cost 0)

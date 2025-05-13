@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema06/beans1.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_06/beans1.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/beans1.xml"
+; @xtcfilename "./SRS_Standard/Zantema_06/beans1.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_06/beans1.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_06/beans1.ari"
+; @origariname "./SRS_Standard/Zantema_06/beans1.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun |1| 1)
+(fun |2| 1)
+(fun |0| 1)
+(fun L 1)
+(fun R 1)
+(rule (|1| (|2| (|1| x1))) (|2| (|0| (|2| x1))))
+(rule (|0| (|2| (|1| x1))) (|1| (|0| (|2| x1))))
+(rule (L (|2| (|1| x1))) (L (|1| (|0| (|2| x1)))))
+(rule (|1| (|2| (|0| x1))) (|2| (|0| (|1| x1))))
+(rule (|1| (|2| (R x1))) (|2| (|0| (|1| (R x1)))))
+(rule (|0| (|2| (|0| x1))) (|1| (|0| (|1| x1))))
+(rule (L (|2| (|0| x1))) (L (|1| (|0| (|1| x1)))))
+(rule (|0| (|2| (R x1))) (|1| (|0| (|1| (R x1)))))

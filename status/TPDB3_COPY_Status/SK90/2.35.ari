@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.35.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.35.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.35.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.35.ari"
+; @origariname "./TRS_Standard/SK90/2.35.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun and 2)
+(fun false 0)
+(fun not 1)
+(fun implies 2)
+(rule (and x false) false)
+(rule (and x (not false)) x)
+(rule (not (not x)) x)
+(rule (implies false y) (not false))
+(rule (implies x false) (not x))
+(rule (implies (not x) (not y)) (implies y (and x y)))

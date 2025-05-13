@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/various/25.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Various_04/25.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Various_04/25.xml"
+; @xtcfilename "./TRS_Standard/Various_04/25.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Various_04/25.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Various_04/25.ari"
+; @origariname "./TRS_Standard/Various_04/25.ari"
+(format TRS)
+(fun g 1)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(fun d 0)
+(rule (g a) (g b))
+(rule b (f a a))
+(rule (f a a) (g d))

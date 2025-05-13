@@ -1,0 +1,28 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Cime/boolean_rings.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/CiME_04/boolean_rings.xml"
+; @xtcfilename "./TRS_Standard/CiME_04/boolean_rings.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/CiME_04/boolean_rings.ari"
+; @origariname "./TRS_Standard/CiME_04/boolean_rings.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun xor 2)
+(fun F 0)
+(fun neg 1)
+(fun and 2)
+(fun T 0)
+(fun impl 2)
+(fun or 2)
+(fun equiv 2)
+(rule (xor x F) x)
+(rule (xor x (neg x)) F)
+(rule (and x T) x)
+(rule (and x F) F)
+(rule (and x x) x)
+(rule (and (xor x y) z) (xor (and x z) (and y z)))
+(rule (xor x x) F)
+(rule (impl x y) (xor (and x y) (xor x T)))
+(rule (or x y) (xor (and x y) (xor x y)))
+(rule (equiv x y) (xor x (xor y T)))
+(rule (neg x) (xor x T))

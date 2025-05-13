@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/aprove08/log.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_08/log.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_08/log.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_08/log.xml"
+; @xtcfilename "./TRS_Standard/AProVE_08/log.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_08/log.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_08/log.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_08/log.ari"
+; @origariname "./TRS_Standard/AProVE_08/log.ari"
+(format TRS)
+(fun p 1)
+(fun |0| 0)
+(fun s 1)
+(fun minus 2)
+(fun div 2)
+(fun log 2)
+(rule (p |0|) |0|)
+(rule (p (s x)) x)
+(rule (minus x |0|) x)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (minus x (s y)) (p (minus x y)))
+(rule (div |0| (s y)) |0|)
+(rule (div (s x) (s y)) (s (div (minus (s x) (s y)) (s y))))
+(rule (log (s |0|) (s (s y))) |0|)
+(rule (log (s (s x)) (s (s y))) (s (log (div (minus x y) (s (s y))) (s (s y)))))

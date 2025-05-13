@@ -1,0 +1,11 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/ffb_SL.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/ffb_SL.xml"
+; @origariname "./TRS_Outermost/Zantema_08/ffb_SL.ari"
+; @status_TRS_Outermost NO
+(format TRS)
+(fun b 0)
+(fun f 1)
+(rule b (f (f b)))
+(rule (f b) b)
+(rule (f (f (f x))) b)

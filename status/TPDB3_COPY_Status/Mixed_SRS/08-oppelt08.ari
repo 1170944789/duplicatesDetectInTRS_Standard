@@ -1,0 +1,18 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/oppelt08/08.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/08-oppelt08.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/08-oppelt08.xml"
+; @xtcfilename "./SRS_Standard/Mixed_SRS/08-oppelt08.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Mixed_SRS/08-oppelt08.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_SRS/08-oppelt08.ari"
+; @origariname "./SRS_Standard/Mixed_SRS/08-oppelt08.ari"
+; @status_SRS_Standard CertifiedNO
+(format TRS)
+(fun b 1)
+(fun a 1)
+(fun L 1)
+(fun X 1)
+(rule (b (a (L x1))) (L (a (L (X (b (a (b (b x1)))))))))
+(rule (b (L x1)) (L (b x1)))

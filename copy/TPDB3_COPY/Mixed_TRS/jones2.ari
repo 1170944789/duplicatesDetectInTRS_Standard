@@ -1,0 +1,21 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/LJB01/jones2.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/jones2.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/jones2.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/jones2.xml"
+; @xtcfilename "./TRS_Standard/Mixed_TRS/jones2.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Mixed_TRS/jones2.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Mixed_TRS/jones2.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Mixed_TRS/jones2.ari"
+; @origariname "./TRS_Standard/Mixed_TRS/jones2.ari"
+(format TRS)
+(fun f 2)
+(fun empty 0)
+(fun cons 2)
+(fun g 3)
+(rule (f empty l) l)
+(rule (f (cons x k) l) (g k l (cons x k)))
+(rule (g a b c) (f a (cons b c)))

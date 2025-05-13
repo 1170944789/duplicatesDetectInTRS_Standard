@@ -1,0 +1,11 @@
+; @tag SRS_Relative
+; @xtcfilename "./SRS_Relative/Waldmann_23/size-8-alpha-3-num-36.xml"
+; @origariname "./SRS_Relative/Waldmann_23/size-8-alpha-3-num-36.ari"
+; @status_SRS_Relative CertifiedYES
+(format TRS)
+(fun b 1)
+(fun a 1)
+(fun c 1)
+(rule (b (a (c x))) x)
+(rule x (a x) :cost 0)
+(rule x (b (a (a (c x)))) :cost 0)

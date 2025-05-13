@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AProVE/IJCAR_1.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/IJCAR_1.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AProVE_04/IJCAR_1.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AProVE_04/IJCAR_1.xml"
+; @xtcfilename "./TRS_Standard/AProVE_04/IJCAR_1.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_04/IJCAR_1.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AProVE_04/IJCAR_1.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AProVE_04/IJCAR_1.ari"
+; @origariname "./TRS_Standard/AProVE_04/IJCAR_1.ari"
+(format TRS)
+(fun div 2)
+(fun |0| 0)
+(fun quot 3)
+(fun s 1)
+(rule (div |0| y) |0|)
+(rule (div x y) (quot x y y))
+(rule (quot |0| (s y) z) |0|)
+(rule (quot (s x) (s y) z) (quot x y z))
+(rule (quot x |0| (s z)) (s (div x (s z))))

@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.51.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.51.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/2.51.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/SK90/2.51.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.51.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.51.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/SK90/2.51.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/SK90/2.51.ari"
+; @origariname "./TRS_Standard/SK90/2.51.ari"
+(format TRS)
+(fun ack 2)
+(fun |0| 0)
+(fun s 1)
+(rule (ack |0| y) (s y))
+(rule (ack (s x) |0|) (ack x (s |0|)))
+(rule (ack (s x) (s y)) (ack x (ack (s x) y)))

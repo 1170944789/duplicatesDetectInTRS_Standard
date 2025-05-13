@@ -1,0 +1,53 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex3_3_25_Bor03_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex3_3_25_Bor03_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex3_3_25_Bor03_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex3_3_25_Bor03_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex3_3_25_Bor03_iGM.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex3_3_25_Bor03_iGM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex3_3_25_Bor03_iGM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex3_3_25_Bor03_iGM.ari"
+(format TRS)
+(fun active 1)
+(fun app 2)
+(fun nil 0)
+(fun mark 1)
+(fun cons 2)
+(fun from 1)
+(fun s 1)
+(fun zWadr 2)
+(fun prefix 1)
+(rule (active (app nil YS)) (mark YS))
+(rule (active (app (cons X XS) YS)) (mark (cons X (app XS YS))))
+(rule (active (from X)) (mark (cons X (from (s X)))))
+(rule (active (zWadr nil YS)) (mark nil))
+(rule (active (zWadr XS nil)) (mark nil))
+(rule (active (zWadr (cons X XS) (cons Y YS))) (mark (cons (app Y (cons X nil)) (zWadr XS YS))))
+(rule (active (prefix L)) (mark (cons nil (zWadr L (prefix L)))))
+(rule (mark (app X1 X2)) (active (app (mark X1) (mark X2))))
+(rule (mark nil) (active nil))
+(rule (mark (cons X1 X2)) (active (cons (mark X1) X2)))
+(rule (mark (from X)) (active (from (mark X))))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (zWadr X1 X2)) (active (zWadr (mark X1) (mark X2))))
+(rule (mark (prefix X)) (active (prefix (mark X))))
+(rule (app (mark X1) X2) (app X1 X2))
+(rule (app X1 (mark X2)) (app X1 X2))
+(rule (app (active X1) X2) (app X1 X2))
+(rule (app X1 (active X2)) (app X1 X2))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (from (mark X)) (from X))
+(rule (from (active X)) (from X))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (zWadr (mark X1) X2) (zWadr X1 X2))
+(rule (zWadr X1 (mark X2)) (zWadr X1 X2))
+(rule (zWadr (active X1) X2) (zWadr X1 X2))
+(rule (zWadr X1 (active X2)) (zWadr X1 X2))
+(rule (prefix (mark X)) (prefix X))
+(rule (prefix (active X)) (prefix X))

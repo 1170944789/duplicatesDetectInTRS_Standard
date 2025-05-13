@@ -1,0 +1,50 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex9_BLR02_iGM.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_BLR02_iGM.xml"
+; @origtpdbfilename ./TRS/TRCSR/inn/Ex9_BLR02_iGM.trs
+; @xtcfilename "./TRS_Innermost/Transformed_CSR_innermost_04/Ex9_BLR02_iGM.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex9_BLR02_iGM.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex9_BLR02_iGM.ari"
+; @origariname "./TRS_Innermost/Transformed_CSR_innermost_04/Ex9_BLR02_iGM.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex9_BLR02_iGM.ari"
+(format TRS)
+(fun active 1)
+(fun filter 3)
+(fun cons 2)
+(fun |0| 0)
+(fun mark 1)
+(fun s 1)
+(fun sieve 1)
+(fun nats 1)
+(fun zprimes 0)
+(rule (active (filter (cons X Y) |0| M)) (mark (cons |0| (filter Y M M))))
+(rule (active (filter (cons X Y) (s N) M)) (mark (cons X (filter Y N M))))
+(rule (active (sieve (cons |0| Y))) (mark (cons |0| (sieve Y))))
+(rule (active (sieve (cons (s N) Y))) (mark (cons (s N) (sieve (filter Y N N)))))
+(rule (active (nats N)) (mark (cons N (nats (s N)))))
+(rule (active zprimes) (mark (sieve (nats (s (s |0|))))))
+(rule (mark (filter X1 X2 X3)) (active (filter (mark X1) (mark X2) (mark X3))))
+(rule (mark (cons X1 X2)) (active (cons (mark X1) X2)))
+(rule (mark |0|) (active |0|))
+(rule (mark (s X)) (active (s (mark X))))
+(rule (mark (sieve X)) (active (sieve (mark X))))
+(rule (mark (nats X)) (active (nats (mark X))))
+(rule (mark zprimes) (active zprimes))
+(rule (filter (mark X1) X2 X3) (filter X1 X2 X3))
+(rule (filter X1 (mark X2) X3) (filter X1 X2 X3))
+(rule (filter X1 X2 (mark X3)) (filter X1 X2 X3))
+(rule (filter (active X1) X2 X3) (filter X1 X2 X3))
+(rule (filter X1 (active X2) X3) (filter X1 X2 X3))
+(rule (filter X1 X2 (active X3)) (filter X1 X2 X3))
+(rule (cons (mark X1) X2) (cons X1 X2))
+(rule (cons X1 (mark X2)) (cons X1 X2))
+(rule (cons (active X1) X2) (cons X1 X2))
+(rule (cons X1 (active X2)) (cons X1 X2))
+(rule (s (mark X)) (s X))
+(rule (s (active X)) (s X))
+(rule (sieve (mark X)) (sieve X))
+(rule (sieve (active X)) (sieve X))
+(rule (nats (mark X)) (nats X))
+(rule (nats (active X)) (nats X))

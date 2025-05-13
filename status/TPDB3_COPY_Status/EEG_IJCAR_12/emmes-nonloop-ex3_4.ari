@@ -1,0 +1,24 @@
+; @tag TRS_Standard
+; @origtpdbfilename emmes-nonloop-ex3_4.trs
+; @xtcfilename "./TRS_Standard/EEG_IJCAR_12/emmes-nonloop-ex3_4.xml"
+; @origariname "./TRS_Standard/EEG_IJCAR_12/emmes-nonloop-ex3_4.ari"
+; @status_TRS_Standard NO
+(format TRS)
+(fun f 2)
+(fun true 0)
+(fun gt 2)
+(fun |0| 0)
+(fun double 1)
+(fun s 1)
+(fun false 0)
+(fun times 2)
+(fun plus 2)
+(rule (f true x) (f (gt x |0|) (double x)))
+(rule (gt (s x) |0|) true)
+(rule (gt |0| y) false)
+(rule (gt (s x) (s y)) (gt x y))
+(rule (double x) (times (s (s |0|)) x))
+(rule (times |0| y) |0|)
+(rule (times (s x) y) (plus y (times x y)))
+(rule (plus |0| y) y)
+(rule (plus (s x) y) (plus x (s y)))

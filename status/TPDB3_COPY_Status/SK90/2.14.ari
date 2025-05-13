@@ -1,0 +1,31 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/2.14.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/2.14.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/2.14.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/SK90/2.14.xml"
+; @xtcfilename "./TRS_Standard/SK90/2.14.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/SK90/2.14.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/2.14.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/SK90/2.14.ari"
+; @origariname "./TRS_Standard/SK90/2.14.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun double 1)
+(fun |0| 0)
+(fun s 1)
+(fun half 1)
+(fun - 2)
+(fun if 3)
+(rule (double |0|) |0|)
+(rule (double (s x)) (s (s (double x))))
+(rule (half |0|) |0|)
+(rule (half (s |0|)) |0|)
+(rule (half (s (s x))) (s (half x)))
+(rule (- x |0|) x)
+(rule (- (s x) (s y)) (- x y))
+(rule (if |0| y z) y)
+(rule (if (s x) y z) z)
+(rule (half (double x)) x)

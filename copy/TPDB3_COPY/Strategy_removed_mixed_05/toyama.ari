@@ -1,0 +1,23 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Outermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/Rubio-inn/toyama.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/toyama.xml"
+; @origtpdbfilename ./TRS/Rubio-inn/toyama.trs
+; @xtcfilename "./TRS_Innermost/Mixed_innermost/toyama.xml"
+; @origtpdbfilename ./TRS/zantema08/toyama_out.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/toyama_out.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_mixed_05/toyama.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_mixed_05/toyama.ari"
+; @origariname "./TRS_Innermost/Mixed_innermost/toyama.ari"
+; @origariname "./TRS_Outermost/Zantema_08/toyama_out.ari"
+; @origariname "./TRS_Standard/Strategy_removed_mixed_05/toyama.ari"
+(format TRS)
+(fun f 3)
+(fun |0| 0)
+(fun |1| 0)
+(fun g 2)
+(rule (f |0| |1| X) (f X X X))
+(rule (g X Y) X)
+(rule (g X Y) Y)

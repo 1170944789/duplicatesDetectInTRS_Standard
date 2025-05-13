@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/D33/30.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Der95/30.xml"
+; @xtcfilename "./TRS_Standard/Der95/30.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Der95/30.ari"
+; @origariname "./TRS_Standard/Der95/30.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun |:| 2)
+(fun C 0)
+(rule (|:| (|:| (|:| (|:| C x) y) z) u) (|:| (|:| x z) (|:| (|:| (|:| x y) z) u)))

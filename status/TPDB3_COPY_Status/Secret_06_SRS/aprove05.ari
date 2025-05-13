@@ -1,0 +1,25 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/secret06/aprove05.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/aprove05.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/aprove05.xml"
+; @xtcfilename "./SRS_Standard/Secret_06_SRS/aprove05.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Secret_06_SRS/aprove05.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Secret_06_SRS/aprove05.ari"
+; @origariname "./SRS_Standard/Secret_06_SRS/aprove05.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun twoto 1)
+(fun |0| 1)
+(fun p 1)
+(fun s 1)
+(fun twice 1)
+(rule (twoto (|0| x1)) (p (p (s (s (s (p (p (p (s (s (s (|0| (p (p (s (s x1)))))))))))))))))
+(rule (twoto (s x1)) (p (p (s (s (p (p (p (s (s (s (twice (p (p (s (s (p (p (p (s (s (s (twoto (p (s (p (s x1)))))))))))))))))))))))))))
+(rule (twice (|0| x1)) (p (s (p (s (|0| (s (p (s (s (s (s (p (s x1))))))))))))))
+(rule (twice (s x1)) (s (p (p (p (p (s (s (s (s (s (twice (p (s (p (s (p (s (p (s x1))))))))))))))))))))
+(rule (p (p (s x1))) (p x1))
+(rule (p (s x1)) x1)
+(rule (p (|0| x1)) (|0| (s (s (s (s (p (s x1))))))))
+(rule (|0| x1) x1)

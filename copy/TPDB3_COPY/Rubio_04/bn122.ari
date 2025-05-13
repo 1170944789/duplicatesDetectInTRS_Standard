@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/bn122.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/bn122.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/bn122.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/bn122.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/bn122.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Rubio_04/bn122.ari"
+; @origariname "./TRS_Standard/Rubio_04/bn122.ari"
+(format TRS)
+(fun plus 2)
+(fun times 2)
+(fun s 1)
+(rule (plus (plus X Y) Z) (plus X (plus Y Z)))
+(rule (times X (s Y)) (plus X (times Y X)))

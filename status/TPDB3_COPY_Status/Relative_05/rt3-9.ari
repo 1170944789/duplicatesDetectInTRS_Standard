@@ -1,0 +1,16 @@
+; @tag TRS_Relative
+; @origtpdbfilename ./TRS/relative/rt3-9.trs
+; @xtcfilename "./TRS_Relative/Relative_05/rt3-9.xml"
+; @origariname "./TRS_Relative/Relative_05/rt3-9.ari"
+; @status_TRS_Relative CertifiedYES
+(format TRS)
+(fun b 0)
+(fun r 1)
+(fun f 2)
+(fun m 1)
+(fun l 1)
+(rule (l (m x)) (m (l x)))
+(rule (m (r x)) (r (m x)))
+(rule (f (m x) y) (f x (m y)))
+(rule b (l b) :cost 0)
+(rule (f x y) (f x (r y)) :cost 0)

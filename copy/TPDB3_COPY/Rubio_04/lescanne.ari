@@ -1,0 +1,17 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/lescanne.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Rubio_04/lescanne.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/lescanne.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/lescanne.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Rubio_04/lescanne.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/lescanne.ari"
+; @origariname "./TRS_Standard/Rubio_04/lescanne.ari"
+(format TRS)
+(fun div 2)
+(fun e 0)
+(fun i 1)
+(rule (div X e) (i X))
+(rule (i (div X Y)) (div Y X))
+(rule (div (div X Y) Z) (div Y (div (i X) Z)))

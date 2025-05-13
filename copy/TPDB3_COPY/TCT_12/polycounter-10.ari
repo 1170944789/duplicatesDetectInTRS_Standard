@@ -1,0 +1,25 @@
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename tct_complexity/TCT_12/polycounter-10.trs
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/TCT_12/polycounter-10.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/TCT_12/polycounter-10.xml"
+; @xtcfilename "./TRS_Standard/TCT_12/polycounter-10.xml"
+; @origariname "./Runtime_Complexity_Full_Rewriting/TCT_12/polycounter-10.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/TCT_12/polycounter-10.ari"
+; @origariname "./TRS_Standard/TCT_12/polycounter-10.ari"
+(format TRS)
+(fun f 10)
+(fun s 1)
+(fun |0| 0)
+(rule (f (s x1) x2 x3 x4 x5 x6 x7 x8 x9 x10) (f x1 x2 x3 x4 x5 x6 x7 x8 x9 x10))
+(rule (f |0| (s x2) x3 x4 x5 x6 x7 x8 x9 x10) (f x2 x2 x3 x4 x5 x6 x7 x8 x9 x10))
+(rule (f |0| |0| (s x3) x4 x5 x6 x7 x8 x9 x10) (f x3 x3 x3 x4 x5 x6 x7 x8 x9 x10))
+(rule (f |0| |0| |0| (s x4) x5 x6 x7 x8 x9 x10) (f x4 x4 x4 x4 x5 x6 x7 x8 x9 x10))
+(rule (f |0| |0| |0| |0| (s x5) x6 x7 x8 x9 x10) (f x5 x5 x5 x5 x5 x6 x7 x8 x9 x10))
+(rule (f |0| |0| |0| |0| |0| (s x6) x7 x8 x9 x10) (f x6 x6 x6 x6 x6 x6 x7 x8 x9 x10))
+(rule (f |0| |0| |0| |0| |0| |0| (s x7) x8 x9 x10) (f x7 x7 x7 x7 x7 x7 x7 x8 x9 x10))
+(rule (f |0| |0| |0| |0| |0| |0| |0| (s x8) x9 x10) (f x8 x8 x8 x8 x8 x8 x8 x8 x9 x10))
+(rule (f |0| |0| |0| |0| |0| |0| |0| |0| (s x9) x10) (f x9 x9 x9 x9 x9 x9 x9 x9 x9 x10))
+(rule (f |0| |0| |0| |0| |0| |0| |0| |0| |0| (s x10)) (f x10 x10 x10 x10 x10 x10 x10 x10 x10 x10))
+(rule (f |0| |0| |0| |0| |0| |0| |0| |0| |0| |0|) |0|)

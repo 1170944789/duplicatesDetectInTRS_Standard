@@ -1,0 +1,17 @@
+; @tag TRS_Outermost
+; @origtpdbfilename ./TRS/zantema08/countter.trs
+; @xtcfilename "./TRS_Outermost/Zantema_08/countter.xml"
+; @origariname "./TRS_Outermost/Zantema_08/countter.ari"
+; @status Unknown
+(format TRS)
+(fun a 0)
+(fun f 1)
+(fun b 0)
+(fun |0| 1)
+(fun |1| 1)
+(fun |2| 1)
+(rule a (f a))
+(rule (f (f x)) b)
+(rule (|0| (f x)) (|1| x))
+(rule (|1| (f x)) (|2| x))
+(rule (|2| (f x)) (f (|0| x)))

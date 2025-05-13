@@ -1,0 +1,19 @@
+; @tag SRS_Relative
+; @origtpdbfilename ./SRS/Zantema06/rel13.srs
+; @xtcfilename "./SRS_Relative/Zantema_06_relative/rel13.xml"
+; @origariname "./SRS_Relative/Zantema_06_relative/rel13.ari"
+(format TRS)
+(fun L 1)
+(fun R 1)
+(fun r 1)
+(fun o 1)
+(fun n 1)
+(fun l 1)
+(rule (o (l x1)) (r x1))
+(rule (n (l (o x1))) (r (o x1)))
+(rule (L (l (o x1))) (L (r (o x1))))
+(rule (r (o x1)) (l x1))
+(rule (o (r (n x1))) (o (l x1)))
+(rule (o (r (R x1))) (o (l (R x1))))
+(rule (L x1) (L (n x1)) :cost 0)
+(rule (R x1) (n (R x1)) :cost 0)

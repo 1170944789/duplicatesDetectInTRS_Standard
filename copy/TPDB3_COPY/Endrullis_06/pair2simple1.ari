@@ -1,0 +1,12 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Endrullis/pair2simple1.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Endrullis_06/pair2simple1.xml"
+; @xtcfilename "./TRS_Standard/Endrullis_06/pair2simple1.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Endrullis_06/pair2simple1.ari"
+; @origariname "./TRS_Standard/Endrullis_06/pair2simple1.ari"
+(format TRS)
+(fun p 2)
+(fun a 1)
+(fun b 1)
+(rule (p (a x0) (p (a (b x1)) x2)) (p (a (b (a x2))) (p (a (a x1)) x2)))

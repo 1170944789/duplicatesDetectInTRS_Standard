@@ -1,0 +1,8 @@
+; @tag SRS_Cycle
+; @origtpdbfilename nt17.srs
+; @xtcfilename "./SRS_Cycle/Zantema_16/nt17.xml"
+; @origariname "./SRS_Cycle/Zantema_16/nt17.ari"
+(format TRS)
+(fun |1| 1)
+(fun |0| 1)
+(rule (|1| (|0| (|0| x1))) (|0| (|1| (|0| (|1| (|0| x1))))))

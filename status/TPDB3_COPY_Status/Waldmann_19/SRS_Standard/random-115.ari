@@ -1,0 +1,11 @@
+; @tag SRS_Standard
+; @origtpdbfilename random-115.srs
+; @xtcfilename "./SRS_Standard/Waldmann_19/random-115.xml"
+; @origariname "./SRS_Standard/Waldmann_19/random-115.ari"
+; @status_SRS_Standard CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (a (a (a x1)))) (a (a (b (b x1)))))
+(rule (a (b (b (b x1)))) (b (b (a (a x1)))))
+(rule (b (a (a (a x1)))) (b (a (b (a x1)))))

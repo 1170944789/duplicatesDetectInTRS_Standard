@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename TRS//AProVE_10/double.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/double.xml"
+; @xtcfilename "./TRS_Standard/AProVE_10/double.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AProVE_10/double.ari"
+; @origariname "./TRS_Standard/AProVE_10/double.ari"
+(format TRS)
+(fun f 2)
+(fun tt 0)
+(fun isDouble 1)
+(fun s 1)
+(fun |0| 0)
+(rule (f tt x) (f (isDouble x) (s (s x))))
+(rule (isDouble (s (s x))) (isDouble x))
+(rule (isDouble |0|) tt)

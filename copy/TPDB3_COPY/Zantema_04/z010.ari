@@ -1,0 +1,16 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag SRS_Standard
+; @origtpdbfilename ./SRS/Zantema/z010.srs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Zantema_04/z010.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Zantema_04/z010.xml"
+; @xtcfilename "./SRS_Standard/Zantema_04/z010.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Zantema_04/z010.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Zantema_04/z010.ari"
+; @origariname "./SRS_Standard/Zantema_04/z010.ari"
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (b x1)) (b (b (a x1))))
+(rule (c (b x1)) (b (c (c x1))))

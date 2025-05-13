@@ -1,0 +1,19 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/AG01/#3.47.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/AG01/#3.47.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/AG01/#3.47.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/AG01/#3.47.xml"
+; @xtcfilename "./TRS_Standard/AG01/#3.47.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/AG01/#3.47.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/AG01/#3.47.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/AG01/#3.47.ari"
+; @origariname "./TRS_Standard/AG01/#3.47.ari"
+(format TRS)
+(fun f 2)
+(fun c 1)
+(fun s 1)
+(rule (f x (c y)) (f x (s (f y y))))
+(rule (f (s x) y) (f x (s (c y))))

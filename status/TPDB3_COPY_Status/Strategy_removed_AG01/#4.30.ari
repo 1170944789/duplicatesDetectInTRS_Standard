@@ -1,0 +1,36 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Innermost
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/nontermin/AG01/#4.30.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.30.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.30.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.30.xml"
+; @origtpdbfilename ./TRS/AG01/#4.30.trs
+; @xtcfilename "./TRS_Innermost/AG01_innermost/#4.30.xml"
+; @xtcfilename "./TRS_Standard/Strategy_removed_AG01/#4.30.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.30.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Strategy_removed_AG01/#4.30.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Strategy_removed_AG01/#4.30.ari"
+; @origariname "./TRS_Innermost/AG01_innermost/#4.30.ari"
+; @origariname "./TRS_Standard/Strategy_removed_AG01/#4.30.ari"
+; @status_TRS_Innermost CertifiedYES
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun minus 2)
+(fun |0| 0)
+(fun s 1)
+(fun le 2)
+(fun true 0)
+(fun false 0)
+(fun quot 2)
+(fun if_quot 3)
+(rule (minus x |0|) x)
+(rule (minus (s x) (s y)) (minus x y))
+(rule (le |0| y) true)
+(rule (le (s x) |0|) false)
+(rule (le (s x) (s y)) (le x y))
+(rule (quot x (s y)) (if_quot (le (s y) x) x (s y)))
+(rule (if_quot true x y) (s (quot (minus x y) y)))
+(rule (if_quot false x y) |0|)

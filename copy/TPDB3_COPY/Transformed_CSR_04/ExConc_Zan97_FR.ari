@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/ExConc_Zan97_FR.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/ExConc_Zan97_FR.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Transformed_CSR_04/ExConc_Zan97_FR.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/ExConc_Zan97_FR.ari"
+(format TRS)
+(fun f 1)
+(fun g 1)
+(fun n__h 1)
+(fun n__f 1)
+(fun h 1)
+(fun activate 1)
+(rule (f X) (g (n__h (n__f X))))
+(rule (h X) (n__h X))
+(rule (f X) (n__f X))
+(rule (activate (n__h X)) (h (activate X)))
+(rule (activate (n__f X)) (f (activate X)))
+(rule (activate X) X)

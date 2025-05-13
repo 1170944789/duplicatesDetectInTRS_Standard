@@ -1,0 +1,29 @@
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag Runtime_Complexity_Full_Rewriting
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/Rubio/revlist.trs
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/revlist.xml"
+; @xtcfilename "./Runtime_Complexity_Full_Rewriting/Rubio_04/revlist.xml"
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/revlist.xml"
+; @xtcfilename "./TRS_Standard/Rubio_04/revlist.xml"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Rubio_04/revlist.ari"
+; @origariname "./Runtime_Complexity_Full_Rewriting/Rubio_04/revlist.ari"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Rubio_04/revlist.ari"
+; @origariname "./TRS_Standard/Rubio_04/revlist.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun rev1 2)
+(fun |0| 0)
+(fun nil 0)
+(fun s 1)
+(fun cons 2)
+(fun rev 1)
+(fun rev2 2)
+(rule (rev1 |0| nil) |0|)
+(rule (rev1 (s X) nil) (s X))
+(rule (rev1 X (cons Y L)) (rev1 Y L))
+(rule (rev nil) nil)
+(rule (rev (cons X L)) (cons (rev1 X L) (rev2 X L)))
+(rule (rev2 X nil) nil)
+(rule (rev2 X (cons Y L)) (rev (cons X (rev (rev2 Y L)))))

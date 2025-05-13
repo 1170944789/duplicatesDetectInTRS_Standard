@@ -1,0 +1,27 @@
+; @tag Runtime_Complexity_Innermost_Rewriting
+; @origtpdbfilename Frederiksen_Glenstrup/ordered_better.tml.trs
+; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/ordered_better.xml"
+; @origariname "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/ordered_better.ari"
+(format TRS)
+(fun |ordered[Ite]| 2)
+(fun True 0)
+(fun < 2)
+(fun S 1)
+(fun Cons 2)
+(fun Nil 0)
+(fun |0| 0)
+(fun ordered 1)
+(fun notEmpty 1)
+(fun goal 1)
+(fun False 0)
+(rule (ordered (Cons |x'| (Cons x xs))) (|ordered[Ite]| (< |x'| x) (Cons |x'| (Cons x xs))))
+(rule (ordered (Cons x Nil)) True)
+(rule (ordered Nil) True)
+(rule (notEmpty (Cons x xs)) True)
+(rule (notEmpty Nil) False)
+(rule (goal xs) (ordered xs))
+(rule (< (S x) (S y)) (< x y) :cost 0)
+(rule (< |0| (S y)) True :cost 0)
+(rule (< x |0|) False :cost 0)
+(rule (|ordered[Ite]| True (Cons x xs)) (ordered xs) :cost 0)
+(rule (|ordered[Ite]| False xs) False :cost 0)

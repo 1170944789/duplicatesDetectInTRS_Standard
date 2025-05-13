@@ -1,0 +1,20 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/HM/t008.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/HirokawaMiddeldorp_04/t008.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/HirokawaMiddeldorp_04/t008.xml"
+; @xtcfilename "./TRS_Standard/HirokawaMiddeldorp_04/t008.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/HirokawaMiddeldorp_04/t008.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/HirokawaMiddeldorp_04/t008.ari"
+; @origariname "./TRS_Standard/HirokawaMiddeldorp_04/t008.ari"
+(format TRS)
+(fun half 1)
+(fun |0| 0)
+(fun s 1)
+(fun log 1)
+(rule (half |0|) |0|)
+(rule (half (s |0|)) |0|)
+(rule (half (s (s x))) (s (half x)))
+(rule (s (log |0|)) (s |0|))
+(rule (log (s x)) (s (log (half (s x)))))

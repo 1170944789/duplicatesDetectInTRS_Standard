@@ -1,0 +1,22 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/TRCSR/Ex16_Luc06_FR.trs./TRS/TRCSR/Ex16_Luc06_Z.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex16_Luc06_FR.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex16_Luc06_FR.xml"
+; @xtcfilename "./TRS_Standard/Transformed_CSR_04/Ex16_Luc06_FR.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/Transformed_CSR_04/Ex16_Luc06_FR.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/Transformed_CSR_04/Ex16_Luc06_FR.ari"
+; @origariname "./TRS_Standard/Transformed_CSR_04/Ex16_Luc06_FR.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun n__b 0)
+(fun b 0)
+(fun activate 1)
+(rule (f X X) (f a n__b))
+(rule b a)
+(rule b n__b)
+(rule (activate n__b) b)
+(rule (activate X) X)

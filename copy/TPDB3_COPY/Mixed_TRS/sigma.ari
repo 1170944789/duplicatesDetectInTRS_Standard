@@ -1,0 +1,19 @@
+; @tag TRS_Standard
+; @xtcfilename "./TRS_Standard/Mixed_TRS/sigma.xml"
+; @origariname "./TRS_Standard/Mixed_TRS/sigma.ari"
+(format TRS)
+(fun comp 2)
+(fun id 0)
+(fun cons 2)
+(fun one 0)
+(fun shift 0)
+(fun abs 1)
+(rule (comp s id) s)
+(rule (cons one shift) id)
+(rule (cons (comp one s) (comp shift s)) s)
+(rule (comp one (cons s t)) s)
+(rule (comp shift (cons s t)) t)
+(rule (comp (abs s) t) (abs (comp s (cons one (comp t shift)))))
+(rule (comp (cons s t) u) (cons (comp s u) (comp t u)))
+(rule (comp id s) s)
+(rule (comp (comp s t) u) (comp s (comp t u)))

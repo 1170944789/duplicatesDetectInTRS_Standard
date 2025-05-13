@@ -1,0 +1,14 @@
+; @tag SRS_Relative
+; @origtpdbfilename random-105.srs
+; @xtcfilename "./SRS_Relative/Waldmann_19/random-105.xml"
+; @origariname "./SRS_Relative/Waldmann_19/random-105.ari"
+; @status_SRS_Relative CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (c (c (c x1))) (b (b (b x1))))
+(rule (b (a (a x1))) (a (b (c x1))) :cost 0)
+(rule (b (b (b x1))) (a (a (b x1))) :cost 0)
+(rule (b (c (a x1))) (a (c (a x1))) :cost 0)
+(rule (a (c (b x1))) (c (a (a x1))) :cost 0)

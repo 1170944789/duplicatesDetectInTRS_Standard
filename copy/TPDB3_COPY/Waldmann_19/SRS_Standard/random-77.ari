@@ -1,0 +1,10 @@
+; @tag SRS_Standard
+; @origtpdbfilename random-77.srs
+; @xtcfilename "./SRS_Standard/Waldmann_19/random-77.xml"
+; @origariname "./SRS_Standard/Waldmann_19/random-77.ari"
+(format TRS)
+(fun b 1)
+(fun a 1)
+(rule (b (a (b (b x1)))) (a (a (b (a x1)))))
+(rule (a (a (a (a x1)))) (b (a (b (b x1)))))
+(rule (b (b (b (a x1)))) (b (b (a (a x1)))))

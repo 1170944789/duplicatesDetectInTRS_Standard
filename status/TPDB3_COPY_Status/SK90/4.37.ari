@@ -1,0 +1,15 @@
+; @tag Derivational_Complexity_Full_Rewriting
+; @tag Derivational_Complexity_Innermost_Rewriting
+; @tag TRS_Standard
+; @origtpdbfilename ./TRS/SK90/4.37.trs
+; @xtcfilename "./Derivational_Complexity_Full_Rewriting/SK90/4.37.xml"
+; @xtcfilename "./Derivational_Complexity_Innermost_Rewriting/SK90/4.37.xml"
+; @xtcfilename "./TRS_Standard/SK90/4.37.xml"
+; @origariname "./Derivational_Complexity_Full_Rewriting/SK90/4.37.ari"
+; @origariname "./Derivational_Complexity_Innermost_Rewriting/SK90/4.37.ari"
+; @origariname "./TRS_Standard/SK90/4.37.ari"
+; @status_TRS_Standard CertifiedYES
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a x))) (b (a x)))
