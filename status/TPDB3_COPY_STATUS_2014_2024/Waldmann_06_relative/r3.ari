@@ -1,9 +1,0 @@
-; @tag SRS_Relative
-; @origtpdbfilename ./SRS/Waldmann/r3.srs
-; @xtcfilename "./SRS_Relative/Waldmann_06_relative/r3.xml"
-; @status CertifiedYES
-(format TRS)
-(fun a 1)
-(fun b 1)
-(rule (a (a x1)) x1)
-(rule (a (a x1)) (b (a (a (a (b x1))))) :cost 0)

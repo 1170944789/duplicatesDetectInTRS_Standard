@@ -1,9 +1,0 @@
-; @tag SRS_Cycle
-; @tag SRS_Standard
-; @origtpdbfilename /tmp/tmp7q_hw60p.srs
-; @xtcfilename "./SRS_Standard/Wenzel_16/aabaabaaaa-aaaaaabaabaab.srs.xml"
-; @status CertifiedYES
-(format TRS)
-(fun a 1)
-(fun b 1)
-(rule (a (a (b (a (a (b (a (a (a (a x1)))))))))) (a (a (a (a (a (a (b (a (a (b (a (a (b x1))))))))))))))
