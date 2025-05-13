@@ -1,9 +1,0 @@
-; @tag TRS_Outermost
-; @origtpdbfilename ./TRS/zantema08/ex4.trs
-; @xtcfilename "./TRS_Outermost/Zantema_08/ex4.xml"
-(format TRS)
-(fun f 1)
-(fun g 1)
-(fun c 0)
-(rule (f (g x)) (g (g (f (f x)))))
-(rule (g (g (g x))) c)

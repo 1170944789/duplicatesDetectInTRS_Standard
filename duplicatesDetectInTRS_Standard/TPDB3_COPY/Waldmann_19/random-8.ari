@@ -1,9 +1,0 @@
-; @tag SRS_Standard
-; @origtpdbfilename random-8.srs
-; @xtcfilename "./SRS_Standard/Waldmann_19/random-8.xml"
-(format TRS)
-(fun b 1)
-(fun a 1)
-(rule (b (a (a (a x1)))) (b (b (a (b x1)))))
-(rule (b (b (b (a x1)))) (b (b (a (a x1)))))
-(rule (a (a (b (b x1)))) (a (a (a (a x1)))))

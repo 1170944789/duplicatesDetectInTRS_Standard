@@ -1,7 +1,0 @@
-; @tag SRS_Standard
-; @xtcfilename "./SRS_Standard/Waldmann_23/4.xml"
-(format TRS)
-(fun |1| 1)
-(fun |0| 1)
-(rule (|1| (|0| (|1| x))) (|0| (|1| (|0| x))))
-(rule (|0| (|0| (|0| (|1| (|0| x))))) (|1| (|1| (|0| (|0| (|1| x))))))

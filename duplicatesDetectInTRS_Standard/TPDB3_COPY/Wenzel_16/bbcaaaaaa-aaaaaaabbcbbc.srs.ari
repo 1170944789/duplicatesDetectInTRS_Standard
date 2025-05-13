@@ -1,9 +1,0 @@
-; @tag SRS_Cycle
-; @tag SRS_Standard
-; @origtpdbfilename /tmp/tmppdio1ald.srs
-; @xtcfilename "./SRS_Standard/Wenzel_16/bbcaaaaaa-aaaaaaabbcbbc.srs.xml"
-(format TRS)
-(fun b 1)
-(fun c 1)
-(fun a 1)
-(rule (b (b (c (a (a (a (a (a (a x1))))))))) (a (a (a (a (a (a (a (b (b (c (b (b (c x1))))))))))))))

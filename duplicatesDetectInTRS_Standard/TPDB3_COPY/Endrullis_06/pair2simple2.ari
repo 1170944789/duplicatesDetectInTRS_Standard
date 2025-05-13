@@ -1,9 +1,0 @@
-; @tag Derivational_Complexity_Innermost_Rewriting
-; @tag TRS_Standard
-; @origtpdbfilename ./TRS/Endrullis/pair2simple2.trs
-; @xtcfilename "./TRS_Standard/Endrullis_06/pair2simple2.xml"
-(format TRS)
-(fun p 2)
-(fun a 1)
-(fun b 1)
-(rule (p (a x0) (p (a (a (a x1))) x2)) (p (a x2) (p (a (a (b x0))) x2)))

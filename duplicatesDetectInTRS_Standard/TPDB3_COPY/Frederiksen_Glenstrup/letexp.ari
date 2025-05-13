@@ -1,9 +1,0 @@
-; @tag Runtime_Complexity_Innermost_Rewriting
-; @xtcfilename "./Runtime_Complexity_Innermost_Rewriting/Frederiksen_Glenstrup/letexp.xml"
-(format TRS)
-(fun letexp 2)
-(fun Cons 2)
-(fun Nil 0)
-(fun goal 2)
-(rule (letexp x y) (letexp (Cons (Cons Nil Nil) x) y))
-(rule (goal x y) (letexp x y))

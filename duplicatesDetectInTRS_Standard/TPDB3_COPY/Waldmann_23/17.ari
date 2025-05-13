@@ -1,6 +1,0 @@
-; @tag TRS_Standard
-; @xtcfilename "./TRS_Standard/Waldmann_23/17.xml"
-(format TRS)
-(fun a 0)
-(fun f 2)
-(rule (f (f Y P) (f Z (f X a))) (f (f Z (f Y a)) (f P X)))
