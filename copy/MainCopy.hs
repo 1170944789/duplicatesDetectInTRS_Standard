@@ -387,6 +387,30 @@ categoryToTag cat = "; @tag " ++ case cat of
     DC_Innermost -> "Derivational_Complexity_Innermost_Rewriting"
     SRS_Cycle -> "SRS_Cycle"
 
+normalizePathSeparators :: FilePath -> FilePath
+normalizePathSeparators = map (\c -> if c == '\\' then '/' else c)
+
+formatOrigAriPath :: FilePath -> FilePath
+formatOrigAriPath path =
+    let dirs = splitDirectories path
+        categories = ["TRS_Standard", "SRS_Standard", "TRS_Innermost", "TRS_Outermost", 
+                     "TRS_Relative", "SRS_Relative", "Runtime_Complexity_Full_Rewriting", 
+                     "Runtime_Complexity_Innermost_Rewriting", "Derivational_Complexity_Full_Rewriting", 
+                     "Derivational_Complexity_Innermost_Rewriting", "SRS_Cycle"]
+        
+        findCategoryIndex [] _ = Nothing
+        findCategoryIndex (d:ds) idx = 
+            if any (\cat -> cat `isInfixOf` d) categories
+            then Just idx
+            else findCategoryIndex ds (idx + 1)
+        
+        catIdx = findCategoryIndex dirs 0
+        
+        relativePath = case catIdx of
+            Just idx -> "\"" ++ "./" ++ normalizePathSeparators (joinPath (drop idx dirs)) ++ "\""
+            Nothing -> "\"" ++ "./" ++ normalizePathSeparators path ++ "\""
+    in relativePath
+
 processDuplicateGroup :: FilePath -> [(FilePath, BS.ByteString)] -> (FilePath -> Bool) -> IO ()
 processDuplicateGroup destDir files hasConflict = do
     let (paths, contents) = unzip files
@@ -394,6 +418,9 @@ processDuplicateGroup destDir files hasConflict = do
         categoryTags = sort (map categoryToTag (nub categories))
         allFileTags = concatMap extractFileTags contents
         allUniqueFileTags = nub allFileTags
+        
+        allOrigAriTags = map (\p -> "; @origariname " ++ formatOrigAriPath p) paths
+        
         bestIdx = maybe 0 fst (minimumByMaybe 
             (\(_, c1) (_, c2) -> compare c1 c2) 
             (zip [0..] categories))
@@ -402,9 +429,13 @@ processDuplicateGroup destDir files hasConflict = do
         bestCategory = categories !! bestIdx
         bestContentStr = BSC.unpack bestContent
         bestContentLines = lines bestContentStr
-        isNotTagLine line = not (isPrefixOf "; @origtpdbfilename" line || isPrefixOf "; @xtcfilename" line || isPrefixOf "; @tag" line)
+        isNotTagLine line = not (isPrefixOf "; @origtpdbfilename" line ||
+                                isPrefixOf "; @xtcfilename" line ||
+                                isPrefixOf "; @tag" line ||
+                                isPrefixOf "; @origariname" line)
         contentWithoutTags = unlines (filter isNotTagLine bestContentLines)
-        allTags = concat (intersperse "\n" (categoryTags ++ allUniqueFileTags)) ++ "\n"
+        
+        allTags = concat (intersperse "\n" (categoryTags ++ allUniqueFileTags ++ allOrigAriTags)) ++ "\n"
         
         newPath = if hasConflict bestPath
                 then makeConflictFreePath destDir bestCategory bestPath
@@ -421,9 +452,14 @@ processNonDuplicateFile destDir path content hasConflict = do
                 fileTags = extractFileTags content
                 contentStr = BSC.unpack content
                 contentLines = lines contentStr
-                isNotTagLine line = not (isPrefixOf "; @origtpdbfilename" line || isPrefixOf "; @xtcfilename" line || isPrefixOf "; @tag" line)
+                isNotTagLine line = not (isPrefixOf "; @origtpdbfilename" line ||
+                                        isPrefixOf "; @xtcfilename" line ||
+                                        isPrefixOf "; @tag" line ||
+                                        isPrefixOf "; @origariname" line)
                 contentWithoutTags = unlines (filter isNotTagLine contentLines)
-                allTags = concat (intersperse "\n" (categoryTag : fileTags)) ++ "\n"
+
+                origAriTag = "; @origariname " ++ formatOrigAriPath path
+                allTags = concat (intersperse "\n" (categoryTag : fileTags ++ [origAriTag])) ++ "\n"
 
                 newPath = if hasConflict path
                         then makeConflictFreePath destDir cat path
@@ -469,7 +505,8 @@ extractFileTags :: BS.ByteString -> [String]
 extractFileTags content = 
     let contentStr = BSC.unpack content
         lines' = lines contentStr
-        isTagLine line = isPrefixOf "; @origtpdbfilename" line || isPrefixOf "; @xtcfilename" line
+        isTagLine line = isPrefixOf "; @origtpdbfilename" line ||
+                        isPrefixOf "; @xtcfilename" line
     in filter isTagLine lines'
 
 main :: IO ()
