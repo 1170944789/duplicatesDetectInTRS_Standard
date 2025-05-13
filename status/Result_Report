@@ -62,3 +62,36 @@ YES: 228
 NO: 82
 Conflict: 6
 CertifiedConflict: 28
+
+
+2025/13/05:
+Finding ARI files in TPDB_COPY...
+Found 3953 .ari files
+Reading ARI file contents and extracting filenames...
+Analyzing ARI files: 3953/3953 (100.00%) 
+Processing multiple competition result directories...
+Processing results from Year_1: ../status_0422/2014
+Processing results from Year_2: ../status_0422/2015
+Processing results from Year_3: ../status_0422/2016
+Processing results from Year_4: ../status_0422/2017
+Processing results from Year_5: ../status_0422/2018
+Processing results from Year_6: ../status_0422/2019
+Processing results from Year_7: ../status_0422/2020
+Processing results from Year_8: ../status_0422/2021
+Processing results from Year_9: ../status_0422/2022
+Processing results from Year_10: ../status_0422/2023
+Processing results from Year_11: ../status_0422/2024
+Updating ARI files with status information...
+Updating files: 3953/3953 (100.00%) 
+
+Processing completed in 244.15 seconds
+Updated 3953/3953 ARI files with status information
+Results logged to status_computation.log
+Status summary written to benchmark_statuses.csv
+
+Status statistics:
+CertifiedYES: 3017
+CertifiedNO: 681
+YES: 292
+NO: 88
+Conflict: 6
